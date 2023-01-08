@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>32cc1078-a712-44bc-8e68-0ab35eba6abc</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>DStutz</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Collections.Generic\Collectors\MCollection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Collections.Generic\Collectors\MDictionary.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Collections.Generic\Collectors\MList.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Math\NumberToWord.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Math\Sets\Numbers\NumberSet.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Math\Sets\Numbers\SetEnumerative.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Math\Sets\Numbers\SetInterval.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Math\Statistics\Numbers\Counter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Math\Statistics\Numbers\Statistic.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sorters.Generic\Group.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sorters.Generic\GroupDictionary.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sorters.Generic\GroupList.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sorters.Generic\SortComparer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sorters.Generic\SortComparers.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sorters.Generic\Sorter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sorters.Generic\SortOrder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sorters.Generic\Tables\Assigner.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sorters.Generic\Tables\GroupCell.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sorters.Generic\Tables\GroupCellDictionary.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sorters.Generic\Tables\GroupCellList.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sorters.Generic\Tables\HandlerCell.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sorters.Generic\Tables\HandlerCellConsole.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sorters.Generic\Tables\Sorter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sorters.Generic\Tables\SorterList.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sorters.Generic\Tables\Table.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sorters.Generic\Trees\Assigner.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sorters.Generic\Trees\GroupNode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sorters.Generic\Trees\GroupNodeDictionary.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sorters.Generic\Trees\GroupNodeList.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sorters.Generic\Trees\HandlerNode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sorters.Generic\Trees\HandlerNodeCollector.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sorters.Generic\Trees\HandlerNodeConsole.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sorters.Generic\Trees\LevelException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sorters.Generic\Trees\Sorter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sorters.Generic\Trees\SorterDictionary.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sorters.Generic\Trees\SorterList.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sorters.Generic\Trees\Tree.cs" />
+  </ItemGroup>
+</Project>
