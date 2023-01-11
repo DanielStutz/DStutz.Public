@@ -37,7 +37,7 @@ namespace DStutz.Data
         public abstract void Add(string cell);
         #endregion
 
-        #region Methods joining table row (cells left aligned)
+        #region Methods joining table row
         /***********************************************************/
         public string Join(
             string separator)
