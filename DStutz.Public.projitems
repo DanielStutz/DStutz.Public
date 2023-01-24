@@ -13,6 +13,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Collections.Generic\Collectors\MDictionary.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Collections.Generic\Collectors\MList.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\IDated.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\IDeEn.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\IDeEnFr.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\IEfco.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\IEquatableLambda.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\IJoinable.cs" />
@@ -22,10 +24,12 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\INumbered.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\IOrdered.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\IPoco.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\IPolyglot.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\ITyped.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Joiner.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\JoinerWidth.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\JoinerWidthAligned.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\PolyglotText.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Math\NumberToWord.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Math\Sets\Numbers\NumberSet.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Math\Sets\Numbers\SetEnumerative.cs" />
