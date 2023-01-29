@@ -1,11 +1,11 @@
-namespace DStutz.Data
+﻿namespace DStutz.System.Joiners
 {
     public interface IJoiner
     {
-        public void WriteCol();
-        public void WriteRow();
         public string Col();
         public string Row();
         public string RowNoWhitespaces();
+        public void WriteCol();
+        public void WriteRow();
     }
 }

@@ -1,4 +1,5 @@
 ﻿using DStutz.Data;
+using DStutz.System.Joiners;
 
 namespace DStutz.Collections.Generic.Collectors
 {
@@ -44,7 +45,7 @@ namespace DStutz.Collections.Generic.Collectors
         public override void Write()
         {
             foreach (var member in List)
-                member.Join().WriteRow();
+                member.Joiner().WriteRow();
         }
         #endregion
     }

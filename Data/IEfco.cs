@@ -1,3 +1,5 @@
+using DStutz.System.Joiners;
+
 namespace DStutz.Data
 {
     public interface IEfco<P> : IJoinable

@@ -1,4 +1,5 @@
 ﻿using DStutz.Data;
+using DStutz.System.Joiners;
 
 namespace DStutz.Collections.Generic.Collectors
 {
@@ -74,7 +75,7 @@ namespace DStutz.Collections.Generic.Collectors
         {
             foreach (var members in Dictionary.Values)
                 foreach (var member in members)
-                    member.Join().WriteRow();
+                    member.Joiner().WriteRow();
         }
         #endregion
     }
