@@ -9,6 +9,42 @@
     <Import_RootNamespace>DStutz</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Coder\Code.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Coder\CodeBlock.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\CodeInterface.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\CodePoco.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\Data\DataEntity.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\Data\DataEntityBasic.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\Data\DataEntityOwned.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\Data\DataEntityRelations.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\Data\DataProperty.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\Data\DataPropertyColumn.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\Data\DataPropertyOwned.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\Data\DataRelation1to1.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\Data\DataRelation1toN.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\Data\DataRelationList.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\Data\DataRelationMto1.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\Data\DataRelationMtoN.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\Data\DataType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\Data\JsonEntity.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\Data\JsonOptionalException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\Data\JsonProperty.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\Data\JsonRelationMtoN.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\Data\JsonRelation1toN.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\EntityBasic\CodeEfco.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\EntityBasic\CodeMapper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\EntityBasic\FileEntityBasic.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\EntityOwned\CodeEfco.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\EntityOwned\CodeMapper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\EntityOwned\FileEntityOwned.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\EntityRelations\CodeEfco.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\EntityRelations\CodeJunctionClasses.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\EntityRelations\CodeMapper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\EntityRelations\FileEntityRelations.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\FileEntity.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\GeneratorEntities.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Coder\FileBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Coder\GeneratorBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Collections.Generic\Collectors\MCollection.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Collections.Generic\Collectors\MDictionary.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Collections.Generic\Collectors\MList.cs" />
@@ -61,13 +97,15 @@
     <Compile Include="$(MSBuildThisFileDirectory)Sorters.Generic\Trees\Tree.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Extensions\StringConcatenate.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Extensions\StringLength.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)System\Extensions\StringReplace.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)System\Joiners\Cell.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System\Extensions\StringModifier.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Joiners\IJoinable.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Joiners\IJoiner.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Joiners\Joiner.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Stringers\Parsers.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Stringers\Reader.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Stringers\Spliter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\Polyglot.json" />
   </ItemGroup>
 </Project>

@@ -13,20 +13,6 @@ namespace DStutz.System.Joiners
         private List<(char align, int width, object? content)> Cells { get; }
         #endregion
 
-        #region Constructors deprecated
-        /***********************************************************/
-        [Obsolete("Ctor is deprecated.")]
-        public Joiner(
-            params (object? content, int width)[] cells)
-        {
-            Separator = " | ";
-            Cells = new List<(char align, int width, object? content)>();
-
-            foreach (var cell in cells)
-                Cells.Add(('L', cell.width, cell.content));
-        }
-        #endregion
-
         #region Constructors
         /***********************************************************/
         public Joiner(
@@ -59,23 +45,48 @@ namespace DStutz.System.Joiners
         }
         #endregion
 
-        #region Methods adding other joinables as cells
+        #region Methods adding other joinables or objects as cells
         /***********************************************************/
         public IJoiner Add(
             params IJoinable?[] joinables)
         {
             foreach (var joinable in joinables)
                 if (joinable != null)
-                    Add(joinable.Joiner().Row());
+                    Add('L', joinable.Joiner().Row());
 
             return this;
         }
 
         private void Add(
+            char align,
             string cell)
         {
-            Cells.Add(('L', cell.Length, cell));
+            Cells.Add((align, cell.Length, cell));
         }
+
+        public IJoiner Add(
+            char align,
+            int width,
+            params object?[] cells)
+        {
+            foreach (var cell in cells)
+                if (cell != null)
+                    Add(align, width, cell);
+
+            return this;
+        }
+
+        private void Add(
+            char align,
+            int width,
+            object cell)
+        {
+            Cells.Add((align, width, cell));
+        }
+        #endregion
+
+        #region Methods adding other objects as cells
+        /***********************************************************/
         #endregion
 
         #region Methods joining table row
@@ -117,9 +128,23 @@ namespace DStutz.System.Joiners
             return Join(Separator);
         }
 
-        public string RowNoWhitespaces()
+        public string RowShort()
         {
-            return Regex.Replace(Join(", "), @"\s+", " ").Replace(" ,", ",");
+            var row = Join(", ");
+
+            // Some cells might contain other joiners
+            row = row.Replace(" | ", ", ");
+
+            // Remove multiple whitespaces by one
+            row = Regex.Replace(row, @"\s+", " ");
+
+            // Remove whitespaces before comma
+            row = row.Replace(" ,", ",");
+
+            // Indicate empty cells
+            row = row.Replace(",,", ", ?,");
+
+            return row;
         }
         #endregion
 
@@ -133,6 +158,11 @@ namespace DStutz.System.Joiners
         public void WriteRow()
         {
             Console.WriteLine(Row());
+        }
+
+        public void WriteRowShort()
+        {
+            Console.WriteLine(RowShort());
         }
         #endregion
     }

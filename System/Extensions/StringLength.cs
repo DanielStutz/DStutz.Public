@@ -28,10 +28,10 @@ namespace DStutz.System.Extensions
                 return Spaces(length);
 
             if (self.Length > length)
-                return self.Max(length, align);
+                return Shorten(self, length, align);
 
             if (self.Length < length)
-                return self.Min(length, align);
+                return Extend(self, length, align); ;
 
             // self.Length = length
             return self;
@@ -61,12 +61,18 @@ namespace DStutz.System.Extensions
             char align)
         {
             if (align == 'L')
-                return string.Format("{0,-" + length + "}", value);
+                return value.PadRight(length, ' ');
 
             if (align == 'R')
-                return string.Format("{0," + length + "}", value);
+                return value.PadLeft(length, ' ');
 
             throw new Exception("Align must be 'L' or 'R'");
+        }
+
+        private static string Dots(
+            int length)
+        {
+            return "".PadRight(length, '.');
         }
 
         private static string Shorten(
@@ -74,6 +80,9 @@ namespace DStutz.System.Extensions
             int length,
             char align)
         {
+            if (length <= 3)
+                return Dots(length);
+
             if (align == 'L')
                 return value.Substring(0, length - 3) + "...";
 
@@ -86,7 +95,7 @@ namespace DStutz.System.Extensions
         private static string Spaces(
             int length)
         {
-            return string.Format("{0," + length + "}", "");
+            return "".PadRight(length, ' ');
         }
         #endregion
     }
