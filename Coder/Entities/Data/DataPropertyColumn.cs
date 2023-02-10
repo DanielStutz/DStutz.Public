@@ -1,6 +1,6 @@
 namespace DStutz.Coder.Entities.Data
 {
-    public class DataPropertyColumn : DataProperty
+    public class DataPropertyColumn : DataProperty<DataType>
     {
         #region Title
         /***********************************************************/
@@ -16,13 +16,16 @@ namespace DStutz.Coder.Entities.Data
 
         #region Constructors
         /***********************************************************/
-        public DataPropertyColumn(
+        protected DataPropertyColumn(
             string name,
             string type,
             string column,
             char align,
             int width)
-            : base(name, type)
+            : base(
+                  name,
+                  false,
+                  new DataType(type))
         {
             ColumnAnnotation = $"[Column(\"{column}\"), Key]";
             Align = align;
@@ -31,7 +34,9 @@ namespace DStutz.Coder.Entities.Data
 
         public DataPropertyColumn(
             JsonProperty property)
-            : base(property)
+            : base(
+                  property,
+                  new DataType(property))
         {
             ColumnAnnotation = property.ColumnAnnotation;
             Align = property.Align;

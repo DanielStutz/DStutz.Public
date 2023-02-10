@@ -1,6 +1,6 @@
 namespace DStutz.Coder.Entities.Data
 {
-    public class DataPropertyOwned : DataProperty
+    public class DataPropertyOwned : DataProperty<DataType>
     {
         #region Title
         /***********************************************************/
@@ -11,7 +11,9 @@ namespace DStutz.Coder.Entities.Data
         /***********************************************************/
         public DataPropertyOwned(
             JsonProperty property)
-            : base(property)
+            : base(
+                  property,
+                  new DataType(property.Type))
         { }
         #endregion
 

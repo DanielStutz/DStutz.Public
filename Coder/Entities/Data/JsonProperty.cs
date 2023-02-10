@@ -9,6 +9,7 @@ namespace DStutz.Coder.Entities.Data
         public string Name { get; set; }
         public string Type { get; set; }
         public string? Column { get; set; } // Use name or 'NotMapped'
+        public bool IsOptional { get { return Type.EndsWith("?"); } }
         #endregion
 
         #region Used by joinable properties only

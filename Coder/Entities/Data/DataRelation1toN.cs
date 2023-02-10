@@ -1,6 +1,6 @@
 namespace DStutz.Coder.Entities.Data
 {
-    public class DataRelation1toN : DataRelationList
+    public class DataRelation1toN : DataProperty<DataTypeList>
     {
         #region Title
         /***********************************************************/
@@ -16,17 +16,24 @@ namespace DStutz.Coder.Entities.Data
         /***********************************************************/
         public DataRelation1toN(
             JsonRelation1toN property)
-            : base(property)
+            : base(
+                  property,
+                  new DataTypeList(property, property.ListType))
         {
+            if (property.ListType.Contains("?"))
+                throw new JsonOptionalException(
+                    "Relations1toN",
+                    "ListType");
+
             // List<CommentMEE>
-            AddEfco(Type.E);
+            Type.AddEfco(Type.E);
 
             // List<CommentMPE>
-            AddPoco(Type.P);
+            Type.AddPoco(Type.P);
 
             Console.WriteLine("");
-            Console.WriteLine(GetProperty(ListTypeEfco, Name, IsOptional));
-            Console.WriteLine(GetProperty(ListTypePoco, Name, IsOptional));
+            Console.WriteLine(GetProperty(Type.LE, Name, IsOptional));
+            Console.WriteLine(GetProperty(Type.LP, Name, IsOptional));
         }
         #endregion
 
@@ -38,7 +45,7 @@ namespace DStutz.Coder.Entities.Data
             // public List<CommentMEE>? Comments { get; set; }
             return new string[] {
                 $"[ForeignKey(\"{ForeignKey}\")]",
-                GetProperty(ListTypeEfco, Name, IsOptional),
+                GetProperty(Type.LE, Name, IsOptional),
                 "",
             };
         }
@@ -47,7 +54,7 @@ namespace DStutz.Coder.Entities.Data
         {
             // public List<CommentMPE>? Comments { get; set; }
             return new string[] {
-                GetProperty(ListTypePoco, Name, IsOptional),
+                GetProperty(Type.LP, Name, IsOptional),
             };
         }
         #endregion

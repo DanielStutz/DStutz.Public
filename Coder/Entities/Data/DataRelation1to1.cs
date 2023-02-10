@@ -1,6 +1,6 @@
 namespace DStutz.Coder.Entities.Data
 {
-    public class DataRelation1to1 : DataProperty
+    public class DataRelation1to1 : DataProperty<DataType>
     {
         #region Title
         /***********************************************************/
@@ -16,7 +16,9 @@ namespace DStutz.Coder.Entities.Data
         /***********************************************************/
         public DataRelation1to1(
             JsonProperty property)
-            : base(property)
+            : base(
+                  property,
+                  new DataType(property))
         { }
         #endregion
 

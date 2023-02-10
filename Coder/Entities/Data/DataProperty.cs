@@ -1,40 +1,69 @@
+using DStutz.Data;
+
 namespace DStutz.Coder.Entities.Data
 {
-    public abstract class DataProperty
+    public abstract class DataProperty<T>
+        where T : DataType
     {
         #region Properties
         /***********************************************************/
-        public string Name { get; set; }
-        public bool IsOptional { get; set; }
-        public DataType Type { get; set; }
+        public string Name { get; }
+        public bool IsOptional { get; }
+        public T Type { get; }
         #endregion
 
         #region Constructors
         /***********************************************************/
         protected DataProperty(
             string name,
-            string type)
+            bool isOptional,
+            T type)
         {
             Name = name;
-            IsOptional = type.EndsWith("?");
-            Type = new DataType(type);
+            IsOptional = isOptional;
+            Type = type;
         }
 
         protected DataProperty(
-            JsonProperty property)
+            JsonProperty property,
+            T type)
         {
             Name = property.Name;
-            IsOptional = property.Type.EndsWith("?");
-            Type = new DataType(property);
+            IsOptional = property.IsOptional;
+            Type = type;
+        }
+        #endregion
+
+        #region Methods mapping
+        /***********************************************************/
+        public virtual string[] GetMappingE2P()
+        {
+            return new string[] {
+                $"poco.{Name} =",
+                $"    {Mapper.GetMethod(IsOptional, Type.IsCollection)}(",
+                $"        efco.{Name},",
+                $"        e => e.Map());",
+                "",
+            };
         }
 
-        protected DataProperty(
-            JsonRelationMtoN property)
+        public virtual string[] GetMappingP2E()
         {
-            Name = property.Name;
-            IsOptional = property.Type.EndsWith("?");
-            Type = new DataType(property);
+            return GetMappingP2E(Type.E);
         }
+
+        protected string[] GetMappingP2E(
+            params string[] types)
+        {
+            return new string[] {
+                $"efco.{Name} =",
+                $"    {Mapper.GetMethod(IsOptional, Type.IsCollection)}(",
+                $"        poco.{Name},",
+                $"        e => e.Map<{string.Join(", ", types)}>());",
+                "",
+            };
+        }
+
         #endregion
 
         #region Miscellaneous
@@ -44,33 +73,6 @@ namespace DStutz.Coder.Entities.Data
             return new string[] {
                 $"{Name} = e1.{Name},",
             };
-        }
-
-        public virtual string[] GetMappingE2P()
-        {
-            return new string[] {
-                $"poco.{Name} =",
-                $"    Mapper.{GetMapperMethod()}(",
-                $"        efco.{Name},",
-                $"        e => e.Map());",
-                "",
-            };
-        }
-
-        public virtual string[] GetMappingP2E()
-        {
-            return new string[] {
-                $"efco.{Name} =",
-                $"    Mapper.{GetMapperMethod()}(",
-                $"        poco.{Name},",
-                $"        e => e.Map<{Type.E}>());",
-                "",
-            };
-        }
-
-        public virtual string GetMapperMethod()
-        {
-            return IsOptional ? "MapOptional" : "MapMandatory";
         }
 
         public virtual string[] GetProperty()

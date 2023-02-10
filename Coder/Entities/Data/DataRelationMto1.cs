@@ -2,7 +2,7 @@ using DStutz.System.Extensions;
 
 namespace DStutz.Coder.Entities.Data
 {
-    public class DataRelationMto1 : DataProperty
+    public class DataRelationMto1 : DataProperty<DataType>
     {
         #region Title
         /***********************************************************/
@@ -21,11 +21,11 @@ namespace DStutz.Coder.Entities.Data
         /***********************************************************/
         public DataRelationMto1(
         JsonProperty property)
-            : base(property)
+            : base(
+                  property,
+                  new DataType(property))
         {
-            // TODO ?!
             Column = property.Column;
-            //Column = Name.ToLower() + Column;
             ForeignKey = Name + ForeignKey;
 
             // Unused at the moment, see below

@@ -6,7 +6,7 @@ namespace DStutz.Coder.Entities.Data
         /***********************************************************/
         public string Namespace { get; }
         public string Name { get; }
-        public DataType Type { get; }
+        public DataTypeEntity Type { get; }
         public List<DataPropertyColumn> Properties { get; set; } = new List<DataPropertyColumn>();
         #endregion
 
@@ -19,7 +19,7 @@ namespace DStutz.Coder.Entities.Data
         {
             Namespace = entity.Namespace;
             Name = entity.Name;
-            Type = new DataType(entity, suffixEfco, suffixPoco);
+            Type = new DataTypeEntity(entity, suffixEfco, suffixPoco);
         }
         #endregion
 

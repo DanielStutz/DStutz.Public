@@ -22,10 +22,11 @@
     <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\Data\DataPropertyOwned.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\Data\DataRelation1to1.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\Data\DataRelation1toN.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\Data\DataRelationList.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\Data\DataRelationMto1.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\Data\DataRelationMtoN.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\Data\DataType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\Data\DataTypeEntity.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\Data\DataTypeList.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\Data\JsonEntity.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\Data\JsonOptionalException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\Data\JsonProperty.cs" />
@@ -60,6 +61,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\IPoco.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\IPolyglot.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\ITyped.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Mapper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\PolyglotText.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Math\NumberToWord.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Math\Sets\Numbers\NumberSet.cs" />

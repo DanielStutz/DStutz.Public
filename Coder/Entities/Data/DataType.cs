@@ -10,13 +10,11 @@ namespace DStutz.Coder.Entities.Data
         public string N { get; set; } // Name
         public string E { get; set; } // Efco
         public string P { get; set; } // Poco
-        public string I { get; set; } // Interface
-        public string M { get; set; } // Mapper
+        public bool IsCollection { get; set; } = false;
         #endregion
 
         #region Constructors
         /***********************************************************/
-        // Used by key properties
         public DataType(
             string name)
         {
@@ -26,7 +24,6 @@ namespace DStutz.Coder.Entities.Data
             CheckName();
         }
 
-        // Used by most other properties
         public DataType(
             JsonProperty property)
         {
@@ -37,66 +34,26 @@ namespace DStutz.Coder.Entities.Data
             CheckName();
         }
 
-        // Used by m:n relations for owner and related types
-        public DataType(
-            JsonRelationMtoN property)
-            : this((JsonProperty)property)
-        {
-            I = "I" + N;
-        }
-
-        // Used by m:n relations for junction types
         public DataType(
             DataType owner,
             DataType related,
-            JsonRelationMtoN property)
+            string junctioType)
         {
-            // Make 'Owner' and 'Related' to 'OwnerRelatedRel'
+            // OwnerRelatedRel, RelEEAny and RelPEAny
             N = owner.N + related.N + "Rel";
-
-            // E.g. RelEEAny and RelPEAny
-            E = property.JunctionType.Replace("_", "E");
-            P = property.JunctionType.Replace("_", "P");
-        }
-
-        // Used by entities
-        public DataType(
-            JsonEntity entity,
-            string suffixEfco,
-            string suffixPoco)
-        {
-            N = entity.Name;
-            E = N + suffixEfco;
-            P = N + suffixPoco;
-            I = "I" + N;
-            M = N + "Mapper";
-            CheckName();
-        }
-        #endregion
-
-        #region Properties combining
-        /***********************************************************/
-        public string PI
-        {
-            get { return $"{P}, {I}"; }
-        }
-
-        public string EPI
-        {
-            get { return $"{E}, {P}, {I}"; }
+            E = junctioType.Replace("_", "E");
+            P = junctioType.Replace("_", "P");
         }
         #endregion
 
         #region Methods implementing
         /***********************************************************/
-        public IJoiner Joiner()
+        public virtual IJoiner Joiner()
         {
             return new Joiner(
                 (30, N),
                 (33, P),
-                (33, E),
-                (31, I),
-                (36, M)
+                (33, E)
             );
         }
         #endregion

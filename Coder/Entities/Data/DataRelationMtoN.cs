@@ -2,22 +2,23 @@ using DStutz.System.Extensions;
 
 namespace DStutz.Coder.Entities.Data
 {
-    public class DataRelationMtoN : DataRelationList
+    public class DataRelationMtoN : DataProperty<DataTypeList>
     {
         #region Title
         /***********************************************************/
         public static string Title = "Relations m:n (with a junction table)";
         #endregion
 
-        #region Properties owner
+        #region Properties owner and related
         /***********************************************************/
-        private DataType OwnerType { get; }
+        private DataType OType { get; }
+        private DataTypeList RType { get; }
         #endregion
 
         #region Properties junction
         /***********************************************************/
-        private string? JunctionTable { get; }
-        private DataType JunctionType { get; }
+        private string? Table { get; }
+        private DataType JType { get; }
         #endregion
 
         #region Constructors
@@ -25,26 +26,35 @@ namespace DStutz.Coder.Entities.Data
         public DataRelationMtoN(
             DataType ownerType,
             JsonRelationMtoN property)
-            : base(property)
+            : base(
+                  property,
+                  new DataTypeList(property, property.ListType))
         {
-            OwnerType = ownerType;
-            JunctionTable = property.JunctionTable;
-            JunctionType = new DataType(OwnerType, Type, property);
+            if (property.ListType.Contains("?") ||
+                property.JunctionType.Contains("?"))
+                throw new JsonOptionalException(
+                    "RelationsMtoN",
+                    "ListType",
+                    "JunctionType");
+
+            // RType is for convenience only
+            OType = ownerType;
+            RType = Type;
+            Table = property.JunctionTable;
+            JType = new DataType(OType, RType, property.JunctionType);
 
             // List<OwnerRelatedRel>
-            AddEfco(JunctionType.N);
+            RType.AddEfco(JType.N);
 
             // List<RelPEAny<RelatedMPE, IRelated>>
-            AddPoco($"{JunctionType.P}<{Type.PI}>");
+            RType.AddPoco($"{JType.P}<{RType.PI}>");
 
             Console.WriteLine("");
-            OwnerType.Joiner().WriteRow();
-            Type.Joiner().WriteRow();
-            JunctionType.Joiner().WriteRow();
-
-            Console.WriteLine("");
-            Console.WriteLine(GetProperty(ListTypeEfco, Name, IsOptional));
-            Console.WriteLine(GetProperty(ListTypePoco, Name, IsOptional));
+            OType.Joiner().WriteRow();
+            RType.Joiner().WriteRow();
+            JType.Joiner().WriteRow();
+            Console.WriteLine(GetProperty(RType.LE, Name, IsOptional));
+            Console.WriteLine(GetProperty(RType.LP, Name, IsOptional));
         }
         #endregion
 
@@ -54,10 +64,10 @@ namespace DStutz.Coder.Entities.Data
         {
             get
             {
-                if (JunctionTable != null)
-                    return $"[Table(\"{JunctionTable}\")]";
+                if (Table != null)
+                    return $"[Table(\"{Table}\")]";
 
-                return $"[Table(\"{JunctionType.N.TableName()}\")]";
+                return $"[Table(\"{JType.N.TableName()}\")]";
             }
         }
         #endregion
@@ -68,7 +78,7 @@ namespace DStutz.Coder.Entities.Data
         {
             // public List<OwnerRelatedRel>? WhateverRels { get; set; }
             return new string[] {
-                GetProperty(ListTypeEfco, Name, IsOptional),
+                GetProperty(RType.LE, Name, IsOptional),
             };
         }
 
@@ -76,19 +86,13 @@ namespace DStutz.Coder.Entities.Data
         {
             // public List<RelPEAny<RelatedMPE, IRelated>>? WhateverRels { get; set; }
             return new string[] {
-                GetProperty(ListTypePoco, Name, IsOptional),
+                GetProperty(RType.LP, Name, IsOptional),
             };
         }
 
         public override string[] GetMappingP2E()
         {
-            return new string[] {
-                $"efco.{Name} =",
-                $"    Mapper.{GetMapperMethod()}(",
-                $"        poco.{Name},",
-                $"        e => e.Map<{JunctionType.N}, {Type.E}>());",
-                "",
-            };
+            return GetMappingP2E(JType.N, RType.E);
         }
 
         public string[] GetJunctionTableClass()
@@ -100,8 +104,8 @@ namespace DStutz.Coder.Entities.Data
             return new string[] {
                 "",
                 JunctionTableAnnotation,
-                $"public class {JunctionType.N}",
-                $"    : {JunctionType.E}<{OwnerType.E}, {Type.EPI}>",
+                $"public class {JType.N}",
+                $"    : {JType.E}<{OType.E}, {RType.EPI}>",
                 "{ }",
             };
         }
