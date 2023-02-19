@@ -42,14 +42,14 @@ CURSOR_ASSIGNS
             DataEntityBasic entity)
             : base(Template)
         {
-            // Typed properties
+            // Simple properties
             SetCursor("JOINS", 12)
                 .SetAppend(",", "")
                 .Insert(
                     entity.Properties,
                     e => e.GetJoin());
 
-            // Typed properties
+            // Simple properties
             SetCursor("ASSIGNS", 12)
                 .Insert(
                     entity.Properties,

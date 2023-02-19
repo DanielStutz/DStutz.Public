@@ -1,7 +1,15 @@
 {
   "DeEn": {
+    "Version": "1.1",
+    "AsymmetricCode": true,
+    "Warning": "Poco implements IPolyglot and IDeEnKey",
     "Namespace": "DStutz.Data.#.Polyglot",
     "Name": "DeEn",
+    "Keys": [
+      {
+        "Type": "long"
+      }
+    ],
     "Properties": [
       {
         "Name": "DE",
@@ -16,47 +24,16 @@
     ]
   },
   "DeEnFr": {
+    "Version": "1.1",
+    "AsymmetricCode": true,
+    "Warning": "Poco implements IPolyglot and IDeEnFrKey",
     "Namespace": "DStutz.Data.#.Polyglot",
     "Name": "DeEnFr",
-    "Properties": [
+    "Keys": [
       {
-        "Name": "DE",
-        "Type": "string?",
-        "Width": 20
-      },
-      {
-        "Name": "EN",
-        "Type": "string?",
-        "Width": 20
-      },
-      {
-        "Name": "FR",
-        "Type": "string?",
-        "Width": 20
+        "Type": "long"
       }
-    ]
-  },
-  "DeEnOwned": {
-    "Namespace": "DStutz.Data.#.Polyglot",
-    "Name": "DeEn",
-    "Owned": true,
-    "Properties": [
-      {
-        "Name": "DE",
-        "Type": "string?",
-        "Width": 20
-      },
-      {
-        "Name": "EN",
-        "Type": "string?",
-        "Width": 20
-      }
-    ]
-  },
-  "DeEnFrOwned": {
-    "Namespace": "DStutz.Data.#.Polyglot",
-    "Name": "DeEnFr",
-    "Owned": true,
+    ],
     "Properties": [
       {
         "Name": "DE",

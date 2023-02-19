@@ -12,6 +12,7 @@ public class TYPE_POCO
 {
 CURSOR_PROPERTIES
 CURSOR_RELATIONS
+CURSOR_ASYMMETRIC_CODE
 
     #region Methods implementing
     /***********************************************************/
@@ -34,12 +35,19 @@ CURSOR_RELATIONS
             DataEntity entity)
             : base(Template)
         {
-            // Typed properties
+            if (entity.AsymmetricCode)
+                InsertRegionAsymmetricCode(4);
+
+            // Simple properties and keys with a pseudonym
             SetCursor("PROPERTIES", 4)
                 .InsertRegion(
                     DataPropertyColumn.Title,
                     entity.Properties,
-                    e => e.GetProperty());
+                    e => e.GetProperty())
+                .InsertRegion(
+                    Code.AsymmetricKeys,
+                    entity.Properties.Where(e => e.Pseudonym != null),
+                    e => e.GetPropertyAsymmetricKey());
         }
 
         public CodePoco(
@@ -48,7 +56,7 @@ CURSOR_RELATIONS
         {
             Replace("JOIN", "this");
 
-            //Write();
+            //Write(false, false);
         }
 
         public CodePoco(
@@ -57,7 +65,7 @@ CURSOR_RELATIONS
         {
             Replace("JOIN", "this");
 
-            //Write();
+            //Write(false, false);
         }
 
         public CodePoco(
@@ -91,7 +99,7 @@ CURSOR_RELATIONS
                     entity.RelationsMtoN,
                     e => e.GetPropertyPoco());
 
-            //Write();
+            //Write(false, false);
         }
         #endregion
     }

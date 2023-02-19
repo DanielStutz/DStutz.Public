@@ -6,7 +6,7 @@ using DStutz.Coder.Entities.EntityRelations;
 
 namespace DStutz.Coder.Entities
 {
-    public class GeneratorEntities : GeneratorBase
+    public class GeneratorEntities : GeneratorBase<JsonEntity>
     {
         #region Constructors
         /***********************************************************/
@@ -16,38 +16,9 @@ namespace DStutz.Coder.Entities
         { }
         #endregion
 
-        #region Methods file entities
+        #region Methods file bases
         /***********************************************************/
-        public FileBase GetEntity(
-            string file,
-            string clazz)
-        {
-            return GetEntityClasses(file)[GetKey(file, clazz)];
-        }
-
-        public ICollection<FileBase> GetEntities(
-            string file)
-        {
-            return GetEntityClasses(file).Values;
-        }
-
-        private IDictionary<string, FileBase> GetEntityClasses(
-            params string[] files)
-        {
-            IDictionary<string, FileBase> data =
-                new Dictionary<string, FileBase>();
-
-            foreach (var file in files)
-                foreach (KeyValuePair<string, JsonEntity> pair in
-                    GetDictionary<JsonEntity>(file))
-                    data.Add(
-                        GetKey(file, pair.Key),
-                        GetDataEntity(pair.Value));
-
-            return data;
-        }
-
-        private FileBase GetDataEntity(
+        protected override FileBase GetFileBase(
             JsonEntity entity)
         {
             if (entity.Owned == true)

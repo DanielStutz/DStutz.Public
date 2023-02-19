@@ -7,6 +7,7 @@ namespace DStutz.Coder.Entities.EntityBasic
         #region Template
         /***********************************************************/
         private static readonly string Template = @"
+WARNING
 using DStutz.Data;
 using DStutz.System.Joiners;
 
@@ -22,6 +23,7 @@ CURSOR_POCO
 
 ----
 
+WARNING
 using DStutz.Data;
 using DStutz.System.Joiners;
 

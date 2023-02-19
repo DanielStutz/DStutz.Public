@@ -8,16 +8,36 @@ namespace DStutz.Coder
         #region Properties
         /***********************************************************/
         public string FileName { get; }
+        public string Warning { get; } = "";
+        public string Version { get; } = "";
         #endregion
 
         #region Constructors
         /***********************************************************/
         public FileBase(
-            string fileName,
-            string fileTemplate)
-            : base(fileTemplate)
+            string codeName,
+            string codeType,
+            string codeTemplate,
+            string? warning = null,
+            string? version = null)
+            : base(codeTemplate)
         {
-            FileName = fileName;
+            FileName = $"{codeType}_{codeName}.cs";
+
+            if (warning != null)
+                Warning = $"!!! {warning} !!!";
+
+            if (version != null)
+                Version = version;
+        }
+        #endregion
+
+        #region Methods
+        /***********************************************************/
+        protected virtual void PostProcessing()
+        {
+            Replace("VERSION", Version);
+            Replace("WARNING", Warning);
         }
         #endregion
 

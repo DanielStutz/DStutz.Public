@@ -7,15 +7,16 @@ namespace DStutz.Coder.Entities.Data
         #region Used by all properties
         /***********************************************************/
         public string Name { get; set; }
+        public string? Comment { get; set; }
         public string Type { get; set; }
-        public string? Column { get; set; } // Use name or 'NotMapped'
+        public string? Column { get; set; } // Use a name or 'NotMapped'
         public bool IsOptional { get { return Type.EndsWith("?"); } }
         #endregion
 
         #region Used by joinable properties only
         /***********************************************************/
         public char Align { get; set; } = 'L';
-        public int Width { get; set; } = 0;
+        public int Width { get; set; } = 20;
         #endregion
 
         #region Used by m:1 relation properties only

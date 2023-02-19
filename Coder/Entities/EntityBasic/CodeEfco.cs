@@ -12,6 +12,7 @@ public ABSTRACT class TYPE_EFCO
     : IEfco<TYPE_POCO>, TYPE_INTERFACE
 {
 CURSOR_PROPERTIES
+CURSOR_ASYMMETRIC_CODE
 
     #region Methods implementing
     /***********************************************************/
@@ -45,7 +46,10 @@ CURSOR_PROPERTIES
                 Replace("ABSTRACT ", "");
             }
 
-            // Typed properties
+            if (entity.AsymmetricCode)
+                InsertRegionAsymmetricCode(4);
+
+            // Simple properties
             SetCursor("PROPERTIES", 4)
                 .InsertRegion(
                     DataPropertyColumn.Title,

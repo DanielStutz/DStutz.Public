@@ -1,5 +1,4 @@
 using System.Text;
-using static System.Runtime.CompilerServices.RuntimeHelpers;
 
 namespace DStutz.Coder
 {
@@ -133,7 +132,7 @@ namespace DStutz.Coder
         }
         #endregion
 
-        #region Methods inserting another block
+        #region Methods inserting another block or a region
         /***********************************************************/
         public CodeBlock Insert(
             CodeBlock code,
@@ -142,6 +141,25 @@ namespace DStutz.Coder
         {
             return SetCursor(token, indent)
                 .Insert(code.Lines);
+        }
+
+        public CodeBlock InsertRegionAsymmetricCode(
+            int indent = 0)
+        {
+            return SetCursor("ASYMMETRIC_CODE", indent)
+                .Insert(Code.Region(Code.AsymmetricCode))
+                .Insert("TODO")
+                .Insert(Code.EndRegion());
+        }
+
+        public CodeBlock InsertRegion(
+            string title,
+            string token,
+            int indent = 0)
+        {
+            return SetCursor(token, indent)
+                .Insert(Code.Region(title))
+                .Insert(Code.EndRegion());
         }
         #endregion
 

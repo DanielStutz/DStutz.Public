@@ -31,9 +31,9 @@ namespace DStutz.Coder.Entities.Data
             // List<CommentMPE>
             Type.AddPoco(Type.P);
 
-            Console.WriteLine("");
-            Console.WriteLine(GetProperty(Type.LE, Name, IsOptional));
-            Console.WriteLine(GetProperty(Type.LP, Name, IsOptional));
+            //Console.WriteLine("");
+            //Console.WriteLine(GetProperty(Type.LE, Name, IsOptional));
+            //Console.WriteLine(GetProperty(Type.LP, Name, IsOptional));
         }
         #endregion
 
@@ -45,7 +45,7 @@ namespace DStutz.Coder.Entities.Data
             // public List<CommentMEE>? Comments { get; set; }
             return new string[] {
                 $"[ForeignKey(\"{ForeignKey}\")]",
-                GetProperty(Type.LE, Name, IsOptional),
+                GetSetProperty(Type.LE, Name, IsOptional),
                 "",
             };
         }
@@ -54,7 +54,7 @@ namespace DStutz.Coder.Entities.Data
         {
             // public List<CommentMPE>? Comments { get; set; }
             return new string[] {
-                GetProperty(Type.LP, Name, IsOptional),
+                GetSetProperty(Type.LP, Name, IsOptional),
             };
         }
         #endregion

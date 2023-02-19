@@ -30,7 +30,7 @@ namespace DStutz.Coder.Entities.Data
             // public NameMEE? Name { get; set; }
             return new string[] {
                 $"[ForeignKey(\"{ForeignKey}\")]",
-                GetProperty(Type.E, Name, IsOptional),
+                GetSetProperty(Type.E, Name, IsOptional),
                 "",
             };
         }
@@ -39,7 +39,7 @@ namespace DStutz.Coder.Entities.Data
         {
             // public NameMPE? Name { get; set; }
             return new string[] {
-                GetProperty(Type.P, Name, IsOptional),
+                GetSetProperty(Type.P, Name, IsOptional),
             };
         }
         #endregion

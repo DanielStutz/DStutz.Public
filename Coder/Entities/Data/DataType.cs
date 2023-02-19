@@ -25,6 +25,15 @@ namespace DStutz.Coder.Entities.Data
         }
 
         public DataType(
+            JsonKey key)
+        {
+            N = key.IsOrderBy ? "int" : key.Type;
+            E = N;
+            P = N;
+            CheckName();
+        }
+
+        public DataType(
             JsonProperty property)
         {
             var type = property.Type.Replace("?", "");

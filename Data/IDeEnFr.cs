@@ -6,4 +6,9 @@ namespace DStutz.Data
         public string? EN { get; set; }
         public string? FR { get; set; }
     }
+
+    public interface IDeEnFrKey : IDeEnFr
+    {
+        public long Pk1 { get; set; }
+    }
 }

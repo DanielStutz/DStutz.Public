@@ -4,11 +4,11 @@ namespace DStutz.Coder.Entities.Data
     {
         #region Properties
         /***********************************************************/
-        public List<DataPropertyOwned> OwnedProperties { get; } = new List<DataPropertyOwned>();
-        public List<DataRelation1to1> Relations1to1 { get; set; } = new List<DataRelation1to1>();
-        public List<DataRelation1toN> Relations1toN { get; set; } = new List<DataRelation1toN>();
-        public List<DataRelationMto1> RelationsMto1 { get; set; } = new List<DataRelationMto1>();
-        public List<DataRelationMtoN> RelationsMtoN { get; set; } = new List<DataRelationMtoN>();
+        public List<DataPropertyOwned> OwnedProperties { get; } = new();
+        public List<DataRelation1to1> Relations1to1 { get; } = new();
+        public List<DataRelation1toN> Relations1toN { get; } = new();
+        public List<DataRelationMto1> RelationsMto1 { get; } = new();
+        public List<DataRelationMtoN> RelationsMtoN { get; } = new();
         #endregion
 
         #region Constructors

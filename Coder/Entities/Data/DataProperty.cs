@@ -8,7 +8,8 @@ namespace DStutz.Coder.Entities.Data
         #region Properties
         /***********************************************************/
         public string Name { get; }
-        public bool IsOptional { get; }
+        public string? Comment { get; }
+        public bool IsOptional { get; } = false;
         public T Type { get; }
         #endregion
 
@@ -16,11 +17,11 @@ namespace DStutz.Coder.Entities.Data
         /***********************************************************/
         protected DataProperty(
             string name,
-            bool isOptional,
+            JsonKey key,
             T type)
         {
             Name = name;
-            IsOptional = isOptional;
+            Comment = key.Comment;
             Type = type;
         }
 
@@ -29,6 +30,7 @@ namespace DStutz.Coder.Entities.Data
             T type)
         {
             Name = property.Name;
+            Comment = property.Comment;
             IsOptional = property.IsOptional;
             Type = type;
         }
@@ -78,7 +80,7 @@ namespace DStutz.Coder.Entities.Data
         public virtual string[] GetProperty()
         {
             return new string[] {
-                GetProperty(Type.N, Name, IsOptional),
+                GetSetProperty(Type.N, Name, IsOptional),
             };
         }
 
@@ -87,11 +89,11 @@ namespace DStutz.Coder.Entities.Data
         public virtual string[] GetPropertyPoco()
         {
             return new string[] {
-                GetProperty(Type.P, Name, IsOptional),
+                GetSetProperty(Type.P, Name, IsOptional),
             };
         }
 
-        protected string GetProperty(
+        protected string GetSetProperty(
             string type,
             string name,
             bool isOptional)
@@ -99,7 +101,12 @@ namespace DStutz.Coder.Entities.Data
             if (isOptional)
                 type += "?";
 
-            return $"public {type} {name} {{ get; set; }}";
+            var line = $"public {type} {name} {{ get; set; }}";
+
+            if (Comment != null)
+                line += $" // {Comment}";
+
+            return line;
         }
         #endregion
     }

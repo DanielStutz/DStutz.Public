@@ -12,24 +12,37 @@ namespace DStutz.Coder.Entities.Data
         private string ColumnAnnotation { get; }
         private char Align { get; }
         private int Width { get; }
+        public string? Pseudonym { get; }
+        public bool IsOrderBy { get; } = false;
         #endregion
 
         #region Constructors
         /***********************************************************/
-        protected DataPropertyColumn(
-            string name,
-            string type,
-            string column,
-            char align,
-            int width)
+        public DataPropertyColumn(
+            JsonKey key)
             : base(
-                  name,
-                  false,
-                  new DataType(type))
+                  "OrderBy",
+                  key,
+                  new DataType(key))
         {
-            ColumnAnnotation = $"[Column(\"{column}\"), Key]";
-            Align = align;
-            Width = width;
+            ColumnAnnotation = $"[Column(\"order_by\"), Key]";
+            Align = key.Align;
+            Width = key.Width;
+            IsOrderBy = true;
+        }
+
+        public DataPropertyColumn(
+            JsonKey key,
+            int number)
+            : base(
+                  "Pk" + number,
+                  key,
+                  new DataType(key))
+        {
+            ColumnAnnotation = $"[Column(\"pk{number}\"), Key]";
+            Align = key.Align;
+            Width = key.Width;
+            Pseudonym = key.Pseudonym;
         }
 
         public DataPropertyColumn(
@@ -57,24 +70,25 @@ namespace DStutz.Coder.Entities.Data
         {
             return new string[] {
                 ColumnAnnotation,
-                GetProperty(Type.E, Name, IsOptional),
+                GetSetProperty(Type.E, Name, IsOptional),
                 "",
             };
         }
+
+        public string[] GetPropertyAsymmetricKey()
+        {
+            return new string[] {
+                GetProperty(Type.N, Pseudonym!, Name),
+            };
+        }
+
+        protected string GetProperty(
+            string type,
+            string name,
+            string data)
+        {
+            return $"public {type} {name} {{ get {{ return {data}; }} }}";
+        }
         #endregion
-    }
-
-    public class Key : DataPropertyColumn
-    {
-        public Key(int number, string type)
-            : base("Pk" + number, type, "pk" + number, 'L', 20)
-        { }
-    }
-
-    public class OrderBy : DataPropertyColumn
-    {
-        public OrderBy()
-            : base("OrderBy", "int", "order_by", 'R', 3)
-        { }
     }
 }

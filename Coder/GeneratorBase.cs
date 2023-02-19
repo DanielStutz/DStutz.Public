@@ -3,7 +3,7 @@ using DStutz.System.IO;
 
 namespace DStutz.Coder
 {
-    public abstract class GeneratorBase
+    public abstract class GeneratorBase<T>
     {
         #region Properties
         /***********************************************************/
@@ -22,31 +22,74 @@ namespace DStutz.Coder
         }
         #endregion
 
-        #region Methods json entities
+        #region Methods code files
         /***********************************************************/
-        protected IDictionary<string, T> GetDictionary<T>(
-            string jsonFile)
+        public FileBase GetCodeFile(
+            string file,
+            string key)
         {
-            return GetDictionary<T>(JsonType, jsonFile);
+            return GetFileBases(file)[GetKey(file, key)];
         }
 
-        protected IDictionary<string, T> GetDictionary<T>(
+        public ICollection<FileBase> GetCodeFiles(
+            string file)
+        {
+            return GetFileBases(file).Values;
+        }
+
+        public void SafeAndOpenCodeFile(
+            string file,
+            string key)
+        {
+            GetCodeFile(file, key).SafeAndOpenWithTextPad();
+        }
+
+        public void SafeAndOpenCodeFiles(
+            string file)
+        {
+            foreach (var item in GetCodeFiles(file))
+                item.SafeAndOpenWithTextPad();
+        }
+        #endregion
+
+        #region Methods file bases
+        /***********************************************************/
+        private IDictionary<string, FileBase> GetFileBases(
+            params string[] files)
+        {
+            IDictionary<string, FileBase> data =
+                new Dictionary<string, FileBase>();
+
+            foreach (var file in files)
+                foreach (KeyValuePair<string, T> pair in
+                    GetDictionary(file))
+                    data.Add(
+                        GetKey(file, pair.Key),
+                        GetFileBase(pair.Value));
+
+            return data;
+        }
+
+        protected abstract FileBase GetFileBase(T entity);
+        #endregion
+
+        #region Methods json objects
+        /***********************************************************/
+        private IDictionary<string, T> GetDictionary(
+            string jsonFile)
+        {
+            return GetDictionary(JsonType, jsonFile);
+        }
+
+        private IDictionary<string, T> GetDictionary(
             string jsonType,
             string jsonFile)
         {
-            var info = Context.GetConfPath($"{jsonType}/{jsonFile}.json");
-
-            //Console.WriteLine(info.FullName);
-
-            if (!info.Exists)
-                info = Context.GetJsonFile(jsonType, jsonFile);
-
-            //Console.WriteLine(info.FullName);
-
-            return FileReaderJson.ReadDictionary<string, T>(info);
+            return FileReaderJson.ReadDictionary<string, T>(
+                Context.GetJsonFile(jsonType, jsonFile));
         }
 
-        protected string GetKey(
+        private string GetKey(
             string file,
             string clazz)
         {

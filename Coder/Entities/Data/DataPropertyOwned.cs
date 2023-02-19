@@ -23,7 +23,7 @@ namespace DStutz.Coder.Entities.Data
         {
             return new string[] {
                 "// Owned",
-                GetProperty(Type.E, Name, IsOptional),
+                GetSetProperty(Type.E, Name, IsOptional),
                 "",
             };
         }

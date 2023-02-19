@@ -14,6 +14,8 @@ namespace DStutz.Coder.Entities.Data
         private string? Column { get; }
         private string ForeignKey { get; } = "Pk1";
         private string ForeignKeyType { get; } = "long";
+        private char Align { get; }
+        private int Width { get; }
         public bool AddNavigationProperty { get; }
         #endregion
 
@@ -27,6 +29,8 @@ namespace DStutz.Coder.Entities.Data
         {
             Column = property.Column;
             ForeignKey = Name + ForeignKey;
+            Align = property.Align;
+            Width = property.Width;
 
             // Unused at the moment, see below
             AddNavigationProperty = property.AddNavigationProperty;
@@ -59,7 +63,7 @@ namespace DStutz.Coder.Entities.Data
         public string[] GetJoin()
         {
             return new string[] {
-                $"('L', 20, e1.{ForeignKey})",
+                $"('{Align}', {Width}, e1.{ForeignKey})",
             };
         }
 
@@ -67,7 +71,7 @@ namespace DStutz.Coder.Entities.Data
         {
             // public long? CategoryPk1 { get; set; }
             return new string[] {
-                GetProperty(ForeignKeyType, ForeignKey, IsOptional),
+                GetSetProperty(ForeignKeyType, ForeignKey, IsOptional),
             };
         }
 
@@ -79,10 +83,10 @@ namespace DStutz.Coder.Entities.Data
             // public CategoryEE? Category { get; set; }
             var lines = new List<string> {
                 ColumnAnnotation,
-                GetProperty(ForeignKeyType, ForeignKey, IsOptional),
+                GetSetProperty(ForeignKeyType, ForeignKey, IsOptional),
                 "",
                 $"[ForeignKey(\"{ForeignKey}\")]",
-                GetProperty(Type.E, Name, IsOptional),
+                GetSetProperty(Type.E, Name, IsOptional),
                 "",
             };
 
@@ -98,8 +102,8 @@ namespace DStutz.Coder.Entities.Data
             // public long? CategoryPk1 { get; set; }
             // public CategoryPE? Category { get; set; }
             var lines = new List<string> {
-                GetProperty(ForeignKeyType, ForeignKey, IsOptional),
-                GetProperty(Type.P, Name, IsOptional),
+                GetSetProperty(ForeignKeyType, ForeignKey, IsOptional),
+                GetSetProperty(Type.P, Name, IsOptional),
                 "",
             };
 

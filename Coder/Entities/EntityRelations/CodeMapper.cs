@@ -63,7 +63,7 @@ CURSOR_MAPPING_E2P
             DataEntityRelations entity)
             : base(Template)
         {
-            // Typed properties and specific foreign keys
+            // Simple properties and specific foreign keys
             SetCursor("JOINS", 12)
                 .SetAppend(",", "")
                 .Insert(
@@ -73,7 +73,7 @@ CURSOR_MAPPING_E2P
                     entity.RelationsMto1,
                     e => e.GetJoin());
 
-            // Typed properties and specific foreign keys
+            // Simple properties and specific foreign keys
             SetCursor("ASSIGNS", 12)
                 .Insert(
                     entity.Properties,

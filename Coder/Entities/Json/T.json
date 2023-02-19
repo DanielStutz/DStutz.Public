@@ -1,0 +1,59 @@
+{
+  "TaxYear": {
+    "Version": "1.1",
+    "AsymmetricCode": true,
+    "Warning": "Some dates have no year",
+    "Namespace": "DStutz.Data.#.Accounting",
+    "Name": "TaxYear",
+    "Keys": [
+      {
+        "Type": "int",
+        "Comment": "Year",
+        "Pseudonym": "Year",
+        "Width": 4
+      }
+    ],
+    "Properties": [
+      {
+        "Name": "Date0101Short",
+        "Type": "string",
+        "Column": "date_0101",
+        "Comment": "Format MM-dd",
+        "Width": 5
+      },
+      {
+        "Name": "Date1231Short",
+        "Type": "string",
+        "Column": "date_1231",
+        "Comment": "Format MM-dd",
+        "Width": 5
+      },
+      {
+        "Name": "DateBook",
+        "Type": "string",
+        "Column": "date_book",
+        "Comment": "Format yyyy-MM-dd",
+        "Width": 10
+      },
+      {
+        "Name": "Delta1200",
+        "Type": "long",
+        "Column": "delta_1200 ",
+        "Align": "R",
+        "Width": 10
+      },
+      {
+        "Name": "Delta1201 ",
+        "Type": "long",
+        "Column": "delta_1201",
+        "Align": "R",
+        "Width": 10
+      },
+      {
+        "Name": "Remark",
+        "Type": "string?",
+        "Width": 80
+      }
+    ]
+  }
+}

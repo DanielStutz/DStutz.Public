@@ -49,12 +49,12 @@ namespace DStutz.Coder.Entities.Data
             // List<RelPEAny<RelatedMPE, IRelated>>
             RType.AddPoco($"{JType.P}<{RType.PI}>");
 
-            Console.WriteLine("");
-            OType.Joiner().WriteRow();
-            RType.Joiner().WriteRow();
-            JType.Joiner().WriteRow();
-            Console.WriteLine(GetProperty(RType.LE, Name, IsOptional));
-            Console.WriteLine(GetProperty(RType.LP, Name, IsOptional));
+            //Console.WriteLine("");
+            //OType.Joiner().WriteRow();
+            //RType.Joiner().WriteRow();
+            //JType.Joiner().WriteRow();
+            //Console.WriteLine(GetProperty(RType.LE, Name, IsOptional));
+            //Console.WriteLine(GetProperty(RType.LP, Name, IsOptional));
         }
         #endregion
 
@@ -78,7 +78,7 @@ namespace DStutz.Coder.Entities.Data
         {
             // public List<OwnerRelatedRel>? WhateverRels { get; set; }
             return new string[] {
-                GetProperty(RType.LE, Name, IsOptional),
+                GetSetProperty(RType.LE, Name, IsOptional),
             };
         }
 
@@ -86,7 +86,7 @@ namespace DStutz.Coder.Entities.Data
         {
             // public List<RelPEAny<RelatedMPE, IRelated>>? WhateverRels { get; set; }
             return new string[] {
-                GetProperty(RType.LP, Name, IsOptional),
+                GetSetProperty(RType.LP, Name, IsOptional),
             };
         }
 

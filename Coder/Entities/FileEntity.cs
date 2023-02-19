@@ -6,31 +6,39 @@ namespace DStutz.Coder.Entities
     {
         #region Properties
         /***********************************************************/
-        public string Version { get; } = "1.1";
         private DataEntity Data { get; }
         #endregion
 
         #region Constructors
         /***********************************************************/
         public FileEntity(
-            string template,
+            string codeTemplate,
             DataEntity data)
             : base(
-                  "Entity_" + data.Name + ".cs",
-                  template)
+                  data.Name,
+                  data.GetType().Name.Replace("Data", ""),
+                  codeTemplate,
+                  data.Warning,
+                  "1.1")
         {
             Data = data;
+
+            if (!data.Version.Equals(Version))
+                throw new Exception(
+                    $"Version {data.Version} of json file does not match " +
+                    $"version {Version} of class {typeof(FileEntity).Name}");
         }
         #endregion
 
         #region Methods
         /***********************************************************/
-        protected void PostProcessing()
+        protected override void PostProcessing()
         {
+            base.PostProcessing();
+
             if (Data.Namespace.StartsWith("DStutz.Data"))
                 Replace("using DStutz.Data;", "");
 
-            Replace("VERSION", Version);
             Replace("NAMESPACE_EFCO", Data.GetNamespaceEfco());
             Replace("NAMESPACE_POCO", Data.GetNamespacePoco());
             Replace("TYPE_INTERFACE", Data.Type.I);

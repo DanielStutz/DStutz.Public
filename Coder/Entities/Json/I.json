@@ -1,0 +1,80 @@
+{
+  "Investment": {
+    "Version": "1.1",
+    "AsymmetricCode": true,
+    "Warning": "Joiner handles dates, Mapper assigns addresses",
+    "Namespace": "DStutz.Data.#.Accounting",
+    "Name": "Investment",
+    "Keys": [
+      {
+        "Type": "int",
+        "Comment": "Account number",
+        "Pseudonym": "Number",
+        "Width": 4
+      },
+      {
+        "Type": "OrderBy",
+        "Width": 2
+      }
+    ],
+    "Properties": [
+      {
+        "Name": "Date1",
+        "Type": "DateTime",
+        "Column": "date_1",
+        "Comment": "First payment",
+        "Align": "R",
+        "Width": 10
+      },
+      {
+        "Name": "Date2",
+        "Type": "DateTime?",
+        "Column": "date_2",
+        "Comment": "Last payment",
+        "Align": "R",
+        "Width": 10
+      },
+      {
+        "Name": "CreditorName ",
+        "Type": "string",
+        "Column": "cre_name",
+        "Width": 20
+      },
+      {
+        "Name": "Remark",
+        "Type": "string?",
+        "Width": 40
+      }
+    ],
+    "RelationsMto1": [
+      {
+        "Name": "CreditorAddress",
+        "Type": "AddressM_E?",
+        "Column": "cre_add_pk1",
+        "Align": "R",
+        "Width": 3
+      },
+      {
+        "Name": "CreditorContact",
+        "Type": "ContactM_E?",
+        "Column": "cre_con_pk1",
+        "Align": "R",
+        "Width": 3
+      },
+      {
+        "Name": "DebitorAddress",
+        "Type": "AddressM_E?",
+        "Column": "deb_add_pk1",
+        "Align": "R",
+        "Width": 3
+      },
+      {
+        "Name": "DebitorContact",
+        "Type": "ContactM_E?",
+        "Column": "deb_con_pk1",
+        "Align": "R",
+        "Width": 3
+      }
+    ]
+  }
+}

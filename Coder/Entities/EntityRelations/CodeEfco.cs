@@ -13,6 +13,7 @@ public class TYPE_EFCO
 {
 CURSOR_PROPERTIES
 CURSOR_RELATIONS
+CURSOR_ASYMMETRIC_CODE
 
     #region Methods implementing
     /***********************************************************/
@@ -38,7 +39,10 @@ CURSOR_RELATIONS
             Replace("TABLE", entity.TableAnnotation);
             Replace("JOIN", entity.GetJoin());
 
-            // Typed and owned properties
+            if (entity.AsymmetricCode)
+                InsertRegionAsymmetricCode(4);
+
+            // Simple and owned properties
             SetCursor("PROPERTIES", 4)
                 .InsertRegion(
                     DataPropertyColumn.Title,

@@ -1,0 +1,78 @@
+{
+  "StockItem": {
+    "Version": "1.1",
+    "Warning": "Joiner handles sale date",
+    "Namespace": "DStutz.Data.#.Accounting",
+    "Name": "StockItem",
+    "Keys": [
+      {
+        "Type": "long"
+      }
+    ],
+    "Properties": [
+      {
+        "Name": "SKU",
+        "Type": "string",
+        "Width": 18
+      },
+      {
+        "Name": "PurchaseDate",
+        "Type": "DateTime",
+        "Column": "in_date",
+        "Align": "R",
+        "Width": 10
+      },
+      {
+        "Name": "PurchaseUnitCent",
+        "Type": "long",
+        "Column": "in_unitcent",
+        "Align": "R",
+        "Width": 6
+      },
+      {
+        "Name": "PurchaseCurrency",
+        "Type": "string",
+        "Column": "in_currency",
+        "Width": 3
+      },
+      {
+        "Name": "PurchaseOrderPk",
+        "Type": "long",
+        "Column": "in_order_pk1",
+        "Width": 4
+      },
+      {
+        "Name": "SaleChannel",
+        "Type": "string?",
+        "Column": "out_channel",
+        "Width": 3
+      },
+      {
+        "Name": "SaleDate",
+        "Type": "DateTime?",
+        "Column": "out_date",
+        "Align": "R",
+        "Width": 10
+      },
+      {
+        "Name": "SaleUnitCent",
+        "Type": "long?",
+        "Column": "out_unitcent",
+        "Align": "R",
+        "Width": 6
+      },
+      {
+        "Name": "SaleCurrency",
+        "Type": "string?",
+        "Column": "out_currency",
+        "Width": 3
+      },
+      {
+        "Name": "SaleOrderPk",
+        "Type": "long?",
+        "Column": "out_order_pk1",
+        "Width": 4
+      }
+    ]
+  }
+}

@@ -45,7 +45,7 @@ namespace DStutz.System.Joiners
         }
         #endregion
 
-        #region Methods adding other joinables or objects as cells
+        #region Methods adding other joinables
         /***********************************************************/
         public IJoiner Add(
             params IJoinable?[] joinables)
@@ -63,7 +63,21 @@ namespace DStutz.System.Joiners
         {
             Cells.Add((align, cell.Length, cell));
         }
+        #endregion
 
+        #region Methods adding other cells
+        /***********************************************************/
+        public IJoiner Add(
+            params (char align, int width, object? content)[] cells)
+        {
+            Cells.AddRange(cells);
+
+            return this;
+        }
+        #endregion
+
+        #region Methods adding other objects as cells
+        /***********************************************************/
         public IJoiner Add(
             char align,
             int width,
@@ -83,10 +97,6 @@ namespace DStutz.System.Joiners
         {
             Cells.Add((align, width, cell));
         }
-        #endregion
-
-        #region Methods adding other objects as cells
-        /***********************************************************/
         #endregion
 
         #region Methods joining table row

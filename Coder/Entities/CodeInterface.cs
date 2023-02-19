@@ -8,6 +8,7 @@ namespace DStutz.Coder.Entities
         /***********************************************************/
         private static readonly string Template = @"
 public interface TYPE_INTERFACE
+    ORDERED
 {
 CURSOR_PROPERTIES
 }";
@@ -16,33 +17,39 @@ CURSOR_PROPERTIES
         #region Constructors
         /***********************************************************/
         private CodeInterface(
-            DataEntity entity)
+            DataEntity entity,
+            bool isOrderBy)
             : base(Template)
         {
-            // Typed properties
+            if (isOrderBy)
+                Replace("ORDERED", ": IOrdered");
+            else
+                Replace("ORDERED", "");
+
+            // Simple properties
             SetCursor("PROPERTIES", 4)
                 .Insert(
-                    entity.Properties,
+                    entity.Properties.Where(e => !e.IsOrderBy),
                     e => e.GetProperty());
         }
 
         public CodeInterface(
             DataEntityBasic entity)
-            : this((DataEntity)entity)
+            : this(entity, entity.IsOrderBy)
         {
-            //Write();
+            //Write(false, false);
         }
 
         public CodeInterface(
             DataEntityOwned entity)
-            : this((DataEntity)entity)
+            : this(entity, false)
         {
-            //Write();
+            //Write(false, false);
         }
 
         public CodeInterface(
             DataEntityRelations entity)
-            : this((DataEntity)entity)
+            : this(entity, entity.IsOrderBy)
         {
             // Specific foreign keys
             SetCursor("PROPERTIES", 4)
@@ -50,7 +57,7 @@ CURSOR_PROPERTIES
                     entity.RelationsMto1,
                     e => e.GetProperty());
 
-            //Write();
+            //Write(false, false);
         }
         #endregion
     }
