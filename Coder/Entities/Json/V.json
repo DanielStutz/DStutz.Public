@@ -1,5 +1,6 @@
 {
   "Voucher": {
+    "Version": "1.1",
     "Namespace": "DStutz.Data.#.Accounting",
     "Name": "Voucher",
     "Keys": [

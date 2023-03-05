@@ -5,6 +5,7 @@ using DStutz.Data.Pocos.Accounting;
 
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using DStutz.Data.Efcos.Logistics;
 
 // Version 1.1
 namespace DStutz.Data.Efcos.Accounting
@@ -174,13 +175,6 @@ namespace DStutz.Data.Efcos.Accounting
                     Mapper.MapOptional(
                         efco.DebitorContact,
                         e => e.Map());
-
-                // Asymmetric code
-                if (poco.CreditorContact != null)
-                    poco.CreditorContact.Address = poco.CreditorAddress;
-
-                if (poco.DebitorContact != null)
-                    poco.DebitorContact.Address = poco.DebitorAddress;
             }
             else
             {

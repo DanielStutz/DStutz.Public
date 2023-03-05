@@ -9,8 +9,10 @@
     <Import_RootNamespace>DStutz</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)Coder\Code.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Coder\CodeInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Coder\CodeHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Coder\CodeBlock.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\CodeInfoEntity.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\CodeInterface.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\CodePoco.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\Data\DataEntity.cs" />
@@ -45,7 +47,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\EntityRelations\FileEntityRelations.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\FileEntity.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\GeneratorEntities.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Coder\ExampleMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Coder\FileBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Coder\GeneratorBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Collections.Generic\Collectors\MCollection.cs" />
@@ -61,10 +62,21 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Accounting\StockItemMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Accounting\TaxYearMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Accounting\VoucherMEE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Comments\CommentMEE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Comments\CommentObyMEE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Contacts\ContactDetailObyMEE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Documents\DocInfoMEE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Logistics\AddressMEE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Logistics\ShipmentMEE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Logistics\TrackingMEE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\People\FeedbackMEE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\People\PersonMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Polyglot\DeEnFrMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Polyglot\DeEnFrMEO.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Polyglot\DeEnMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Polyglot\DeEnMEO.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Transactions\PaymentMEE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\ZombieMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\IDated.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\IDeEn.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\IDeEnFr.cs" />
@@ -87,10 +99,41 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Accounting\StockItemMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Accounting\TaxYearMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Accounting\VoucherMPE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Addresses\Address.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Addresses\Contact.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Addresses\ContactDetail.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Addresses\Person.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\CodeName.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Comments\CommentMPE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Comments\CommentObyMPE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Companies\Company.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Contacts\ContactDetailObyMPE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Contacts\ContactType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Documents\DocInfoMPE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Addresses\AddressDated.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Logistics\AddressMPE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Logistics\Carrier.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Addresses\Country.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Addresses\Place.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Addresses\Region.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Logistics\ShipmentMPE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Logistics\TrackingMPE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Addresses\Addressee.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\People\FeedbackMPE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\People\FeedbackType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\People\Gender.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\People\GenderMapper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\People\PersonMPE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\People\Sex.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\People\SexMapper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Polyglot\DeEnFrMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Polyglot\DeEnFrMPO.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Polyglot\DeEnMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Polyglot\DeEnMPO.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Transactions\PaymentMPE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Transactions\PaymentType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Transactions\TransactionStatus.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\ZombieMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\PolyglotText.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Math\NumberToWord.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Math\Sets\Numbers\NumberSet.cs" />
@@ -126,19 +169,38 @@
     <Compile Include="$(MSBuildThisFileDirectory)Sorters.Generic\Trees\SorterDictionary.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Sorters.Generic\Trees\SorterList.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Sorters.Generic\Trees\Tree.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System\Enums\EnumAbbr.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System\Enums\EnumAbbrJsonConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System\Enums\EnumAbbrJsonConverterNewtonsoft.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System\Enums\EnumAbbrValueConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System\Enums\IEnumString.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Extensions\StringConcatenate.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Extensions\StringLength.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Extensions\StringModifier.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Joiners\IJoinable.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Joiners\IJoiner.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Joiners\Joiner.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System\Matchers\MatcherDate.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System\Matchers\MatcherPlace.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Stringers\Parsers.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Stringers\Reader.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Stringers\Spliter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\Labels\Label.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\Labels\LabelAddress.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\Labels\LabelAddressCompany.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\Labels\LabelAddressContact.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\Labels\LabelAddressOrderSale.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\A.json" />
+    <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\Address.json" />
     <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\B.json" />
+    <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\C.json" />
+    <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\D.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
     <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\Examples.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
@@ -147,10 +209,20 @@
     <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\ExamplesEntityBasic.json" />
     <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\I.json" />
     <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\P.json" />
+    <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\F.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
     <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\PolyglotOwned.json" />
     <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\Polyglot.json" />
     <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\T.json" />
     <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\S.json" />
     <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\V.json" />
+    <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\Z.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
   </ItemGroup>
 </Project>

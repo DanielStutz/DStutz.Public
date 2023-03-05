@@ -8,8 +8,8 @@ namespace DStutz.Coder
         #region Properties
         /***********************************************************/
         public string FileName { get; }
-        public string Warning { get; } = "";
         public string Version { get; } = "";
+        public string Remarks { get; } = "";
         #endregion
 
         #region Constructors
@@ -18,17 +18,21 @@ namespace DStutz.Coder
             string codeName,
             string codeType,
             string codeTemplate,
-            string? warning = null,
-            string? version = null)
+            CodeInfo codeInfo,
+            string version)
             : base(codeTemplate)
         {
             FileName = $"{codeType}_{codeName}.cs";
+            Version = codeInfo.Version;
 
-            if (warning != null)
-                Warning = $"!!! {warning} !!!";
+            if (codeInfo.Remarks != null &&
+                codeInfo.Remarks.Count > 0)
+                Remarks = $"!!! {string.Join(", ", codeInfo.Remarks)} !!!";
 
-            if (version != null)
-                Version = version;
+            if (!Version.Equals(version))
+                throw new Exception(
+                    $"Version {Version} of json file does not match " +
+                    $"version {version} of class {GetType().Name}");
         }
         #endregion
 
@@ -37,7 +41,7 @@ namespace DStutz.Coder
         protected virtual void PostProcessing()
         {
             Replace("VERSION", Version);
-            Replace("WARNING", Warning);
+            Replace("REMARKS", Remarks);
         }
         #endregion
 

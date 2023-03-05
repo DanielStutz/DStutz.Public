@@ -2,6 +2,7 @@
 
 using DStutz.Data.Efcos.Accounting;
 using DStutz.Data.Pocos.Contacts;
+using DStutz.Data.Pocos.Logistics;
 
 // Version 1.1
 namespace DStutz.Data.Pocos.Accounting

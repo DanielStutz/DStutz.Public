@@ -2,7 +2,7 @@
   "TaxYear": {
     "Version": "1.1",
     "AsymmetricCode": true,
-    "Warning": "Some dates have no year",
+    "Warning": "Some dates have the format MM-dd",
     "Namespace": "DStutz.Data.#.Accounting",
     "Name": "TaxYear",
     "Keys": [
@@ -53,6 +53,38 @@
         "Name": "Remark",
         "Type": "string?",
         "Width": 80
+      }
+    ]
+  },
+  "Tracking": {
+    "Version": "1.1",
+    "AsymmetricCode": true,
+    "Remarks": [
+      "Poco has additional methods",
+      "Joiner uses Carrier.Abbr"
+    ],
+    "Namespace": "DStutz.Data.#.Logistics",
+    "Name": "Tracking",
+    "Keys": [
+      {
+        "Type": "long"
+      }
+    ],
+    "Properties": [
+      {
+        "Name": "Carrier",
+        "Type": "Carrier",
+        "Width": 3
+      },
+      {
+        "Name": "Number",
+        "Type": "string",
+        "Width": 21
+      },
+      {
+        "Name": "Date",
+        "Type": "DateTime?",
+        "Width": 10
       }
     ]
   }

@@ -35,7 +35,7 @@ CURSOR_ASYMMETRIC_CODE
             DataEntity entity)
             : base(Template)
         {
-            if (entity.AsymmetricCode)
+            if (entity.Code.Asymmetric)
                 InsertRegionAsymmetricCode(4);
 
             // Simple properties and keys with a pseudonym
@@ -45,7 +45,7 @@ CURSOR_ASYMMETRIC_CODE
                     entity.Properties,
                     e => e.GetProperty())
                 .InsertRegion(
-                    Code.AsymmetricKeys,
+                    CodeHelper.AsymmetricKeys,
                     entity.Properties.Where(e => e.Pseudonym != null),
                     e => e.GetPropertyAsymmetricKey());
         }
@@ -76,7 +76,8 @@ CURSOR_ASYMMETRIC_CODE
 
             // Owned properties
             SetCursor("PROPERTIES", 4)
-                .Insert(
+                .InsertRegion(
+                    DataPropertyOwned.Title,
                     entity.OwnedProperties,
                     e => e.GetPropertyPoco());
 

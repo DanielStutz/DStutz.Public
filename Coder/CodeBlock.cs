@@ -147,9 +147,9 @@ namespace DStutz.Coder
             int indent = 0)
         {
             return SetCursor("ASYMMETRIC_CODE", indent)
-                .Insert(Code.Region(Code.AsymmetricCode))
+                .Insert(CodeHelper.Region(CodeHelper.AsymmetricCode))
                 .Insert("TODO")
-                .Insert(Code.EndRegion());
+                .Insert(CodeHelper.EndRegion());
         }
 
         public CodeBlock InsertRegion(
@@ -158,8 +158,8 @@ namespace DStutz.Coder
             int indent = 0)
         {
             return SetCursor(token, indent)
-                .Insert(Code.Region(title))
-                .Insert(Code.EndRegion());
+                .Insert(CodeHelper.Region(title))
+                .Insert(CodeHelper.EndRegion());
         }
         #endregion
 
@@ -192,9 +192,9 @@ namespace DStutz.Coder
             if (items == null || items.Count() == 0)
                 return this;
 
-            Insert(Code.Region(title));
+            Insert(CodeHelper.Region(title));
             Insert(items, selectors);
-            Insert(Code.EndRegion());
+            Insert(CodeHelper.EndRegion());
 
             return this;
         }

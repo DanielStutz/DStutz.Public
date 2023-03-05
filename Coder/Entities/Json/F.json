@@ -1,0 +1,24 @@
+{
+  "Feedback": {
+    "Version": "1.1",
+    "Namespace": "DStutz.Data.#.People",
+    "Name": "Feedback",
+    "Keys": [
+      {
+        "Type": "long"
+      }
+    ],
+    "Properties": [
+      {
+        "Name": "Type",
+        "Type": "FeedbackType",
+        "Width": 1
+      },
+      {
+        "Name": "Text",
+        "Type": "string",
+        "Width": 40
+      }
+    ]
+  }
+}

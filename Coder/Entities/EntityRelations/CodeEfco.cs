@@ -39,7 +39,7 @@ CURSOR_ASYMMETRIC_CODE
             Replace("TABLE", entity.TableAnnotation);
             Replace("JOIN", entity.GetJoin());
 
-            if (entity.AsymmetricCode)
+            if (entity.Code.Asymmetric)
                 InsertRegionAsymmetricCode(4);
 
             // Simple and owned properties

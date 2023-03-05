@@ -1,0 +1,69 @@
+{
+  "Comment": {
+    "Version": "1.1",
+    "Namespace": "DStutz.Data.#.Comments",
+    "Name": "Comment",
+    "Abstract": true,
+    "Keys": [
+      {
+        "Type": "long"
+      }
+    ],
+    "Properties": [
+      {
+        "Name": "Text",
+        "Type": "string",
+        "Width": 80
+      }
+    ]
+  },
+  "CommentOby": {
+    "Version": "1.1",
+    "Namespace": "DStutz.Data.#.Comments",
+    "Name": "CommentOby",
+    "Abstract": true,
+    "Keys": [
+      {
+        "Type": "long"
+      },
+      {
+        "Type": "OrderBy",
+        "Width": 3
+      }
+    ],
+    "Properties": [
+      {
+        "Name": "Text",
+        "Type": "string",
+        "Width": 80
+      }
+    ]
+  },
+  "ContactDetailOby": {
+    "Version": "1.1",
+    "Namespace": "DStutz.Data.#.Contacts",
+    "Name": "ContactDetailOby",
+    "Abstract": true,
+    "Keys": [
+      {
+        "Type": "long"
+      },
+      {
+        "Type": "OrderBy",
+        "Width": 3
+      }
+    ],
+    "Properties": [
+      {
+        "Name": "Type",
+        "Type": "string",
+        "Width": 1
+      },
+      {
+        "Name": "Value",
+        "Type": "string",
+        "Width": 40
+      }
+    ]
+  }
+}

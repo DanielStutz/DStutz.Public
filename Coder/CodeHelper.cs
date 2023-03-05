@@ -1,6 +1,6 @@
 namespace DStutz.Coder
 {
-    public abstract class Code
+    public abstract class CodeHelper
     {
 
         #region Titles

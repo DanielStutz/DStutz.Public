@@ -1,0 +1,47 @@
+{
+  "Address": {
+    "Version": "1.1",
+    "AsymmetricCode": true,
+    "Remarks": [
+      "Poco implements IEquatable",
+      "Efco implements IEquatableLambda"
+    ],
+    "Namespace": "DStutz.Data.#.Logistics",
+    "Name": "Address",
+    "Keys": [
+      {
+        "Type": "long"
+      }
+    ],
+    "Properties": [
+      {
+        "Name": "StreetName",
+        "Type": "string",
+        "Width": 40
+      },
+      {
+        "Name": "HouseNumber",
+        "Type": "string?",
+        "Align": "R",
+        "Width": 10
+      },
+      {
+        "Name": "Additional",
+        "Type": "string?",
+        "Width": 20
+      },
+      {
+        "Name": "AdditionalTwo",
+        "Type": "string?",
+        "Column": "additional_2",
+        "Width": 20
+      },
+      {
+        "Name": "PlacePk1",
+        "Type": "long",
+        "Column": "place_pk1",
+        "Width": 20
+      }
+    ]
+  }
+}

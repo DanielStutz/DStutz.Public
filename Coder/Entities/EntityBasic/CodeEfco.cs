@@ -46,7 +46,7 @@ CURSOR_ASYMMETRIC_CODE
                 Replace("ABSTRACT ", "");
             }
 
-            if (entity.AsymmetricCode)
+            if (entity.Code.Asymmetric)
                 InsertRegionAsymmetricCode(4);
 
             // Simple properties

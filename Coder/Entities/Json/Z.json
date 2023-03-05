@@ -1,0 +1,34 @@
+{
+  "Zombie": {
+    "Version": "1.1",
+    "Namespace": "DStutz.Data.#",
+    "Name": "Zombie",
+    "Keys": [
+      {
+        "Type": "long"
+      },
+      {
+        "Type": "OrderBy",
+        "Width": 3
+      }
+    ],
+    "Properties": [
+      {
+        "Name": "Prename",
+        "Type": "string",
+        "Width": 20
+      },
+      {
+        "Name": "Surname",
+        "Type": "string",
+        "Width": 20
+      }
+    ],
+    "OwnedProperties": [
+      {
+        "Name": "Polyglot",
+        "Type": "DeEnM_O"
+      }
+    ]
+  }
+}

@@ -84,7 +84,13 @@ namespace DStutz.Coder.Entities.Data
             };
         }
 
-        public abstract string[] GetPropertyEfco();
+        //public abstract string[] GetPropertyEfco();
+        public virtual string[] GetPropertyEfco()
+        {
+            return new string[] {
+                GetSetProperty(Type.E, Name, IsOptional),
+            };
+        }
 
         public virtual string[] GetPropertyPoco()
         {

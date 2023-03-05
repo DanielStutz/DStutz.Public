@@ -1,0 +1,70 @@
+{
+  "DocInfo": {
+    "Version": "1.1",
+    "Warning": "Joiner is special",
+    "Namespace": "DStutz.Data.#.Documents",
+    "Name": "DocInfo",
+    "Keys": [
+      {
+        "Type": "long",
+        "Width": 2
+      }
+    ],
+    "Properties": [
+      {
+        "Name": "DocType",
+        "Type": "string",
+        "Column": "doc_type",
+        "Width": 10
+      },
+      {
+        "Name": "DocId",
+        "Type": "string",
+        "Column": "doc_id",
+        "Width": 25
+      },
+      {
+        "Name": "DocDir",
+        "Type": "string",
+        "Column": "doc_dir",
+        "Width": 15
+      },
+      {
+        "Name": "DocFile",
+        "Type": "string",
+        "Column": "doc_file",
+        "Width": 30
+      },
+      {
+        "Name": "WorkDir",
+        "Type": "string",
+        "Column": "work_dir",
+        "Width": 15
+      },
+      {
+        "Name": "TempDir",
+        "Type": "string",
+        "Column": "temp_dir",
+        "Width": 10
+      },
+      {
+        "Name": "TempFile",
+        "Type": "string",
+        "Column": "temp_file",
+        "Width": 30
+      },
+      {
+        "Name": "DataDir",
+        "Type": "string",
+        "Column": "data_dir",
+        "Width": 10
+      },
+      {
+        "Name": "DataFile",
+        "Type": "string",
+        "Column": "data_file",
+        "Width": 30
+      }
+    ]
+  }
+}

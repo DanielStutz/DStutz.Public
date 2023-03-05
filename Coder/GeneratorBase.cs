@@ -9,6 +9,8 @@ namespace DStutz.Coder
         /***********************************************************/
         private IAppContext Context { get; }
         private string JsonType { get; }
+        private SortedDictionary<string, FileInfo> Files1 { get; } = new();
+        private SortedDictionary<string, FileInfo> Files2 { get; } = new();
         #endregion
 
         #region Constructors
@@ -19,6 +21,22 @@ namespace DStutz.Coder
         {
             Context = context;
             JsonType = jsonType;
+
+
+            var dir1 = context.GetConfPath($"{jsonType}");
+            Console.WriteLine(dir1);
+
+            //foreach (var file in dir1.EnumerateFiles())
+            //    Files2.Add(file.Name, file);
+
+            // Code files in DStutz
+            //var dir2 = context.GetCodePath($"{jsonType}/Json");
+
+            //foreach (var file in dir2.EnumerateFiles())
+            //    Files2.Add(file.Name, file);
+
+            //foreach (var file in Files2.Values)
+            //    Console.WriteLine(file.Name);
         }
         #endregion
 
@@ -35,6 +53,12 @@ namespace DStutz.Coder
             string file)
         {
             return GetFileBases(file).Values;
+        }
+
+        public ICollection<FileBase> GetCodeFiles()
+        {
+
+            return null;
         }
 
         public void SafeAndOpenCodeFile(
@@ -85,8 +109,9 @@ namespace DStutz.Coder
             string jsonType,
             string jsonFile)
         {
-            return FileReaderJson.ReadDictionary<string, T>(
-                Context.GetJsonFile(jsonType, jsonFile));
+            return null;
+            //return FileReaderJson.ReadDictionary<string, T>(
+            //    Context.GetJsonFile(jsonType, jsonFile));
         }
 
         private string GetKey(

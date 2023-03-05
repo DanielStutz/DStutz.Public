@@ -18,15 +18,10 @@ namespace DStutz.Coder.Entities
                   data.Name,
                   data.GetType().Name.Replace("Data", ""),
                   codeTemplate,
-                  data.Warning,
-                  "1.1")
+                  data.Code,
+                  "1.1.1")
         {
             Data = data;
-
-            if (!data.Version.Equals(Version))
-                throw new Exception(
-                    $"Version {data.Version} of json file does not match " +
-                    $"version {Version} of class {typeof(FileEntity).Name}");
         }
         #endregion
 

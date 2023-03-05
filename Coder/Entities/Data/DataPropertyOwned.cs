@@ -13,20 +13,8 @@ namespace DStutz.Coder.Entities.Data
             JsonProperty property)
             : base(
                   property,
-                  new DataType(property.Type))
+                  new DataType(property))
         { }
-        #endregion
-
-        #region Miscellaneous
-        /***********************************************************/
-        public override string[] GetPropertyEfco()
-        {
-            return new string[] {
-                "// Owned",
-                GetSetProperty(Type.E, Name, IsOptional),
-                "",
-            };
-        }
         #endregion
     }
 }

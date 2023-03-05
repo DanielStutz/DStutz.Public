@@ -1,10 +1,15 @@
 {
   "BookingEntry": {
-    "Version": "1.1",
-    "AsymmetricCode": true,
-    "Warning": "Poco implements IAccountable and property Amount",
     "Namespace": "DStutz.Data.#.Accounting",
     "Name": "BookingEntry",
+    "Code": {
+      "Version": "1.1.1",
+      "Asymmetric": true,
+      "Remarks": [
+        "Poco implements IAccountable",
+        "Poco has property Amount"
+      ]
+    },
     "Keys": [
       {
         "Type": "long"

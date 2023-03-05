@@ -6,6 +6,7 @@ using DStutz.Data.Efcos.Accounting;
 namespace DStutz.Data.Pocos.Accounting
 {
     public interface IVoucher
+
     {
         public long Pk1 { get; set; }
         public string Currency { get; set; }

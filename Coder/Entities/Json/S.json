@@ -1,4 +1,50 @@
 {
+  "Shipment": {
+    "Version": "1.1",
+    "AsymmetricCode": true,
+    "Remarks": [
+      "Poco has annotations JsonPropertyName and JsonIgnore",
+      "Poco has additional properties",
+      "Efco has additional methods"
+    ],
+    "Namespace": "DStutz.Data.#.Logistics",
+    "Name": "Shipment",
+    "Keys": [
+      {
+        "Type": "long"
+      },
+      {
+        "Type": "OrderBy",
+        "Width": 2
+      }
+    ],
+    "Properties": [
+      {
+        "Name": "Date",
+        "Type": "DateTime",
+        "Width": 10
+      },
+      {
+        "Name": "Remark",
+        "Type": "string?",
+        "Width": 20
+      }
+    ],
+    "RelationsMto1": [
+      {
+        "Name": "Address",
+        "Type": "AddressM_E?"
+      },
+      {
+        "Name": "Contact",
+        "Type": "ContactM_E?"
+      },
+      {
+        "Name": "Tracking",
+        "Type": "TrackingM_E?"
+      }
+    ]
+  },
   "StockItem": {
     "Version": "1.1",
     "Warning": "Joiner handles sale date",

@@ -1,8 +1,10 @@
 {
   "Account": {
-    "Version": "1.1",
     "Namespace": "DStutz.Data.#.Accounting",
     "Name": "Account",
+    "Code": {
+      "Version": "1.1.1"
+    },
     "Keys": [
       {
         "Type": "int",
@@ -41,9 +43,11 @@
     ]
   },
   "AccountBalances": {
-    "Version": "1.1",
     "Namespace": "DStutz.Data.#.Accounting",
     "Name": "AccountBalances",
+    "Code": {
+      "Version": "1.1.1"
+    },
     "Keys": [
       {
         "Type": "int",
@@ -81,9 +85,11 @@
     ]
   },
   "AccountExtended": {
-    "Version": "1.1",
     "Namespace": "DStutz.Data.#.Accounting",
     "Name": "AccountExtended",
+    "Code": {
+      "Version": "1.1.1"
+    },
     "Keys": [
       {
         "Type": "int",
@@ -123,9 +129,11 @@
     ]
   },
   "AccountGroup": {
-    "Version": "1.1",
     "Namespace": "DStutz.Data.#.Accounting",
     "Name": "AccountGroup",
+    "Code": {
+      "Version": "1.1.1"
+    },
     "Keys": [
       {
         "Type": "int",

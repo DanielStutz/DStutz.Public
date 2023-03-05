@@ -2,18 +2,13 @@ using DStutz.System.Extensions;
 
 namespace DStutz.Coder.Entities.Data
 {
-    // The Comment will be added to the code file,
-    // the Warning is to be read by the programer.
     public class JsonEntity
     {
         #region Used by all entities
         /***********************************************************/
-        public string Version { get; set; }
-        public bool AsymmetricCode { get; set; } = false;
+        public CodeInfoEntity Code { get; set; }
         public string Namespace { get; set; }
         public string Name { get; set; }
-        public string? Comment { get; set; }
-        public string? Warning { get; set; }
         public List<JsonProperty> Properties { get; set; }
         #endregion
 
@@ -26,7 +21,6 @@ namespace DStutz.Coder.Entities.Data
         /***********************************************************/
         public bool Abstract { get; set; } = false;
         public List<JsonKey>? Keys { get; set; }
-        public bool OrderBy { get; set; } = false;
         public string? Table { get; set; }
         public List<JsonProperty>? OwnedProperties { get; set; }
         public List<JsonProperty>? Relations1to1 { get; set; }

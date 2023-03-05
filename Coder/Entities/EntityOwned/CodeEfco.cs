@@ -34,7 +34,7 @@ CURSOR_ASYMMETRIC_CODE
             DataEntityOwned entity)
             : base(Template)
         {
-            if (entity.AsymmetricCode)
+            if (entity.Code.Asymmetric)
                 InsertRegionAsymmetricCode(4);
 
             // Simple properties
