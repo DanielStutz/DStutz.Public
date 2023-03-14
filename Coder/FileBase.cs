@@ -49,12 +49,12 @@ namespace DStutz.Coder
         /***********************************************************/
         private static CommandTextPad TextPad { get; } = new CommandTextPad();
 
-        public FileInfo Safe()
+        public FileInfo Save()
         {
-            return Safe("C:/Workspace");
+            return Save("C:/Workspace");
         }
 
-        public FileInfo Safe(
+        public FileInfo Save(
             string dir)
         {
             var info = new FileInfo(dir + "/" + FileName);
@@ -64,15 +64,15 @@ namespace DStutz.Coder
             return info;
         }
 
-        public void SafeAndOpenWithTextPad()
+        public void SaveAndOpenWithTextPad()
         {
-            TextPad.Open(Safe().FullName);
+            TextPad.Open(Save().FullName);
         }
 
-        public void SafeAndOpenWithTextPad(
+        public void SaveAndOpenWithTextPad(
             string dir)
         {
-            TextPad.Open(Safe(dir).FullName);
+            TextPad.Open(Save(dir).FullName);
         }
         #endregion
     }

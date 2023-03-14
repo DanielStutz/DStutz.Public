@@ -11,23 +11,29 @@ namespace DStutz.Data.Pocos.Addresses
         public Address Address { get; set; }
         #endregion
 
-        #region Miscellaneous
+        #region Methods
         /***********************************************************/
         public bool IsCompany()
         {
             return Company != null
                 && Company.Length > 0;
         }
+        #endregion
 
-        public IJoiner Joiner()
+        #region Properties implementing
+        /***********************************************************/
+        public IJoiner Joiner
         {
-            return new Joiner(
-                //('L', 20, e1.GetType().Name),
-                ('L', 30, Company),
-                ('L', 30, Person.GetGenderSurPreName()),
-                ('L', 60, Address.GetStreetAndCountry()),
-                ('L', 20, Address.Additional)
-            );
+            get
+            {
+                return new Joiner(
+                    //('L', 20, e1.GetType().Name),
+                    ('L', 30, Company),
+                    ('L', 30, Person.GetGenderSurPreName()),
+                    ('L', 60, Address.GetStreetAndCountry()),
+                    ('L', 20, Address.Additional)
+                );
+            }
         }
         #endregion
     }

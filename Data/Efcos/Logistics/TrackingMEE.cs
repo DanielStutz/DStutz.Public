@@ -5,7 +5,7 @@ using DStutz.Data.Pocos.Logistics;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-// Version 1.1
+// Version 1.1.0
 namespace DStutz.Data.Efcos.Logistics
 {
     [Table("tracking")]
@@ -27,11 +27,11 @@ namespace DStutz.Data.Efcos.Logistics
         public DateTime? Date { get; set; }
         #endregion
 
-        #region Methods implementing
+        #region Properties and methods implementing
         /***********************************************************/
-        public IJoiner Joiner()
+        public IJoiner Joiner
         {
-            return TrackingMapper.New.Joiner(this);
+            get { return TrackingMapper.New.Joiner(this); }
         }
 
         public TrackingMPE Map()

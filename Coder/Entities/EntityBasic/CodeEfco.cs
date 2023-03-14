@@ -14,11 +14,11 @@ public ABSTRACT class TYPE_EFCO
 CURSOR_PROPERTIES
 CURSOR_ASYMMETRIC_CODE
 
-    #region Methods implementing
+    #region Properties and methods implementing
     /***********************************************************/
-    public IJoiner Joiner()
+    public IJoiner Joiner
     {
-        return TYPE_MAPPER.New.Joiner(this);
+        get { return TYPE_MAPPER.New.Joiner(this); }
     }
 
     public TYPE_POCO Map()
@@ -36,15 +36,9 @@ CURSOR_ASYMMETRIC_CODE
             : base(Template)
         {
             if (entity.Abstract)
-            {
                 Replace("TABLE", "");
-                Replace("ABSTRACT", "abstract");
-            }
             else
-            {
                 Replace("TABLE", entity.TableAnnotation);
-                Replace("ABSTRACT ", "");
-            }
 
             if (entity.Code.Asymmetric)
                 InsertRegionAsymmetricCode(4);

@@ -5,7 +5,7 @@ using DStutz.Data.Pocos.Transactions;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-// Version 1.1
+// Version 1.1.0
 namespace DStutz.Data.Efcos.Transactions
 {
     [Table("payment")]
@@ -39,11 +39,11 @@ namespace DStutz.Data.Efcos.Transactions
         public string? Remark { get; set; }
         #endregion
 
-        #region Methods implementing
+        #region Properties and methods implementing
         /***********************************************************/
-        public IJoiner Joiner()
+        public IJoiner Joiner
         {
-            return PaymentMapper.New.Joiner(this);
+            get { return PaymentMapper.New.Joiner(this); }
         }
 
         public PaymentMPE Map()

@@ -1,10 +1,17 @@
 {
   "Payment": {
-    "Version": "1.1",
-    "AsymmetricCode": true,
-    "Warning": "Poco has some methods for checking and calculating, in poco the property 'OrderBy' is renamed (json)",
     "Namespace": "DStutz.Data.#.Transactions",
     "Name": "Payment",
+    "Code": {
+      "Version": "1.1.0",
+      "Asymmetric": true,
+      "Remarks": [
+        "Interface implements IDated",
+        "Interface, Poco and Efco have additional properties",
+        "Poco has annotations JsonPropertyName",
+        "Poco has additional methods"
+      ]
+    },
     "Keys": [
       {
         "Type": "long"
@@ -50,14 +57,16 @@
     ]
   },
   "Person": {
-    "Version": "1.1",
-    "AsymmetricCode": true,
-    "Remarks": [
-      "Poco implements IEquatable",
-      "Poco has constructors and additional methods"
-    ],
     "Namespace": "DStutz.Data.#.People",
     "Name": "Person",
+    "Code": {
+      "Version": "1.1.0",
+      "Asymmetric": true,
+      "Remarks": [
+        "Poco implements IEquatable",
+        "Poco has constructors and additional methods"
+      ]
+    },
     "Keys": [
       {
         "Type": "long"
@@ -82,11 +91,16 @@
     ]
   },
   "Position": {
-    "Version": "1.1",
-    "AsymmetricCode": true,
-    "Warning": "Prices don't have the same type, in poco the properties 'OrderBy' and 'SKU' are renamed (json)",
     "Namespace": "DStutz.Data.#.Accounting",
     "Name": "Position",
+    "Code": {
+      "Version": "1.1.0",
+      "Asymmetric": true,
+      "Remarks": [
+        "Poco has annotations JsonPropertyName",
+        "Prices don't have the same type"
+      ]
+    },
     "Keys": [
       {
         "Type": "long"

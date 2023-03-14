@@ -7,119 +7,181 @@ namespace DStutz.Coder
     {
         #region Properties
         /***********************************************************/
-        private IAppContext Context { get; }
-        private string JsonType { get; }
-        private SortedDictionary<string, FileInfo> Files1 { get; } = new();
-        private SortedDictionary<string, FileInfo> Files2 { get; } = new();
+        protected IAppContext Context { get; }
+        protected ILogger Logger { get; }
+        private IDictionary<string, FileInfo> Files1 { get; }
+        private IDictionary<string, FileInfo> Files2 { get; }
         #endregion
 
         #region Constructors
         /***********************************************************/
-        public GeneratorBase(
+        protected GeneratorBase(
             IAppContext context,
             string jsonType)
         {
             Context = context;
-            JsonType = jsonType;
+            Logger = Context.CreateLogger(this);
 
+            // Load folder '[Project]/ABC/Conf/[jsonType]'
+            var dir1 = context.AppConfig.GetConfDir($"{jsonType}");
+            Files1 = Load(dir1);
 
-            var dir1 = context.GetConfPath($"{jsonType}");
-            Console.WriteLine(dir1);
+            // Load folder 'DStutz/Coder/[jsonType]/Json'
+            var dir2 = context.AppConfig.GetCodeDir($"{jsonType}/Json");
+            Files2 = Load(dir2);
+        }
 
-            //foreach (var file in dir1.EnumerateFiles())
-            //    Files2.Add(file.Name, file);
+        #endregion
 
-            // Code files in DStutz
-            //var dir2 = context.GetCodePath($"{jsonType}/Json");
+        #region Methods json files
+        /***********************************************************/
+        private IDictionary<string, FileInfo> Load(
+            DirectoryInfo dir)
+        {
+            Logger.LogInformation("Loading dir {0}", dir.FullName);
 
-            //foreach (var file in dir2.EnumerateFiles())
-            //    Files2.Add(file.Name, file);
+            SortedDictionary<string, FileInfo> files = new();
 
-            //foreach (var file in Files2.Values)
-            //    Console.WriteLine(file.Name);
+            foreach (var file in dir.EnumerateFiles())
+            {
+                Logger.LogInformation("    --> {0}", file.Name);
+                files.Add(GetJsonFileKey(file.Name), file);
+            }
+
+            return files;
+        }
+
+        private FileInfo GetJsonFileInfo(
+            string fileKey)
+        {
+            var key = GetJsonFileKey(fileKey);
+
+            if (Files1.ContainsKey(key))
+                return Files1[key];
+
+            if (Files2.ContainsKey(key))
+                return Files2[key];
+
+            throw new Exception(
+                $"Unable to find file for key '{key}'");
+        }
+
+        public virtual string GetJsonFileKey(
+            string file)
+        {
+            return file.Replace(".json", "");
         }
         #endregion
 
         #region Methods code files
         /***********************************************************/
-        public FileBase GetCodeFile(
-            string file,
-            string key)
+        public void SaveAndOpenCodeFile(
+            string fileKey,
+            string entityKey)
         {
-            return GetFileBases(file)[GetKey(file, key)];
+            GetCodeFile(fileKey, entityKey).SaveAndOpenWithTextPad();
+        }
+
+        public FileBase GetCodeFile(
+            string fileKey,
+            string entityKey)
+        {
+            return LoadCodeFiles(fileKey)[entityKey];
+        }
+
+        public void SaveAndOpenCodeFiles(
+            params string[] fileKeys)
+        {
+            foreach (var item in GetCodeFiles(fileKeys))
+                item.SaveAndOpenWithTextPad();
         }
 
         public ICollection<FileBase> GetCodeFiles(
-            string file)
+            params string[] fileKeys)
         {
-            return GetFileBases(file).Values;
-        }
+            Dictionary<string, FileBase> dictionary = new();
 
-        public ICollection<FileBase> GetCodeFiles()
-        {
+            foreach (var fileKey in fileKeys)
+                foreach (var pair in LoadCodeFiles(fileKey))
+                    dictionary.Add(pair.Key, pair.Value);
 
-            return null;
-        }
-
-        public void SafeAndOpenCodeFile(
-            string file,
-            string key)
-        {
-            GetCodeFile(file, key).SafeAndOpenWithTextPad();
-        }
-
-        public void SafeAndOpenCodeFiles(
-            string file)
-        {
-            foreach (var item in GetCodeFiles(file))
-                item.SafeAndOpenWithTextPad();
+            return dictionary.Values;
         }
         #endregion
 
-        #region Methods file bases
+        #region Methods loading code files
         /***********************************************************/
-        private IDictionary<string, FileBase> GetFileBases(
-            params string[] files)
+        public IDictionary<string, FileBase> LoadCodeFiles(
+            string fileKey)
         {
-            IDictionary<string, FileBase> data =
-                new Dictionary<string, FileBase>();
-
-            foreach (var file in files)
-                foreach (KeyValuePair<string, T> pair in
-                    GetDictionary(file))
-                    data.Add(
-                        GetKey(file, pair.Key),
-                        GetFileBase(pair.Value));
-
-            return data;
+            return LoadCodeFilesInt(GetJsonFileInfo(fileKey));
         }
 
-        protected abstract FileBase GetFileBase(T entity);
+        public IDictionary<string, FileBase> LoadCodeFiles(
+            FileInfo file)
+        {
+            return LoadCodeFilesInt(Check(file));
+        }
+
+        protected abstract IDictionary<string, FileBase> LoadCodeFilesInt(
+            FileInfo file);
         #endregion
 
-        #region Methods json objects
+        #region Methods checking json entities
         /***********************************************************/
-        private IDictionary<string, T> GetDictionary(
-            string jsonFile)
+        public void CheckJsonEntities()
         {
-            return GetDictionary(JsonType, jsonFile);
+            foreach (var file in Files1.Values)
+                CheckJsonEntitiesInt(file);
+
+            foreach (var file in Files2.Values)
+                CheckJsonEntitiesInt(file);
         }
 
-        private IDictionary<string, T> GetDictionary(
-            string jsonType,
-            string jsonFile)
+        public void CheckJsonEntities(
+            string fileKey)
         {
-            return null;
-            //return FileReaderJson.ReadDictionary<string, T>(
-            //    Context.GetJsonFile(jsonType, jsonFile));
+            CheckJsonEntitiesInt(GetJsonFileInfo(fileKey));
         }
 
-        private string GetKey(
-            string file,
-            string clazz)
+        public void CheckJsonEntities(
+            FileInfo file)
         {
-            return $"{file}_{clazz}";
+            CheckJsonEntitiesInt(Check(file));
+        }
+
+        protected abstract void CheckJsonEntitiesInt(
+            FileInfo file);
+
+        #endregion
+
+        #region Methods loading json entities
+        /***********************************************************/
+        public IDictionary<string, T> LoadJsonEntities(
+            string fileKey)
+        {
+            return LoadJsonEntities(GetJsonFileInfo(fileKey));
+        }
+
+        public IDictionary<string, T> LoadJsonEntities(
+            FileInfo file)
+        {
+            return FileReaderJson.ReadDictionary<string, T>(Check(file));
         }
         #endregion
+
+        #region Miscellaneous
+        /***********************************************************/
+        private FileInfo Check(
+            FileInfo file)
+        {
+            if (!file.Exists)
+                throw new Exception(
+                    $"Unable to find file '{file.FullName}'");
+
+            return file;
+        }
+        #endregion
+
     }
 }

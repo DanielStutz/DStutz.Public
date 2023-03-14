@@ -6,7 +6,7 @@ using DStutz.Data.Pocos;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-// Version 1.1
+// Version 1.1.0
 namespace DStutz.Data.Efcos
 {
     [Table("zombie")]
@@ -33,11 +33,11 @@ namespace DStutz.Data.Efcos
         public DeEnMEO Polyglot { get; set; }
         #endregion
 
-        #region Methods implementing
+        #region Properties and methods implementing
         /***********************************************************/
-        public IJoiner Joiner()
+        public IJoiner Joiner
         {
-            return ZombieMapper.New.Joiner(this, Polyglot);
+            get { return ZombieMapper.New.Joiner(this, Polyglot); }
         }
 
         public ZombieMPE Map()

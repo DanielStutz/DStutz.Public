@@ -2,7 +2,14 @@
   "Example": {
     "Namespace": "DStutz.Data.#.Examples",
     "Name": "Example",
-    "Key1": "long",
+    "Code": {
+      "Version": "1.1.0"
+    },
+    "Keys": [
+      {
+        "Type": "long"
+      }
+    ],
     "Properties": [
       {
         "Name": "Name",

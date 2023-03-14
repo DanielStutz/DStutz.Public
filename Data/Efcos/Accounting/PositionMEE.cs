@@ -6,7 +6,7 @@ using DStutz.Data.Pocos.Accounting;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-// Version 1.1
+// Version 1.1.0
 namespace DStutz.Data.Efcos.Accounting
 {
     [Table("position")]
@@ -62,11 +62,11 @@ namespace DStutz.Data.Efcos.Accounting
 
         #endregion
 
-        #region Methods implementing
+        #region Properties and methods implementing
         /***********************************************************/
-        public IJoiner Joiner()
+        public IJoiner Joiner
         {
-            return PositionMapper.New.Joiner(this);
+            get { return PositionMapper.New.Joiner(this); }
         }
 
         public PositionMPE Map()

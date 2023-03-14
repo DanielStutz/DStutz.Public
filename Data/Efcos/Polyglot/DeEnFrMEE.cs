@@ -5,7 +5,7 @@ using DStutz.Data.Pocos.Polyglot;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-// Version 1.1
+// Version 1.1.0
 namespace DStutz.Data.Efcos.Polyglot
 {
     public abstract class DeEnFrMEE
@@ -26,16 +26,16 @@ namespace DStutz.Data.Efcos.Polyglot
         public string? FR { get; set; }
         #endregion
 
-        #region Methods implementing
+        #region Properties and methods implementing
         /***********************************************************/
-        public IJoiner Joiner()
+        public IJoiner Joiner
         {
-            return DeEnFrKeyMapper.New.Joiner(this);
+            get { return DeEnFrMapper.New.Joiner(this); }
         }
 
         public DeEnFrMPE Map()
         {
-            return DeEnFrKeyMapper.New.Map<DeEnFrMPE>(this);
+            return DeEnFrMapper.New.Map<DeEnFrMPE>(this);
         }
         #endregion
     }

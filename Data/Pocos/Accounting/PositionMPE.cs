@@ -5,7 +5,7 @@ using DStutz.Data.Efcos.Accounting;
 
 using System.Text.Json.Serialization;
 
-// Version 1.1
+// Version 1.1.0
 namespace DStutz.Data.Pocos.Accounting
 {
     public interface IPosition
@@ -63,11 +63,11 @@ namespace DStutz.Data.Pocos.Accounting
             }
         }
 
-        #region Methods implementing
+        #region Properties and methods implementing
         /***********************************************************/
-        public IJoiner Joiner()
+        public IJoiner Joiner
         {
-            return PositionMapper.New.Joiner(this);
+            get { return PositionMapper.New.Joiner(this); }
         }
 
         public E Map<E>() where E : IPosition, new()

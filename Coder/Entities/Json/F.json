@@ -1,8 +1,10 @@
 {
   "Feedback": {
-    "Version": "1.1",
     "Namespace": "DStutz.Data.#.People",
     "Name": "Feedback",
+    "Code": {
+      "Version": "1.1.0"
+    },
     "Keys": [
       {
         "Type": "long"

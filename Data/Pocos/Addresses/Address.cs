@@ -41,15 +41,18 @@ namespace DStutz.Data.Pocos.Addresses
         }
         #endregion
 
-        #region Miscellaneous
+        #region Properties implementing
         /***********************************************************/
-        public IJoiner Joiner()
+        public IJoiner Joiner
         {
-            return new Joiner(
-                //('L', 20, e1.GetType().Name),
-                ('L', 60, GetStreetAndCountry()),
-                ('L', 20, Additional)
-            );
+            get
+            {
+                return new Joiner(
+                    //('L', 20, e1.GetType().Name),
+                    ('L', 60, GetStreetAndCountry()),
+                    ('L', 20, Additional)
+                );
+            }
         }
         #endregion
     }

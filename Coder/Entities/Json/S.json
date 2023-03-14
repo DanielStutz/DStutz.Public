@@ -1,14 +1,17 @@
 {
   "Shipment": {
-    "Version": "1.1",
-    "AsymmetricCode": true,
-    "Remarks": [
-      "Poco has annotations JsonPropertyName and JsonIgnore",
-      "Poco has additional properties",
-      "Efco has additional methods"
-    ],
     "Namespace": "DStutz.Data.#.Logistics",
     "Name": "Shipment",
+    "Code": {
+      "Version": "1.1.0",
+      "Asymmetric": true,
+      "Remarks": [
+        "Interface implements IDated",
+        "Poco has annotations JsonPropertyName and JsonIgnore",
+        "Poco has additional properties and methods",
+        "Efco has additional methods"
+      ]
+    },
     "Keys": [
       {
         "Type": "long"
@@ -46,10 +49,14 @@
     ]
   },
   "StockItem": {
-    "Version": "1.1",
-    "Warning": "Joiner handles sale date",
     "Namespace": "DStutz.Data.#.Accounting",
     "Name": "StockItem",
+    "Code": {
+      "Version": "1.1.0",
+      "Remarks": [
+        "Joiner handles optional sale date"
+      ]
+    },
     "Keys": [
       {
         "Type": "long"

@@ -2,11 +2,10 @@
 
 using DStutz.Data.Efcos.People;
 
-// Version 1.1
+// Version 1.1.0
 namespace DStutz.Data.Pocos.People
 {
     public interface IFeedback
-
     {
         public long Pk1 { get; set; }
         public FeedbackType Type { get; set; }
@@ -23,11 +22,11 @@ namespace DStutz.Data.Pocos.People
         public string Text { get; set; }
         #endregion
 
-        #region Methods implementing
+        #region Properties and methods implementing
         /***********************************************************/
-        public IJoiner Joiner()
+        public IJoiner Joiner
         {
-            return FeedbackMapper.New.Joiner(this);
+            get { return FeedbackMapper.New.Joiner(this); }
         }
 
         public E Map<E>() where E : IFeedback, new()

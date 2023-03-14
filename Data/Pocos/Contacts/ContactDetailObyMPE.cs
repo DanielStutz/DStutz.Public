@@ -2,7 +2,7 @@
 
 using DStutz.Data.Efcos.Contacts;
 
-// Version 1.1
+// Version 1.1.0
 namespace DStutz.Data.Pocos.Contacts
 {
     public interface IContactDetailOby
@@ -24,11 +24,11 @@ namespace DStutz.Data.Pocos.Contacts
         public string Value { get; set; }
         #endregion
 
-        #region Methods implementing
+        #region Properties and methods implementing
         /***********************************************************/
-        public IJoiner Joiner()
+        public IJoiner Joiner
         {
-            return ContactDetailObyMapper.New.Joiner(this);
+            get { return ContactDetailObyMapper.New.Joiner(this); }
         }
 
         public E Map<E>() where E : IContactDetailOby, new()

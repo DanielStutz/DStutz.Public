@@ -5,7 +5,7 @@ using DStutz.Data.Pocos.Comments;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-// Version 1.1
+// Version 1.1.0
 namespace DStutz.Data.Efcos.Comments
 {
     public abstract class CommentObyMEE
@@ -23,11 +23,11 @@ namespace DStutz.Data.Efcos.Comments
         public string Text { get; set; }
         #endregion
 
-        #region Methods implementing
+        #region Properties and methods implementing
         /***********************************************************/
-        public IJoiner Joiner()
+        public IJoiner Joiner
         {
-            return CommentObyMapper.New.Joiner(this);
+            get { return CommentObyMapper.New.Joiner(this); }
         }
 
         public CommentObyMPE Map()

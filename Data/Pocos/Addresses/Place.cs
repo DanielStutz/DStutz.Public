@@ -36,15 +36,18 @@ namespace DStutz.Data.Pocos.Addresses
         }
         #endregion
 
-        #region Methods implementing
+        #region Properties implementing
         /***********************************************************/
-        public IJoiner Joiner()
+        public IJoiner Joiner
         {
-            return new Joiner(
-                (20, Code),
-                (40, Name),
-                (6, RegionCode)
-            );
+            get
+            {
+                return new Joiner(
+                    (20, Code),
+                    (40, Name),
+                    (6, RegionCode)
+                );
+            }
         }
         #endregion
     }

@@ -1,9 +1,13 @@
 {
   "DocInfo": {
-    "Version": "1.1",
-    "Warning": "Joiner is special",
     "Namespace": "DStutz.Data.#.Documents",
     "Name": "DocInfo",
+    "Code": {
+      "Version": "1.1.0",
+      "Remarks": [
+        "Joiner is special"
+      ]
+    },
     "Keys": [
       {
         "Type": "long",

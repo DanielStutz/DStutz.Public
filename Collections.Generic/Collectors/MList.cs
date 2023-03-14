@@ -45,7 +45,7 @@ namespace DStutz.Collections.Generic.Collectors
         public override void Write()
         {
             foreach (var member in List)
-                member.Joiner().WriteRow();
+                member.Joiner.WriteRow();
         }
         #endregion
     }

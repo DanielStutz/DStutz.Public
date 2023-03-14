@@ -19,7 +19,7 @@ namespace DStutz.Coder.Entities
                   data.GetType().Name.Replace("Data", ""),
                   codeTemplate,
                   data.Code,
-                  "1.1.1")
+                  "1.1.0")
         {
             Data = data;
         }
@@ -33,6 +33,11 @@ namespace DStutz.Coder.Entities
 
             if (Data.Namespace.StartsWith("DStutz.Data"))
                 Replace("using DStutz.Data;", "");
+
+            if (Data.Abstract)
+                Replace("ABSTRACT", "abstract");
+            else
+                Replace("ABSTRACT ", "");
 
             Replace("NAMESPACE_EFCO", Data.GetNamespaceEfco());
             Replace("NAMESPACE_POCO", Data.GetNamespacePoco());

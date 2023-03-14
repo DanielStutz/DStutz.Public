@@ -2,7 +2,7 @@
 
 using DStutz.Data.Efcos.Accounting;
 
-// Version 1.1
+// Version 1.1.0
 namespace DStutz.Data.Pocos.Accounting
 {
     public interface IAccountBalances
@@ -32,11 +32,11 @@ namespace DStutz.Data.Pocos.Accounting
         public int Year { get { return Pk2; } }
         #endregion
 
-        #region Methods implementing
+        #region Properties and methods implementing
         /***********************************************************/
-        public IJoiner Joiner()
+        public IJoiner Joiner
         {
-            return AccountBalancesMapper.New.Joiner(this);
+            get { return AccountBalancesMapper.New.Joiner(this); }
         }
 
         public E Map<E>() where E : IAccountBalances, new()

@@ -5,7 +5,7 @@ using DStutz.Data.Pocos.Accounting;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-// Version 1.1
+// Version 1.1.0
 namespace DStutz.Data.Efcos.Accounting
 {
     [Table("account_balances")]
@@ -30,11 +30,11 @@ namespace DStutz.Data.Efcos.Accounting
         public string? Remark { get; set; }
         #endregion
 
-        #region Methods implementing
+        #region Properties and methods implementing
         /***********************************************************/
-        public IJoiner Joiner()
+        public IJoiner Joiner
         {
-            return AccountBalancesMapper.New.Joiner(this);
+            get { return AccountBalancesMapper.New.Joiner(this); }
         }
 
         public AccountBalancesMPE Map()

@@ -1,8 +1,10 @@
 {
   "Zombie": {
-    "Version": "1.1",
     "Namespace": "DStutz.Data.#",
     "Name": "Zombie",
+    "Code": {
+      "Version": "1.1.0"
+    },
     "Keys": [
       {
         "Type": "long"

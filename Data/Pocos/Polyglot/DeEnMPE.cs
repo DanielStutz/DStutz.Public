@@ -2,7 +2,7 @@
 
 using DStutz.Data.Efcos.Polyglot;
 
-// Version 1.1
+// Version 1.1.0
 namespace DStutz.Data.Pocos.Polyglot
 {
     public class DeEnMPE
@@ -23,16 +23,16 @@ namespace DStutz.Data.Pocos.Polyglot
         }
         #endregion
 
-        #region Methods implementing
+        #region Properties and methods implementing
         /***********************************************************/
-        public IJoiner Joiner()
+        public IJoiner Joiner
         {
-            return DeEnKeyMapper.New.Joiner(this);
+            get { return DeEnMapper.New.Joiner(this); }
         }
 
         public E Map<E>() where E : IDeEnKey, new()
         {
-            return DeEnKeyMapper.New.Map<E>(this);
+            return DeEnMapper.New.Map<E>(this);
         }
         #endregion
     }

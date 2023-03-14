@@ -4,13 +4,13 @@ using DStutz.Data.Efcos.Accounting;
 using DStutz.Data.Pocos.Contacts;
 using DStutz.Data.Pocos.Logistics;
 
-// Version 1.1
+// Version 1.1.0
 namespace DStutz.Data.Pocos.Accounting
 {
     public interface IInvestment
+        : IOrdered
     {
         public int Pk1 { get; set; } // Account number
-        public int OrderBy { get; set; }
         public DateTime Date1 { get; set; } // First payment
         public DateTime? Date2 { get; set; } // Last payment
         public string CreditorName { get; set; }
@@ -54,11 +54,11 @@ namespace DStutz.Data.Pocos.Accounting
         public ContactMPE? DebitorContact { get; set; }
         #endregion
 
-        #region Methods implementing
+        #region Properties and methods implementing
         /***********************************************************/
-        public IJoiner Joiner()
+        public IJoiner Joiner
         {
-            return InvestmentMapper.New.Joiner(this);
+            get { return InvestmentMapper.New.Joiner(this); }
         }
 
         public E Map<E>() where E : IInvestment, new()

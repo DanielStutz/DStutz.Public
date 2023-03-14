@@ -75,7 +75,7 @@ namespace DStutz.Collections.Generic.Collectors
         {
             foreach (var members in Dictionary.Values)
                 foreach (var member in members)
-                    member.Joiner().WriteRow();
+                    member.Joiner.WriteRow();
         }
         #endregion
     }

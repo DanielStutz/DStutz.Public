@@ -6,7 +6,7 @@ using DStutz.Data.Efcos.Transactions;
 
 using System.Text.Json.Serialization;
 
-// Version 1.1
+// Version 1.1.0
 namespace DStutz.Data.Pocos.Transactions
 {
     public interface IPayment
@@ -61,11 +61,11 @@ namespace DStutz.Data.Pocos.Transactions
         }
         #endregion
 
-        #region Methods implementing
+        #region Properties and methods implementing
         /***********************************************************/
-        public IJoiner Joiner()
+        public IJoiner Joiner
         {
-            return PaymentMapper.New.Joiner(this);
+            get { return PaymentMapper.New.Joiner(this); }
         }
 
         public E Map<E>() where E : IPayment, new()

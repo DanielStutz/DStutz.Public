@@ -3,7 +3,7 @@
 using DStutz.Data.Efcos.People;
 using DStutz.Data.Pocos.Addresses;
 
-// Version 1.1
+// Version 1.1.0
 namespace DStutz.Data.Pocos.People
 {
     public interface IPerson
@@ -95,11 +95,11 @@ namespace DStutz.Data.Pocos.People
         }
         #endregion
 
-        #region Methods implementing
+        #region Properties and methods implementing
         /***********************************************************/
-        public IJoiner Joiner()
+        public IJoiner Joiner
         {
-            return PersonMapper.New.Joiner(this);
+            get { return PersonMapper.New.Joiner(this); }
         }
 
         public E Map<E>() where E : IPerson, new()

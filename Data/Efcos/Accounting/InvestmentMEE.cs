@@ -1,13 +1,13 @@
 ﻿using DStutz.System.Joiners;
 
 using DStutz.Data.Efcos.Contacts;
+using DStutz.Data.Efcos.Logistics;
 using DStutz.Data.Pocos.Accounting;
 
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using DStutz.Data.Efcos.Logistics;
 
-// Version 1.1
+// Version 1.1.0
 namespace DStutz.Data.Efcos.Accounting
 {
     [Table("investment")]
@@ -62,11 +62,11 @@ namespace DStutz.Data.Efcos.Accounting
         public ContactMEE? DebitorContact { get; set; }
         #endregion
 
-        #region Methods implementing
+        #region Properties and methods implementing
         /***********************************************************/
-        public IJoiner Joiner()
+        public IJoiner Joiner
         {
-            return InvestmentMapper.New.Joiner(this);
+            get { return InvestmentMapper.New.Joiner(this); }
         }
 
         public InvestmentMPE Map()

@@ -1,12 +1,9 @@
-using MailKit.Search;
-
 namespace DStutz.Coder.Entities.Data
 {
     public class DataEntityBasic : DataEntity
     {
         #region Properties
         /***********************************************************/
-        public bool Abstract { get; }
         public bool IsOrderBy { get; }
         public string TableAnnotation { get; }
         #endregion
@@ -18,8 +15,7 @@ namespace DStutz.Coder.Entities.Data
             : base(entity,
                   "MEE", "MPE") // See class DataType for endings
         {
-            Abstract = entity.Abstract;
-            IsOrderBy = entity.HasKeyOrderBy;
+            IsOrderBy = entity.HasOrderByKey;
             TableAnnotation = entity.TableAnnotation;
 
             int i = 1;

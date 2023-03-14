@@ -3,7 +3,7 @@
     "Namespace": "DStutz.Data.#.Accounting",
     "Name": "Account",
     "Code": {
-      "Version": "1.1.1"
+      "Version": "1.1.0"
     },
     "Keys": [
       {
@@ -46,7 +46,7 @@
     "Namespace": "DStutz.Data.#.Accounting",
     "Name": "AccountBalances",
     "Code": {
-      "Version": "1.1.1"
+      "Version": "1.1.0"
     },
     "Keys": [
       {
@@ -88,7 +88,7 @@
     "Namespace": "DStutz.Data.#.Accounting",
     "Name": "AccountExtended",
     "Code": {
-      "Version": "1.1.1"
+      "Version": "1.1.0"
     },
     "Keys": [
       {
@@ -132,7 +132,7 @@
     "Namespace": "DStutz.Data.#.Accounting",
     "Name": "AccountGroup",
     "Code": {
-      "Version": "1.1.1"
+      "Version": "1.1.0"
     },
     "Keys": [
       {

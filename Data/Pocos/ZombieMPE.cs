@@ -3,7 +3,7 @@
 using DStutz.Data.Efcos;
 using DStutz.Data.Pocos.Polyglot;
 
-// Version 1.1
+// Version 1.1.0
 namespace DStutz.Data.Pocos
 {
     public interface IZombie
@@ -30,11 +30,11 @@ namespace DStutz.Data.Pocos
         public DeEnMPO Polyglot { get; set; }
         #endregion
 
-        #region Methods implementing
+        #region Properties and methods implementing
         /***********************************************************/
-        public IJoiner Joiner()
+        public IJoiner Joiner
         {
-            return ZombieMapper.New.Joiner(this, Polyglot);
+            get { return ZombieMapper.New.Joiner(this, Polyglot); }
         }
 
         public E Map<E>() where E : IZombie, new()

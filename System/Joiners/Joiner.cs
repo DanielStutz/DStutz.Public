@@ -52,16 +52,16 @@ namespace DStutz.System.Joiners
         {
             foreach (var joinable in joinables)
                 if (joinable != null)
-                    Add('L', joinable.Joiner().Row());
+                    Add('L', joinable.Joiner.Row);
 
             return this;
         }
 
         private void Add(
             char align,
-            string cell)
+            string content)
         {
-            Cells.Add((align, cell.Length, cell));
+            Cells.Add((align, content.Length, content));
         }
         #endregion
 
@@ -81,11 +81,11 @@ namespace DStutz.System.Joiners
         public IJoiner Add(
             char align,
             int width,
-            params object?[] cells)
+            params object?[] contents)
         {
-            foreach (var cell in cells)
-                if (cell != null)
-                    Add(align, width, cell);
+            foreach (var content in contents)
+                if (content != null)
+                    Add(align, width, content);
 
             return this;
         }
@@ -93,15 +93,15 @@ namespace DStutz.System.Joiners
         private void Add(
             char align,
             int width,
-            object cell)
+            object content)
         {
-            Cells.Add((align, width, cell));
+            Cells.Add((align, width, content));
         }
         #endregion
 
         #region Methods joining table row
         /***********************************************************/
-        public string Join(
+        private string Join(
             string separator)
         {
             var sb = new StringBuilder();
@@ -126,35 +126,44 @@ namespace DStutz.System.Joiners
         }
         #endregion
 
-        #region Methods joining
+        #region Properties joining
         /***********************************************************/
-        public string Col()
+        public string Col
         {
-            return Join("\n");
+            get
+            {
+                return Join("\n");
+            }
         }
 
-        public string Row()
+        public string Row
         {
-            return Join(Separator);
+            get
+            {
+                return Join(Separator);
+            }
         }
 
-        public string RowShort()
+        public string RowShort
         {
-            var row = Join(", ");
+            get
+            {
+                var row = Join(", ");
 
-            // Some cells might contain other joiners
-            row = row.Replace(" | ", ", ");
+                // Some cells might contain other joiners
+                row = row.Replace(" | ", ", ");
 
-            // Remove multiple whitespaces by one
-            row = Regex.Replace(row, @"\s+", " ");
+                // Remove multiple whitespaces by one
+                row = Regex.Replace(row, @"\s+", " ");
 
-            // Remove whitespaces before comma
-            row = row.Replace(" ,", ",");
+                // Remove whitespaces before comma
+                row = row.Replace(" ,", ",");
 
-            // Indicate empty cells
-            row = row.Replace(",,", ", ?,");
+                // Indicate empty cells
+                row = row.Replace(",,", ", ?,");
 
-            return row;
+                return row;
+            }
         }
         #endregion
 
@@ -162,17 +171,17 @@ namespace DStutz.System.Joiners
         /***********************************************************/
         public void WriteCol()
         {
-            Console.WriteLine(Col());
+            Console.WriteLine(Col);
         }
 
         public void WriteRow()
         {
-            Console.WriteLine(Row());
+            Console.WriteLine(Row);
         }
 
         public void WriteRowShort()
         {
-            Console.WriteLine(RowShort());
+            Console.WriteLine(RowShort);
         }
         #endregion
     }

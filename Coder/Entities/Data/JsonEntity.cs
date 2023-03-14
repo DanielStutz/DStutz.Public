@@ -4,12 +4,22 @@ namespace DStutz.Coder.Entities.Data
 {
     public class JsonEntity
     {
+        #region TODO Remove this region (old properties)
+        /***********************************************************/
+        public string? Version { get; set; }
+        public string? Warning { get; set; }
+        public string? Comment { get; set; }
+        public List<string>? Remarks { get; set; }
+        public bool AsymmetricCode { get; set; }
+        public bool OrderBy { get; set; }
+        #endregion
+
         #region Used by all entities
         /***********************************************************/
         public CodeInfoEntity Code { get; set; }
         public string Namespace { get; set; }
         public string Name { get; set; }
-        public List<JsonProperty> Properties { get; set; }
+        public List<JsonProperty>? Properties { get; set; }
         #endregion
 
         #region Used by owned entities only
@@ -31,7 +41,7 @@ namespace DStutz.Coder.Entities.Data
 
         #region Additional properties
         /***********************************************************/
-        public bool HasKeyOrderBy
+        public bool HasOrderByKey
         {
             get
             {
@@ -53,6 +63,51 @@ namespace DStutz.Coder.Entities.Data
 
                 return $"[Table(\"{Name.TableName()}\")]";
             }
+        }
+        #endregion
+
+        #region Methods importing data
+        /***********************************************************/
+        public void Import(
+            JsonEntity other)
+        {
+            Keys = Prepend(Keys, other.Keys);
+            Properties = Prepend(Properties, other.Properties);
+            OwnedProperties = Prepend(OwnedProperties, other.OwnedProperties);
+            Relations1to1 = Prepend(Relations1to1, other.Relations1to1);
+            RelationsMto1 = Prepend(RelationsMto1, other.RelationsMto1);
+            Relations1toN = Prepend(Relations1toN, other.Relations1toN);
+            RelationsMtoN = Prepend(RelationsMtoN, other.RelationsMtoN);
+        }
+
+        public List<T>? Append<T>(
+            List<T>? listOfThis,
+            List<T>? listOfOther)
+        {
+            if (listOfThis == null)
+                return listOfOther;
+
+            if (listOfOther != null)
+                foreach (var item in listOfOther)
+                    listOfThis.Add(item);
+
+            return listOfThis;
+        }
+
+        public List<T>? Prepend<T>(
+            List<T>? listOfThis,
+            List<T>? listOfOther)
+        {
+            if (listOfThis == null)
+                return listOfOther;
+
+            int index = 0;
+
+            if (listOfOther != null)
+                foreach (var item in listOfOther)
+                    listOfThis.Insert(index++, item);
+
+            return listOfThis;
         }
         #endregion
     }

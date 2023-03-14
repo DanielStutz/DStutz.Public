@@ -3,7 +3,7 @@
     "Namespace": "DStutz.Data.#.Accounting",
     "Name": "BookingEntry",
     "Code": {
-      "Version": "1.1.1",
+      "Version": "1.1.0",
       "Asymmetric": true,
       "Remarks": [
         "Poco implements IAccountable",

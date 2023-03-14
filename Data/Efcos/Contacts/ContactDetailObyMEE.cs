@@ -5,7 +5,7 @@ using DStutz.Data.Pocos.Contacts;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-// Version 1.1
+// Version 1.1.0
 namespace DStutz.Data.Efcos.Contacts
 {
     public abstract class ContactDetailObyMEE
@@ -26,11 +26,11 @@ namespace DStutz.Data.Efcos.Contacts
         public string Value { get; set; }
         #endregion
 
-        #region Methods implementing
+        #region Properties and methods implementing
         /***********************************************************/
-        public IJoiner Joiner()
+        public IJoiner Joiner
         {
-            return ContactDetailObyMapper.New.Joiner(this);
+            get { return ContactDetailObyMapper.New.Joiner(this); }
         }
 
         public ContactDetailObyMPE Map()

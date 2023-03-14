@@ -55,15 +55,18 @@ namespace DStutz.Coder.Entities.Data
         }
         #endregion
 
-        #region Methods implementing
+        #region Properties implementing
         /***********************************************************/
-        public virtual IJoiner Joiner()
+        public virtual IJoiner Joiner
         {
-            return new Joiner(
-                (30, N),
-                (33, P),
-                (33, E)
-            );
+            get
+            {
+                return new Joiner(
+                    (30, N),
+                    (33, P),
+                    (33, E)
+                );
+            }
         }
         #endregion
 

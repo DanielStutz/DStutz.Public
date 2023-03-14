@@ -8,7 +8,7 @@ namespace DStutz.Coder.Entities
         /***********************************************************/
         private static readonly string Template = @"
 public interface TYPE_INTERFACE
-    ORDERED
+    IMPLEMENTING
 {
 CURSOR_PROPERTIES
 }";
@@ -22,9 +22,9 @@ CURSOR_PROPERTIES
             : base(Template)
         {
             if (isOrderBy)
-                Replace("ORDERED", ": IOrdered");
+                Replace("IMPLEMENTING", ": IOrdered");
             else
-                Replace("ORDERED", "");
+                Replace("IMPLEMENTING", "");
 
             // Simple properties
             SetCursor("PROPERTIES", 4)

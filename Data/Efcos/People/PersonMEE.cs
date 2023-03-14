@@ -5,7 +5,7 @@ using DStutz.Data.Pocos.People;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-// Version 1.1
+// Version 1.1.0
 namespace DStutz.Data.Efcos.People
 {
     [Table("person")]
@@ -27,11 +27,11 @@ namespace DStutz.Data.Efcos.People
         public string Surname { get; set; }
         #endregion
 
-        #region Methods implementing
+        #region Properties and methods implementing
         /***********************************************************/
-        public IJoiner Joiner()
+        public IJoiner Joiner
         {
-            return PersonMapper.New.Joiner(this);
+            get { return PersonMapper.New.Joiner(this); }
         }
 
         public PersonMPE Map()

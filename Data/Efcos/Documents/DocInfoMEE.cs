@@ -5,7 +5,7 @@ using DStutz.Data.Pocos.Documents;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-// Version 1.1
+// Version 1.1.0
 namespace DStutz.Data.Efcos.Documents
 {
     [Table("doc_info")]
@@ -45,11 +45,11 @@ namespace DStutz.Data.Efcos.Documents
         public string DataFile { get; set; }
         #endregion
 
-        #region Methods implementing
+        #region Properties and methods implementing
         /***********************************************************/
-        public IJoiner Joiner()
+        public IJoiner Joiner
         {
-            return DocInfoMapper.New.Joiner(this);
+            get { return DocInfoMapper.New.Joiner(this); }
         }
 
         public DocInfoMPE Map()

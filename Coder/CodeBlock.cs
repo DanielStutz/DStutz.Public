@@ -275,6 +275,12 @@ namespace DStutz.Coder
                     List[i].Trim().Equals(""))
                     List.RemoveAt(i);
 
+            // Delete empty lines before '{'
+            for (int i = List.Count - 1; i > 0; i--)
+                if (List[i - 1].Trim().Equals("") &&
+                    List[i].Trim().Equals("{"))
+                    List.RemoveAt(i - 1);
+
             // Delete empty lines after '{'
             for (int i = List.Count - 1; i > 0; i--)
                 if (List[i - 1].Trim().Equals("{") &&

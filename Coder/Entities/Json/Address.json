@@ -1,13 +1,15 @@
 {
   "Address": {
-    "Version": "1.1",
-    "AsymmetricCode": true,
-    "Remarks": [
-      "Poco implements IEquatable",
-      "Efco implements IEquatableLambda"
-    ],
     "Namespace": "DStutz.Data.#.Logistics",
     "Name": "Address",
+    "Code": {
+      "Version": "1.1.0",
+      "Asymmetric": true,
+      "Remarks": [
+        "Poco implements IEquatable",
+        "Efco implements IEquatableLambda"
+      ]
+    },
     "Keys": [
       {
         "Type": "long"
@@ -28,12 +30,6 @@
       {
         "Name": "Additional",
         "Type": "string?",
-        "Width": 20
-      },
-      {
-        "Name": "AdditionalTwo",
-        "Type": "string?",
-        "Column": "additional_2",
         "Width": 20
       },
       {

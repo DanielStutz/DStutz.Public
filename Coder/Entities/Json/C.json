@@ -1,8 +1,10 @@
 {
   "Comment": {
-    "Version": "1.1",
     "Namespace": "DStutz.Data.#.Comments",
     "Name": "Comment",
+    "Code": {
+      "Version": "1.1.0"
+    },
     "Abstract": true,
     "Keys": [
       {
@@ -18,9 +20,11 @@
     ]
   },
   "CommentOby": {
-    "Version": "1.1",
     "Namespace": "DStutz.Data.#.Comments",
     "Name": "CommentOby",
+    "Code": {
+      "Version": "1.1.0"
+    },
     "Abstract": true,
     "Keys": [
       {
@@ -40,9 +44,11 @@
     ]
   },
   "ContactDetailOby": {
-    "Version": "1.1",
     "Namespace": "DStutz.Data.#.Contacts",
     "Name": "ContactDetailOby",
+    "Code": {
+      "Version": "1.1.0"
+    },
     "Abstract": true,
     "Keys": [
       {

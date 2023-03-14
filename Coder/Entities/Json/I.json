@@ -1,10 +1,14 @@
 {
   "Investment": {
-    "Version": "1.1",
-    "AsymmetricCode": true,
-    "Warning": "Joiner handles dates, Mapper assigns addresses",
     "Namespace": "DStutz.Data.#.Accounting",
     "Name": "Investment",
+    "Code": {
+      "Version": "1.1.0",
+      "Asymmetric": true,
+      "Remarks": [
+        "Joiner handles dates"
+      ]
+    },
     "Keys": [
       {
         "Type": "int",

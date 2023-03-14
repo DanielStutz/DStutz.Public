@@ -49,13 +49,16 @@ namespace DStutz.Data.Pocos.Companies
 
         #region Miscellaneous
         /***********************************************************/
-        public IJoiner Joiner()
+        public IJoiner Joiner
         {
-            return new Joiner(
-                (3, UniqueId),
-                (30, LegalName),
-                (30, TradeName)
-            );
+            get
+            {
+                return new Joiner(
+                    (3, UniqueId),
+                    (30, LegalName),
+                    (30, TradeName)
+                );
+            }
         }
         #endregion
     }

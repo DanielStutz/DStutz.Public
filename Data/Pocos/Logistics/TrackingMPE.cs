@@ -2,7 +2,7 @@
 
 using DStutz.Data.Efcos.Logistics;
 
-// Version 1.1
+// Version 1.1.0
 namespace DStutz.Data.Pocos.Logistics
 {
     public interface ITracking
@@ -45,11 +45,11 @@ namespace DStutz.Data.Pocos.Logistics
         }
         #endregion
 
-        #region Methods implementing
+        #region Properties and methods implementing
         /***********************************************************/
-        public IJoiner Joiner()
+        public IJoiner Joiner
         {
-            return TrackingMapper.New.Joiner(this);
+            get { return TrackingMapper.New.Joiner(this); }
         }
 
         public E Map<E>() where E : ITracking, new()

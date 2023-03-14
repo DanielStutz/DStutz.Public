@@ -25,17 +25,20 @@ namespace DStutz.Coder.Entities.Data
         }
         #endregion
 
-        #region Methods implementing
+        #region Properties implementing
         /***********************************************************/
-        public override IJoiner Joiner()
+        public override IJoiner Joiner
         {
-            return new Joiner(
-                (30, N),
-                (33, P),
-                (33, E),
-                (31, I),
-                (36, M)
-            );
+            get
+            {
+                return new Joiner(
+                    (30, N),
+                    (33, P),
+                    (33, E),
+                    (31, I),
+                    (36, M)
+                );
+            }
         }
         #endregion
     }

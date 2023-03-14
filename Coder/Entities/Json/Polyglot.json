@@ -1,10 +1,14 @@
 {
   "DeEn": {
-    "Version": "1.1",
-    "AsymmetricCode": true,
-    "Warning": "Poco implements IPolyglot and IDeEnKey",
     "Namespace": "DStutz.Data.#.Polyglot",
     "Name": "DeEn",
+    "Code": {
+      "Version": "1.1.0",
+      "Asymmetric": true,
+      "Remarks": [
+        "Poco implements IPolyglot and IDeEnKey"
+      ]
+    },
     "Keys": [
       {
         "Type": "long"
@@ -24,11 +28,15 @@
     ]
   },
   "DeEnFr": {
-    "Version": "1.1",
-    "AsymmetricCode": true,
-    "Warning": "Poco implements IPolyglot and IDeEnFrKey",
     "Namespace": "DStutz.Data.#.Polyglot",
     "Name": "DeEnFr",
+    "Code": {
+      "Version": "1.1.0",
+      "Asymmetric": true,
+      "Remarks": [
+        "Poco implements IPolyglot and IDeEnFrKey"
+      ]
+    },
     "Keys": [
       {
         "Type": "long"

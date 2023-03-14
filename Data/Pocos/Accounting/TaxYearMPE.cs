@@ -2,11 +2,10 @@ using DStutz.System.Joiners;
 
 using DStutz.Data.Efcos.Accounting;
 
-// Version 1.1
+// Version 1.1.0
 namespace DStutz.Data.Pocos.Accounting
 {
     public interface ITaxYear
-
     {
         public int Pk1 { get; set; } // Year
         public string Date0101Short { get; set; } // Format MM-dd
@@ -38,11 +37,11 @@ namespace DStutz.Data.Pocos.Accounting
         public string Date1231 { get { return $"{Pk1}-{Date1231Short}"; } }
         #endregion
 
-        #region Methods implementing
+        #region Properties and methods implementing
         /***********************************************************/
-        public IJoiner Joiner()
+        public IJoiner Joiner
         {
-            return TaxYearMapper.New.Joiner(this);
+            get { return TaxYearMapper.New.Joiner(this); }
         }
 
         public E Map<E>() where E : ITaxYear, new()

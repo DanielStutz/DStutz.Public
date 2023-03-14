@@ -2,11 +2,10 @@ using DStutz.System.Joiners;
 
 using DStutz.Data.Efcos.Accounting;
 
-// Version 1.1
+// Version 1.1.0
 namespace DStutz.Data.Pocos.Accounting
 {
     public interface IStockItem
-
     {
         public long Pk1 { get; set; }
         public string SKU { get; set; }
@@ -39,11 +38,11 @@ namespace DStutz.Data.Pocos.Accounting
         public long? SaleOrderPk { get; set; }
         #endregion
 
-        #region Methods implementing
+        #region Properties and methods implementing
         /***********************************************************/
-        public IJoiner Joiner()
+        public IJoiner Joiner
         {
-            return StockItemMapper.New.Joiner(this);
+            get { return StockItemMapper.New.Joiner(this); }
         }
 
         public E Map<E>() where E : IStockItem, new()

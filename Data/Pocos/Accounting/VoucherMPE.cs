@@ -2,11 +2,10 @@
 
 using DStutz.Data.Efcos.Accounting;
 
-// Version 1.1
+// Version 1.1.0
 namespace DStutz.Data.Pocos.Accounting
 {
     public interface IVoucher
-
     {
         public long Pk1 { get; set; }
         public string Currency { get; set; }
@@ -25,11 +24,11 @@ namespace DStutz.Data.Pocos.Accounting
         public string? Remark { get; set; }
         #endregion
 
-        #region Methods implementing
+        #region Properties and methods implementing
         /***********************************************************/
-        public IJoiner Joiner()
+        public IJoiner Joiner
         {
-            return VoucherMapper.New.Joiner(this);
+            get { return VoucherMapper.New.Joiner(this); }
         }
 
         public E Map<E>() where E : IVoucher, new()

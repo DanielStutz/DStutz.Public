@@ -9,6 +9,24 @@
     <Import_RootNamespace>DStutz</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Apps\AppConfig.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Apps\AppContext.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\ServiceConfigs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\Base\Configs\ServiceConfig.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\Base\Configs\ServiceConfigAPI.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\Base\Configs\ServiceConfigDictionary.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\Base\Configs\ServiceConfigEmails.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\Base\Configs\ServiceConfigFiles.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\Base\Configs\ServiceConfigList.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\Base\Configs\ServiceConfigMock.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\Base\Configs\ServiceConfigSQL.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\Base\Configs\ServiceConfigSQLMySql.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\Base\Configs\ServiceConfigSQLSqlite.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\Base\Options\ServiceOptionList.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\Base\Options\ServiceOptionListInt.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\Base\Options\ServiceOptionListString.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\Client.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\ServiceContext.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Coder\CodeInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Coder\CodeHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Coder\CodeBlock.cs" />
@@ -177,6 +195,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)System\Extensions\StringConcatenate.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Extensions\StringLength.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Extensions\StringModifier.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System\IO\Finder.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Joiners\IJoinable.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Joiners\IJoiner.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Joiners\Joiner.cs" />

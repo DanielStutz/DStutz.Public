@@ -7,7 +7,7 @@ using DStutz.Data.Pocos.Contacts;
 
 using System.Text.Json.Serialization;
 
-// Version 1.1
+// Version 1.1.0
 namespace DStutz.Data.Pocos.Logistics
 {
     public interface IShipment
@@ -78,27 +78,27 @@ namespace DStutz.Data.Pocos.Logistics
                 }
             }
 
-            Joiner().WriteRow();
+            Joiner.WriteRow();
 
             if (Tracking != null)
-                Tracking.Joiner().WriteRow();
+                Tracking.Joiner.WriteRow();
 
             if (Addressee != null)
-                Addressee.Joiner().WriteRow();
+                Addressee.Joiner.WriteRow();
 
             if (Address != null)
-                Address.Joiner().WriteRow();
+                Address.Joiner.WriteRow();
 
             if (Contact != null)
-                Contact.Joiner().WriteRow();
+                Contact.Joiner.WriteRow();
         }
         #endregion
 
-        #region Methods implementing
+        #region Properties and methods implementing
         /***********************************************************/
-        public IJoiner Joiner()
+        public IJoiner Joiner
         {
-            return ShipmentMapper.New.Joiner(this);
+            get { return ShipmentMapper.New.Joiner(this); }
         }
 
         public E Map<E>() where E : IShipment, new()

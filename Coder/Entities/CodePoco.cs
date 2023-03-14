@@ -7,18 +7,18 @@ namespace DStutz.Coder.Entities
         #region Template
         /***********************************************************/
         private static readonly string Template = @"
-public class TYPE_POCO
+public ABSTRACT class TYPE_POCO
     : IPoco<TYPE_INTERFACE>, TYPE_INTERFACE
 {
 CURSOR_PROPERTIES
 CURSOR_RELATIONS
 CURSOR_ASYMMETRIC_CODE
 
-    #region Methods implementing
+    #region Properties and methods implementing
     /***********************************************************/
-    public IJoiner Joiner()
+    public IJoiner Joiner
     {
-        return TYPE_MAPPER.New.Joiner(JOIN);
+        get { return TYPE_MAPPER.New.Joiner(JOIN); }
     }
 
     public E Map<E>() where E : TYPE_INTERFACE, new()

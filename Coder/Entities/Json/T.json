@@ -1,10 +1,15 @@
 {
   "TaxYear": {
-    "Version": "1.1",
-    "AsymmetricCode": true,
-    "Warning": "Some dates have the format MM-dd",
     "Namespace": "DStutz.Data.#.Accounting",
     "Name": "TaxYear",
+    "Code": {
+      "Version": "1.1.0",
+      "Asymmetric": true,
+      "Remarks": [
+        "Some dates have the format MM-dd",
+        "Poco has additional properties"
+      ]
+    },
     "Keys": [
       {
         "Type": "int",
@@ -57,14 +62,16 @@
     ]
   },
   "Tracking": {
-    "Version": "1.1",
-    "AsymmetricCode": true,
-    "Remarks": [
-      "Poco has additional methods",
-      "Joiner uses Carrier.Abbr"
-    ],
     "Namespace": "DStutz.Data.#.Logistics",
     "Name": "Tracking",
+    "Code": {
+      "Version": "1.1.0",
+      "Asymmetric": true,
+      "Remarks": [
+        "Poco has additional methods",
+        "Joiner uses Carrier.Abbr"
+      ]
+    },
     "Keys": [
       {
         "Type": "long"

@@ -9,5 +9,4 @@ namespace DStutz.Coder.Entities.Data
         public string JunctionType { get; set; }
         #endregion
     }
-
 }

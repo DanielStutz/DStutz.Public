@@ -6,7 +6,7 @@ using DStutz.Data.Pocos.Logistics;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-// Version 1.1
+// Version 1.1.0
 namespace DStutz.Data.Efcos.Logistics
 {
     [Table("shipment")]
@@ -64,11 +64,11 @@ namespace DStutz.Data.Efcos.Logistics
         }
         #endregion
 
-        #region Methods implementing
+        #region Properties and methods implementing
         /***********************************************************/
-        public IJoiner Joiner()
+        public IJoiner Joiner
         {
-            return ShipmentMapper.New.Joiner(this);
+            get { return ShipmentMapper.New.Joiner(this); }
         }
 
         public ShipmentMPE Map()
