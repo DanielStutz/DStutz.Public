@@ -1,6 +1,4 @@
-﻿using DStutz.System.Joiners;
-
-using DStutz.Data.Pocos.Contacts;
+﻿using DStutz.Data.Pocos.Contacts;
 
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;

@@ -1,6 +1,4 @@
-﻿using DStutz.System.Joiners;
-
-using DStutz.Data.Efcos.Contacts;
+﻿using DStutz.Data.Efcos.Contacts;
 
 // Version 1.1.0
 namespace DStutz.Data.Pocos.Contacts

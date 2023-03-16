@@ -1,6 +1,4 @@
-﻿using DStutz.System.Joiners;
-
-using DStutz.Data.Pocos.Polyglot;
+﻿using DStutz.Data.Pocos.Polyglot;
 
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;

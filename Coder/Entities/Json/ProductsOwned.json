@@ -1,0 +1,43 @@
+{
+  "ProductCategoryData": {
+    "Namespace": "Protechnic.Products.Data.#",
+    "Name": "ProductCategoryData",
+    "Code": {
+      "Version": "1.1.0",
+      "Asymmetric": true,
+      "Remarks": [
+        "Poco and Efco used by TreeNode",
+        "Interface implements IDeEnFr",
+        "Poco implements IPolyglot"
+      ]
+    },
+    "Owned": true,
+    "Properties": [
+      {
+        "Name": "DE",
+        "Type": "string?",
+        "Width": 25
+      },
+      {
+        "Name": "EN",
+        "Type": "string?",
+        "Width": 25
+      },
+      {
+        "Name": "FR",
+        "Type": "string?",
+        "Width": 25
+      },
+      {
+        "Name": "GoogleId",
+        "Type": "int",
+        "Width": 4
+      },
+      {
+        "Name": "Remark",
+        "Type": "string?",
+        "Width": 20
+      }
+    ]
+  }
+}

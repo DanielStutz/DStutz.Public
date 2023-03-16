@@ -1,6 +1,4 @@
-﻿using DStutz.System.Joiners;
-
-using DStutz.Data.Efcos.Documents;
+﻿using DStutz.Data.Efcos.Documents;
 
 // Version 1.1.0
 namespace DStutz.Data.Pocos.Documents

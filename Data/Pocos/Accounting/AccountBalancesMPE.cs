@@ -1,6 +1,4 @@
-﻿using DStutz.System.Joiners;
-
-using DStutz.Data.Efcos.Accounting;
+﻿using DStutz.Data.Efcos.Accounting;
 
 // Version 1.1.0
 namespace DStutz.Data.Pocos.Accounting

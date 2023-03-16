@@ -1,6 +1,4 @@
-﻿using DStutz.System.Joiners;
-
-using DStutz.Data.Efcos.Logistics;
+﻿using DStutz.Data.Efcos.Logistics;
 
 // Version 1.1.0
 namespace DStutz.Data.Pocos.Logistics

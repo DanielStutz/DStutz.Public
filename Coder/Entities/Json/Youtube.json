@@ -1,0 +1,313 @@
+{
+  "Channel": {
+    "Namespace": "DStutz.Data.#.Youtube",
+    "Name": "Channel",
+    "Code": {
+      "Version": "1.1.0"
+    },
+    "Keys": [
+      {
+        "Type": "long"
+      }
+    ],
+    "Properties": [
+      {
+        "Name": "Abbr",
+        "Type": "string",
+        "Width": 3
+      },
+      {
+        "Name": "Name",
+        "Type": "string",
+        "Width": 40
+      },
+      {
+        "Name": "Website",
+        "Type": "string",
+        "Width": 80
+      },
+      {
+        "Name": "Person",
+        "Type": "string?",
+        "Width": 40
+      },
+      {
+        "Name": "Remark",
+        "Type": "string?",
+        "Width": 40
+      },
+      {
+        "Name": "Identifier",
+        "Type": "string",
+        "Width": 40
+      }
+    ]
+  },
+  "Comment": {
+    "Namespace": "DStutz.Data.#.Youtube",
+    "Name": "Comment",
+    "Code": {
+      "Version": "1.1.0"
+    },
+    "Keys": [
+      {
+        "Type": "long"
+      },
+      {
+        "Type": "OrderBy",
+        "Width": 3
+      }
+    ],
+    "Properties": [
+      {
+        "Name": "DE",
+        "Type": "string?",
+        "Width": 20
+      },
+      {
+        "Name": "EN",
+        "Type": "string?",
+        "Width": 20
+      },
+      {
+        "Name": "FR",
+        "Type": "string?",
+        "Width": 20
+      }
+    ]
+  },
+  "Playlist": {
+    "Namespace": "DStutz.Data.#.Youtube",
+    "Name": "Playlist",
+    "Code": {
+      "Version": "1.1.0"
+    },
+    "Keys": [
+      {
+        "Type": "long"
+      }
+    ],
+    "Properties": [
+      {
+        "Name": "Title",
+        "Type": "string",
+        "Width": 60
+      },
+      {
+        "Name": "Remark",
+        "Type": "string?",
+        "Width": 40
+      },
+      {
+        "Name": "Identifier",
+        "Type": "string",
+        "Width": 34
+      }
+    ],
+    "RelationsMto1": [
+      {
+        "Name": "Channel",
+        "Type": "ChannelM_E"
+      }
+    ]
+  },
+  "Producer": {
+    "Namespace": "DStutz.Data.#.Youtube",
+    "Name": "Producer",
+    "Code": {
+      "Version": "1.1.0"
+    },
+    "Keys": [
+      {
+        "Type": "long"
+      }
+    ],
+    "Properties": [
+      {
+        "Name": "Abbr",
+        "Type": "string",
+        "Width": 3
+      },
+      {
+        "Name": "Name",
+        "Type": "string",
+        "Width": 40
+      },
+      {
+        "Name": "Website",
+        "Type": "string",
+        "Width": 80
+      },
+      {
+        "Name": "Country",
+        "Type": "string",
+        "Width": 2
+      }
+    ]
+  },
+  "Product": {
+    "Namespace": "DStutz.Data.#.Youtube",
+    "Name": "Product",
+    "Code": {
+      "Version": "1.1.0"
+    },
+    "Keys": [
+      {
+        "Type": "long"
+      }
+    ],
+    "Properties": [
+      {
+        "Name": "Type",
+        "Type": "string",
+        "Width": 40
+      },
+      {
+        "Name": "Name",
+        "Type": "string",
+        "Width": 80
+      }
+    ],
+    "RelationsMto1": [
+      {
+        "Name": "Producer",
+        "Type": "ProducerM_E?"
+      }
+    ]
+  },
+  "Tag": {
+    "Namespace": "DStutz.Data.#.Youtube",
+    "Name": "Tag",
+    "Code": {
+      "Version": "1.1.0"
+    },
+    "Keys": [
+      {
+        "Type": "long"
+      }
+    ],
+    "Properties": [
+      {
+        "Name": "DE",
+        "Type": "string?",
+        "Width": 20
+      },
+      {
+        "Name": "EN",
+        "Type": "string?",
+        "Width": 20
+      },
+      {
+        "Name": "FR",
+        "Type": "string?",
+        "Width": 20
+      }
+    ]
+  },
+  "Video": {
+    "Namespace": "DStutz.Data.#.Youtube",
+    "Name": "Video",
+    "Code": {
+      "Version": "1.1.0"
+    },
+    "Keys": [
+      {
+        "Type": "long"
+      }
+    ],
+    "Properties": [
+      {
+        "Name": "Date",
+        "Type": "string",
+        "Width": 10
+      },
+      {
+        "Name": "Title",
+        "Type": "string",
+        "Width": 60
+      },
+      {
+        "Name": "Remark",
+        "Type": "string?",
+        "Width": 40
+      },
+      {
+        "Name": "Identifier",
+        "Type": "string",
+        "Width": 11
+      }
+    ],
+    "Relations1toN": [
+      {
+        "Name": "Comments",
+        "Type": "CommentM_E"
+      }
+    ],
+    "RelationsMto1": [
+      {
+        "Name": "Channel",
+        "Type": "ChannelM_E?"
+      },
+      {
+        "Name": "Playlist",
+        "Type": "PlaylistM_E?"
+      }
+    ],
+    "RelationsMtoN": [
+      {
+        "Name": "ProductRels",
+        "Type": "ProductM_E",
+        "JunctionType": "Rel_EAny"
+      },
+      {
+        "Name": "TagRels",
+        "Type": "TagM_E",
+        "JunctionType": "Rel_EAny"
+      }
+    ]
+  },
+  "Website": {
+    "Namespace": "DStutz.Data.#.Youtube",
+    "Name": "Website",
+    "Code": {
+      "Version": "1.1.0"
+    },
+    "Keys": [
+      {
+        "Type": "long"
+      }
+    ],
+    "Properties": [
+      {
+        "Name": "Href",
+        "Type": "string",
+        "Width": 80
+      },
+      {
+        "Name": "Lang",
+        "Type": "string",
+        "Width": 2
+      },
+      {
+        "Name": "Title",
+        "Type": "string",
+        "Width": 60
+      },
+      {
+        "Name": "Date",
+        "Type": "string?",
+        "Width": 10
+      },
+      {
+        "Name": "Author",
+        "Type": "string?",
+        "Width": 40
+      },
+      {
+        "Name": "Remark",
+        "Type": "string?",
+        "Width": 40
+      }
+    ]
+  }
+}

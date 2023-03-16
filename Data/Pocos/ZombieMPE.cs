@@ -1,6 +1,4 @@
-﻿using DStutz.System.Joiners;
-
-using DStutz.Data.Efcos;
+﻿using DStutz.Data.Efcos;
 using DStutz.Data.Pocos.Polyglot;
 
 // Version 1.1.0

@@ -1,7 +1,6 @@
 ﻿using DStutz.Data.Pocos.Addresses;
 using DStutz.Data.Pocos.Contacts;
 using DStutz.System.Exceptions;
-using DStutz.System.Joiners;
 
 namespace DStutz.Data.Pocos.Companies
 {

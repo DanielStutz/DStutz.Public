@@ -70,6 +70,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)Collections.Generic\Collectors\MCollection.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Collections.Generic\Collectors\MDictionary.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Collections.Generic\Collectors\MList.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Abc.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\Youtube\CruderVideo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\Youtube\CruderWebsite.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Accounting\AccountBalancesMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Accounting\AccountExtendedMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Accounting\AccountGroupMEE.cs" />
@@ -82,8 +85,14 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Accounting\VoucherMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Comments\CommentMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Comments\CommentObyMEE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\ConfigEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Contacts\ContactDetailObyMEE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Contacts\ContactMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Documents\DocInfoMEE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Images\ImageCategoryMEE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Images\ImageMEE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Images\ImageTagMEE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Images\ImageTextMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Logistics\AddressMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Logistics\ShipmentMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Logistics\TrackingMEE.cs" />
@@ -93,7 +102,22 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Polyglot\DeEnFrMEO.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Polyglot\DeEnMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Polyglot\DeEnMEO.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\RelationsMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Transactions\PaymentMEE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\TreeNodeMEE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Websites\WebdocMEE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Websites\WebdocObyMEE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Websites\WebsiteBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Websites\WebsiteMEE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Youtube\ChannelMEE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Youtube\CommentMEE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Youtube\PlaylistMEE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Youtube\ProducerMEE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Youtube\ProductMEE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Youtube\TagMEE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Youtube\TopicMEE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Youtube\VideoMEE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Youtube\WebsiteMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\ZombieMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\IDated.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\IDeEn.cs" />
@@ -105,6 +129,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\IOrdered.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\IPoco.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\IPolyglot.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\IRelations.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\ITreeNode.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\ITyped.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Mapper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Accounting\AccountBalancesMPE.cs" />
@@ -126,9 +152,20 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Comments\CommentObyMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Companies\Company.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Contacts\ContactDetailObyMPE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Contacts\ContactMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Contacts\ContactType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Documents\DocInfoMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Addresses\AddressDated.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Emails\Email.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Emails\MailClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Emails\MailProvider.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Emails\MailUser.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Images\ImageCategoryPE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Images\ImageMPE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Images\ImageTagMPE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Images\ImageTextMPE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Link.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\LinkWithImage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Logistics\AddressMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Logistics\Carrier.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Addresses\Country.cs" />
@@ -148,11 +185,28 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Polyglot\DeEnFrMPO.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Polyglot\DeEnMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Polyglot\DeEnMPO.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\RelationsMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Transactions\PaymentMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Transactions\PaymentType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Transactions\TransactionStatus.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\TreeNodePE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Websites\WebdocMPE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Websites\WebdocObyMPE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Websites\WebsiteMPE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Youtube\ChannelMPE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Youtube\CommentMPE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Youtube\PlaylistMPE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Youtube\ProducerMPE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Youtube\ProductMPE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Youtube\TagMPE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Youtube\TopicPE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Youtube\VideoMPE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Youtube\WebsiteMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\ZombieMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\PolyglotText.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\SEO.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\TreeNode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Global.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Math\NumberToWord.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Math\Sets\Numbers\NumberSet.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Math\Sets\Numbers\SetEnumerative.cs" />
@@ -227,6 +281,21 @@
     </Content>
     <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\ExamplesEntityBasic.json" />
     <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\I.json" />
+    <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\Images.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\ImagesOwned.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\ModelsOwned.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
     <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\P.json" />
     <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\F.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -235,9 +304,30 @@
     </Content>
     <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\PolyglotOwned.json" />
     <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\Polyglot.json" />
+    <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\ProductsOwned.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
     <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\T.json" />
     <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\S.json" />
+    <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\TreeNode.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
     <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\V.json" />
+    <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\W.json" />
+    <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\Youtube.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\YoutubeOwned.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
     <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\Z.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>

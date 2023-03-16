@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-
 namespace DStutz.Sorters.Generic
 {
     /// <summary>

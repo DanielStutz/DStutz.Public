@@ -1,6 +1,4 @@
-﻿using DStutz.System.Joiners;
-
-namespace DStutz.Sorters.Generic.Tables
+﻿namespace DStutz.Sorters.Generic.Tables
 {
     public class Table<G, M>
         where G : IGroupCell<M>, new()

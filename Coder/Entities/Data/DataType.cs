@@ -37,7 +37,7 @@ namespace DStutz.Coder.Entities.Data
             JsonProperty property)
         {
             var type = property.Type.Replace("?", "");
-            N = type.RemoveEnding("M_E", "M_O", "_E", "_O");
+            N = type.RemoveEnding("M_E", "M_O", "_E", "_O", "_");
             E = type.Replace("_", "E");
             P = type.Replace("_", "P");
             CheckName();

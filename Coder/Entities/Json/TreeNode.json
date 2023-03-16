@@ -1,0 +1,47 @@
+{
+  "TreeNode": {
+    "Namespace": "DStutz.Data.#",
+    "Name": "TreeNode",
+    "Code": {
+      "Version": "1.1.0",
+      "Asymmetric": true,
+      "Remarks": [
+        "Poco has annotations JsonIgnore",
+        "Poco implements ITreeNode<T>",
+        "Efco implements ITreeNode<T>"
+      ]
+    },
+    "Keys": [
+      {
+        "Type": "long"
+      }
+    ],
+    "Properties": [
+      {
+        "Name": "Level",
+        "Type": "int",
+        "Column": "NotMapped",
+        "Width": 3
+      }
+    ],
+    "OwnedProperties": [
+      {
+        "Name": "Data",
+        "Type": "D_"
+      }
+    ],
+    "Relations1toN": [
+      {
+        "Name": "Children",
+        "Type": "N_?",
+        "ListType": "IList"
+      }
+    ],
+    "RelationsMto1": [
+      {
+        "Name": "Parent",
+        "Type": "N_?"
+      }
+    ]
+  }
+}

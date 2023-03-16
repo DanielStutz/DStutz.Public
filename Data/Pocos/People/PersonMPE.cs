@@ -1,6 +1,4 @@
-﻿using DStutz.System.Joiners;
-
-using DStutz.Data.Efcos.People;
+﻿using DStutz.Data.Efcos.People;
 using DStutz.Data.Pocos.Addresses;
 
 // Version 1.1.0

@@ -1,0 +1,54 @@
+{
+  "ModelCategoryData": {
+    "Namespace": "Protechnic.Products.Data.#",
+    "Name": "ModelCategoryData",
+    "Code": {
+      "Version": "1.1.0",
+      "Asymmetric": true,
+      "Remarks": [
+        "Poco and Efco used by TreeNode",
+        "Interface implements IDeEnFr",
+        "Poco implements IPolyglot",
+        "Poco has additional methods"
+      ]
+    },
+    "Owned": true,
+    "Properties": [
+      {
+        "Name": "DE",
+        "Type": "string?",
+        "Width": 20
+      },
+      {
+        "Name": "EN",
+        "Type": "string?",
+        "Width": 20
+      },
+      {
+        "Name": "FR",
+        "Type": "string?",
+        "Width": 20
+      },
+      {
+        "Name": "Abbr",
+        "Type": "string?",
+        "Width": 3
+      },
+      {
+        "Name": "Type",
+        "Type": "string?",
+        "Width": 1
+      },
+      {
+        "Name": "Href",
+        "Type": "string",
+        "Width": 30
+      },
+      {
+        "Name": "Remark",
+        "Type": "string?",
+        "Width": 20
+      }
+    ]
+  }
+}

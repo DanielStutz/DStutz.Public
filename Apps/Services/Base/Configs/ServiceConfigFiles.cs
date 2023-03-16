@@ -1,6 +1,4 @@
-﻿using DStutz.System.Joiners;
-
-namespace DStutz.Apps.Services.Base.Configs
+﻿namespace DStutz.Apps.Services.Base.Configs
 {
     public class ServiceConfigFiles
         : ServiceConfig

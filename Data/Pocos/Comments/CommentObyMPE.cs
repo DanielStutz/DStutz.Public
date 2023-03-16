@@ -1,6 +1,4 @@
-﻿using DStutz.System.Joiners;
-
-using DStutz.Data.Efcos.Comments;
+﻿using DStutz.Data.Efcos.Comments;
 
 // Version 1.1.0
 namespace DStutz.Data.Pocos.Comments

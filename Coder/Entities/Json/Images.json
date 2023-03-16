@@ -1,0 +1,156 @@
+{
+  "Image": {
+    "Namespace": "DStutz.Data.#.Images",
+    "Name": "Image",
+    "Code": {
+      "Version": "1.1.0",
+      "Remarks": [
+        "Interface implements IPolyglot",
+        "Mapping of ImageCategoryMEE to ImageCategoryPE is special"
+      ]
+    },
+    "Keys": [
+      {
+        "Type": "long"
+      }
+    ],
+    "Properties": [
+      {
+        "Name": "Name",
+        "Type": "string",
+        "Width": 20
+      },
+      {
+        "Name": "Extension",
+        "Type": "string",
+        "Width": 3
+      },
+      {
+        "Name": "Source",
+        "Type": "string",
+        "Width": 3
+      },
+      {
+        "Name": "Copyright",
+        "Type": "string",
+        "Width": 3
+      },
+      {
+        "Name": "Width",
+        "Type": "int",
+        "Width": 4
+      },
+      {
+        "Name": "Height",
+        "Type": "int",
+        "Width": 4
+      },
+      {
+        "Name": "Tags",
+        "Type": "string?",
+        "Width": 20
+      },
+      {
+        "Name": "AzimuthAngle",
+        "Type": "int?",
+        "Column": "azimuth",
+        "Width": 20
+      },
+      {
+        "Name": "PolarAngle",
+        "Type": "int?",
+        "Column": "polar",
+        "Width": 20
+      }
+    ],
+    "RelationsMto1": [
+      {
+        "Name": "Text",
+        "Type": "ImageTextM_E?"
+      },
+      {
+        "Name": "Category",
+        "Type": "ImageCategory_E"
+      }
+    ]
+  },
+  "ImageTag": {
+    "Namespace": "DStutz.Data.#.Images",
+    "Name": "ImageTag",
+    "Code": {
+      "Version": "1.1.0",
+      "Remarks": [
+        "Interface implements IDeEnFr and IPolyglot"
+      ]
+    },
+    "Keys": [
+      {
+        "Type": "long"
+      }
+    ],
+    "Properties": [
+      {
+        "Name": "Type",
+        "Type": "string",
+        "Width": 10
+      },
+      {
+        "Name": "DE",
+        "Type": "string?",
+        "Width": 20
+      },
+      {
+        "Name": "EN",
+        "Type": "string?",
+        "Width": 20
+      },
+      {
+        "Name": "FR",
+        "Type": "string?",
+        "Width": 20
+      },
+      {
+        "Name": "Tag",
+        "Type": "string",
+        "Width": 20
+      },
+      {
+        "Name": "Regex",
+        "Type": "string?",
+        "Width": 20
+      }
+    ]
+  },
+  "ImageText": {
+    "Namespace": "DStutz.Data.#.Images",
+    "Name": "ImageText",
+    "Code": {
+      "Version": "1.1.0",
+      "Remarks": [
+        "Interface implements IDeEnFr and IPolyglot"
+      ]
+    },
+    "Keys": [
+      {
+        "Type": "long"
+      }
+    ],
+    "Properties": [
+      {
+        "Name": "DE",
+        "Type": "string?",
+        "Width": 20
+      },
+      {
+        "Name": "EN",
+        "Type": "string?",
+        "Width": 20
+      },
+      {
+        "Name": "FR",
+        "Type": "string?",
+        "Width": 20
+      }
+    ]
+  }
+}

@@ -1,5 +1,3 @@
-using DStutz.System.Joiners;
-
 using DStutz.Data.Efcos.Accounting;
 using DStutz.Data.Accounting;
 
