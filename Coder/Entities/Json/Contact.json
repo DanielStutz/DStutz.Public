@@ -1,0 +1,65 @@
+{
+  "Contact": {
+    "Namespace": "DStutz.Data.#.Contacts",
+    "Name": "Contact",
+    "Code": {
+      "Version": "1.1.0",
+      "Asymmetric": true,
+      "Remarks": [
+        "Poco has constructors",
+        "Poco has additional property Person",
+        "Poco has additional methods",
+        "Efco has additional classes for emails and phones",
+        "Efco has additional methods",
+        "Efco implements IEquatableLambda"
+      ]
+    },
+    "Keys": [
+      {
+        "Type": "long"
+      }
+    ],
+    "Properties": [
+      {
+        "Name": "Company",
+        "Type": "string?",
+        "Width": 20
+      },
+      {
+        "Name": "Gender",
+        "Type": "string",
+        "Width": 1
+      },
+      {
+        "Name": "Surname",
+        "Type": "string",
+        "Width": 20
+      },
+      {
+        "Name": "Prename",
+        "Type": "string",
+        "Width": 20
+      },
+      {
+        "Name": "Email",
+        "Type": "string?",
+        "Width": 40
+      },
+      {
+        "Name": "Phone",
+        "Type": "string?",
+        "Width": 40
+      }
+    ],
+    "Relations1toN": [
+      {
+        "Name": "Emails",
+        "Type": "ContactDetailObyM_E?"
+      },
+      {
+        "Name": "Phones",
+        "Type": "ContactDetailObyM_E?"
+      }
+    ]
+  }
+}

@@ -60,68 +60,96 @@ namespace DStutz.Coder.Entities
         #region Methods checking json entities
         /***********************************************************/
         protected override void CheckJsonEntitiesInt(
-            FileInfo file)
+            IDictionary<string, JsonEntity> entities)
         {
-            var entities = LoadJsonEntities(file);
+            var t = new JoinerTableFix(entities.Count + 1, 12);
 
-            Console.WriteLine(
-                $"{file.Name} ({entities.Count()} entities)");
+            int row = 0;
+            int col = 0;
+
+            t.SetAlignsRight();
+            t.AddColHeader(col++, "File", 'L');
+            t.AddColHeader(col++, "Key", 'L');
+            t.AddColHeader(col++, "Project", 'L');
+            t.AddColHeader(col++, "Abs");
+            t.AddColHeader(col++, "Old");
+            t.AddColHeader(col++, "Keys  ");
+            t.AddColHeader(col++, "Props ");
+            t.AddColHeader(col++, "OProps");
+            t.AddColHeader(col++, "1:1");
+            t.AddColHeader(col++, "M:1");
+            t.AddColHeader(col++, "1:N");
+            t.AddColHeader(col++, "M:N");
 
             foreach (var pair in entities)
             {
+                row++;
+                col = 0;
+
+                var keys = pair.Key.Split("_");
                 var entity = pair.Value;
 
-                var hit = false
-                    //|| HasKeyWithPseudonym(entity)
-                    || HasOldProperties(entity)
-                    //|| HasRelations(entity)
-                    //|| IsPublicCode(entity)
-                    //|| !entity.Code.Version.Equals("1.1.0")
-                    ;
-
-                if (hit)
-                {
-                    Console.WriteLine("    Y --> " + pair.Key);
-                }
-                else
-                {
-                    Console.WriteLine("    N --> " + pair.Key);
-                }
+                t.Add(row, col++, keys[0]);
+                t.Add(row, col++, keys[1]);
+                t.Add(row, col++, GetProject(entity));
+                t.Add(row, col++, entity.Abstract);
+                t.Add(row, col++, GetStatus(HasOldProperties(entity)));
+                t.Add(row, col++, GetStatus(IsSpecialK, 2, entity.Keys));
+                t.Add(row, col++, GetStatus(IsSpecialP, 2, entity.Properties));
+                t.Add(row, col++, GetStatus(IsSpecialP, 2, entity.OwnedProperties));
+                t.Add(row, col++, entity.Relations1to1);
+                t.Add(row, col++, entity.RelationsMto1);
+                t.Add(row, col++, entity.Relations1toN);
+                t.Add(row, col++, entity.RelationsMtoN);
             }
+
+            Console.WriteLine(t.ToString());
         }
         #endregion
 
         #region Functions checking json entities
         /***********************************************************/
-        private Func<JsonEntity, bool> HasKeyWithPseudonym =
-            e =>
-            {
-                if (e.Keys != null)
-                    foreach (var key in e.Keys)
-                        if (key.Pseudonym != null)
-                            return true;
+        private Func<JsonEntity, bool> HasOldProperties = e =>
+        {
+            return false
+                || e.Version != null
+                || e.Warning != null
+                || e.Comment != null
+                || e.Remarks != null
+                || e.AsymmetricCode
+                || e.OrderBy
+            ;
+        };
 
-                return false;
-            };
+        private Func<JsonKey, bool> IsSpecialK = e =>
+        {
+            return false
+                || e.IsOrderBy
+                || e.Pseudonym != null
+            ;
+        };
 
-        private Func<JsonEntity, bool> HasOldProperties =
-            e => e.Version != null ||
-                 e.Warning != null ||
-                 e.Comment != null ||
-                 e.Remarks != null ||
-                 e.AsymmetricCode ||
-                 e.OrderBy;
+        private Func<JsonProperty, bool> IsSpecialP = e =>
+        {
+            return false
+                || e.Column != null
+            ;
+        };
 
-        private Func<JsonEntity, bool> HasRelations =
-            e => false
-                 || e.Relations1to1 != null
-                 //|| e.Relations1toN != null
-                 //|| e.RelationsMto1 != null
-                 //|| e.RelationsMtoN != null
-                 ;
+        private string GetProject(
+            JsonEntity e)
+        {
+            if (e.Namespace.StartsWith("DStutz"))
+                return "DStutz";
 
-        private Func<JsonEntity, bool> IsPublicCode =
-            e => e.Namespace.StartsWith("DStutz");
+            if (e.Namespace.Contains("Orders"))
+                return "Orders";
+
+            if (e.Namespace.Contains("Products"))
+                return "Products";
+
+            throw new Exception("Unknown project");
+        }
         #endregion
     }
 }

@@ -10,7 +10,6 @@ namespace DStutz.Coder.Entities.EntityRelations
 REMARKS
 using DStutz.Data;
 using DStutz.Data.Pocos;
-using DStutz.System.Joiners;
 
 using NAMESPACE_EFCO;
 
@@ -27,7 +26,6 @@ CURSOR_POCO
 REMARKS
 using DStutz.Data;
 using DStutz.Data.Efcos;
-using DStutz.System.Joiners;
 
 using NAMESPACE_POCO;
 

@@ -1,5 +1,6 @@
 using DStutz.Apps;
 using DStutz.System.IO;
+using NuGet.Packaging;
 
 namespace DStutz.Coder
 {
@@ -131,27 +132,66 @@ namespace DStutz.Coder
         /***********************************************************/
         public void CheckJsonEntities()
         {
+            Dictionary<string, T> entities = new();
+
             foreach (var file in Files1.Values)
-                CheckJsonEntitiesInt(file);
+            {
+                var key = GetJsonFileKey(file.Name);
+
+                foreach (var pair in LoadJsonEntities(file))
+                    entities.Add($"{key}_{pair.Key}", pair.Value);
+            }
 
             foreach (var file in Files2.Values)
-                CheckJsonEntitiesInt(file);
+            {
+                var key = GetJsonFileKey(file.Name);
+
+                foreach (var pair in LoadJsonEntities(file))
+                    entities.Add($"{key}_{pair.Key}", pair.Value);
+            }
+
+            CheckJsonEntitiesInt(entities);
         }
 
         public void CheckJsonEntities(
             string fileKey)
         {
-            CheckJsonEntitiesInt(GetJsonFileInfo(fileKey));
+            CheckJsonEntitiesInt(LoadJsonEntities(fileKey));
         }
 
         public void CheckJsonEntities(
             FileInfo file)
         {
-            CheckJsonEntitiesInt(Check(file));
+            CheckJsonEntitiesInt(LoadJsonEntities(file));
         }
 
         protected abstract void CheckJsonEntitiesInt(
-            FileInfo file);
+            IDictionary<string, T> entities);
+
+        protected char GetStatus(
+            bool isSpecial)
+        {
+            if (isSpecial)
+                return 'T';
+
+            return ' ';
+        }
+
+        protected string GetStatus<E>(
+            Func<E, bool> isSpecial,
+            int width,
+            List<E>? list)
+        {
+            if (list == null ||
+                list.Count == 0)
+                return "";
+
+            foreach (var item in list)
+                if (isSpecial(item))
+                    return string.Format($"{{0,{width}}} Sp", list.Count);
+
+            return string.Format($"{{0,{width}}}   ", list.Count);
+        }
 
         #endregion
 

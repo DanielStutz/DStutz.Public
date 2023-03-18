@@ -35,10 +35,16 @@ CURSOR_ASYMMETRIC_CODE
             DataEntityBasic entity)
             : base(Template)
         {
-            if (entity.Abstract)
+            if (entity.AbstractEfco)
+            {
                 Replace("TABLE", "");
+                Replace("ABSTRACT", "abstract");
+            }
             else
+            {
                 Replace("TABLE", entity.TableAnnotation);
+                Replace("ABSTRACT ", "");
+            }
 
             if (entity.Code.Asymmetric)
                 InsertRegionAsymmetricCode(4);

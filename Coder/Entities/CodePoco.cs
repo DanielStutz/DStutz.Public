@@ -32,9 +32,18 @@ CURSOR_ASYMMETRIC_CODE
         #region Constructors
         /***********************************************************/
         private CodePoco(
-            DataEntity entity)
+            DataEntity entity,
+            bool isAbstract,
+            string join)
             : base(Template)
         {
+            if (isAbstract)
+                Replace("ABSTRACT", "abstract");
+            else
+                Replace("ABSTRACT ", "");
+
+            Replace("JOIN", join);
+
             if (entity.Code.Asymmetric)
                 InsertRegionAsymmetricCode(4);
 
@@ -52,28 +61,31 @@ CURSOR_ASYMMETRIC_CODE
 
         public CodePoco(
             DataEntityBasic entity)
-            : this((DataEntity)entity)
+            : this(
+                  entity,
+                  entity.AbstractPoco,
+                  "this")
         {
-            Replace("JOIN", "this");
-
-            //Write(false, false);
+             //Write(false, false);
         }
 
         public CodePoco(
             DataEntityOwned entity)
-            : this((DataEntity)entity)
+            : this(
+                  entity,
+                  false,
+                  "this")
         {
-            Replace("JOIN", "this");
-
             //Write(false, false);
         }
 
         public CodePoco(
             DataEntityRelations entity)
-            : this((DataEntity)entity)
+            : this(
+                  entity,
+                  entity.AbstractPoco,
+                  entity.GetJoin())
         {
-            Replace("JOIN", entity.GetJoin());
-
             // Owned properties
             SetCursor("PROPERTIES", 4)
                 .InsertRegion(

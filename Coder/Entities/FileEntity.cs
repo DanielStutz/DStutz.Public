@@ -34,11 +34,6 @@ namespace DStutz.Coder.Entities
             if (Data.Namespace.StartsWith("DStutz.Data"))
                 Replace("using DStutz.Data;", "");
 
-            if (Data.Abstract)
-                Replace("ABSTRACT", "abstract");
-            else
-                Replace("ABSTRACT ", "");
-
             Replace("NAMESPACE_EFCO", Data.GetNamespaceEfco());
             Replace("NAMESPACE_POCO", Data.GetNamespacePoco());
             Replace("TYPE_INTERFACE", Data.Type.I);

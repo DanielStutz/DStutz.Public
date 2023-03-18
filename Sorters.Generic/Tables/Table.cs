@@ -169,8 +169,8 @@
         /***********************************************************/
         public override string ToString()
         {
-            JoinTableFix jt = new
-                JoinTableFix(Rows.Count + 1, Cols.Count + 1);
+            JoinerTableFix jt = new
+                JoinerTableFix(Rows.Count + 1, Cols.Count + 1);
 
             jt.SetAlignsRight();
 

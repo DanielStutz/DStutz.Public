@@ -3,13 +3,9 @@
     "Namespace": "DStutz.Data.#.Websites",
     "Name": "Webdoc",
     "Code": {
-      "Version": "1.1.0",
-      "Remarks": [
-        "Poco is NOT abstract",
-        "Efco is abstract and has no Table annotation"
-      ]
+      "Version": "1.1.0"
     },
-    "Abstract": true,
+    "Abstract": "E",
     "Keys": [
       {
         "Type": "long"
@@ -42,13 +38,9 @@
     "Namespace": "DStutz.Data.#.Websites",
     "Name": "WebdocOby",
     "Code": {
-      "Version": "1.1.0",
-      "Remarks": [
-        "Poco is NOT abstract",
-        "Efco is abstract and has no Table annotation"
-      ]
+      "Version": "1.1.0"
     },
-    "Abstract": true,
+    "Abstract": "E",
     "Keys": [
       {
         "Type": "long"
@@ -85,13 +77,9 @@
     "Namespace": "DStutz.Data.#.Websites",
     "Name": "Website",
     "Code": {
-      "Version": "1.1.0",
-      "Remarks": [
-        "Poco is NOT abstract",
-        "Efco is abstract and has no Table annotation"
-      ]
+      "Version": "1.1.0"
     },
-    "Abstract": true,
+    "Abstract": "E",
     "Keys": [
       {
         "Type": "long"

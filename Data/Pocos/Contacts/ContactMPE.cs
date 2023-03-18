@@ -2,6 +2,7 @@
 using DStutz.Data.Pocos.Addresses;
 using DStutz.Data.Pocos.People;
 
+// Version 1.1.0
 namespace DStutz.Data.Pocos.Contacts
 {
     public interface IContact
@@ -13,13 +14,21 @@ namespace DStutz.Data.Pocos.Contacts
     public class ContactMPE
         : IPoco<IContact>, IContact
     {
+        #region Properties
+        /***********************************************************/
         public long Pk1 { get; set; }
         public string? Company { get; set; }
         public PersonMPE Person { get; set; }
+        #endregion
 
-        /************************************************************
-         * Constructors
-         ************************************************************/
+        #region Relations 1:n (with default foreign key)
+        /***********************************************************/
+        public IReadOnlyList<ContactDetailObyMPE>? Emails { get; set; }
+        public IReadOnlyList<ContactDetailObyMPE>? Phones { get; set; }
+        #endregion
+
+        #region Constructors
+        /***********************************************************/
         public ContactMPE()
         { }
 
@@ -29,37 +38,10 @@ namespace DStutz.Data.Pocos.Contacts
             Company = addressee.Company;
             Person = new PersonMPE(addressee.Person);
         }
+        #endregion
 
-        /************************************************************
-         * Relations 1:n (with default foreign key)
-         ************************************************************/
-        public IReadOnlyList<ContactDetailObyMPE>? Emails { get; set; }
-        public IReadOnlyList<ContactDetailObyMPE>? Phones { get; set; }
-
-        /************************************************************
-         * Methods - Implementing
-         ************************************************************/
-        public IJoiner Joiner
-        {
-            get
-            {
-                return new Joiner(
-                    //(20, Pk1),
-                    (80, Person.GetPreSurName()),
-                    (40, GetEmails()),
-                    (40, GetPhones())
-                );
-            }
-        }
-
-        public E Map<E>() where E : IContact, new()
-        {
-            return ContactMapper.New.Map<E>(this);
-        }
-
-        /************************************************************
-         * Methods
-         ************************************************************/
+        #region Asymmetric code
+        /***********************************************************/
         public string GetEmails()
         {
             return ContactMapper.New.GetValues(Emails);
@@ -69,5 +51,27 @@ namespace DStutz.Data.Pocos.Contacts
         {
             return ContactMapper.New.GetValues(Phones);
         }
+        #endregion
+
+        #region Properties and methods implementing
+        /***********************************************************/
+        public IJoiner Joiner
+        {
+            get
+            {
+                return new Joiner(
+                    //(20, Pk1),
+                    ('L', 80, Person.GetPreSurName()),
+                    ('L', 40, GetEmails()),
+                    ('L', 40, GetPhones())
+                );
+            }
+        }
+
+        public E Map<E>() where E : IContact, new()
+        {
+            return ContactMapper.New.Map<E>(this);
+        }
+        #endregion
     }
 }

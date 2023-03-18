@@ -4,6 +4,8 @@ namespace DStutz.Coder.Entities.Data
     {
         #region Properties
         /***********************************************************/
+        public bool AbstractEfco { get; } = false;
+        public bool AbstractPoco { get; } = false;
         public bool IsOrderBy { get; }
         public string TableAnnotation { get; }
         #endregion
@@ -15,6 +17,12 @@ namespace DStutz.Coder.Entities.Data
             : base(entity,
                   "MEE", "MPE") // See class DataType for endings
         {
+            if (entity.Abstract != null)
+            {
+                AbstractEfco = entity.Abstract.Contains("E");
+                AbstractPoco = entity.Abstract.Contains("P");
+            }
+
             IsOrderBy = entity.HasOrderByKey;
             TableAnnotation = entity.TableAnnotation;
 

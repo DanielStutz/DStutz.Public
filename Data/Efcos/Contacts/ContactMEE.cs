@@ -5,12 +5,15 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq.Expressions;
 
+// Version 1.1.0
 namespace DStutz.Data.Efcos.Contacts
 {
     [Table("contact")]
     public class ContactMEE
         : IEfco<ContactMPE>, IContact, IEquatableLambda<ContactMEE>
     {
+        #region Properties
+        /***********************************************************/
         [Column("pk1"), Key]
         public long Pk1 { get; set; }
 
@@ -31,43 +34,19 @@ namespace DStutz.Data.Efcos.Contacts
 
         [Column("phone")]
         public string? Phone { get; set; }
+        #endregion
 
-        /************************************************************
-         * Relations 1:n (with default foreign key)
-         ************************************************************/
+        #region Relations 1:n (with default foreign key)
+        /***********************************************************/
         [ForeignKey("Pk1")]
         public IReadOnlyList<ContactEmail>? Emails { get; set; }
 
         [ForeignKey("Pk1")]
         public IReadOnlyList<ContactPhone>? Phones { get; set; }
+        #endregion
 
-        /************************************************************
-         * Methods - Implementing
-         ************************************************************/
-        public IJoiner Joiner
-        {
-            get
-            {
-                return new Joiner(
-                    (20, Pk1),
-                    (1, Gender),
-                    (20, Surname),
-                    (20, Prename),
-                    (40, Email),
-                    (40, Phone)
-                );
-            }
-        }
-
-        public ContactMPE Map()
-        {
-            return ContactMapper.New.Map<ContactMPE>(this);
-        }
-
-
-        /************************************************************
-         * Methods - Implementing
-         ************************************************************/
+        #region Asymmetric code
+        /***********************************************************/
         public Expression<Func<ContactMEE, bool>> EqualsLambda()
         {
             return e =>
@@ -82,14 +61,35 @@ namespace DStutz.Data.Efcos.Contacts
                  (e.Company != null && e.Company.Equals(Company)));
         }
 
-        /**********************************************************************
-         * Methods
-         **********************************************************************/
         public bool EqualsName(ContactMEE other)
         {
             return Surname.Equals(other.Surname) &&
                 Prename.Equals(other.Prename);
         }
+        #endregion
+
+        #region Properties and methods implementing
+        /***********************************************************/
+        public IJoiner Joiner
+        {
+            get
+            {
+                return new Joiner(
+                    ('L', 20, Pk1),
+                    ('L', 1, Gender),
+                    ('L', 20, Surname),
+                    ('L', 20, Prename),
+                    ('L', 40, Email),
+                    ('L', 40, Phone)
+                );
+            }
+        }
+
+        public ContactMPE Map()
+        {
+            return ContactMapper.New.Map<ContactMPE>(this);
+        }
+        #endregion
     }
 
     [Table("contact_email")]
@@ -105,9 +105,8 @@ namespace DStutz.Data.Efcos.Contacts
     {
         public static ContactMapper New { get; } = new ContactMapper();
 
-        /************************************************************
-         * Methods - Implementing
-         ************************************************************/
+        #region Methods implementing
+        /***********************************************************/
         public IJoiner Joiner(
             IContact e1,
             params IJoinable?[] data)
@@ -192,10 +191,10 @@ namespace DStutz.Data.Efcos.Contacts
 
             return e2;
         }
+        #endregion
 
-        /************************************************************
-         * Methods
-         ************************************************************/
+        #region Methods
+        /***********************************************************/
         public string GetValues<T>(
             IEnumerable<T>? list)
             where T : IContactDetailOby
@@ -207,5 +206,6 @@ namespace DStutz.Data.Efcos.Contacts
 
             return values;
         }
+        #endregion
     }
 }

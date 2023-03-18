@@ -29,7 +29,7 @@ namespace DStutz.Coder.Entities.Data
 
         #region Used by non-owned (basic, relations) entities only
         /***********************************************************/
-        public bool Abstract { get; set; } = false;
+        public string? Abstract { get; set; } // Use 'E' or 'P,E'
         public List<JsonKey>? Keys { get; set; }
         public string? Table { get; set; }
         public List<JsonProperty>? OwnedProperties { get; set; }

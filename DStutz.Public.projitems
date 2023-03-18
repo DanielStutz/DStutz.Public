@@ -253,6 +253,11 @@
     <Compile Include="$(MSBuildThisFileDirectory)System\Joiners\IJoinable.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Joiners\IJoiner.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Joiners\Joiner.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System\Joiners\JoinerList.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System\Joiners\JoinerTable.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System\Joiners\JoinerTableFix.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System\Joiners\JoinerTableVar.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System\Joiners\TableRow.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Matchers\MatcherDate.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Matchers\MatcherPlace.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Stringers\Parsers.cs" />
@@ -268,7 +273,14 @@
     <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\A.json" />
     <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\Address.json" />
     <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\B.json" />
+    <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\Brickset.json" />
+    <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\BricksetProduct.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
     <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\C.json" />
+    <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\Contact.json" />
     <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\D.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
@@ -291,7 +303,7 @@
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\ModelsOwned.json">
+    <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\BricksetModel.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
@@ -304,11 +316,6 @@
     </Content>
     <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\PolyglotOwned.json" />
     <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\Polyglot.json" />
-    <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\ProductsOwned.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
     <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\T.json" />
     <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\S.json" />
     <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\TreeNode.json">

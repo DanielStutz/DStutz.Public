@@ -9,7 +9,6 @@ namespace DStutz.Coder.Entities.EntityOwned
         private static readonly string Template = @"
 REMARKS
 using DStutz.Data;
-using DStutz.System.Joiners;
 
 using NAMESPACE_EFCO;
 
@@ -25,7 +24,6 @@ CURSOR_POCO
 
 REMARKS
 using DStutz.Data;
-using DStutz.System.Joiners;
 
 using NAMESPACE_POCO;
 

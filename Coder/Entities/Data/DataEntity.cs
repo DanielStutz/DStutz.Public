@@ -11,11 +11,6 @@ namespace DStutz.Coder.Entities.Data
         public List<DataPropertyColumn> Properties { get; } = new();
         #endregion
 
-        #region Properties of non-owned (basic, relations) entities
-        /***********************************************************/
-        public bool Abstract { get; }
-        #endregion
-
         #region Constructors
         /***********************************************************/
         protected DataEntity(
@@ -23,7 +18,6 @@ namespace DStutz.Coder.Entities.Data
             string suffixEfco,
             string suffixPoco)
         {
-            Abstract = entity.Abstract;
             Code = entity.Code;
             Namespace = entity.Namespace;
             Name = entity.Name;
