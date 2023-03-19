@@ -52,7 +52,7 @@ namespace DStutz.Data.Cruders.Youtube
         }
         #endregion
 
-        #region Miscellaneous
+        #region Methods loading
         /***********************************************************/
         protected override VideoMEE Loading(
             int includeType,

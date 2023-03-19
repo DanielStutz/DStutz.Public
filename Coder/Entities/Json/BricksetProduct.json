@@ -6,7 +6,7 @@
       "Version": "1.1.0",
       "Asymmetric": true,
       "Remarks": [
-        ""
+        "Poco has additional properties and methods"
       ]
     },
     "Keys": [
@@ -41,7 +41,6 @@
       {
         "Name": "WeightUnit",
         "Type": "string",
-        "Column": "weight_unit",
         "Width": 2
       },
       {
@@ -64,66 +63,66 @@
     "Relations1toN": [
       {
         "Name": "Comments",
-        "Type": "ProductComment"
+        "Type": "ProductComment?"
       },
       {
         "Name": "Documents",
-        "Type": "WebdocObyM_E"
+        "Type": "WebdocObyM_E?"
       },
       {
         "Name": "Ratings",
-        "Type": "RatingM_E"
+        "Type": "RatingM_E?"
       }
     ],
     "RelationsMto1": [
       {
         "Name": "Category",
-        "Type": "ProductCategory_E?"
+        "Type": "ProductCategory_E"
       },
       {
         "Name": "Producer",
-        "Type": "ProducerM_E?"
+        "Type": "ProducerM_E"
       }
     ],
     "RelationsMtoN": [
       {
-        "Name": "BatteryRels",
-        "Type": "BatteryM_E",
+        "Name": "BatRels",
+        "Type": "BatteryM_E?",
         "JunctionType": "Rel_ENum"
       },
       {
         "Name": "BoxRels",
-        "Type": "BoxM_E",
+        "Type": "BoxM_E?",
         "JunctionType": "Rel_ENum"
       },
       {
         "Name": "HrefWebRels",
-        "Type": "WebsiteM_E",
+        "Type": "WebsiteM_E?",
         "JunctionType": "Rel_EType"
       },
       {
         "Name": "HrefWikRels",
-        "Type": "WebsiteM_E",
+        "Type": "WebsiteM_E?",
         "JunctionType": "Rel_EAny"
       },
       {
         "Name": "HrefYouRels",
-        "Type": "WebdocM_E",
+        "Type": "WebdocM_E?",
         "JunctionType": "Rel_EAny"
       },
       {
         "Name": "ImageRels",
-        "Type": "ImageM_E",
-        "JunctionType": "Rel_EType"
+        "Type": "ImageM_E?",
+        "JunctionType": "Rel_EAny"
       },
       {
         "Name": "TextAttRels",
-        "Type": "DeEnFrM_E",
+        "Type": "DeEnFrM_E?",
         "JunctionType": "Rel_EAny"
       },
       {
         "Name": "TextKeyRels",
-        "Type": "DeEnFrM_E",
+        "Type": "DeEnFrM_E?",
         "JunctionType": "Rel_EAny"
       }
     ]

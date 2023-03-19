@@ -6,7 +6,7 @@
       "Version": "1.1.0",
       "Asymmetric": true,
       "Remarks": [
-        ""
+        "Poco has additional properties and methods"
       ]
     },
     "Keys": [
@@ -66,38 +66,38 @@
     "Relations1to1": [
       {
         "Name": "Name",
-        "Type": "NameM_E?"
+        "Type": "NameM_E"
       },
       {
         "Name": "Groups",
-        "Type": "ModelGroupsM_E?"
+        "Type": "ModelGroupsM_E"
       }
     ],
     "Relations1toN": [
       {
         "Name": "Comments",
-        "Type": "ModComment"
+        "Type": "ModelComment?"
       },
       {
         "Name": "Instructions",
-        "Type": "InstructionM_E"
+        "Type": "InstructionM_E?"
       }
     ],
     "RelationsMto1": [
       {
         "Name": "Category",
-        "Type": "ModelCategory_E?"
+        "Type": "ModelCategory_E"
       }
     ],
     "RelationsMtoN": [
       {
         "Name": "HrefMocRels",
-        "Type": "WebdocM_E",
+        "Type": "WebdocM_E?",
         "JunctionType": "Rel_EAny"
       },
       {
         "Name": "HrefWebRels",
-        "Type": "WebsiteM_E",
+        "Type": "WebsiteM_E?",
         "JunctionType": "Rel_EType"
       }
     ]

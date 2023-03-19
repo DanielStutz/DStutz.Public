@@ -1,6 +1,5 @@
 using DStutz.Apps;
 using DStutz.System.IO;
-using NuGet.Packaging;
 
 namespace DStutz.Coder
 {
@@ -169,9 +168,9 @@ namespace DStutz.Coder
             IDictionary<string, T> entities);
 
         protected char GetStatus(
-            bool isSpecial)
+            bool? isTrue)
         {
-            if (isSpecial)
+            if (isTrue != null && (bool)isTrue)
                 return 'T';
 
             return ' ';
@@ -191,6 +190,16 @@ namespace DStutz.Coder
                     return string.Format($"{{0,{width}}} Sp", list.Count);
 
             return string.Format($"{{0,{width}}}   ", list.Count);
+        }
+
+        protected string GetContent(
+            ICollection<string>? list)
+        {
+            if (list == null ||
+                list.Count == 0)
+                return "";
+
+            return string.Join(", ", list);
         }
 
         #endregion
@@ -222,6 +231,5 @@ namespace DStutz.Coder
             return file;
         }
         #endregion
-
     }
 }

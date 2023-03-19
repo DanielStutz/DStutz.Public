@@ -273,7 +273,16 @@
     <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\A.json" />
     <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\Address.json" />
     <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\B.json" />
-    <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\Brickset.json" />
+    <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\Brickset.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\BricksetModel.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
     <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\BricksetProduct.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
@@ -286,12 +295,6 @@
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\Examples.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\ExamplesEntityBasic.json" />
     <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\I.json" />
     <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\Images.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -303,7 +306,12 @@
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\BricksetModel.json">
+    <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\Orders.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\OrdersItem.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>

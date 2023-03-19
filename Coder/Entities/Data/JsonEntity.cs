@@ -4,16 +4,6 @@ namespace DStutz.Coder.Entities.Data
 {
     public class JsonEntity
     {
-        #region TODO Remove this region (old properties)
-        /***********************************************************/
-        public string? Version { get; set; }
-        public string? Warning { get; set; }
-        public string? Comment { get; set; }
-        public List<string>? Remarks { get; set; }
-        public bool AsymmetricCode { get; set; }
-        public bool OrderBy { get; set; }
-        #endregion
-
         #region Used by all entities
         /***********************************************************/
         public CodeInfoEntity Code { get; set; }
@@ -29,7 +19,7 @@ namespace DStutz.Coder.Entities.Data
 
         #region Used by non-owned (basic, relations) entities only
         /***********************************************************/
-        public string? Abstract { get; set; } // Use 'E' or 'P,E'
+        public string? Abstract { get; set; } // Use 'E' or 'E,P'
         public List<JsonKey>? Keys { get; set; }
         public string? Table { get; set; }
         public List<JsonProperty>? OwnedProperties { get; set; }

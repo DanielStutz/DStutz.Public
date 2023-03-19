@@ -7,14 +7,14 @@
         public int OrderBy { get; set; }
         public long RelatedPk1 { get; set; }
 
-        public IJoiner Joiner
+        public virtual IJoiner Joiner
         {
             get
             {
                 return new Joiner(
-                    (20, OwnerPk1),
-                    (2, OrderBy),
-                    (20, RelatedPk1)
+                    ('L', 20, OwnerPk1),
+                    ('R', 3, OrderBy),
+                    ('L', 20, RelatedPk1)
                 );
             }
         }

@@ -62,7 +62,7 @@ namespace DStutz.Coder.Entities
         protected override void CheckJsonEntitiesInt(
             IDictionary<string, JsonEntity> entities)
         {
-            var t = new JoinerTableFix(entities.Count + 1, 12);
+            var t = new JoinerTableFix(entities.Count + 1, 13);
 
             int row = 0;
             int col = 0;
@@ -71,15 +71,16 @@ namespace DStutz.Coder.Entities
             t.AddColHeader(col++, "File", 'L');
             t.AddColHeader(col++, "Key", 'L');
             t.AddColHeader(col++, "Project", 'L');
-            t.AddColHeader(col++, "Abs");
-            t.AddColHeader(col++, "Old");
-            t.AddColHeader(col++, "Keys  ");
-            t.AddColHeader(col++, "Props ");
-            t.AddColHeader(col++, "OProps");
+            t.AddColHeader(col++, "Abs", 'L');
+            t.AddColHeader(col++, "Owd");
+            t.AddColHeader(col++, "Keys ");
+            t.AddColHeader(col++, "Props");
+            t.AddColHeader(col++, "Owned");
             t.AddColHeader(col++, "1:1");
             t.AddColHeader(col++, "M:1");
             t.AddColHeader(col++, "1:N");
             t.AddColHeader(col++, "M:N");
+            t.AddColHeader(col++, "Remarks", 'L');
 
             foreach (var pair in entities)
             {
@@ -93,7 +94,7 @@ namespace DStutz.Coder.Entities
                 t.Add(row, col++, keys[1]);
                 t.Add(row, col++, GetProject(entity));
                 t.Add(row, col++, entity.Abstract);
-                t.Add(row, col++, GetStatus(HasOldProperties(entity)));
+                t.Add(row, col++, GetStatus(entity.Owned));
                 t.Add(row, col++, GetStatus(IsSpecialK, 2, entity.Keys));
                 t.Add(row, col++, GetStatus(IsSpecialP, 2, entity.Properties));
                 t.Add(row, col++, GetStatus(IsSpecialP, 2, entity.OwnedProperties));
@@ -101,6 +102,7 @@ namespace DStutz.Coder.Entities
                 t.Add(row, col++, entity.RelationsMto1);
                 t.Add(row, col++, entity.Relations1toN);
                 t.Add(row, col++, entity.RelationsMtoN);
+                t.Add(row, col++, GetContent(entity.Code.Remarks));
             }
 
             Console.WriteLine(t.ToString());
@@ -109,18 +111,6 @@ namespace DStutz.Coder.Entities
 
         #region Functions checking json entities
         /***********************************************************/
-        private Func<JsonEntity, bool> HasOldProperties = e =>
-        {
-            return false
-                || e.Version != null
-                || e.Warning != null
-                || e.Comment != null
-                || e.Remarks != null
-                || e.AsymmetricCode
-                || e.OrderBy
-            ;
-        };
-
         private Func<JsonKey, bool> IsSpecialK = e =>
         {
             return false
