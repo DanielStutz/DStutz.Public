@@ -11,6 +11,15 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Apps\AppConfig.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Apps\AppContext.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\Base\ServiceDictionary.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\Base\ServiceDocs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\Base\ServiceList.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\Base\SQL\InitSQL.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\Base\SQL\IServiceSQL.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\Base\SQL\ServiceEFC.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\Base\SQL\ServiceSQLBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\Base\SQL\ServiceSQLMySql.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\Base\SQL\ServiceSQLSqlite.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\ServiceConfigs.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\Base\Configs\ServiceConfig.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\Base\Configs\ServiceConfigAPI.cs" />
@@ -105,6 +114,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\RelationsMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Transactions\PaymentMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\TreeNodeMEE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\WeaponMEO.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\WeaponWheelMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Websites\WebdocMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Websites\WebdocObyMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Websites\WebsiteBase.cs" />
@@ -190,6 +201,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Transactions\PaymentType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Transactions\TransactionStatus.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\TreeNodePE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\WeaponMPO.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\WeaponWheelMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Websites\WebdocMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Websites\WebdocObyMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Websites\WebsiteMPE.cs" />
@@ -263,6 +276,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)System\Stringers\Parsers.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Stringers\Reader.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Stringers\Spliter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System\Stringers\SpliterParser.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)View\Labels\Label.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)View\Labels\LabelAddress.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)View\Labels\LabelAddressCompany.cs" />
@@ -339,6 +353,11 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
     <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\YoutubeOwned.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\Weapon.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>

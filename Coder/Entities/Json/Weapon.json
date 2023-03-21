@@ -1,0 +1,67 @@
+{
+  "Weapon": {
+    "Namespace": "DStutz.Data.#",
+    "Name": "Weapon",
+    "Code": {
+      "Version": "1.1.0",
+      "Remarks": [
+        "Column names in Efco may be omitted"
+      ]
+    },
+    "Owned": true,
+    "Properties": [
+      {
+        "Name": "Name",
+        "Type": "string"
+      },
+      {
+        "Name": "Effect",
+        "Type": "double",
+        "Width": 4
+      }
+    ]
+  },
+  "WeaponWheel": {
+    "Namespace": "DStutz.Data.#",
+    "Name": "WeaponWheel",
+    "Code": {
+      "Version": "1.1.0",
+      "Remarks": [
+        ""
+      ]
+    },
+    "Keys": [
+      {
+        "Type": "long"
+      }
+    ],
+    "Properties": [
+      {
+        "Name": "PrimaryWeapon",
+        "Type": "int"
+      }
+    ],
+    "OwnedProperties": [
+      {
+        "Name": "SA",
+        "Type": "WeaponM_O",
+        "Comment": "Sidearm"
+      },
+      {
+        "Name": "PW1",
+        "Type": "WeaponM_O",
+        "Comment": "Primary Weapon 1"
+      },
+      {
+        "Name": "PW2",
+        "Type": "WeaponM_O?",
+        "Comment": "Primary Weapon 2"
+      },
+      {
+        "Name": "PW3",
+        "Type": "WeaponM_O?",
+        "Comment": "Primary Weapon 3"
+      }
+    ]
+  }
+}

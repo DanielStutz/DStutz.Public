@@ -8,7 +8,7 @@ namespace DStutz.System.Stringers
             string? value,
             char separator)
         {
-            if (string.IsNullOrEmpty(value))
+            if (string.IsNullOrWhiteSpace(value))
                 return null;
 
             var array = value.Split(separator);
@@ -24,7 +24,7 @@ namespace DStutz.System.Stringers
             char separator1,
             char separator2)
         {
-            if (string.IsNullOrEmpty(value))
+            if (string.IsNullOrWhiteSpace(value))
                 return null;
 
             var array1 = value.Split(separator1);
@@ -40,10 +40,10 @@ namespace DStutz.System.Stringers
         #region Methods splitting mandatory
         /***********************************************************/
         public static string[] SplitOrThrow(
-            string value,
+            string? value,
             char separator)
         {
-            if (string.IsNullOrEmpty(value))
+            if (string.IsNullOrWhiteSpace(value))
                 throw new Exception("Value is null or empty");
 
             var array = value.Split(separator);
@@ -55,11 +55,11 @@ namespace DStutz.System.Stringers
         }
 
         public static string[][] SplitOrThrow(
-            string value,
+            string? value,
             char separator1,
             char separator2)
         {
-            if (string.IsNullOrEmpty(value))
+            if (string.IsNullOrWhiteSpace(value))
                 throw new Exception("Value is null or empty");
 
             var array1 = value.Split(separator1);

@@ -74,6 +74,15 @@ namespace DStutz.System.Joiners
 
             return this;
         }
+
+        public IJoiner Add(
+            params (char align, string content)[] cells)
+        {
+            foreach (var cell in cells)
+                Add(cell.align, cell.content);
+
+            return this;
+        }
         #endregion
 
         #region Methods adding other objects as cells

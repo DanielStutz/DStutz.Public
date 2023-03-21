@@ -4,6 +4,7 @@
     {
         public IJoiner Add(params IJoinable?[] joinables);
         public IJoiner Add(params (char align, int width, object? content)[] cells);
+        public IJoiner Add(params (char align, string content)[] cells);
         public IJoiner Add(char align, int width, params object?[] contents);
 
         public string Col { get; }
