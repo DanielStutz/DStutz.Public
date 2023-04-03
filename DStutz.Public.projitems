@@ -11,6 +11,11 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Apps\AppConfig.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Apps\AppContext.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\API\APIControllerBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\API\APIIdentity.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\API\APIReader.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\API\APIResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\API\APIResponse200.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\Base\ServiceDictionary.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\Base\ServiceDocs.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\Base\ServiceList.cs" />
@@ -36,6 +41,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\Base\Options\ServiceOptionListString.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\Client.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\ServiceContext.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\Youtube\ServiceYoutube.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Coder\CodeInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Coder\CodeHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Coder\CodeBlock.cs" />
