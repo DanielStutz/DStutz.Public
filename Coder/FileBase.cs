@@ -47,7 +47,7 @@ namespace DStutz.Coder
 
         #region Methods handling file
         /***********************************************************/
-        private static CommandTextPad TextPad { get; } = new CommandTextPad();
+        private static CommandTextPad Cmd { get; } = new CommandTextPad();
 
         public FileInfo Save()
         {
@@ -66,13 +66,13 @@ namespace DStutz.Coder
 
         public void SaveAndOpenWithTextPad()
         {
-            TextPad.Open(Save().FullName);
+            Cmd.Open(Save().FullName);
         }
 
         public void SaveAndOpenWithTextPad(
             string dir)
         {
-            TextPad.Open(Save(dir).FullName);
+            Cmd.Open(Save(dir).FullName);
         }
         #endregion
     }

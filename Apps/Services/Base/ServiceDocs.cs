@@ -84,8 +84,7 @@ namespace DStutz.Apps.Services.Base
             if (browser == null)
                 doc.Save();
             else
-                // TODO Prepend might be different in linux?!
-                doc.SaveAndOpen(browser, "file:///");
+                doc.SaveAndOpen(browser);
 
             return doc;
         }
