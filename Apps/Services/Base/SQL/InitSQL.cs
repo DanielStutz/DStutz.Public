@@ -68,7 +68,7 @@ namespace DStutz.Apps.Services.Base.SQL
             CommandSqlite cs = new CommandSqlite();
 
             cs.Init(
-                io.GetDataDir(workDir).FullName,
+                io.GetDataDir(workDir),
                 tempFile,
                 dataFile);
         }

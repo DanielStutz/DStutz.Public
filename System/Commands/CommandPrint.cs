@@ -1,7 +1,4 @@
-﻿/**********************************************************************
- * The command print.exe works only for *.txt files?!
- **********************************************************************/
-namespace DStutz.System.Commands
+﻿namespace DStutz.System.Commands
 {
     public class CommandPrint : Command
     {
@@ -11,11 +8,41 @@ namespace DStutz.System.Commands
             : base("print.exe", false, false, true) { }
         #endregion
 
-        #region Methods
+        #region Methods handling command options
         /***********************************************************/
-        public void File(string filePath)
+        public override string? Help()
         {
-            Handler.Execute(Program, filePath);
+            return Handler.Execute(Program, "/?");
+        }
+        #endregion
+
+        #region Methods printing (very slow and *.txt files only?!)
+        /***********************************************************/
+        public void File(
+            string filePath)
+        {
+            File(WorkspaceDir, filePath);
+        }
+
+        public void File(
+            DirectoryInfo workingDir,
+            string filePath)
+        {
+            // TODO This does NOT work !!!
+            Handler.Execute(
+                Program,
+                filePath,
+                workingDir.FullName);
+        }
+        #endregion
+
+        #region Methods testing
+        /***********************************************************/
+        public override void Test()
+        {
+            File(
+                TestspaceDir,
+                "_ReadMe.txt");
         }
         #endregion
     }

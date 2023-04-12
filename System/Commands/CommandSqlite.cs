@@ -5,32 +5,75 @@
         #region Constructors
         /***********************************************************/
         public CommandSqlite()
-            : base("sqlite3") { }
+            : base(@"sqlite3.exe", "sqlite") { }
         #endregion
 
         #region Methods
         /***********************************************************/
         public void Init(
-            string workingDir,
-            string sqlFile,
-            string dbFile)
+            DirectoryInfo workingDir,
+            string fileNameSQL,
+            string fileNameDB,
+            bool removeSqlFile = false)
         {
-            var argument = "-init " + sqlFile + " " + dbFile;
+            // See https://www.sqlite.org/cli.html
+            var argument = "-init " + fileNameSQL + " " + fileNameDB;
 
-            Handler.Execute(Program, argument, workingDir);
-            LogFileAction(sqlFile, "loaded");
+            Handler.Execute(
+                Program,
+                argument,
+                workingDir.FullName);
+
+            LogFileAction(
+                fileNameSQL,
+                "loaded");
 
             try
             {
-                File.Delete(
-                    Path.Combine(workingDir, sqlFile));
-                LogFileAction(sqlFile, "deleted");
+                if (removeSqlFile)
+                {
+                    File.Delete(
+                        Path.Combine(
+                            workingDir.FullName,
+                            fileNameSQL));
+
+                    LogFileAction(
+                        fileNameSQL,
+                        "deleted");
+                }
             }
             catch (Exception)
             {
                 throw new Exception(
-                    "Unable to delete file in " + workingDir);
+                    "Unable to delete file in " +
+                    workingDir.FullName);
             }
+        }
+        #endregion
+
+        #region Methods handling command options
+        /***********************************************************/
+        public override string? Help()
+        {
+            return "See https://www.sqlite.org/cli.html for cli options.";
+        }
+
+        public override string? Version()
+        {
+            return Help();
+        }
+        #endregion
+
+        #region Methods testing
+        /***********************************************************/
+        public override void Test()
+        {
+            //base.Test();
+
+            Init(
+                TestDir,
+                "People.sql",
+                "People.db");
         }
         #endregion
     }

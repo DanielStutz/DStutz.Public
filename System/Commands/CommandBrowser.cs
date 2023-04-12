@@ -1,36 +1,29 @@
-﻿using DStutz.Coder;
-
-namespace DStutz.System.Commands
+﻿namespace DStutz.System.Commands
 {
-    public class CommandChrome : CommandBrowser
+    public enum Browser : int
     {
-        public CommandChrome()
-            : base("chrome.exe", true) { }
+        Chrome = 0,
+        Edge = 1,
+        Firefox = 2,
     }
 
-    public class CommandEdge : CommandBrowser
+    public class CommandBrowser : Command
     {
-        public CommandEdge()
-            : base("msedge.exe", true) { }
-    }
+        #region Properties
+        /***********************************************************/
+        private static string[] Browsers { get; } = new string[]
+        {
+            "chrome.exe",
+            "msedge.exe",
+            "firefox.exe",
+        };
+        #endregion
 
-    public class CommandFirefox : CommandBrowser
-    {
-        public CommandFirefox()
-            : base("firefox.exe", true) { }
-    }
-
-    public abstract class CommandBrowser : Command
-    {
         #region Constructors
         /***********************************************************/
-        protected CommandBrowser(
-            string programm,
-            bool useShellExecute)
-            : base(
-                  programm,
-                  useShellExecute)
-        { }
+        public CommandBrowser(
+            Browser browser)
+            : base(Browsers[(int)browser], true) { }
         #endregion
 
         #region Methods opening
@@ -56,7 +49,7 @@ namespace DStutz.System.Commands
             OpenLocalFile(fileDir.FullName, fileName);
         }
 
-        public void OpenLocalFile(
+        private void OpenLocalFile(
             string? fileDir,
             string fileName)
         {
@@ -66,11 +59,9 @@ namespace DStutz.System.Commands
                 filePath = Path.Combine(fileDir, fileName);
 
             // TODO Prefix might be different in linux?!
-            filePath = "file:///" + filePath;
-
             Handler.Execute(
                 Program,
-                filePath);
+                "file:///" + filePath);
         }
         #endregion
 
@@ -79,8 +70,8 @@ namespace DStutz.System.Commands
         public override void Test()
         {
             OpenLocalFile(
-                TestspaceDir,
-                "CommandBrowser.html");
+                TestDir,
+                "HowTo.html");
 
             Open("https://github.com");
         }

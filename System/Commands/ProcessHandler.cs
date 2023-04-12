@@ -16,12 +16,14 @@ namespace DStutz.System.Commands
         public int WaitForExitMilliSeconds { get; set; } = -1;
 
         // Use the operating system shell to start the process
-        private readonly bool UseShellExecute = false;       // default is true
+        // default is true
+        private bool UseShellExecute = false;
 
         // The application redirects its streams to the process
-        private readonly bool RedirectStandardError = true;  // default is false
-        private readonly bool RedirectStandardInput = false; // default is false
-        private readonly bool RedirectStandardOutput = true; // default is false
+        // default is false, false and false
+        private bool RedirectStandardError = true;
+        private bool RedirectStandardInput = false;
+        private bool RedirectStandardOutput = true;
 
         private Process? Process;
         private string? ProcessOutput;
@@ -117,7 +119,7 @@ namespace DStutz.System.Commands
             //Console.WriteLine(workingDir);
             //Console.WriteLine(outputFile);
 
-            ProcessStartInfo psi = new ProcessStartInfo(command);
+            var psi = new ProcessStartInfo(command);
 
             // The application uses the streams of the shell
             psi.UseShellExecute = UseShellExecute;
@@ -193,8 +195,7 @@ namespace DStutz.System.Commands
                         // Read the textual output of the application
                         ProcessOutput = Process.StandardOutput.ReadToEnd();
 
-                        if (outputFile == null ||
-                            outputFile.Length == 0)
+                        if (string.IsNullOrEmpty(outputFile))
                         {
                             Logger.LogInformation(
                                 "--> Output:");

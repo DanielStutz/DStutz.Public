@@ -5,18 +5,18 @@
         #region Constructors
         /***********************************************************/
         public CommandJava()
-            : base("java") { }
+            : base("java.exe") { }
         #endregion
 
         #region Methods compiling
         /***********************************************************/
         public void Compile(
             DirectoryInfo workingDir,
-            string javaFile)
+            string fileNameJAVA)
         {
             Handler.Execute(
                 "javac",
-                javaFile,
+                fileNameJAVA,
                 workingDir.FullName);
         }
         #endregion
@@ -25,11 +25,11 @@
         /***********************************************************/
         public void Run(
             DirectoryInfo workingDir,
-            string classFile)
+            string filenameClassWithoutExtension)
         {
             Handler.Execute(
                 Program,
-                classFile,
+                filenameClassWithoutExtension,
                 workingDir.FullName);
         }
         #endregion
@@ -38,13 +38,15 @@
         /***********************************************************/
         public override void Test()
         {
+            base.Test();
+
             Compile(
-                TestspaceDir,
-                "CommandJava.java");
+                TestDir,
+                "Whatever.java");
 
             Run(
-                TestspaceDir,
-                "CommandJava");
+                TestDir,
+                "Whatever");
         }
         #endregion
     }

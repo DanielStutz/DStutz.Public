@@ -24,17 +24,17 @@
 
         #region Properties implementing
         /***********************************************************/
-        public IJoiner Joiner
+        public virtual IJoiner Joiner
         {
             get
             {
                 return new Joiner(
-                    (3, Type),
-                    (2, Lang),
-                    (80, Title),
-                    (80, Href),
-                    (20, Tags),
-                    (20, Copyright)
+                    ('L', 3, Type),
+                    ('L', 2, Lang),
+                    ('L', 80, Title),
+                    ('L', 80, Href),
+                    ('L', 20, Tags),
+                    ('L', 20, Copyright)
                 );
             }
         }

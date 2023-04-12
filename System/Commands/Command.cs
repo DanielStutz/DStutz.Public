@@ -8,67 +8,107 @@ namespace DStutz.System.Commands
         /***********************************************************/
         public ILogger Logger { get; } = AppLogger.CreateLogger<Command>();
         public string Program { get; }
-        public DirectoryInfo TestspaceDir { get; }
+        public IEnumerable<FileInfo> Executables { get; }
         public DirectoryInfo WorkspaceDir { get; }
+        public DirectoryInfo TestspaceDir { get; }
+        protected DirectoryInfo TestDir { get; set; }
         protected ProcessHandler Handler { get; }
         #endregion
 
         #region Constructors
         /***********************************************************/
         private Command(
-            string program,
+            string fileName,
             ProcessHandler handler)
         {
-            Program = program;
+            Program = fileName;
             Handler = handler;
-            TestspaceDir = new DirectoryInfo(@"C:\Workspace\Commands");
-            WorkspaceDir = new DirectoryInfo(@"C:\Workspace");
+
+            WorkspaceDir =
+                new DirectoryInfo(
+                    @"C:\Workspace");
+
+            TestspaceDir =
+                new DirectoryInfo(
+                    @"C:\Workspace\Commands");
+
+            TestDir =
+                new DirectoryInfo(
+                    @"C:\Workspace\Commands\" + GetType().Name);
         }
 
         protected Command(
-            string program)
+            string fileName)
             : this(
-                  program,
+                  fileName,
                   new ProcessHandler())
-        { }
+        {
+            Executables = Locate(fileName);
+        }
 
         protected Command(
-            string program,
-            bool useShellExecute)
+            string fileName,
+            string software)
             : this(
-                  program,
+                  fileName,
+                  new ProcessHandler())
+        {
+            Executables = Locate(fileName, software);
+        }
+
+        protected Command(
+            string fileName,
+            bool useShellExecute)
+        : this(
+                  fileName,
                   new ProcessHandler(useShellExecute))
         { }
 
         protected Command(
-            string program,
+            string fileName,
             bool redirectError,
             bool redirectInput,
             bool redirectOutput)
             : this(
-                  program,
+                  fileName,
                   new ProcessHandler(redirectError, redirectInput, redirectOutput))
         { }
         #endregion
 
-        #region Methods processing
+        #region Properties additional
         /***********************************************************/
-        public string? GetPath()
+        public string? Where
         {
-            //return Handler.execute("echo", "$env:Path", "");
-            // ./write.exe
-            // C:\\Windows\\System32
-            // C:\\Windows\\SysWOW64
-            // C:\\Windows\\Sysnative
-
-            //return Handler.execute("./write", "", "C:\\Windows\\SysWOW64");
-            //return Handler.execute("microsoft-edge:");
-
-            // https://stackoverflow.com/questions/39626509/how-to-launch-ms-edge-from-c-sharp-winforms
-
-            return Handler.Execute("microsoft-edge:");
+            get
+            {
+                return Handler.Execute("where.exe", Program);
+            }
         }
 
+        public string[] Paths
+        {
+            get
+            {
+                var path = Environment.GetEnvironmentVariable("PATH");
+
+                if (path == null)
+                    throw new ArgumentNullException("PATH");
+
+                var paths = path.Split(Path.PathSeparator);
+
+                // Remove any trailing '\'
+                for (int i = 0; i < paths.Length; i++)
+                    if (paths[i].EndsWith(Path.DirectorySeparatorChar))
+                        paths[i] = paths[i].Remove(paths[i].Length - 1, 1);
+
+                return paths;
+            }
+        }
+
+        #endregion
+
+        #region Methods processing
+        /***********************************************************/
         public string? Execute()
         {
             return Handler.Execute(Program);
@@ -80,25 +120,58 @@ namespace DStutz.System.Commands
         }
         #endregion
 
-        #region Methods handling command options
+        #region Methods handling command line options
         /***********************************************************/
-        public string? Help()
+        public virtual string? Help()
         {
             return Handler.Execute(Program, "--help");
         }
 
-        public string? Version()
+        public virtual string? Version()
         {
             return Handler.Execute(Program, "--version");
         }
-
         #endregion
 
         #region Methods finding executable programs
         /***********************************************************/
-        public string? Where()
+        public IEnumerable<FileInfo> Locate()
         {
-            return Handler.Execute("where.exe", Program);
+            return Locate(Program);
+        }
+
+        public IEnumerable<FileInfo> Locate(
+            string fileName)
+        {
+            return Locate(
+                 fileName,
+                 fileName.Replace(".exe", "").ToLower()
+            );
+        }
+
+        public IEnumerable<FileInfo> Locate(
+            string fileName,
+            string software)
+        {
+            var files = new List<FileInfo>();
+
+            foreach (var path in Paths)
+            {
+                if (path.ToLower().Contains(software))
+                {
+                    var full = Path.Combine(path, fileName);
+
+                    if (File.Exists(full))
+                        files.Add(new FileInfo(full));
+                    else
+                        Console.WriteLine("ER " + full);
+                }
+            }
+
+            foreach (var file in files)
+                Console.WriteLine("OK " + file.FullName);
+
+            return files;
         }
         #endregion
 
@@ -106,7 +179,7 @@ namespace DStutz.System.Commands
         /***********************************************************/
         public virtual void Test()
         {
-            throw new NotImplementedException();
+            Version();
         }
         #endregion
 

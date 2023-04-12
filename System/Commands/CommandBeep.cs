@@ -1,21 +1,19 @@
-﻿/**********************************************************************
- * Use cmd.exe as echo is not an executable but a command inside
- **********************************************************************/
-namespace DStutz.System.Commands
+﻿namespace DStutz.System.Commands
 {
     public class CommandBeep : Command
     {
-        /**********************************************************************
-         * Constructors
-         **********************************************************************/
+        #region Constructors
+        /***********************************************************/
         public CommandBeep()
             : base("cmd.exe", false, false, true) { }
+        #endregion
 
-        /**********************************************************************
-         * Methods
-         **********************************************************************/
+        #region Methods
+        /***********************************************************/
         public string Beep()
         {
+            // Use cmd.exe as echo is not an executable but a command inside
+
             // Does NOT work!
             //return Handler.Execute(Program, "/c echo `a");
 
@@ -25,5 +23,6 @@ namespace DStutz.System.Commands
             // Does NOT work!
             //return Handler.Execute(Program, "/c echo 0x07");
         }
+        #endregion
     }
 }

@@ -13,7 +13,7 @@
         #region Constructors
         /***********************************************************/
         public CommandPDFLatex()
-            : base("pdflatex") { }
+            : base("pdflatex.exe", "texlive") { }
         #endregion
 
         #region Methods working
@@ -21,18 +21,21 @@
         public void Pdflatex(
             DirectoryInfo workingDir,
             DirectoryInfo outputDir,
-            string texFile,
-            string pdfName)
+            string fileNameTEX,
+            string fileNamePDF)
         {
-            Pdflatex(workingDir, outputDir, texFile, pdfName, "aux", "log");
+            Pdflatex(
+                workingDir, outputDir,
+                fileNameTEX, fileNamePDF,
+                "aux", "log");
         }
 
         // TODO Add mode?!
         //public void pdflatex(
         //    DirectoryInfo workingDir,
         //    DirectoryInfo outputDir,
-        //    string texFile,
-        //    String pdfName,
+        //    string fileNameTEX,
+        //    String fileNamePDF,
         //    String mode,
         //    params string[] extToBeRemoved)
         //{
@@ -41,17 +44,19 @@
         public void Pdflatex(
             DirectoryInfo workingDir,
             DirectoryInfo outputDir,
-            string texFile,
-            string pdfName,
+            string fileNameTEX,
+            string fileNamePDF,
             params string[] extToBeRemoved)
         {
+            var jobname = fileNamePDF.Replace(".pdf", "");
+
             List<string> arguments = new()
             {
                 //"-shell-escape",
                 //"-interaction=" + mode,
                 "-output-directory=" + outputDir.FullName,
-                "-jobname=" + pdfName,
-                texFile
+                "-jobname=" + jobname,
+                fileNameTEX
             };
 
             Handler.Execute(
@@ -59,7 +64,9 @@
                 arguments,
                 workingDir.FullName);
 
-            LogFileAction(pdfName + ".pdf", "latexed");
+            LogFileAction(
+                jobname + ".pdf",
+                "latexed");
 
             try
             {
@@ -70,10 +77,10 @@
                         File.Delete(
                             Path.Combine(
                                 outputDir.FullName,
-                                pdfName + "." + ext));
+                                jobname + "." + ext));
 
                         LogFileAction(
-                            pdfName + "." + ext,
+                            jobname + "." + ext,
                             "deleted");
                     }
                 }
@@ -81,7 +88,8 @@
             catch (Exception)
             {
                 throw new Exception(
-                    "Unable to delete files in " + outputDir);
+                    "Unable to delete files in " +
+                    outputDir.FullName);
             }
         }
         #endregion
@@ -90,11 +98,13 @@
         /***********************************************************/
         public override void Test()
         {
+            base.Test();
+
             Pdflatex(
-                TestspaceDir,
-                TestspaceDir,
-                "CommandPDFLatex.tex",
-                "CommandPDFLatex");
+                TestDir,          // Working directory
+                TestDir,          // Output directory
+                "Important.tex",  // Template
+                "Important.pdf"); // Output
         }
         #endregion
     }

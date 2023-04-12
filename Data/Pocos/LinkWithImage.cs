@@ -18,18 +18,12 @@
 
         #region Properties implementing
         /***********************************************************/
-        public IJoiner Joiner
+        public override IJoiner Joiner
         {
             get
             {
-                return new Joiner(
-                    (3, Type),
-                    (2, Lang),
-                    (80, Title),
-                    (80, Href),
-                    (20, Tags),
-                    (20, Copyright),
-                    (80, HrefImage)
+                return base.Joiner.Add(
+                    ('L', 80, HrefImage)
                 );
             }
         }
