@@ -19,7 +19,7 @@ namespace DStutz.Apps.Services.Base.SQL
 
             logger.LogInformation(
                 "    --> Dir:  {0}",
-                io.GetDataDir());
+                io.GetDataDir(true));
 
             var sql = "";
 
@@ -68,7 +68,7 @@ namespace DStutz.Apps.Services.Base.SQL
             CommandSqlite cs = new CommandSqlite();
 
             cs.Init(
-                io.GetDataDir(workDir),
+                io.GetDataDir(true, workDir),
                 tempFile,
                 dataFile);
         }

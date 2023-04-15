@@ -163,13 +163,13 @@ namespace DStutz.System.Commands
 
                     if (File.Exists(full))
                         files.Add(new FileInfo(full));
-                    else
-                        Console.WriteLine("ER " + full);
+                    //else
+                    //    Console.WriteLine("ER " + full);
                 }
             }
 
-            foreach (var file in files)
-                Console.WriteLine("OK " + file.FullName);
+            //foreach (var file in files)
+            //    Console.WriteLine("OK " + file.FullName);
 
             return files;
         }

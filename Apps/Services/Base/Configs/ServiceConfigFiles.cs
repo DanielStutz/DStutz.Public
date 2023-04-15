@@ -15,7 +15,7 @@
             get
             {
                 return base.Joiner.Add(
-                    ('L', 100, string.Join(", ", Folders))
+                    ('L', 30, string.Join(", ", Folders))
                 );
             }
         }

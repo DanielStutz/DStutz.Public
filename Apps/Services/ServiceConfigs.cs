@@ -68,10 +68,6 @@ namespace DStutz.Apps.Services
             string uniqueIdConfig)
             where T : ServiceConfig
         {
-            if (Configs.Count == 0)
-            {
-            }
-
             foreach (var config in Configs)
                 if (config.GetType() == typeof(T) &&
                     config.UniqueId.Equals(uniqueIdConfig))

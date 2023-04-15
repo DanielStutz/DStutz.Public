@@ -17,7 +17,7 @@ namespace DStutz.Apps
     {
         public DirectoryInfo GetCodeDir(string path = "");
         public DirectoryInfo GetConfDir(string path = "");
-        public DirectoryInfo GetDataDir(string path = "");
+        public DirectoryInfo GetDataDir(bool checkExistence, string path = "");
         public FileInfo GetConfFile(string path);
         public FileInfo GetDataFile(string path);
     }
@@ -135,10 +135,11 @@ namespace DStutz.Apps
         }
 
         public DirectoryInfo GetDataDir(
+            bool checkExistence,
             string path = "")
         {
             return Finder.FindDirectory(
-                true,
+                checkExistence,
                 AppBase.DataPath.FullName,
                 path);
         }
