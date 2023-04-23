@@ -17,7 +17,7 @@ namespace DStutz.Coder.Entities.Data
 
         #region Properties junction
         /***********************************************************/
-        private string? Table { get; }
+        private string? JTable { get; }
         private DataType JType { get; }
         #endregion
 
@@ -40,7 +40,7 @@ namespace DStutz.Coder.Entities.Data
             // RType is for convenience only
             OType = ownerType;
             RType = Type;
-            Table = property.JunctionTable;
+            JTable = property.JunctionTable;
             JType = new DataType(OType, RType, property.JunctionType);
 
             // List<OwnerRelatedRel>
@@ -64,8 +64,8 @@ namespace DStutz.Coder.Entities.Data
         {
             get
             {
-                if (Table != null)
-                    return $"[Table(\"{Table}\")]";
+                if (JTable != null)
+                    return $"[Table(\"{JTable}\")]";
 
                 return $"[Table(\"{JType.N.TableName()}\")]";
             }

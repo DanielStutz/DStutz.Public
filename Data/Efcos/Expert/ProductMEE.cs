@@ -1,10 +1,10 @@
-using DStutz.Data.Pocos.Youtube;
+using DStutz.Data.Pocos.Expert;
 
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 // Version 1.1.0
-namespace DStutz.Data.Efcos.Youtube
+namespace DStutz.Data.Efcos.Expert
 {
     [Table("product")]
     public class ProductMEE
@@ -15,11 +15,11 @@ namespace DStutz.Data.Efcos.Youtube
         [Column("pk1"), Key]
         public long Pk1 { get; set; }
 
-        [Column("type")]
-        public string Type { get; set; }
-
         [Column("name")]
         public string Name { get; set; }
+
+        [Column("type")]
+        public string Type { get; set; }
         #endregion
 
         #region Relations m:1 (with specific foreign key)
@@ -59,8 +59,8 @@ namespace DStutz.Data.Efcos.Youtube
             return new Joiner(
                 //('L', 20, e1.GetType().Name),
                 ('R', 20, e1.Pk1),
-                ('L', 40, e1.Type),
                 ('L', 80, e1.Name),
+                ('L', 40, e1.Type),
                 ('L', 20, e1.ProducerPk1)
             ).Add(data);
         }
@@ -71,8 +71,8 @@ namespace DStutz.Data.Efcos.Youtube
             var e2 = new E()
             {
                 Pk1 = e1.Pk1,
-                Type = e1.Type,
                 Name = e1.Name,
+                Type = e1.Type,
                 ProducerPk1 = e1.ProducerPk1,
             };
 

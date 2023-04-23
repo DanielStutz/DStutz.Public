@@ -1,61 +1,61 @@
-using DStutz.Data.Efcos.Youtube;
+using DStutz.Data.Efcos.Expert.Websites;
 
 // Version 1.1.0
-namespace DStutz.Data.Pocos.Youtube
+namespace DStutz.Data.Pocos.Expert.Websites
 {
-    public interface IVideo
+    public interface IArticle
     {
         public long Pk1 { get; set; }
-        public string Date { get; set; }
+        public string Lang { get; set; }
+        public string? Date { get; set; }
         public string Title { get; set; }
+        public string Href { get; set; }
         public string? Remark { get; set; }
-        public string Identifier { get; set; }
-        public long? ChannelPk1 { get; set; }
-        public long? PlaylistPk1 { get; set; }
+        public string? Author { get; set; }
+        public long? SeriesPk1 { get; set; }
     }
 
-    public class VideoMPE
-        : IPoco<IVideo>, IVideo
+    public class ArticleMPE
+        : IPoco<IArticle>, IArticle
     {
         #region Properties
         /***********************************************************/
         public long Pk1 { get; set; }
-        public string Date { get; set; }
+        public string Lang { get; set; }
+        public string? Date { get; set; }
         public string Title { get; set; }
+        public string Href { get; set; }
         public string? Remark { get; set; }
-        public string Identifier { get; set; }
+        public string? Author { get; set; }
         #endregion
 
         #region Relations 1:n (with default foreign key)
         /***********************************************************/
-        public IReadOnlyList<CommentMPE> Comments { get; set; }
+        public IReadOnlyList<CommentMPE>? Comments { get; set; }
         #endregion
 
         #region Relations m:1 (with specific foreign key)
         /***********************************************************/
-        public long? ChannelPk1 { get; set; }
-        public ChannelMPE? Channel { get; set; }
-
-        public long? PlaylistPk1 { get; set; }
-        public PlaylistMPE? Playlist { get; set; }
+        public long? SeriesPk1 { get; set; }
+        public SeriesMPE? Series { get; set; }
         #endregion
 
         #region Relations m:n (with a junction table)
         /***********************************************************/
-        public IReadOnlyList<RelPEAny<ProductMPE, IProduct>> ProductRels { get; set; }
-        public IReadOnlyList<RelPEAny<TagMPE, ITag>> TagRels { get; set; }
+        public IReadOnlyList<RelPEAny<ProductMPE, IProduct>>? ProductRels { get; set; }
+        public IReadOnlyList<RelPEAny<TagMPE, ITag>>? TagRels { get; set; }
         #endregion
 
         #region Properties and methods implementing
         /***********************************************************/
         public IJoiner Joiner
         {
-            get { return VideoMapper.New.Joiner(this); }
+            get { return ArticleMapper.New.Joiner(this); }
         }
 
-        public E Map<E>() where E : IVideo, new()
+        public E Map<E>() where E : IArticle, new()
         {
-            return VideoMapper.New.Map<E>(this);
+            return ArticleMapper.New.Map<E>(this);
         }
         #endregion
     }

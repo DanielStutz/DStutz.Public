@@ -1,19 +1,22 @@
-using DStutz.Data.Pocos.Youtube;
+using DStutz.Data.Pocos.Expert;
 
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 // Version 1.1.0
-namespace DStutz.Data.Efcos.Youtube
+namespace DStutz.Data.Efcos.Expert
 {
-    [Table("tag")]
-    public class TagMEE
-        : IEfco<TagMPE>, ITag
+    [Table("comment")]
+    public class CommentMEE
+        : IEfco<CommentMPE>, IComment
     {
         #region Properties
         /***********************************************************/
         [Column("pk1"), Key]
         public long Pk1 { get; set; }
+
+        [Column("order_by"), Key]
+        public int OrderBy { get; set; }
 
         [Column("de")]
         public string? DE { get; set; }
@@ -29,30 +32,31 @@ namespace DStutz.Data.Efcos.Youtube
         /***********************************************************/
         public IJoiner Joiner
         {
-            get { return TagMapper.New.Joiner(this); }
+            get { return CommentMapper.New.Joiner(this); }
         }
 
-        public TagMPE Map()
+        public CommentMPE Map()
         {
-            return TagMapper.New.Map<TagMPE>(this);
+            return CommentMapper.New.Map<CommentMPE>(this);
         }
         #endregion
     }
 
-    public class TagMapper
-        : IMapper<ITag>
+    public class CommentMapper
+        : IMapper<IComment>
     {
-        public static TagMapper New { get; } = new TagMapper();
+        public static CommentMapper New { get; } = new CommentMapper();
 
         #region Methods implementing
         /***********************************************************/
         public IJoiner Joiner(
-            ITag e1,
+            IComment e1,
             params IJoinable?[] data)
         {
             return new Joiner(
                 //('L', 20, e1.GetType().Name),
                 ('R', 20, e1.Pk1),
+                ('R', 3, e1.OrderBy),
                 ('L', 20, e1.DE),
                 ('L', 20, e1.EN),
                 ('L', 20, e1.FR)
@@ -60,11 +64,12 @@ namespace DStutz.Data.Efcos.Youtube
         }
 
         public E Map<E>(
-            ITag e1) where E : ITag, new()
+            IComment e1) where E : IComment, new()
         {
             return new E()
             {
                 Pk1 = e1.Pk1,
+                OrderBy = e1.OrderBy,
                 DE = e1.DE,
                 EN = e1.EN,
                 FR = e1.FR,

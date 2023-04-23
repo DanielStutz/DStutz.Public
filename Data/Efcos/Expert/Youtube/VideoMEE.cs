@@ -1,12 +1,13 @@
-using DStutz.Data.Pocos.Youtube;
+using DStutz.Data.Pocos.Expert;
+using DStutz.Data.Pocos.Expert.Youtube;
 
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 // Version 1.1.0
-namespace DStutz.Data.Efcos.Youtube
+namespace DStutz.Data.Efcos.Expert.Youtube
 {
-    [Table("video")]
+    [Table("youtube_video")]
     public class VideoMEE
         : IEfco<VideoMPE>, IVideo
     {
@@ -15,11 +16,17 @@ namespace DStutz.Data.Efcos.Youtube
         [Column("pk1"), Key]
         public long Pk1 { get; set; }
 
+        [Column("lang")]
+        public string Lang { get; set; }
+
         [Column("date")]
         public string Date { get; set; }
 
         [Column("title")]
         public string Title { get; set; }
+
+        [Column("href")]
+        public string? Href { get; set; }
 
         [Column("remark")]
         public string? Remark { get; set; }
@@ -31,16 +38,16 @@ namespace DStutz.Data.Efcos.Youtube
         #region Relations 1:n (with default foreign key)
         /***********************************************************/
         [ForeignKey("Pk1")]
-        public IReadOnlyList<CommentMEE> Comments { get; set; }
+        public IReadOnlyList<CommentMEE>? Comments { get; set; }
         #endregion
 
         #region Relations m:1 (with specific foreign key)
         /***********************************************************/
         [Column("channel_pk1")]
-        public long? ChannelPk1 { get; set; }
+        public long ChannelPk1 { get; set; }
 
         [ForeignKey("ChannelPk1")]
-        public ChannelMEE? Channel { get; set; }
+        public ChannelMEE Channel { get; set; }
 
         [Column("playlist_pk1")]
         public long? PlaylistPk1 { get; set; }
@@ -51,8 +58,8 @@ namespace DStutz.Data.Efcos.Youtube
 
         #region Relations m:n (with a junction table)
         /***********************************************************/
-        public IReadOnlyList<VideoProductRel> ProductRels { get; set; }
-        public IReadOnlyList<VideoTagRel> TagRels { get; set; }
+        public IReadOnlyList<VideoProductRel>? ProductRels { get; set; }
+        public IReadOnlyList<VideoTagRel>? TagRels { get; set; }
         #endregion
 
         #region Properties and methods implementing
@@ -69,12 +76,12 @@ namespace DStutz.Data.Efcos.Youtube
         #endregion
     }
 
-    [Table("video_product_rel")]
+    [Table("youtube_video_product_rel")]
     public class VideoProductRel
-        : RelEEAny<VideoMEE, ProductMEE, ProductMPE, IProduct>
+    : RelEEAny<VideoMEE, ProductMEE, ProductMPE, IProduct>
     { }
 
-    [Table("video_tag_rel")]
+    [Table("youtube_video_tag_rel")]
     public class VideoTagRel
         : RelEEAny<VideoMEE, TagMEE, TagMPE, ITag>
     { }
@@ -93,8 +100,10 @@ namespace DStutz.Data.Efcos.Youtube
             return new Joiner(
                 //('L', 20, e1.GetType().Name),
                 ('R', 20, e1.Pk1),
+                ('L', 2, e1.Lang),
                 ('L', 10, e1.Date),
                 ('L', 60, e1.Title),
+                ('L', 80, e1.Href),
                 ('L', 40, e1.Remark),
                 ('L', 11, e1.Identifier),
                 ('L', 20, e1.ChannelPk1),
@@ -108,8 +117,10 @@ namespace DStutz.Data.Efcos.Youtube
             var e2 = new E()
             {
                 Pk1 = e1.Pk1,
+                Lang = e1.Lang,
                 Date = e1.Date,
                 Title = e1.Title,
+                Href = e1.Href,
                 Remark = e1.Remark,
                 Identifier = e1.Identifier,
                 ChannelPk1 = e1.ChannelPk1,
@@ -122,12 +133,12 @@ namespace DStutz.Data.Efcos.Youtube
                 VideoMEE efco = (VideoMEE)(object)e2;
 
                 efco.Comments =
-                    Mapper.MapMandatories(
+                    Mapper.MapOptionals(
                         poco.Comments,
                         e => e.Map<CommentMEE>());
 
                 efco.Channel =
-                    Mapper.MapOptional(
+                    Mapper.MapMandatory(
                         poco.Channel,
                         e => e.Map<ChannelMEE>());
 
@@ -137,12 +148,12 @@ namespace DStutz.Data.Efcos.Youtube
                         e => e.Map<PlaylistMEE>());
 
                 efco.ProductRels =
-                    Mapper.MapMandatories(
+                    Mapper.MapOptionals(
                         poco.ProductRels,
                         e => e.Map<VideoProductRel, ProductMEE>());
 
                 efco.TagRels =
-                    Mapper.MapMandatories(
+                    Mapper.MapOptionals(
                         poco.TagRels,
                         e => e.Map<VideoTagRel, TagMEE>());
             }
@@ -152,12 +163,12 @@ namespace DStutz.Data.Efcos.Youtube
                 VideoMPE poco = (VideoMPE)(object)e2;
 
                 poco.Comments =
-                    Mapper.MapMandatories(
+                    Mapper.MapOptionals(
                         efco.Comments,
                         e => e.Map());
 
                 poco.Channel =
-                    Mapper.MapOptional(
+                    Mapper.MapMandatory(
                         efco.Channel,
                         e => e.Map());
 
@@ -167,12 +178,12 @@ namespace DStutz.Data.Efcos.Youtube
                         e => e.Map());
 
                 poco.ProductRels =
-                    Mapper.MapMandatories(
+                    Mapper.MapOptionals(
                         efco.ProductRels,
                         e => e.Map());
 
                 poco.TagRels =
-                    Mapper.MapMandatories(
+                    Mapper.MapOptionals(
                         efco.TagRels,
                         e => e.Map());
             }

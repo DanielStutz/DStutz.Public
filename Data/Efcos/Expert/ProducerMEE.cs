@@ -1,10 +1,10 @@
-using DStutz.Data.Pocos.Youtube;
+using DStutz.Data.Pocos.Expert;
 
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 // Version 1.1.0
-namespace DStutz.Data.Efcos.Youtube
+namespace DStutz.Data.Efcos.Expert
 {
     [Table("producer")]
     public class ProducerMEE

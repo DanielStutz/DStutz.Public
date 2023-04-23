@@ -1,0 +1,158 @@
+{
+  "Channel": {
+    "Namespace": "DStutz.Data.#.Expert.Youtube",
+    "Name": "Channel",
+    "Table": "youtube_channel",
+    "Code": {
+      "Version": "1.1.0"
+    },
+    "Keys": [
+      {
+        "Type": "long"
+      }
+    ],
+    "Properties": [
+      {
+        "Name": "Abbr",
+        "Type": "string",
+        "Width": 3
+      },
+      {
+        "Name": "Name",
+        "Type": "string",
+        "Width": 40
+      },
+      {
+        "Name": "Website",
+        "Type": "string",
+        "Width": 80
+      },
+      {
+        "Name": "Person",
+        "Type": "string?",
+        "Width": 40
+      },
+      {
+        "Name": "Remark",
+        "Type": "string?",
+        "Width": 40
+      },
+      {
+        "Name": "Identifier",
+        "Type": "string",
+        "Width": 40
+      }
+    ]
+  },
+  "Playlist": {
+    "Namespace": "DStutz.Data.#.Expert.Youtube",
+    "Name": "Playlist",
+    "Table": "youtube_playlist",
+    "Code": {
+      "Version": "1.1.0"
+    },
+    "Keys": [
+      {
+        "Type": "long"
+      }
+    ],
+    "Properties": [
+      {
+        "Name": "Title",
+        "Type": "string",
+        "Width": 60
+      },
+      {
+        "Name": "Remark",
+        "Type": "string?",
+        "Width": 40
+      },
+      {
+        "Name": "Identifier",
+        "Type": "string",
+        "Width": 34
+      }
+    ],
+    "RelationsMto1": [
+      {
+        "Name": "Channel",
+        "Type": "ChannelM_E"
+      }
+    ]
+  },
+  "Video": {
+    "Namespace": "DStutz.Data.#.Expert.Youtube",
+    "Name": "Video",
+    "Table": "youtube_video",
+    "Code": {
+      "Version": "1.1.0"
+    },
+    "Keys": [
+      {
+        "Type": "long"
+      }
+    ],
+    "Properties": [
+      {
+        "Name": "Lang",
+        "Type": "string",
+        "Width": 2
+      },
+      {
+        "Name": "Date",
+        "Type": "string",
+        "Width": 10
+      },
+      {
+        "Name": "Title",
+        "Type": "string",
+        "Width": 60
+      },
+      {
+        "Name": "Href",
+        "Type": "string?",
+        "Width": 80
+      },
+      {
+        "Name": "Remark",
+        "Type": "string?",
+        "Width": 40
+      },
+      {
+        "Name": "Identifier",
+        "Type": "string",
+        "Width": 11
+      }
+    ],
+    "Relations1toN": [
+      {
+        "Name": "Comments",
+        "Type": "CommentM_E?"
+      }
+    ],
+    "RelationsMto1": [
+      {
+        "Name": "Channel",
+        "Type": "ChannelM_E"
+      },
+      {
+        "Name": "Playlist",
+        "Type": "PlaylistM_E?"
+      }
+    ],
+    "RelationsMtoN": [
+      {
+        "Name": "ProductRels",
+        "Type": "ProductM_E?",
+        "JunctionTable": "youtube_video_product_rel",
+        "JunctionType": "Rel_EAny"
+      },
+      {
+        "Name": "TagRels",
+        "Type": "TagM_E?",
+        "JunctionTable": "youtube_video_tag_rel",
+        "JunctionType": "Rel_EAny"
+      }
+    ]
+  }
+}

@@ -1,7 +1,7 @@
-using DStutz.Data.Efcos.Youtube;
+using DStutz.Data.Efcos.Expert;
 
 // Version 1.1.0
-namespace DStutz.Data.Pocos.Youtube
+namespace DStutz.Data.Pocos.Expert
 {
     public interface ITag
     {

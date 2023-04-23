@@ -1,0 +1,108 @@
+{
+  "Article": {
+    "Namespace": "DStutz.Data.#.Expert.Websites",
+    "Name": "Article",
+    "Table": "website_article",
+    "Code": {
+      "Version": "1.1.0"
+    },
+    "Keys": [
+      {
+        "Type": "long"
+      }
+    ],
+    "Properties": [
+      {
+        "Name": "Lang",
+        "Type": "string",
+        "Width": 2
+      },
+      {
+        "Name": "Date",
+        "Type": "string?",
+        "Width": 10
+      },
+      {
+        "Name": "Title",
+        "Type": "string",
+        "Width": 60
+      },
+      {
+        "Name": "Href",
+        "Type": "string",
+        "Width": 80
+      },
+      {
+        "Name": "Remark",
+        "Type": "string?",
+        "Width": 40
+      },
+      {
+        "Name": "Author",
+        "Type": "string?",
+        "Width": 40
+      }
+    ],
+    "Relations1toN": [
+      {
+        "Name": "Comments",
+        "Type": "CommentM_E?"
+      }
+    ],
+    "RelationsMto1": [
+      {
+        "Name": "Series",
+        "Type": "SeriesM_E?"
+      }
+    ],
+    "RelationsMtoN": [
+      {
+        "Name": "ProductRels",
+        "Type": "ProductM_E?",
+        "JunctionTable": "website_article_product_rel",
+        "JunctionType": "Rel_EAny"
+      },
+      {
+        "Name": "TagRels",
+        "Type": "TagM_E?",
+        "JunctionTable": "website_article_tag_rel",
+        "JunctionType": "Rel_EAny"
+      }
+    ]
+  },
+  "Series": {
+    "Namespace": "DStutz.Data.#.Expert.Websites",
+    "Name": "Series",
+    "Table": "website_series",
+    "Code": {
+      "Version": "1.1.0"
+    },
+    "Keys": [
+      {
+        "Type": "long"
+      }
+    ],
+    "Properties": [
+      {
+        "Name": "Title",
+        "Type": "string",
+        "Width": 60
+      },
+      {
+        "Name": "Href",
+        "Type": "string",
+        "Width": 80
+      },
+      {
+        "Name": "Remark",
+        "Type": "string?",
+        "Width": 40
+      },
+      {
+        "Name": "Author",
+        "Type": "string?",
+        "Width": 40
+      }
+    ]
+  }
+}

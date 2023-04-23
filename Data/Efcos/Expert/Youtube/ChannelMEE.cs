@@ -1,12 +1,12 @@
-using DStutz.Data.Pocos.Youtube;
+using DStutz.Data.Pocos.Expert.Youtube;
 
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 // Version 1.1.0
-namespace DStutz.Data.Efcos.Youtube
+namespace DStutz.Data.Efcos.Expert.Youtube
 {
-    [Table("channel")]
+    [Table("youtube_channel")]
     public class ChannelMEE
         : IEfco<ChannelMPE>, IChannel
     {

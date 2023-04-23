@@ -41,7 +41,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\Base\Options\ServiceOptionListString.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\Client.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\ServiceContext.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\Youtube\ServiceYoutube.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\Expert\ServiceExpert.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Coder\CodeInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Coder\CodeHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Coder\CodeBlock.cs" />
@@ -86,8 +86,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Collections.Generic\Collectors\MDictionary.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Collections.Generic\Collectors\MList.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Abc.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\Youtube\CruderVideo.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\Youtube\CruderWebsite.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\Expert\Youtube\CruderVideo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\Expert\Websites\CruderArticle.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Accounting\AccountBalancesMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Accounting\AccountExtendedMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Accounting\AccountGroupMEE.cs" />
@@ -104,6 +104,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Contacts\ContactDetailObyMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Contacts\ContactMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Documents\DocInfoMEE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Expert\Websites\SeriesMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Images\ImageCategoryMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Images\ImageMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Images\ImageTagMEE.cs" />
@@ -126,15 +127,15 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Websites\WebdocObyMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Websites\WebsiteBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Websites\WebsiteMEE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Youtube\ChannelMEE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Youtube\CommentMEE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Youtube\PlaylistMEE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Youtube\ProducerMEE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Youtube\ProductMEE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Youtube\TagMEE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Youtube\TopicMEE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Youtube\VideoMEE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Youtube\WebsiteMEE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Expert\Youtube\ChannelMEE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Expert\CommentMEE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Expert\Youtube\PlaylistMEE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Expert\ProducerMEE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Expert\ProductMEE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Expert\TagMEE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Expert\TopicMEE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Expert\Youtube\VideoMEE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Expert\Websites\ArticleMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\ZombieMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\IDated.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\IDeEn.cs" />
@@ -177,6 +178,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Emails\MailClient.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Emails\MailProvider.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Emails\MailUser.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Expert\Websites\SeriesMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Images\ImageCategoryPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Images\ImageMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Images\ImageTagMPE.cs" />
@@ -212,15 +214,15 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Websites\WebdocMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Websites\WebdocObyMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Websites\WebsiteMPE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Youtube\ChannelMPE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Youtube\CommentMPE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Youtube\PlaylistMPE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Youtube\ProducerMPE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Youtube\ProductMPE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Youtube\TagMPE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Youtube\TopicPE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Youtube\VideoMPE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Youtube\WebsiteMPE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Expert\Youtube\ChannelMPE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Expert\CommentMPE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Expert\Youtube\PlaylistMPE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Expert\ProducerMPE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Expert\ProductMPE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Expert\TagMPE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Expert\TopicPE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Expert\Youtube\VideoMPE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Expert\Websites\ArticleMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\ZombieMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\PolyglotText.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\SEO.cs" />
@@ -328,6 +330,8 @@
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\Expert.json" />
+    <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\ExpertWebsite.json" />
     <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\I.json" />
     <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\Images.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -366,12 +370,12 @@
     </Content>
     <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\V.json" />
     <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\W.json" />
-    <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\Youtube.json">
+    <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\ExpertYoutube.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\YoutubeOwned.json">
+    <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\ExpertOwned.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
@@ -386,5 +390,11 @@
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Data\Cruders\Expert\Websites\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Data\Cruders\Expert\Youtube\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Data\Efcos\Expert\Youtube\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Data\Pocos\Expert\Youtube\" />
   </ItemGroup>
 </Project>

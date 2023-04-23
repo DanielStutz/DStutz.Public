@@ -1,20 +1,20 @@
-﻿using DStutz.Data.Pocos.Youtube;
+using DStutz.Data.Pocos.Expert;
 
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 // Version 1.1.0
-namespace DStutz.Data.Efcos.Youtube
+namespace DStutz.Data.Efcos.Expert
 {
-    [Table("topic")]
-    public class TopicMEE
-        : TreeNodeMEE<TopicMEE, TopicPE, TopicDataMEO, TopicDataMPO>
-    { }
-
-    public class TopicDataMEO
-        : IEfco<TopicDataMPO>, ITopicData
+    [Table("tag")]
+    public class TagMEE
+        : IEfco<TagMPE>, ITag
     {
         #region Properties
         /***********************************************************/
+        [Column("pk1"), Key]
+        public long Pk1 { get; set; }
+
         [Column("de")]
         public string? DE { get; set; }
 
@@ -23,59 +23,51 @@ namespace DStutz.Data.Efcos.Youtube
 
         [Column("fr")]
         public string? FR { get; set; }
-
-        [Column("abbr")]
-        public string? Abbr { get; set; }
-
-        [Column("remark")]
-        public string? Remark { get; set; }
         #endregion
 
         #region Properties and methods implementing
         /***********************************************************/
         public IJoiner Joiner
         {
-            get { return TopicDataMapper.New.Joiner(this); }
+            get { return TagMapper.New.Joiner(this); }
         }
 
-        public TopicDataMPO Map()
+        public TagMPE Map()
         {
-            return TopicDataMapper.New.Map<TopicDataMPO>(this);
+            return TagMapper.New.Map<TagMPE>(this);
         }
         #endregion
     }
 
-    public class TopicDataMapper
-        : IMapper<ITopicData>
+    public class TagMapper
+        : IMapper<ITag>
     {
-        public static TopicDataMapper New { get; } = new TopicDataMapper();
+        public static TagMapper New { get; } = new TagMapper();
 
         #region Methods implementing
         /***********************************************************/
         public IJoiner Joiner(
-            ITopicData e1,
+            ITag e1,
             params IJoinable?[] data)
         {
             return new Joiner(
                 //('L', 20, e1.GetType().Name),
+                ('R', 20, e1.Pk1),
                 ('L', 20, e1.DE),
                 ('L', 20, e1.EN),
-                ('L', 20, e1.FR),
-                ('L', 3, e1.Abbr),
-                ('L', 20, e1.Remark)
+                ('L', 20, e1.FR)
             ).Add(data);
         }
 
         public E Map<E>(
-            ITopicData e1) where E : ITopicData, new()
+            ITag e1) where E : ITag, new()
         {
             return new E()
             {
+                Pk1 = e1.Pk1,
                 DE = e1.DE,
                 EN = e1.EN,
                 FR = e1.FR,
-                Abbr = e1.Abbr,
-                Remark = e1.Remark,
             };
         }
         #endregion

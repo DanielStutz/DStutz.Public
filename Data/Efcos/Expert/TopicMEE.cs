@@ -1,23 +1,20 @@
-using DStutz.Data.Pocos.Youtube;
+﻿using DStutz.Data.Pocos.Expert;
 
-using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 // Version 1.1.0
-namespace DStutz.Data.Efcos.Youtube
+namespace DStutz.Data.Efcos.Expert
 {
-    [Table("comment")]
-    public class CommentMEE
-        : IEfco<CommentMPE>, IComment
+    [Table("topic")]
+    public class TopicMEE
+        : TreeNodeMEE<TopicMEE, TopicPE, TopicDataMEO, TopicDataMPO>
+    { }
+
+    public class TopicDataMEO
+        : IEfco<TopicDataMPO>, ITopicData
     {
         #region Properties
         /***********************************************************/
-        [Column("pk1"), Key]
-        public long Pk1 { get; set; }
-
-        [Column("order_by"), Key]
-        public int OrderBy { get; set; }
-
         [Column("de")]
         public string? DE { get; set; }
 
@@ -26,53 +23,59 @@ namespace DStutz.Data.Efcos.Youtube
 
         [Column("fr")]
         public string? FR { get; set; }
+
+        [Column("abbr")]
+        public string? Abbr { get; set; }
+
+        [Column("remark")]
+        public string? Remark { get; set; }
         #endregion
 
         #region Properties and methods implementing
         /***********************************************************/
         public IJoiner Joiner
         {
-            get { return CommentMapper.New.Joiner(this); }
+            get { return TopicDataMapper.New.Joiner(this); }
         }
 
-        public CommentMPE Map()
+        public TopicDataMPO Map()
         {
-            return CommentMapper.New.Map<CommentMPE>(this);
+            return TopicDataMapper.New.Map<TopicDataMPO>(this);
         }
         #endregion
     }
 
-    public class CommentMapper
-        : IMapper<IComment>
+    public class TopicDataMapper
+        : IMapper<ITopicData>
     {
-        public static CommentMapper New { get; } = new CommentMapper();
+        public static TopicDataMapper New { get; } = new TopicDataMapper();
 
         #region Methods implementing
         /***********************************************************/
         public IJoiner Joiner(
-            IComment e1,
+            ITopicData e1,
             params IJoinable?[] data)
         {
             return new Joiner(
                 //('L', 20, e1.GetType().Name),
-                ('R', 20, e1.Pk1),
-                ('R', 3, e1.OrderBy),
                 ('L', 20, e1.DE),
                 ('L', 20, e1.EN),
-                ('L', 20, e1.FR)
+                ('L', 20, e1.FR),
+                ('L', 3, e1.Abbr),
+                ('L', 20, e1.Remark)
             ).Add(data);
         }
 
         public E Map<E>(
-            IComment e1) where E : IComment, new()
+            ITopicData e1) where E : ITopicData, new()
         {
             return new E()
             {
-                Pk1 = e1.Pk1,
-                OrderBy = e1.OrderBy,
                 DE = e1.DE,
                 EN = e1.EN,
                 FR = e1.FR,
+                Abbr = e1.Abbr,
+                Remark = e1.Remark,
             };
         }
         #endregion

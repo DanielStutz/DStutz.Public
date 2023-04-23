@@ -2,21 +2,25 @@
 using DStutz.Apps.Services.Base.SQL;
 using DStutz.Data;
 using DStutz.Data.Cruders;
-using DStutz.Data.Cruders.Youtube;
-using DStutz.Data.Efcos.Youtube;
+using DStutz.Data.Cruders.Expert.Websites;
+using DStutz.Data.Cruders.Expert.Youtube;
+using DStutz.Data.Efcos.Expert;
+using DStutz.Data.Efcos.Expert.Websites;
+using DStutz.Data.Efcos.Expert.Youtube;
 using DStutz.Data.Pocos;
-using DStutz.Data.Pocos.Youtube;
+using DStutz.Data.Pocos.Expert;
+using DStutz.Data.Pocos.Expert.Youtube;
 
 using Microsoft.EntityFrameworkCore;
 using System.Text;
 
-namespace DStutz.Apps.Services.Youtube
+namespace DStutz.Apps.Services.Expert
 {
-    public interface IServiceYoutube
+    public interface IServiceExpert
         : IService
     {
+        public ICruderArticle Articles { get; }
         public ICruderVideo Videos { get; }
-        public ICruderWebsite Websites { get; }
         public IReaderTree<TopicPE> Topics { get; }
 
 
@@ -32,20 +36,20 @@ namespace DStutz.Apps.Services.Youtube
         public IReadOnlyList<TagMPE> FindTags();
     }
 
-    public class ServiceYoutube
-        : ServiceEFC<ServiceConfigSQLMySql>, IServiceYoutube
+    public class ServiceExpert
+        : ServiceEFC<ServiceConfigSQLMySql>, IServiceExpert
     {
         #region Properties
         /***********************************************************/
+        public ICruderArticle Articles { get { return CruderArticle; } }
         public ICruderVideo Videos { get { return CruderVideo; } }
-        public ICruderWebsite Websites { get { return CruderWebsite; } }
         public IReaderTree<TopicPE> Topics { get { return ReaderTopic; } }
         #endregion
 
         #region Properties (cruders)
         /***********************************************************/
         private CruderVideo CruderVideo { get; }
-        private CruderWebsite CruderWebsite { get; }
+        private CruderArticle CruderArticle { get; }
         private ReaderPocoTree<TopicMEE, TopicPE> ReaderTopic { get; }
         #endregion
 
@@ -53,17 +57,17 @@ namespace DStutz.Apps.Services.Youtube
         /***********************************************************/
         private static bool init = false; // TODO !!!
 
-        public ServiceYoutube(
+        public ServiceExpert(
             IAppContext appContext)
             : base(
-                  appContext.GetServiceContext("Youtube"),
+                  appContext.GetServiceContext("Expert"),
                   init)
         {
+            CruderArticle =
+                new CruderArticle(this);
+
             CruderVideo =
                 new CruderVideo(this);
-
-            CruderWebsite =
-                new CruderWebsite(this);
 
             ReaderTopic =
                 new ReaderPocoTree<TopicMEE, TopicPE>(this);
@@ -71,7 +75,7 @@ namespace DStutz.Apps.Services.Youtube
             AppLogger.LogEntities(
                 this,
                 CruderVideo,
-                CruderWebsite);
+                CruderArticle);
         }
         #endregion
 
@@ -101,18 +105,28 @@ namespace DStutz.Apps.Services.Youtube
                 .Entity<TopicMEE>()
                 .OwnsOne(e => e.Data);
 
+            // Website article data
             modelBuilder
-                .Entity<WebsiteMEE>();
+                .Entity<SeriesMEE>();
 
-            // Channel data
+            modelBuilder
+                .Entity<ArticleMEE>();
+
+            modelBuilder
+                .Entity<ArticleProductRel>()
+                .HasKey(e => new { e.OwnerPk1, e.OrderBy });
+
+            modelBuilder
+                .Entity<ArticleTagRel>()
+                .HasKey(e => new { e.OwnerPk1, e.OrderBy });
+
+            // Youtube video data
             modelBuilder
                 .Entity<ChannelMEE>();
 
-            // Playlist data
             modelBuilder
                 .Entity<PlaylistMEE>();
 
-            // Video data
             modelBuilder
                 .Entity<VideoMEE>();
 

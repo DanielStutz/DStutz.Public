@@ -1,0 +1,128 @@
+{
+  "Comment": {
+    "Namespace": "DStutz.Data.#.Expert",
+    "Name": "Comment",
+    "Code": {
+      "Version": "1.1.0"
+    },
+    "Keys": [
+      {
+        "Type": "long"
+      },
+      {
+        "Type": "OrderBy",
+        "Width": 3
+      }
+    ],
+    "Properties": [
+      {
+        "Name": "DE",
+        "Type": "string?",
+        "Width": 20
+      },
+      {
+        "Name": "EN",
+        "Type": "string?",
+        "Width": 20
+      },
+      {
+        "Name": "FR",
+        "Type": "string?",
+        "Width": 20
+      }
+    ]
+  },
+  "Producer": {
+    "Namespace": "DStutz.Data.#.Expert",
+    "Name": "Producer",
+    "Code": {
+      "Version": "1.1.0"
+    },
+    "Keys": [
+      {
+        "Type": "long"
+      }
+    ],
+    "Properties": [
+      {
+        "Name": "Abbr",
+        "Type": "string",
+        "Width": 3
+      },
+      {
+        "Name": "Name",
+        "Type": "string",
+        "Width": 40
+      },
+      {
+        "Name": "Website",
+        "Type": "string",
+        "Width": 80
+      },
+      {
+        "Name": "Country",
+        "Type": "string",
+        "Width": 2
+      }
+    ]
+  },
+  "Product": {
+    "Namespace": "DStutz.Data.#.Expert",
+    "Name": "Product",
+    "Code": {
+      "Version": "1.1.0"
+    },
+    "Keys": [
+      {
+        "Type": "long"
+      }
+    ],
+    "Properties": [
+      {
+        "Name": "Name",
+        "Type": "string",
+        "Width": 80
+      },
+      {
+        "Name": "Type",
+        "Type": "string",
+        "Width": 40
+      }
+    ],
+    "RelationsMto1": [
+      {
+        "Name": "Producer",
+        "Type": "ProducerM_E?"
+      }
+    ]
+  },
+  "Tag": {
+    "Namespace": "DStutz.Data.#.Expert",
+    "Name": "Tag",
+    "Code": {
+      "Version": "1.1.0"
+    },
+    "Keys": [
+      {
+        "Type": "long"
+      }
+    ],
+    "Properties": [
+      {
+        "Name": "DE",
+        "Type": "string?",
+        "Width": 20
+      },
+      {
+        "Name": "EN",
+        "Type": "string?",
+        "Width": 20
+      },
+      {
+        "Name": "FR",
+        "Type": "string?",
+        "Width": 20
+      }
+    ]
+  }
+}
