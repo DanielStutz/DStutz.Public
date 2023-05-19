@@ -1,4 +1,6 @@
-﻿namespace DStutz.Data.Pocos
+﻿using System.Text.Json.Serialization;
+
+namespace DStutz.Data.Pocos
 {
     public abstract class RelPE
         : IRel
@@ -7,6 +9,7 @@
         public int OrderBy { get; set; }
         public long RelatedPk1 { get; set; }
 
+        [JsonIgnore]
         public virtual IJoiner Joiner
         {
             get

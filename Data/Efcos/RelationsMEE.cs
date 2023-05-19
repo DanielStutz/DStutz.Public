@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace DStutz.Data.Efcos
 {
     public abstract class RelEE<O>
-        : IRel
+        : IRel, IOwned<O>
     {
         [Column("owner_pk1"), Key]
         public long OwnerPk1 { get; set; }

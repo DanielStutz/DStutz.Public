@@ -1,10 +1,12 @@
 ﻿using DStutz.Apps.Services.Base.Configs;
 using DStutz.Apps.Services.Base.SQL;
-using DStutz.Data;
 using DStutz.Data.Cruders;
+using DStutz.Data.Cruders.Expert;
+using DStutz.Data.Cruders.Expert.Notes;
 using DStutz.Data.Cruders.Expert.Websites;
 using DStutz.Data.Cruders.Expert.Youtube;
 using DStutz.Data.Efcos.Expert;
+using DStutz.Data.Efcos.Expert.Notes;
 using DStutz.Data.Efcos.Expert.Websites;
 using DStutz.Data.Efcos.Expert.Youtube;
 using DStutz.Data.Pocos;
@@ -19,10 +21,11 @@ namespace DStutz.Apps.Services.Expert
     public interface IServiceExpert
         : IService
     {
+        public ICruderAuthor Authors { get; }
         public ICruderArticle Articles { get; }
+        public ICruderNote Notes { get; }
         public ICruderVideo Videos { get; }
         public IReaderTree<TopicPE> Topics { get; }
-
 
         public void AddChannel(string abbr, string name, string website, string person);
         public IReadOnlyList<ChannelMPE> FindChannels();
@@ -41,15 +44,19 @@ namespace DStutz.Apps.Services.Expert
     {
         #region Properties
         /***********************************************************/
+        public ICruderAuthor Authors { get { return CruderAuthor; } }
         public ICruderArticle Articles { get { return CruderArticle; } }
+        public ICruderNote Notes { get { return CruderNote; } }
         public ICruderVideo Videos { get { return CruderVideo; } }
         public IReaderTree<TopicPE> Topics { get { return ReaderTopic; } }
         #endregion
 
         #region Properties (cruders)
         /***********************************************************/
-        private CruderVideo CruderVideo { get; }
+        private CruderAuthor CruderAuthor { get; }
         private CruderArticle CruderArticle { get; }
+        private CruderNote CruderNote { get; }
+        private CruderVideo CruderVideo { get; }
         private ReaderPocoTree<TopicMEE, TopicPE> ReaderTopic { get; }
         #endregion
 
@@ -63,8 +70,14 @@ namespace DStutz.Apps.Services.Expert
                   appContext.GetServiceContext("Expert"),
                   init)
         {
+            CruderAuthor =
+                new CruderAuthor(this);
+
             CruderArticle =
                 new CruderArticle(this);
+
+            CruderNote =
+                new CruderNote(this);
 
             CruderVideo =
                 new CruderVideo(this);
@@ -74,8 +87,10 @@ namespace DStutz.Apps.Services.Expert
 
             AppLogger.LogEntities(
                 this,
-                CruderVideo,
-                CruderArticle);
+                CruderAuthor,
+                CruderArticle,
+                CruderNote,
+                CruderVideo);
         }
         #endregion
 
@@ -92,8 +107,7 @@ namespace DStutz.Apps.Services.Expert
         {
             // General data
             modelBuilder
-                .Entity<CommentMEE>()
-                .HasKey(e => new { e.Pk1, e.OrderBy });
+                .Entity<AuthorMEE>();
 
             modelBuilder
                 .Entity<ProducerMEE>();
@@ -113,12 +127,20 @@ namespace DStutz.Apps.Services.Expert
                 .Entity<ArticleMEE>();
 
             modelBuilder
+                .Entity<ArticleComment>()
+                .HasKey(e => new { e.Pk1, e.OrderBy });
+
+            modelBuilder
                 .Entity<ArticleProductRel>()
                 .HasKey(e => new { e.OwnerPk1, e.OrderBy });
 
             modelBuilder
                 .Entity<ArticleTagRel>()
                 .HasKey(e => new { e.OwnerPk1, e.OrderBy });
+
+            // Notes data
+            modelBuilder
+                .Entity<NoteMEE>();
 
             // Youtube video data
             modelBuilder
@@ -129,6 +151,10 @@ namespace DStutz.Apps.Services.Expert
 
             modelBuilder
                 .Entity<VideoMEE>();
+
+            modelBuilder
+                .Entity<VideoComment>()
+                .HasKey(e => new { e.Pk1, e.OrderBy });
 
             modelBuilder
                 .Entity<VideoProductRel>()
@@ -162,6 +188,10 @@ namespace DStutz.Apps.Services.Expert
         }
         #endregion
 
+        #region Methods handling general data
+        /***********************************************************/
+        #endregion
+
         #region Methods handling channels
         /***********************************************************/
         public void AddChannel(
@@ -172,11 +202,9 @@ namespace DStutz.Apps.Services.Expert
         {
             Set<ChannelMEE>().Add(new ChannelMEE()
             {
-                Pk1 = Abc.GetNumber(abbr, 3),
-                Abbr = abbr,
+                Pk1 = PK.Assign6D(abbr),
                 Name = name,
-                Website = website,
-                Person = person,
+                Href = website,
                 Identifier = "?",
             });
 
@@ -206,15 +234,15 @@ namespace DStutz.Apps.Services.Expert
         public void AddProducer(
             string abbr,
             string name,
-            string website,
+            string href,
             string country)
         {
             Set<ProducerMEE>().Add(new ProducerMEE()
             {
-                Pk1 = Abc.GetNumber(abbr, 3),
+                Pk1 = PK.Assign6D(abbr),
                 Abbr = abbr,
                 Name = name,
-                Website = website,
+                Href = href,
                 Country = country,
             });
 
@@ -241,7 +269,7 @@ namespace DStutz.Apps.Services.Expert
                 if (poco.DE != null &&
                     set.FirstOrDefault(e => e.DE == poco.DE) == null)
                 {
-                    var pkBase = Abc.GetPrimaryKey(poco.DE) + 1;
+                    var pkBase = PK.Assign14D5Z(poco.DE) + 1;
 
                     for (long pk = pkBase; true; pk++)
                     {

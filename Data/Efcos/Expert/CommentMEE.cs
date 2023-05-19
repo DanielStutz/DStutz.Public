@@ -6,8 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 // Version 1.1.0
 namespace DStutz.Data.Efcos.Expert
 {
-    [Table("comment")]
-    public class CommentMEE
+    public abstract class CommentMEE
         : IEfco<CommentMPE>, IComment
     {
         #region Properties

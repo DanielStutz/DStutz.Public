@@ -1,0 +1,42 @@
+{
+  "Note": {
+    "Namespace": "DStutz.Data.#.Expert.Notes",
+    "Name": "Note",
+    "Code": {
+      "Version": "1.1.0"
+    },
+    "Keys": [
+      {
+        "Type": "long"
+      }
+    ],
+    "Properties": [
+      {
+        "Name": "Lang",
+        "Type": "string",
+        "Width": 2
+      },
+      {
+        "Name": "Date",
+        "Type": "string",
+        "Width": 10
+      },
+      {
+        "Name": "Title",
+        "Type": "string",
+        "Width": 60
+      },
+      {
+        "Name": "Text",
+        "Type": "string",
+        "Width": 200
+      }
+    ],
+    "RelationsMto1": [
+      {
+        "Name": "Author",
+        "Type": "AuthorM_E"
+      }
+    ]
+  }
+}

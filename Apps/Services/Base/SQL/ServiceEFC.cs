@@ -1,5 +1,4 @@
 ﻿using DStutz.Apps.Services.Base.Configs;
-using DStutz.System.IO;
 
 using Microsoft.EntityFrameworkCore;
 using System.Text;
@@ -26,7 +25,7 @@ namespace DStutz.Apps.Services.Base.SQL
         #region Properties
         /***********************************************************/
         public ServiceContext Context { get; }
-        public List<ServiceMessage> Messages { get; } = new List<ServiceMessage>();
+        public List<ServiceMessage> Messages { get; } = new();
         public ILogger Logger { get; }
         public C Config { get; }
         public virtual Status Status { get; protected set; } = Status.ER;
@@ -89,6 +88,11 @@ namespace DStutz.Apps.Services.Base.SQL
                     // Uses MySql.EntityFrameworkCore
                     optionsBuilder.UseMySQL(Config.Connection);
                 }
+                //else if (Config.UseNpgSql)
+                //{
+                //    // Uses Npgsql.EntityFrameworkCore.PostgreSQL
+                //    optionsBuilder.UseNpgsql(Config.Connection);
+                //}
             }
             catch (Exception ex)
             {

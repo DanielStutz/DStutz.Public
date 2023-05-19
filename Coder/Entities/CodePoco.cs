@@ -16,6 +16,7 @@ CURSOR_ASYMMETRIC_CODE
 
     #region Properties and methods implementing
     /***********************************************************/
+    [JsonIgnore]
     public IJoiner Joiner
     {
         get { return TYPE_MAPPER.New.Joiner(JOIN); }

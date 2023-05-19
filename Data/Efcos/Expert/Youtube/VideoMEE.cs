@@ -38,7 +38,7 @@ namespace DStutz.Data.Efcos.Expert.Youtube
         #region Relations 1:n (with default foreign key)
         /***********************************************************/
         [ForeignKey("Pk1")]
-        public IReadOnlyList<CommentMEE>? Comments { get; set; }
+        public IReadOnlyList<VideoComment>? Comments { get; set; }
         #endregion
 
         #region Relations m:1 (with specific foreign key)
@@ -75,6 +75,11 @@ namespace DStutz.Data.Efcos.Expert.Youtube
         }
         #endregion
     }
+
+    [Table("youtube_video_comment")]
+    public class VideoComment
+    : CommentMEE
+    { }
 
     [Table("youtube_video_product_rel")]
     public class VideoProductRel
@@ -135,7 +140,7 @@ namespace DStutz.Data.Efcos.Expert.Youtube
                 efco.Comments =
                     Mapper.MapOptionals(
                         poco.Comments,
-                        e => e.Map<CommentMEE>());
+                        e => e.Map<VideoComment>());
 
                 efco.Channel =
                     Mapper.MapMandatory(

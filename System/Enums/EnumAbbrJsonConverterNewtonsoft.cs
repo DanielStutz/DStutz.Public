@@ -3,7 +3,7 @@
 namespace DStutz.System.Enums
 {
     public class EnumAbbrJsonConverterNewtonsoft<E>
-        : JsonConverter<E>
+        : Newtonsoft.Json.JsonConverter<E>
         where E : IEnumString<E>, new()
     {
         #region Properties

@@ -2,7 +2,27 @@ namespace DStutz.System.Extensions
 {
     public static class StringLength
     {
-        #region Methods manipulating the length of a string
+        #region Manipulating the length of a string
+        /***********************************************************/
+        public static string Fix(
+            this string? self,
+            int length)
+        {
+            if (self == null)
+                return Spaces(length);
+
+            if (self.Length > length)
+                return self.Substring(0, length);
+
+            if (self.Length < length)
+                return self.PadRight(length);
+
+            // self.Length = length
+            return self;
+        }
+        #endregion
+
+        #region Manipulating the length of an aligned string
         /***********************************************************/
         public static string Max(
             this string? self,

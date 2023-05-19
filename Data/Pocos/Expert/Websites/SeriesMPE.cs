@@ -9,7 +9,7 @@ namespace DStutz.Data.Pocos.Expert.Websites
         public string Title { get; set; }
         public string Href { get; set; }
         public string? Remark { get; set; }
-        public string? Author { get; set; }
+        public long AuthorPk1 { get; set; }
     }
 
     public class SeriesMPE
@@ -21,11 +21,17 @@ namespace DStutz.Data.Pocos.Expert.Websites
         public string Title { get; set; }
         public string Href { get; set; }
         public string? Remark { get; set; }
-        public string? Author { get; set; }
+        #endregion
+
+        #region Relations m:1 (with specific foreign key)
+        /***********************************************************/
+        public long AuthorPk1 { get; set; }
+        public AuthorMPE Author { get; set; }
         #endregion
 
         #region Properties and methods implementing
         /***********************************************************/
+        [JsonIgnore]
         public IJoiner Joiner
         {
             get { return SeriesMapper.New.Joiner(this); }

@@ -1,15 +1,15 @@
-﻿namespace DStutz.Apps.Services.API
+﻿namespace DStutz.Apps.Controllers.API
 {
-    public class APIResponse200<T> : APIResponse200
-    {
-        public T Data { get; set; }
+    //public class APIResponse200<T> : APIResponse200
+    //{
+    //    public T Data { get; set; }
 
-        public APIResponse200(
-            T data)
-        {
-            Data = data;
-        }
-    }
+    //    public APIResponse200(
+    //        T data)
+    //    {
+    //        Data = data;
+    //    }
+    //}
 
     public class APIResponse200Many<T> : APIResponse200
     {

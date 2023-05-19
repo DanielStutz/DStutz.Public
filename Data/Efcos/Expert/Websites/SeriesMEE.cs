@@ -23,9 +23,15 @@ namespace DStutz.Data.Efcos.Expert.Websites
 
         [Column("remark")]
         public string? Remark { get; set; }
+        #endregion
 
-        [Column("author")]
-        public string? Author { get; set; }
+        #region Relations m:1 (with specific foreign key)
+        /***********************************************************/
+        [Column("author_pk1")]
+        public long AuthorPk1 { get; set; }
+
+        [ForeignKey("AuthorPk1")]
+        public AuthorMEE Author { get; set; }
         #endregion
 
         #region Properties and methods implementing
@@ -59,21 +65,48 @@ namespace DStutz.Data.Efcos.Expert.Websites
                 ('L', 60, e1.Title),
                 ('L', 80, e1.Href),
                 ('L', 40, e1.Remark),
-                ('L', 40, e1.Author)
+                ('L', 20, e1.AuthorPk1)
             ).Add(data);
         }
 
         public E Map<E>(
             ISeries e1) where E : ISeries, new()
         {
-            return new E()
+            var e2 = new E()
             {
                 Pk1 = e1.Pk1,
                 Title = e1.Title,
                 Href = e1.Href,
                 Remark = e1.Remark,
-                Author = e1.Author,
+                AuthorPk1 = e1.AuthorPk1,
             };
+
+            if (typeof(E) == typeof(SeriesMEE))
+            {
+                SeriesMPE poco = (SeriesMPE)(object)e1;
+                SeriesMEE efco = (SeriesMEE)(object)e2;
+
+                efco.Author =
+                    Mapper.MapMandatory(
+                        poco.Author,
+                        e => e.Map<AuthorMEE>());
+            }
+            else if (typeof(E) == typeof(SeriesMPE))
+            {
+                SeriesMEE efco = (SeriesMEE)(object)e1;
+                SeriesMPE poco = (SeriesMPE)(object)e2;
+
+                poco.Author =
+                    Mapper.MapMandatory(
+                        efco.Author,
+                        e => e.Map());
+            }
+            else
+            {
+                throw new NotImplementedException();
+            }
+
+            return e2;
         }
         #endregion
     }

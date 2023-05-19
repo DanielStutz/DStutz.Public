@@ -1,4 +1,38 @@
 {
+  "Author": {
+    "Namespace": "DStutz.Data.#.Expert",
+    "Name": "Author",
+    "Code": {
+      "Version": "1.1.0"
+    },
+    "Keys": [
+      {
+        "Type": "long"
+      }
+    ],
+    "Properties": [
+      {
+        "Name": "Surname",
+        "Type": "string",
+        "Width": 20
+      },
+      {
+        "Name": "Prename",
+        "Type": "string",
+        "Width": 20
+      },
+      {
+        "Name": "Href",
+        "Type": "string?",
+        "Width": 80
+      },
+      {
+        "Name": "Remark",
+        "Type": "string?",
+        "Width": 40
+      }
+    ]
+  },
   "Comment": {
     "Namespace": "DStutz.Data.#.Expert",
     "Name": "Comment",
@@ -55,7 +89,7 @@
         "Width": 40
       },
       {
-        "Name": "Website",
+        "Name": "Href",
         "Type": "string",
         "Width": 80
       },

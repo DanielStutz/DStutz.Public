@@ -1,3 +1,5 @@
+using static DStutz.Coder.Entities.Data.DataType;
+
 namespace DStutz.Coder.Entities.Data
 {
     public class DataEntityOwned : DataEntity
@@ -6,8 +8,7 @@ namespace DStutz.Coder.Entities.Data
         /***********************************************************/
         public DataEntityOwned(
             JsonEntity entity)
-            : base(entity,
-                  "MEO", "MPO") // See class DataType for endings
+            : base(entity, MEO, MPO)
         {
             foreach (var item in entity.Properties)
                 Properties.Add(new DataPropertyColumn(item));

@@ -36,11 +36,6 @@
         "Name": "Remark",
         "Type": "string?",
         "Width": 40
-      },
-      {
-        "Name": "Author",
-        "Type": "string?",
-        "Width": 40
       }
     ],
     "Relations1toN": [
@@ -50,6 +45,10 @@
       }
     ],
     "RelationsMto1": [
+      {
+        "Name": "Author",
+        "Type": "AuthorM_E"
+      },
       {
         "Name": "Series",
         "Type": "SeriesM_E?"
@@ -97,11 +96,12 @@
         "Name": "Remark",
         "Type": "string?",
         "Width": 40
-      },
+      }
+    ],
+    "RelationsMto1": [
       {
         "Name": "Author",
-        "Type": "string?",
-        "Width": 40
+        "Type": "AuthorM_E"
       }
     ]
   }

@@ -36,6 +36,7 @@ namespace DStutz.Data.Pocos.Expert
 
         #region Properties and methods implementing
         /***********************************************************/
+        [JsonIgnore]
         public IJoiner Joiner
         {
             get { return TopicDataMapper.New.Joiner(this); }

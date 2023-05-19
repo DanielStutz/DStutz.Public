@@ -1,6 +1,6 @@
 using DStutz.Math.Sets.Numbers;
 
-namespace DStutz.Apps.Services.API
+namespace DStutz.Apps.Controllers.API
 {
     public abstract class APIReader
     {

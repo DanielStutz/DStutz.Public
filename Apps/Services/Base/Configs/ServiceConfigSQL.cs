@@ -6,6 +6,7 @@
         #region Properties
         /***********************************************************/
         public virtual bool UseMySql { get; } = false;
+        public virtual bool UseNpgSql { get; } = false;
         public virtual bool UseSqlite { get; } = false;
         public virtual string Type { get; }
         public abstract string Connection { get; }

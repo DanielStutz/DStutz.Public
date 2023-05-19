@@ -1,3 +1,5 @@
+using static DStutz.Coder.Entities.Data.DataType;
+
 namespace DStutz.Coder.Entities.Data
 {
     public class DataEntityBasic : DataEntity
@@ -14,8 +16,7 @@ namespace DStutz.Coder.Entities.Data
         /***********************************************************/
         public DataEntityBasic(
             JsonEntity entity)
-            : base(entity,
-                  "MEE", "MPE") // See class DataType for endings
+        : base(entity, MEE, MPE)
         {
             if (entity.Abstract != null)
             {

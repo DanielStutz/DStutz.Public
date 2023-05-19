@@ -12,8 +12,8 @@ namespace DStutz.Data.Cruders.Expert.Youtube
         public Task<List<VideoMPE>> ReadManyByChannel(long pk);
         public Task<List<VideoMPE>> ReadManyByPlaylist(long pk);
         public Task<List<VideoMPE>> ReadManyByProduct(string partialProduct);
-        public Task<List<VideoMPE>> ReadManyByTag(string partialTag);
         public Task<List<VideoMPE>> ReadManyByRemark(string partialRemark);
+        public Task<List<VideoMPE>> ReadManyByTag(string partialTag);
     }
 
     public class CruderVideo
@@ -48,39 +48,13 @@ namespace DStutz.Data.Cruders.Expert.Youtube
         public async Task<List<VideoMPE>> ReadManyByProduct(
             string partialProduct)
         {
-            var keys =
-                FindOwnerPrimaryKeys<VideoProductRel>(e =>
-                    e.Related != null && (
-                        (e.Related.Name != null &&
-                        e.Related.Name.Contains(partialProduct)) ||
-                        (e.Related.Type != null &&
-                        e.Related.Type.Contains(partialProduct))
-                    )
-                );
-
-            return await ReadMany(e =>
-                keys.Contains(e.Pk1),
-                ICruder.INCLUDE_ALL);
-        }
-
-        public async Task<List<VideoMPE>> ReadManyByTag(
-            string partialTag)
-        {
-            var keys =
-                FindOwnerPrimaryKeys<VideoTagRel>(e =>
-                    e.Related != null && (
-                        (e.Related.DE != null &&
-                        e.Related.DE.Contains(partialTag)) ||
-                        (e.Related.EN != null &&
-                        e.Related.EN.Contains(partialTag)) ||
-                        (e.Related.FR != null &&
-                        e.Related.FR.Contains(partialTag))
-                    )
-                );
-
-            return await ReadMany(e =>
-                keys.Contains(e.Pk1),
-                ICruder.INCLUDE_ALL);
+            return await ReadMany<VideoProductRel>(e =>
+                e.Related != null && (
+                    e.Related.Name.Contains(partialProduct) ||
+                    e.Related.Type.Contains(partialProduct)
+                ),
+                ICruder.INCLUDE_ALL
+            );
         }
 
         public async Task<List<VideoMPE>> ReadManyByRemark(
@@ -91,18 +65,34 @@ namespace DStutz.Data.Cruders.Expert.Youtube
                 e.Remark.Contains(partialRemark),
                 ICruder.INCLUDE_ALL);
         }
+
+        public async Task<List<VideoMPE>> ReadManyByTag(
+            string partialTag)
+        {
+            return await ReadMany<VideoTagRel>(e =>
+                e.Related != null && (
+                    (e.Related.DE != null &&
+                    e.Related.DE.Contains(partialTag)) ||
+                    (e.Related.EN != null &&
+                    e.Related.EN.Contains(partialTag)) ||
+                    (e.Related.FR != null &&
+                    e.Related.FR.Contains(partialTag))
+                ),
+                ICruder.INCLUDE_ALL
+            );
+        }
         #endregion
 
         #region Methods loading
         /***********************************************************/
         protected override VideoMEE Loading(
-            int includeType,
-            EntityEntry<VideoMEE> entry)
+            EntityEntry<VideoMEE> entry,
+            int includeType)
         {
             switch (includeType)
             {
                 case ICruder.INCLUDE_ALL:
-                    entry.Reference(e => e.Channel)
+                    entry.Reference(e => e.Channel.Author)
                         .Load();
                     entry.Collection(e => e.Comments)
                         .Load();

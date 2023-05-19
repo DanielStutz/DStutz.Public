@@ -8,7 +8,7 @@ namespace DStutz.Data.Pocos.Expert
         public long Pk1 { get; set; }
         public string Abbr { get; set; }
         public string Name { get; set; }
-        public string Website { get; set; }
+        public string Href { get; set; }
         public string Country { get; set; }
     }
 
@@ -20,12 +20,13 @@ namespace DStutz.Data.Pocos.Expert
         public long Pk1 { get; set; }
         public string Abbr { get; set; }
         public string Name { get; set; }
-        public string Website { get; set; }
+        public string Href { get; set; }
         public string Country { get; set; }
         #endregion
 
         #region Properties and methods implementing
         /***********************************************************/
+        [JsonIgnore]
         public IJoiner Joiner
         {
             get { return ProducerMapper.New.Joiner(this); }

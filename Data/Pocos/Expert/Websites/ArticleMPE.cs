@@ -11,7 +11,7 @@ namespace DStutz.Data.Pocos.Expert.Websites
         public string Title { get; set; }
         public string Href { get; set; }
         public string? Remark { get; set; }
-        public string? Author { get; set; }
+        public long AuthorPk1 { get; set; }
         public long? SeriesPk1 { get; set; }
     }
 
@@ -26,7 +26,6 @@ namespace DStutz.Data.Pocos.Expert.Websites
         public string Title { get; set; }
         public string Href { get; set; }
         public string? Remark { get; set; }
-        public string? Author { get; set; }
         #endregion
 
         #region Relations 1:n (with default foreign key)
@@ -36,6 +35,9 @@ namespace DStutz.Data.Pocos.Expert.Websites
 
         #region Relations m:1 (with specific foreign key)
         /***********************************************************/
+        public long AuthorPk1 { get; set; }
+        public AuthorMPE Author { get; set; }
+
         public long? SeriesPk1 { get; set; }
         public SeriesMPE? Series { get; set; }
         #endregion
@@ -48,6 +50,7 @@ namespace DStutz.Data.Pocos.Expert.Websites
 
         #region Properties and methods implementing
         /***********************************************************/
+        [JsonIgnore]
         public IJoiner Joiner
         {
             get { return ArticleMapper.New.Joiner(this); }

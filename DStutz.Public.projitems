@@ -9,13 +9,22 @@
     <Import_RootNamespace>DStutz</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Apps\AppBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Apps\AppBaseCon.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Apps\AppBaseConWorker.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Apps\AppBaseWeb.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Apps\AppConfig.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Apps\AppContext.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\API\APIControllerBase.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\API\APIIdentity.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\API\APIReader.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\API\APIResponse.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\API\APIResponse200.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Apps\AppLogger.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Apps\Controllers\API\APIControllerBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Apps\Controllers\API\APIIdentity.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Apps\Controllers\API\APIReader.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Apps\Controllers\API\APIResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Apps\Controllers\API\APIResponse200.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Apps\Controllers\API\APIResponse200Data.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Apps\Controllers\API\APIResponse500.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Apps\Controllers\API\APIResponse400.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\Base\Configs\ServiceConfigSQLNpgSql.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\Base\ServiceDictionary.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\Base\ServiceDocs.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\Base\ServiceList.cs" />
@@ -25,6 +34,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\Base\SQL\ServiceSQLBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\Base\SQL\ServiceSQLMySql.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\Base\SQL\ServiceSQLSqlite.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\Food\Files\FoodItemCSV.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\Food\Files\NutrientDataCSV.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\Food\Files\SerializerFileCSVFood.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\Food\ServiceFood.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\ServiceConfigs.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\Base\Configs\ServiceConfig.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\Base\Configs\ServiceConfigAPI.cs" />
@@ -42,6 +55,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\Client.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\ServiceContext.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Apps\Services\Expert\ServiceExpert.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Apps\Worker.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Coder\CodeInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Coder\CodeHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Coder\CodeBlock.cs" />
@@ -85,9 +99,27 @@
     <Compile Include="$(MSBuildThisFileDirectory)Collections.Generic\Collectors\MCollection.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Collections.Generic\Collectors\MDictionary.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Collections.Generic\Collectors\MList.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Abc.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\CruderEfco.PK.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\CruderEfco.CUD.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\CruderEfco.CER.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\CruderEfco.SQL.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\CruderPoco.CER.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\CruderPoco.CUD.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\CruderPoco.SQL.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\CruderPocoCached.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\Expert\CruderAuthor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\Expert\Notes\CruderNote.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\Expert\Youtube\CruderVideo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\Expert\Websites\CruderArticle.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\Food\CruderFoodCategory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\Food\CruderFoodItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\Food\CruderNutrient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\Food\CruderSource.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\ICruder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\IValidator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\Validator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\ValidationException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\ValidationProblem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Accounting\AccountBalancesMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Accounting\AccountExtendedMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Accounting\AccountGroupMEE.cs" />
@@ -104,7 +136,15 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Contacts\ContactDetailObyMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Contacts\ContactMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Documents\DocInfoMEE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Expert\AuthorMEE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Expert\Notes\NoteMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Expert\Websites\SeriesMEE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Food\FoodCategoryMEE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Food\FoodItemMEE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Food\IIngredientValue.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Food\NutrientDataMEE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Food\NutrientMEE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Food\SourceMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Images\ImageCategoryMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Images\ImageMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Images\ImageTagMEE.cs" />
@@ -145,6 +185,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\IMapper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\INumbered.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\IOrdered.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\IOwned.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\IPoco.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\IPolyglot.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\IRelations.cs" />
@@ -178,7 +219,14 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Emails\MailClient.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Emails\MailProvider.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Emails\MailUser.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Expert\AuthorMPE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Expert\Notes\NoteMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Expert\Websites\SeriesMPE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Food\FoodCategoryMPE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Food\FoodItemMPE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Food\NutrientDataMPE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Food\NutrientMPE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Food\SourceMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Images\ImageCategoryPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Images\ImageMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Images\ImageTagMPE.cs" />
@@ -298,6 +346,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)System\Stringers\Reader.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Stringers\Spliter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Stringers\SpliterParser.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System\Unique\Assigner.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System\Unique\PK.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)View\Labels\Label.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)View\Labels\LabelAddress.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)View\Labels\LabelAddressCompany.cs" />
@@ -331,6 +381,7 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
     <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\Expert.json" />
+    <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\ExpertNote.json" />
     <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\ExpertWebsite.json" />
     <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\I.json" />
     <Content Include="$(MSBuildThisFileDirectory)Coder\Entities\Json\Images.json">

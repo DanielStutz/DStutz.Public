@@ -1,4 +1,4 @@
-﻿namespace DStutz.Apps.Services.API
+﻿namespace DStutz.Apps.Controllers.API
 {
     public class APIIdentity
     {

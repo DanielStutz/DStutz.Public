@@ -21,8 +21,8 @@ namespace DStutz.Data.Efcos.Expert
         [Column("name")]
         public string Name { get; set; }
 
-        [Column("website")]
-        public string Website { get; set; }
+        [Column("href")]
+        public string Href { get; set; }
 
         [Column("country")]
         public string Country { get; set; }
@@ -58,7 +58,7 @@ namespace DStutz.Data.Efcos.Expert
                 ('R', 20, e1.Pk1),
                 ('L', 3, e1.Abbr),
                 ('L', 40, e1.Name),
-                ('L', 80, e1.Website),
+                ('L', 80, e1.Href),
                 ('L', 2, e1.Country)
             ).Add(data);
         }
@@ -71,7 +71,7 @@ namespace DStutz.Data.Efcos.Expert
                 Pk1 = e1.Pk1,
                 Abbr = e1.Abbr,
                 Name = e1.Name,
-                Website = e1.Website,
+                Href = e1.Href,
                 Country = e1.Country,
             };
         }

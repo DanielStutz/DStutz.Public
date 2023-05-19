@@ -18,6 +18,7 @@ namespace DStutz.Apps.Services
         public ICollection<ServiceConfigFiles>? File { get; set; }
         public ICollection<ServiceConfigEmails>? Mail { get; set; }
         public ICollection<ServiceConfigSQLMySql>? MySql { get; set; }
+        public ICollection<ServiceConfigSQLNpgSql>? NpgSql { get; set; }
         public ICollection<ServiceConfigSQLSqlite>? Sqlite { get; set; }
         #endregion
 

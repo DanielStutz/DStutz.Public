@@ -30,19 +30,22 @@ namespace DStutz.Data.Efcos.Expert.Websites
 
         [Column("remark")]
         public string? Remark { get; set; }
-
-        [Column("author")]
-        public string? Author { get; set; }
         #endregion
 
         #region Relations 1:n (with default foreign key)
         /***********************************************************/
         [ForeignKey("Pk1")]
-        public IReadOnlyList<CommentMEE>? Comments { get; set; }
+        public IReadOnlyList<ArticleComment>? Comments { get; set; }
         #endregion
 
         #region Relations m:1 (with specific foreign key)
         /***********************************************************/
+        [Column("author_pk1")]
+        public long AuthorPk1 { get; set; }
+
+        [ForeignKey("AuthorPk1")]
+        public AuthorMEE Author { get; set; }
+
         [Column("series_pk1")]
         public long? SeriesPk1 { get; set; }
 
@@ -69,6 +72,11 @@ namespace DStutz.Data.Efcos.Expert.Websites
         }
         #endregion
     }
+
+    [Table("website_article_comment")]
+    public class ArticleComment
+    : CommentMEE
+    { }
 
     [Table("website_article_product_rel")]
     public class ArticleProductRel
@@ -99,7 +107,7 @@ namespace DStutz.Data.Efcos.Expert.Websites
                 ('L', 60, e1.Title),
                 ('L', 80, e1.Href),
                 ('L', 40, e1.Remark),
-                ('L', 40, e1.Author),
+                ('L', 20, e1.AuthorPk1),
                 ('L', 20, e1.SeriesPk1)
             ).Add(data);
         }
@@ -115,7 +123,7 @@ namespace DStutz.Data.Efcos.Expert.Websites
                 Title = e1.Title,
                 Href = e1.Href,
                 Remark = e1.Remark,
-                Author = e1.Author,
+                AuthorPk1 = e1.AuthorPk1,
                 SeriesPk1 = e1.SeriesPk1,
             };
 
@@ -127,7 +135,12 @@ namespace DStutz.Data.Efcos.Expert.Websites
                 efco.Comments =
                     Mapper.MapOptionals(
                         poco.Comments,
-                        e => e.Map<CommentMEE>());
+                        e => e.Map<ArticleComment>());
+
+                efco.Author =
+                    Mapper.MapMandatory(
+                        poco.Author,
+                        e => e.Map<AuthorMEE>());
 
                 efco.Series =
                     Mapper.MapOptional(
@@ -152,6 +165,11 @@ namespace DStutz.Data.Efcos.Expert.Websites
                 poco.Comments =
                     Mapper.MapOptionals(
                         efco.Comments,
+                        e => e.Map());
+
+                poco.Author =
+                    Mapper.MapMandatory(
+                        efco.Author,
                         e => e.Map());
 
                 poco.Series =

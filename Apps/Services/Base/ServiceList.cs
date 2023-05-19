@@ -1,8 +1,6 @@
 ﻿using DStutz.Apps.Services.Base.Configs;
 using DStutz.System.IO;
 
-using Newtonsoft.Json;
-
 namespace DStutz.Apps.Services.Base
 {
     public interface IServiceList<T>
@@ -36,7 +34,7 @@ namespace DStutz.Apps.Services.Base
 
         protected ServiceList(
             ServiceContext context,
-            params JsonConverter[] converters)
+            params Newtonsoft.Json.JsonConverter[] converters)
             : base(
                   context,
                   new ServiceConfigMock(),
@@ -86,7 +84,7 @@ namespace DStutz.Apps.Services.Base
         protected ServiceList(
             ServiceContext context,
             C config,
-            params JsonConverter[] converters)
+            params Newtonsoft.Json.JsonConverter[] converters)
             : base(
                   context,
                   config)

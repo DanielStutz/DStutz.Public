@@ -1,10 +1,19 @@
 using DStutz.System.Extensions;
-using DStutz.System.Joiners;
 
 namespace DStutz.Coder.Entities.Data
 {
     public class DataType : IJoinable
     {
+        public static string MEE { get; } = "MEE";
+        public static string MPE { get; } = "MPE";
+        public static string MEO { get; } = "MEO";
+        public static string MPO { get; } = "MPO";
+
+        public static string Name<T>()
+        {
+            return typeof(T).Name.Replace(MEE, "").Replace(MPE, "");
+        }
+
         #region Properties
         /***********************************************************/
         public string N { get; set; } // Name
@@ -46,12 +55,12 @@ namespace DStutz.Coder.Entities.Data
         public DataType(
             DataType owner,
             DataType related,
-            string junctioType)
+            string junctionType)
         {
             // OwnerRelatedRel, RelEEAny and RelPEAny
             N = owner.N + related.N + "Rel";
-            E = junctioType.Replace("_", "E");
-            P = junctioType.Replace("_", "P");
+            E = junctionType.Replace("_", "E");
+            P = junctionType.Replace("_", "P");
         }
         #endregion
 

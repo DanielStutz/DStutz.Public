@@ -13,24 +13,14 @@
     ],
     "Properties": [
       {
-        "Name": "Abbr",
-        "Type": "string",
-        "Width": 3
-      },
-      {
         "Name": "Name",
         "Type": "string",
-        "Width": 40
+        "Width": 60
       },
       {
-        "Name": "Website",
-        "Type": "string",
-        "Width": 80
-      },
-      {
-        "Name": "Person",
+        "Name": "Href",
         "Type": "string?",
-        "Width": 40
+        "Width": 80
       },
       {
         "Name": "Remark",
@@ -40,7 +30,13 @@
       {
         "Name": "Identifier",
         "Type": "string",
-        "Width": 40
+        "Width": 24
+      }
+    ],
+    "RelationsMto1": [
+      {
+        "Name": "Author",
+        "Type": "AuthorM_E"
       }
     ]
   },

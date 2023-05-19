@@ -36,6 +36,11 @@ namespace DStutz.Data.Efcos.Expert
         {
             return TagMapper.New.Map<TagMPE>(this);
         }
+
+        public string FindText(string ISOCode639)
+        {
+            return PolyglotText.Find(this, ISOCode639);
+        }
         #endregion
     }
 

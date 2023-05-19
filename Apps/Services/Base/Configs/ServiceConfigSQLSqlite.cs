@@ -1,6 +1,7 @@
 namespace DStutz.Apps.Services.Base.Configs
 {
-    public class ServiceConfigSQLSqlite : ServiceConfigSQL
+    public class ServiceConfigSQLSqlite
+        : ServiceConfigSQL
     {
         #region Properties
         /***********************************************************/
