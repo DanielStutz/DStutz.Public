@@ -26,12 +26,11 @@ namespace DStutz.Data.Pocos.Expert.Websites
         #region Relations m:1 (with specific foreign key)
         /***********************************************************/
         public long AuthorPk1 { get; set; }
-        public AuthorMPE Author { get; set; }
+        public AuthorMPE? Author { get; set; }
         #endregion
 
         #region Properties and methods implementing
         /***********************************************************/
-        [JsonIgnore]
         public IJoiner Joiner
         {
             get { return SeriesMapper.New.Joiner(this); }

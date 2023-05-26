@@ -3,7 +3,7 @@
     "Namespace": "DStutz.Data.#.Expert.Notes",
     "Name": "Note",
     "Code": {
-      "Version": "1.1.0"
+      "Version": "1.2.0"
     },
     "Keys": [
       {
@@ -35,7 +35,7 @@
     "RelationsMto1": [
       {
         "Name": "Author",
-        "Type": "AuthorM_E"
+        "Type": "AuthorXYZ"
       }
     ]
   }

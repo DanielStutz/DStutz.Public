@@ -33,7 +33,7 @@ namespace DStutz.Apps.Controllers.API
 
         public APIResponse200(
             string method,
-            ICruder cruder,
+            ICruderDAO cruder,
             params object[] parameters)
             : this(
                   $"{method} {cruder.Name} with primary key(s) {string.Join(", ", parameters)}")

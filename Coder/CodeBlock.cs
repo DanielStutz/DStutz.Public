@@ -298,6 +298,12 @@ namespace DStutz.Coder
                 if (List[i - 1].Trim().Equals("") &&
                     List[i].Trim().Equals("#endregion"))
                     List.RemoveAt(i - 1);
+
+            // Delete empty lines after '// ...'
+            for (int i = List.Count - 1; i > 0; i--)
+                if (List[i - 1].Trim().StartsWith("//") &&
+                    List[i].Trim().Equals(""))
+                    List.RemoveAt(i);
         }
         #endregion
     }

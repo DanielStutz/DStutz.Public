@@ -1,8 +1,8 @@
 using DStutz.Coder.Entities.Data;
 
-namespace DStutz.Coder.Entities.EntityRelations
+namespace DStutz.Coder.Entities.EntityBasic
 {
-    public class CodeEfco : CodeBlock
+    public class CodeEntityMEE : CodeBlock
     {
         #region Template
         /***********************************************************/
@@ -12,14 +12,13 @@ public ABSTRACT class TYPE_EFCO
     : IEfco<TYPE_POCO>, TYPE_INTERFACE
 {
 CURSOR_PROPERTIES
-CURSOR_RELATIONS
 CURSOR_ASYMMETRIC_CODE
 
     #region Properties and methods implementing
     /***********************************************************/
     public IJoiner Joiner
     {
-        get { return TYPE_MAPPER.New.Joiner(JOIN); }
+        get { return TYPE_MAPPER.New.Joiner(this); }
     }
 
     public TYPE_POCO Map()
@@ -32,11 +31,11 @@ CURSOR_ASYMMETRIC_CODE
 
         #region Constructors
         /***********************************************************/
-        public CodeEfco(
-            DataEntityRelations entity)
+        public CodeEntityMEE(
+            DataEntityBasic entity)
             : base(Template)
         {
-            if (entity.AbstractEfco)
+            if (entity.AbstractDAO)
             {
                 Replace("TABLE", "");
                 Replace("ABSTRACT", "abstract");
@@ -47,40 +46,15 @@ CURSOR_ASYMMETRIC_CODE
                 Replace("ABSTRACT ", "");
             }
 
-            Replace("JOIN", entity.GetJoin());
-
             if (entity.Code.Asymmetric)
                 InsertRegionAsymmetricCode(4);
 
-            // Simple and owned properties
+            // Simple properties
             SetCursor("PROPERTIES", 4)
                 .InsertRegion(
                     DataPropertyColumn.Title,
                     entity.Properties,
-                    e => e.GetPropertyEfco())
-                .InsertRegion(
-                    DataPropertyOwned.Title,
-                    entity.OwnedProperties,
-                    e => e.GetPropertyEfco());
-
-            // Relation properties
-            SetCursor("RELATIONS", 4)
-                .InsertRegion(
-                    DataRelation1to1.Title,
-                    entity.Relations1to1,
-                    e => e.GetPropertyEfco())
-                .InsertRegion(
-                    DataRelation1toN.Title,
-                    entity.Relations1toN,
-                    e => e.GetPropertyEfco())
-                .InsertRegion(
-                    DataRelationMto1.Title,
-                    entity.RelationsMto1,
-                    e => e.GetPropertyEfco())
-                .InsertRegion(
-                    DataRelationMtoN.Title,
-                    entity.RelationsMtoN,
-                    e => e.GetPropertyEfco());
+                    e => e.GetPropertyDAO());
 
             //Write(false, false);
         }

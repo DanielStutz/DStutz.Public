@@ -25,7 +25,7 @@
         {
             // 3'838'383'838'383'800'000 (ZZZZZZZ)
             // 9'223'372'036'854'775'807 (Int64.Max)
-            return Assign2DxL(w, 7) * E5;
+            return Assign2DxL(w, 7) * CMath.E5;
         }
 
         /// <summary>
@@ -38,7 +38,7 @@
             string w1,
             string w2)
         {
-            return Assign2DxL(w1, 4) * E10 + Assign2DxL(w2, 4);
+            return Assign2DxL(w1, 4) * CMath.E10 + Assign2DxL(w2, 4);
         }
     }
 }

@@ -33,7 +33,6 @@ namespace DStutz.Data.Pocos.Expert.Youtube
 
         #region Properties and methods implementing
         /***********************************************************/
-        [JsonIgnore]
         public IJoiner Joiner
         {
             get { return ChannelMapper.New.Joiner(this); }

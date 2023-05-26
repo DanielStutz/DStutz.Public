@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.ChangeTracking;
 namespace DStutz.Data.Cruders.Food
 {
     public interface ICruderFoodItem
-        : ICruder<FoodItemMPE>
+        : ICruderBLO<FoodItemMPE>
     {
         public Task<FoodItemMPE> ReadByName(string name);
         public Task<List<FoodItemMPE>> ReadManyByCategory(string partialName);
@@ -34,7 +34,7 @@ namespace DStutz.Data.Cruders.Food
         {
             return await ReadFirstOrThrow(e =>
                 e.Name.Equals(name),
-                ICruder.INCLUDE_ALL);
+                CInclude.All);
         }
 
         public async Task<List<FoodItemMPE>> ReadManyByCategory(
@@ -51,7 +51,7 @@ namespace DStutz.Data.Cruders.Food
         {
             return await ReadMany(e =>
                 e.Name.Contains(partialName),
-                ICruder.INCLUDE_ALL);
+                CInclude.All);
         }
 
         public async Task<List<FoodItemMPE>> ReadManyBySource(
@@ -61,7 +61,7 @@ namespace DStutz.Data.Cruders.Food
                 e.Nutrients.Any(i =>
                     i.Sources != null &&
                     i.Sources.Contains(source.ToString())),
-                ICruder.INCLUDE_ALL);
+                CInclude.All);
         }
 
         public async Task<List<FoodItemMPE>> ReadManyBySynonym(
@@ -70,7 +70,7 @@ namespace DStutz.Data.Cruders.Food
             return await ReadMany(e =>
                 e.Synonyms != null &&
                 e.Synonyms.Contains(partialSynonym),
-                ICruder.INCLUDE_ALL);
+                CInclude.All);
         }
         #endregion
 
@@ -82,7 +82,7 @@ namespace DStutz.Data.Cruders.Food
         {
             switch (includeType)
             {
-                case ICruder.INCLUDE_ALL:
+                case CInclude.All:
                     entry.Collection(e => e.CategoryRels).Query()
                         .Include(r => r.Related)
                         .Load();

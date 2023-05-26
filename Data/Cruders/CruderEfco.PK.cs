@@ -33,23 +33,36 @@ namespace DStutz.Data.Cruders
 
         #region Methods getting primary keys for text
         /***********************************************************/
-        public long NextPK<P>(
-            P entity,
-            string ISOCode639 = "de")
-            where P : E, IPolyglot
+        //public long NextPK<P>(
+        //    P entity,
+        //    string ISOCode639 = "de")
+        //    where P : E, IPolyglot
+        //{
+        //    return NextPK(entity.FindText(ISOCode639));
+        //}
+
+        public long NextPK(
+            string text,
+            Func<string, long> assigner)
         {
-            return NextPK(entity.FindText(ISOCode639));
+            return NextPK(assigner(text));
         }
 
         public long NextPK(
-            string text)
+            string parsableNumber)
         {
-            var pk1 = PK.Assign14D5Z(text) + 1;
+            return NextPK(long.Parse(parsableNumber));
+        }
 
-            while (Set.Find(pk1) != null)
-                pk1++;
+        public long NextPK(
+            long pk)
+        {
+            pk++;
 
-            return pk1;
+            while (Set.Find(pk) != null)
+                pk++;
+
+            return pk;
         }
         #endregion
     }

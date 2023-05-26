@@ -44,7 +44,7 @@ namespace DStutz.Data.Efcos.Expert.Websites
         public long AuthorPk1 { get; set; }
 
         [ForeignKey("AuthorPk1")]
-        public AuthorMEE Author { get; set; }
+        public AuthorMEE? Author { get; set; }
 
         [Column("series_pk1")]
         public long? SeriesPk1 { get; set; }
@@ -138,7 +138,7 @@ namespace DStutz.Data.Efcos.Expert.Websites
                         e => e.Map<ArticleComment>());
 
                 efco.Author =
-                    Mapper.MapMandatory(
+                    Mapper.MapOptional(
                         poco.Author,
                         e => e.Map<AuthorMEE>());
 
@@ -168,7 +168,7 @@ namespace DStutz.Data.Efcos.Expert.Websites
                         e => e.Map());
 
                 poco.Author =
-                    Mapper.MapMandatory(
+                    Mapper.MapOptional(
                         efco.Author,
                         e => e.Map());
 

@@ -1,45 +1,39 @@
-using DStutz.System.Joiners;
+namespace DStutz.Coder.Entities.Data;
 
-namespace DStutz.Coder.Entities.Data
+public class DataTypeEntity : DataType
 {
-    public class DataTypeEntity : DataType
+    #region Properties
+    /***********************************************************/
+    public string I { get; } // Interface
+    public string C { get; } // Cruder
+    #endregion
+
+    #region Constructors
+    /***********************************************************/
+    public DataTypeEntity(
+        JsonEntity entity,
+        string suffixBLO,
+        string suffixDAO)
+        : base(entity.Name)
     {
-        #region Properties
-        /***********************************************************/
-        public string I { get; } // Interface
-        public string M { get; } // Mapper
-        #endregion
-
-        #region Constructors
-        /***********************************************************/
-        public DataTypeEntity(
-            JsonEntity entity,
-            string suffixEfco,
-            string suffixPoco)
-            : base(entity.Name)
-        {
-            E = N + suffixEfco;
-            P = N + suffixPoco;
-            I = "I" + N;
-            M = N + "Mapper";
-        }
-        #endregion
-
-        #region Properties implementing
-        /***********************************************************/
-        public override IJoiner Joiner
-        {
-            get
-            {
-                return new Joiner(
-                    (30, N),
-                    (33, P),
-                    (33, E),
-                    (31, I),
-                    (36, M)
-                );
-            }
-        }
-        #endregion
+        B = N + suffixBLO;
+        D = N + suffixDAO;
+        I = "I" + N;
+        C = N + "Cruder";
     }
+    #endregion
+
+    #region Methods implementing
+    /***********************************************************/
+    public override IJoiner Joiner()
+    {
+        return new Joiner(
+            (30, N),
+            (33, B),
+            (33, D),
+            (31, I),
+            (36, C)
+        );
+    }
+    #endregion
 }

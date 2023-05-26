@@ -3,6 +3,7 @@ using DStutz.Apps.Services;
 using DStutz.Apps.Services.Base.Configs;
 using DStutz.Apps.Services.Base.SQL;
 using DStutz.Apps.Utils;
+using DStutz.Data;
 using DStutz.Data.Cruders;
 using DStutz.Data.Pocos.Companies;
 
@@ -194,7 +195,7 @@ namespace DStutz.Apps
         /***********************************************************/
         public static void LogEntities(
             IService s,
-            params ICruder[] cruders)
+            params ICruderDAO[] cruders)
         {
             s.Logger.LogInformation(
                 "    --> Entities:");
@@ -208,7 +209,7 @@ namespace DStutz.Apps
                 s.Logger.LogInformation(
                 "        --> {0,-" + width + "}: {1}",
                 cruder.Name,
-                cruder.Count());
+                cruder.Number);
         }
 
         public static void LogEntities(

@@ -20,7 +20,6 @@ namespace DStutz.Data.Pocos.Food
 
         #region Properties and methods implementing
         /***********************************************************/
-        [JsonIgnore]
         public IJoiner Joiner
         {
             get { return SourceMapper.New.Joiner(this); }

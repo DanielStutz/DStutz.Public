@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.ChangeTracking;
 namespace DStutz.Data.Cruders.Expert.Youtube
 {
     public interface ICruderVideo
-        : ICruder<VideoMPE>
+        : ICruderBLO<VideoMPE>
     {
         public Task<List<VideoMPE>> ReadManyByChannel(long pk);
         public Task<List<VideoMPE>> ReadManyByPlaylist(long pk);
@@ -34,7 +34,7 @@ namespace DStutz.Data.Cruders.Expert.Youtube
         {
             return await ReadMany(e =>
                 e.ChannelPk1 == pk,
-                ICruder.INCLUDE_ALL);
+                CInclude.All);
         }
 
         public async Task<List<VideoMPE>> ReadManyByPlaylist(
@@ -42,7 +42,7 @@ namespace DStutz.Data.Cruders.Expert.Youtube
         {
             return await ReadMany(e =>
                 e.PlaylistPk1 == pk,
-                ICruder.INCLUDE_ALL);
+                CInclude.All);
         }
 
         public async Task<List<VideoMPE>> ReadManyByProduct(
@@ -53,7 +53,7 @@ namespace DStutz.Data.Cruders.Expert.Youtube
                     e.Related.Name.Contains(partialProduct) ||
                     e.Related.Type.Contains(partialProduct)
                 ),
-                ICruder.INCLUDE_ALL
+                CInclude.All
             );
         }
 
@@ -63,7 +63,7 @@ namespace DStutz.Data.Cruders.Expert.Youtube
             return await ReadMany(e =>
                 e.Remark != null &&
                 e.Remark.Contains(partialRemark),
-                ICruder.INCLUDE_ALL);
+                CInclude.All);
         }
 
         public async Task<List<VideoMPE>> ReadManyByTag(
@@ -78,7 +78,7 @@ namespace DStutz.Data.Cruders.Expert.Youtube
                     (e.Related.FR != null &&
                     e.Related.FR.Contains(partialTag))
                 ),
-                ICruder.INCLUDE_ALL
+                CInclude.All
             );
         }
         #endregion
@@ -91,7 +91,7 @@ namespace DStutz.Data.Cruders.Expert.Youtube
         {
             switch (includeType)
             {
-                case ICruder.INCLUDE_ALL:
+                case CInclude.All:
                     entry.Reference(e => e.Channel.Author)
                         .Load();
                     entry.Collection(e => e.Comments)

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 namespace DStutz.Data.Cruders.Food
 {
     public interface ICruderSource
-        : ICruder<SourceMPE>
+        : ICruderBLO<SourceMPE>
     {
         public Task<List<SourceMPE>> ReadManyByName(string partialName);
     }

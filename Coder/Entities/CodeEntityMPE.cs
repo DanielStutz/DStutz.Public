@@ -2,7 +2,7 @@ using DStutz.Coder.Entities.Data;
 
 namespace DStutz.Coder.Entities
 {
-    public class CodePoco : CodeBlock
+    public class CodeEntityMPE : CodeBlock
     {
         #region Template
         /***********************************************************/
@@ -32,7 +32,7 @@ CURSOR_ASYMMETRIC_CODE
 
         #region Constructors
         /***********************************************************/
-        private CodePoco(
+        private CodeEntityMPE(
             DataEntity entity,
             bool isAbstract,
             string join)
@@ -60,17 +60,17 @@ CURSOR_ASYMMETRIC_CODE
                     e => e.GetPropertyAsymmetricKey());
         }
 
-        public CodePoco(
+        public CodeEntityMPE(
             DataEntityBasic entity)
             : this(
                   entity,
-                  entity.AbstractPoco,
+                  entity.AbstractBLO,
                   "this")
         {
              //Write(false, false);
         }
 
-        public CodePoco(
+        public CodeEntityMPE(
             DataEntityOwned entity)
             : this(
                   entity,
@@ -80,11 +80,11 @@ CURSOR_ASYMMETRIC_CODE
             //Write(false, false);
         }
 
-        public CodePoco(
+        public CodeEntityMPE(
             DataEntityRelations entity)
             : this(
                   entity,
-                  entity.AbstractPoco,
+                  entity.AbstractBLO,
                   entity.GetJoin())
         {
             // Owned properties
@@ -92,26 +92,26 @@ CURSOR_ASYMMETRIC_CODE
                 .InsertRegion(
                     DataPropertyOwned.Title,
                     entity.OwnedProperties,
-                    e => e.GetPropertyPoco());
+                    e => e.GetPropertyBLO());
 
             // Relation properties
             SetCursor("RELATIONS", 4)
                 .InsertRegion(
                     DataRelation1to1.Title,
                     entity.Relations1to1,
-                    e => e.GetPropertyPoco())
+                    e => e.GetPropertyBLO())
                 .InsertRegion(
                     DataRelation1toN.Title,
                     entity.Relations1toN,
-                    e => e.GetPropertyPoco())
+                    e => e.GetPropertyBLO())
                 .InsertRegion(
                     DataRelationMto1.Title,
                     entity.RelationsMto1,
-                    e => e.GetPropertyPoco())
+                    e => e.GetPropertyBLO())
                 .InsertRegion(
                     DataRelationMtoN.Title,
                     entity.RelationsMtoN,
-                    e => e.GetPropertyPoco());
+                    e => e.GetPropertyBLO());
 
             //Write(false, false);
         }

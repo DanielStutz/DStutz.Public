@@ -3,7 +3,7 @@
     "Namespace": "DStutz.Data.#.Expert",
     "Name": "Author",
     "Code": {
-      "Version": "1.1.0"
+      "Version": "1.2.0"
     },
     "Keys": [
       {
@@ -14,21 +14,31 @@
       {
         "Name": "Surname",
         "Type": "string",
+        "Data": "Text, 2, 50",
         "Width": 20
       },
       {
         "Name": "Prename",
         "Type": "string",
+        "Data": "Text, 2, 50",
+        "Width": 20
+      },
+      {
+        "Name": "Email",
+        "Type": "string",
+        "Data": "EmailAddress",
         "Width": 20
       },
       {
         "Name": "Href",
         "Type": "string?",
+        "Data": "Text, 2, 50",
         "Width": 80
       },
       {
         "Name": "Remark",
         "Type": "string?",
+        "Data": "Text, 2, 50",
         "Width": 40
       }
     ]
@@ -37,7 +47,7 @@
     "Namespace": "DStutz.Data.#.Expert",
     "Name": "Comment",
     "Code": {
-      "Version": "1.1.0"
+      "Version": "1.2.0"
     },
     "Keys": [
       {
@@ -70,7 +80,7 @@
     "Namespace": "DStutz.Data.#.Expert",
     "Name": "Producer",
     "Code": {
-      "Version": "1.1.0"
+      "Version": "1.2.0"
     },
     "Keys": [
       {
@@ -104,7 +114,7 @@
     "Namespace": "DStutz.Data.#.Expert",
     "Name": "Product",
     "Code": {
-      "Version": "1.1.0"
+      "Version": "1.2.0"
     },
     "Keys": [
       {
@@ -126,7 +136,7 @@
     "RelationsMto1": [
       {
         "Name": "Producer",
-        "Type": "ProducerM_E?"
+        "Type": "ProducerXYZ?"
       }
     ]
   },
@@ -134,7 +144,7 @@
     "Namespace": "DStutz.Data.#.Expert",
     "Name": "Tag",
     "Code": {
-      "Version": "1.1.0"
+      "Version": "1.2.0"
     },
     "Keys": [
       {

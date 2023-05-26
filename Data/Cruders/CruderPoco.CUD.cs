@@ -4,13 +4,17 @@
     {
         #region Methods validating
         /***********************************************************/
+        public bool OmitValidation { get; set; } = false;
         public IValidator<P> Validator { get; set; }
 
         private void Validate(
             P poco)
         {
+            if (OmitValidation)
+                return;
+
             if (Validator == null)
-                throw new Exception("No validator set");
+                throw new Exception($"No validator set in {GetType().Name}");
 
             Validator.Validate(poco);
         }
@@ -18,7 +22,7 @@
 
         #region Methods creating
         /***********************************************************/
-        public async ValueTask<P> Create(
+        public async virtual ValueTask<P> Create(
             P poco,
             bool validate,
             bool saveChanges)
@@ -26,7 +30,14 @@
             if (validate)
                 Validate(poco);
 
+            SetPK(poco);
+
             return (await Create(poco.Map<E>(), saveChanges)).Map();
+        }
+
+        public virtual void SetPK(P poco)
+        {
+            // Overwrite if P needs specific primary key(s)
         }
         #endregion
 

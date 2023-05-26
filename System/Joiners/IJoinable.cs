@@ -4,4 +4,9 @@ namespace DStutz.System.Joiners
     {
         public IJoiner Joiner { get; }
     }
+
+    public interface IJoinableNew
+    {
+        public IJoiner Joiner();
+    }
 }

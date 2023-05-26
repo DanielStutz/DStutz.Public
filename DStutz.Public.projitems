@@ -61,7 +61,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Coder\CodeBlock.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\CodeInfoEntity.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\CodeInterface.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\CodePoco.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\CodeEntityBLO.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\CodeEntityMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\Data\DataEntity.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\Data\DataEntityBasic.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\Data\DataEntityOwned.cs" />
@@ -82,13 +83,15 @@
     <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\Data\JsonProperty.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\Data\JsonRelationMtoN.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\Data\JsonRelation1toN.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\EntityBasic\CodeEfco.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\EntityBasic\CodeEntityDAO.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\EntityBasic\CodeEntityMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\EntityBasic\CodeMapper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\EntityBasic\FileEntityBasic.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\EntityOwned\CodeEfco.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\EntityOwned\CodeEntityMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\EntityOwned\CodeMapper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\EntityOwned\FileEntityOwned.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\EntityRelations\CodeEfco.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\EntityRelations\CodeEntityDAO.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\EntityRelations\CodeEntityMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\EntityRelations\CodeJunctionClasses.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\EntityRelations\CodeMapper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\EntityRelations\FileEntityRelations.cs" />
@@ -107,15 +110,11 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\CruderPoco.CUD.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\CruderPoco.SQL.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\CruderPocoCached.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\Expert\CruderAuthor.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\Expert\Notes\CruderNote.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\Expert\Youtube\CruderVideo.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\Expert\Websites\CruderArticle.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\Food\CruderFoodCategory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\Food\CruderFoodItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\Food\CruderNutrient.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\Food\CruderSource.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\ICruder.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\IValidator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\Validator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\ValidationException.cs" />
@@ -177,20 +176,12 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Expert\Youtube\VideoMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Expert\Websites\ArticleMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\ZombieMEE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\IDated.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\IDeEn.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\IDeEnFr.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\IEfco.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\IEquatableLambda.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\IMapper.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\INumbered.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\IOrdered.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\IOwned.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\IPoco.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\IPolyglot.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\IRelations.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\ITreeNode.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\ITyped.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Mapper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Accounting\AccountBalancesMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Accounting\AccountExtendedMPE.cs" />
@@ -331,6 +322,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)System\Extensions\StringConcatenate.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Extensions\StringLength.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Extensions\StringModifier.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System\Extensions\StringModifierSQL.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\IO\Finder.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Joiners\IJoinable.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Joiners\IJoiner.cs" />
@@ -443,7 +435,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)Data\Cruders\Expert\Websites\" />
     <Folder Include="$(MSBuildThisFileDirectory)Data\Cruders\Expert\Youtube\" />
     <Folder Include="$(MSBuildThisFileDirectory)Data\Efcos\Expert\Youtube\" />
     <Folder Include="$(MSBuildThisFileDirectory)Data\Pocos\Expert\Youtube\" />

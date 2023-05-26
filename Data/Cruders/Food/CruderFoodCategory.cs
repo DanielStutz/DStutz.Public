@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 namespace DStutz.Data.Cruders.Food
 {
     public interface ICruderFoodCategory
-        : ICruder<FoodCategoryMPE>
+        : ICruderBLO<FoodCategoryMPE>
     {
         public Task<FoodCategoryMPE> ReadByName(string name);
         public Task<FoodCategoryMPE> ReadByNameCached(string name);

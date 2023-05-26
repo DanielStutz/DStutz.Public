@@ -8,7 +8,7 @@ namespace DStutz.Coder
         #region Properties
         /***********************************************************/
         protected IAppContext Context { get; }
-        protected ILogger Logger { get; }
+        ILogger Logger { get; }
         private IDictionary<string, FileInfo> Files1 { get; }
         private IDictionary<string, FileInfo> Files2 { get; }
         #endregion
@@ -31,6 +31,16 @@ namespace DStutz.Coder
             Files2 = Load(dir2);
         }
 
+        //protected GeneratorBase(
+        //    DirectoryInfo dir1,
+        //    DirectoryInfo dir2)
+        //{
+        //    // Load folder '[Project]/ABC/Conf/[jsonType]'
+        //    Files1 = Load(dir1);
+
+        //    // Load folder 'DStutz/Coder/[jsonType]/Json'
+        //    Files2 = Load(dir2);
+        //}
         #endregion
 
         #region Methods json files

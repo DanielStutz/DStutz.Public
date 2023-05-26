@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 namespace DStutz.Data.Cruders.Food
 {
     public interface ICruderNutrient
-        : ICruder<INutrientMPE>
+        : ICruderBLO<INutrientMPE>
     {
         public Task<INutrientMPE> ReadByName(string name);
         public Task<List<INutrientMPE>> ReadManyByName(string partialName);
@@ -30,7 +30,7 @@ namespace DStutz.Data.Cruders.Food
         {
             return await ReadFirstOrThrow(e =>
                 e.DE.Equals(name),
-                ICruder.INCLUDE_ALL);
+                CInclude.All);
         }
 
         public async Task<List<INutrientMPE>> ReadManyByName(
@@ -38,7 +38,7 @@ namespace DStutz.Data.Cruders.Food
         {
             return await ReadMany(e =>
                 e.DE.Contains(partialName),
-                ICruder.INCLUDE_ALL);
+                CInclude.All);
         }
         #endregion
     }

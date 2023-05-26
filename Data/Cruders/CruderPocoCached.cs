@@ -27,7 +27,7 @@ namespace DStutz.Data.Cruders
         public async ValueTask<P> ReadFirstOrThrowCached(
             Expression<Func<E, bool>> predicate,
             K key,
-            int includeType = ICruder.INCLUDE_ALL)
+            int includeType = CInclude.All)
         {
             if (!Pocos.ContainsKey(key))
                 Pocos.Add(key, await ReadFirstOrThrow(predicate, includeType));

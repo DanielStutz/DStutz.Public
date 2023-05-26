@@ -86,36 +86,36 @@ CURSOR_MAPPING_E2P
             SetCursor("MAPPING_P2E", 12)
                 .Insert(
                     entity.OwnedProperties,
-                    e => e.GetMappingP2E())
+                    e => e.GetMappingB2D())
                 .Insert(
                     entity.Relations1to1,
-                    e => e.GetMappingP2E())
+                    e => e.GetMappingB2D())
                 .Insert(
                     entity.Relations1toN,
-                    e => e.GetMappingP2E())
+                    e => e.GetMappingB2D())
                 .Insert(
                     entity.RelationsMto1,
-                    e => e.GetMappingP2E())
+                    e => e.GetMappingB2D())
                 .Insert(
                     entity.RelationsMtoN,
-                    e => e.GetMappingP2E());
+                    e => e.GetMappingB2D());
 
             SetCursor("MAPPING_E2P", 12)
                 .Insert(
                     entity.OwnedProperties,
-                    e => e.GetMappingE2P())
+                    e => e.GetMappingD2B())
                 .Insert(
                     entity.Relations1to1,
-                    e => e.GetMappingE2P())
+                    e => e.GetMappingD2B())
                 .Insert(
                     entity.Relations1toN,
-                    e => e.GetMappingE2P())
+                    e => e.GetMappingD2B())
                 .Insert(
                     entity.RelationsMto1,
-                    e => e.GetMappingE2P())
+                    e => e.GetMappingD2B())
                 .Insert(
                     entity.RelationsMtoN,
-                    e => e.GetMappingE2P());
+                    e => e.GetMappingD2B());
 
             //Write(false, false);
         }

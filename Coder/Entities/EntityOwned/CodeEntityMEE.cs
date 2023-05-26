@@ -2,7 +2,7 @@ using DStutz.Coder.Entities.Data;
 
 namespace DStutz.Coder.Entities.EntityOwned
 {
-    public class CodeEfco : CodeBlock
+    public class CodeEntityMEE : CodeBlock
     {
         #region Template
         /***********************************************************/
@@ -30,7 +30,7 @@ CURSOR_ASYMMETRIC_CODE
 
         #region Constructors
         /***********************************************************/
-        public CodeEfco(
+        public CodeEntityMEE(
             DataEntityOwned entity)
             : base(Template)
         {
@@ -42,7 +42,7 @@ CURSOR_ASYMMETRIC_CODE
                 .InsertRegion(
                     DataPropertyColumn.Title,
                     entity.Properties,
-                    e => e.GetPropertyEfco());
+                    e => e.GetPropertyDAO());
 
             //Write(false, false);
         }

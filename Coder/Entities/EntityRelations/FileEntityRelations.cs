@@ -1,63 +1,60 @@
 using DStutz.Coder.Entities.Data;
 
-namespace DStutz.Coder.Entities.EntityRelations
+namespace DStutz.Coder.Entities.EntityRelations;
+
+public class FileEntityRelations : FileEntity
 {
-    public class FileEntityRelations : FileEntity
-    {
-        #region Template
-        /***********************************************************/
-        private static readonly string Template = @"
+    #region Template
+    /***********************************************************/
+    private static readonly string Template = @"
 REMARKS
 using DStutz.Data;
-using DStutz.Data.Pocos;
 
-using NAMESPACE_EFCO;
+namespace NAMESPACE_BLO;
+
+CURSOR_INT
 
 // Version VERSION
-namespace NAMESPACE_POCO
-{
-CURSOR_INTERFACE
-
-CURSOR_POCO
-}
+CURSOR_BLO
 
 ----
 
 REMARKS
 using DStutz.Data;
-using DStutz.Data.Efcos;
 
-using NAMESPACE_POCO;
+using NAMESPACE_BLO;
 
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
+namespace NAMESPACE_DAO;
+
 // Version VERSION
-namespace NAMESPACE_EFCO
-{
-CURSOR_EFCO
+CURSOR_DAO
 
 CURSOR_CLASSES
 
-CURSOR_MAPPER
-}";
-        #endregion
+----
 
-        #region Constructors
-        /***********************************************************/
-        public FileEntityRelations(
-            DataEntityRelations data)
-            : base(Template, data)
-        {
-            Insert(new CodeInterface(data), "INTERFACE", 4);
-            Insert(new CodePoco(data), "POCO", 4);
-            Insert(new CodeEfco(data), "EFCO", 4);
-            Insert(new CodeJunctionClasses(data), "CLASSES", 4);
-            Insert(new CodeMapper(data), "MAPPER", 4);
-            PostProcessing();
+// Version VERSION
+CURSOR_CRUDER
+";
+    #endregion
 
-            //Write(false, false);
-        }
-        #endregion
+    #region Constructors
+    /***********************************************************/
+    public FileEntityRelations(
+        DataEntityRelations data)
+        : base(Template, data)
+    {
+        Insert(new CodeInterface(data), "INT", 0);
+        Insert(new CodeEntityBLO(data), "BLO", 0);
+        Insert(new CodeEntityDAO(data), "DAO", 0);
+        Insert(new CodeJunctionClasses(data), "CLASSES", 0);
+        //Insert(new CodeMapper(data), "MAPPER", 4);
+        PostProcessing();
+
+        //Write(false, false);
     }
+    #endregion
 }

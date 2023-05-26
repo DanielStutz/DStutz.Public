@@ -1,20 +1,19 @@
-namespace DStutz.Coder.Entities.Data
-{
-    public class DataPropertyOwned : DataProperty<DataType>
-    {
-        #region Title
-        /***********************************************************/
-        public static string Title = "Properties owned";
-        #endregion
+namespace DStutz.Coder.Entities.Data;
 
-        #region Constructors
-        /***********************************************************/
-        public DataPropertyOwned(
-            JsonProperty property)
-            : base(
-                  property,
-                  new DataType(property))
-        { }
-        #endregion
-    }
+public class DataPropertyOwned : DataProperty<DataType>
+{
+    #region Title
+    /***********************************************************/
+    public static string Title = "Properties owned";
+    #endregion
+
+    #region Constructors
+    /***********************************************************/
+    public DataPropertyOwned(
+        JsonProperty property)
+        : base(
+              property,
+              new DataType(property))
+    { }
+    #endregion
 }

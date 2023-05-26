@@ -33,7 +33,6 @@ namespace DStutz.Data.Pocos.Expert.Notes
 
         #region Properties and methods implementing
         /***********************************************************/
-        [JsonIgnore]
         public IJoiner Joiner
         {
             get { return NoteMapper.New.Joiner(this); }

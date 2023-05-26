@@ -19,8 +19,6 @@ namespace DStutz.Apps.Controllers.API
         public IAppContext Context { get; }
         public ILogger Logger { get; }
         private APIIdentity Identity { get; }
-        protected int INCLUDE_NONE { get; } = ICruder.INCLUDE_NONE;
-        protected int INCLUDE_ALL { get; } = ICruder.INCLUDE_ALL;
         #endregion
 
         #region Constructors
@@ -68,7 +66,7 @@ namespace DStutz.Apps.Controllers.API
         #region Methods - Create / POST
         /***********************************************************/
         protected async Task<ActionResult> PostAsync<P>(
-            ICruder<P> cruder,
+            ICruderBLO<P> cruder,
             P entity)
         {
             try
@@ -91,8 +89,8 @@ namespace DStutz.Apps.Controllers.API
 
         #region Methods - Read / GET
         /***********************************************************/
-        protected async Task<ActionResult> GetAsync<P>(
-            ICruder<P> cruder,
+        protected async Task<ActionResult> GetAllAsync<P>(
+            ICruderBLO<P> cruder,
             int includeType)
         {
             try
@@ -109,7 +107,7 @@ namespace DStutz.Apps.Controllers.API
         }
 
         protected async Task<ActionResult> GetAsync<P>(
-            ICruder<P> cruder,
+            ICruderBLO<P> cruder,
             int includeType,
             params object[] primaryKeys)
         {
@@ -134,7 +132,7 @@ namespace DStutz.Apps.Controllers.API
         #region Methods - Update / PUT
         /***********************************************************/
         protected async Task<ActionResult> DeleteCreateAsync<P>(
-            ICruder<P> cruder,
+            ICruderBLO<P> cruder,
             P entity,
             params object[] primaryKeys)
         {
@@ -160,7 +158,7 @@ namespace DStutz.Apps.Controllers.API
         }
 
         protected async Task<ActionResult> PutAsync<P>(
-            ICruder<P> cruder,
+            ICruderBLO<P> cruder,
             P entity)
         {
             try
@@ -188,7 +186,7 @@ namespace DStutz.Apps.Controllers.API
         #region Methods - Delete / DELETE
         /***********************************************************/
         protected async Task<ActionResult> DeleteAsync<P>(
-            ICruder<P> cruder,
+            ICruderBLO<P> cruder,
             params object[] primaryKeys)
         {
             try
@@ -217,6 +215,8 @@ namespace DStutz.Apps.Controllers.API
         private BadRequestObjectResult Error500(
             Exception ex)
         {
+            Console.WriteLine(ex.ToString());
+
             // TODO Find another method ?!
             return BadRequest(new APIResponse500(ex.Message));
         }
@@ -226,7 +226,7 @@ namespace DStutz.Apps.Controllers.API
         /***********************************************************/
         protected void Log(
             string method,
-            ICruder cruder,
+            ICruderDAO cruder,
             params object[] parameters)
         {
             Logger.LogInformation(

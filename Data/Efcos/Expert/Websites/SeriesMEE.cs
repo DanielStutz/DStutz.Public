@@ -31,7 +31,7 @@ namespace DStutz.Data.Efcos.Expert.Websites
         public long AuthorPk1 { get; set; }
 
         [ForeignKey("AuthorPk1")]
-        public AuthorMEE Author { get; set; }
+        public AuthorMEE? Author { get; set; }
         #endregion
 
         #region Properties and methods implementing
@@ -87,7 +87,7 @@ namespace DStutz.Data.Efcos.Expert.Websites
                 SeriesMEE efco = (SeriesMEE)(object)e2;
 
                 efco.Author =
-                    Mapper.MapMandatory(
+                    Mapper.MapOptional(
                         poco.Author,
                         e => e.Map<AuthorMEE>());
             }
@@ -97,7 +97,7 @@ namespace DStutz.Data.Efcos.Expert.Websites
                 SeriesMPE poco = (SeriesMPE)(object)e2;
 
                 poco.Author =
-                    Mapper.MapMandatory(
+                    Mapper.MapOptional(
                         efco.Author,
                         e => e.Map());
             }

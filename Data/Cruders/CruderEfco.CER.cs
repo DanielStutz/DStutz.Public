@@ -8,7 +8,7 @@ using System.Linq.Expressions;
 namespace DStutz.Data.Cruders
 {
     public partial class CruderEfco<E>
-        : ICruder
+        : ICruderDAO
         where E : class
     {
         #region Properties
@@ -16,6 +16,7 @@ namespace DStutz.Data.Cruders
         protected DbContext Context { get; }
         protected DbSet<E> Set { get; }
         public string Name { get; }
+        public int Number { get { return Count(); } }
         public bool PrintQuery { get; set; } = false;
         #endregion
 
@@ -71,7 +72,7 @@ namespace DStutz.Data.Cruders
         /***********************************************************/
         public async ValueTask<E?> FindOrDefault(
             long primaryKey,
-            int includeType = ICruder.INCLUDE_ALL)
+            int includeType = CInclude.All)
         {
             var efco = await Set.FindAsync(primaryKey);
 
@@ -83,7 +84,7 @@ namespace DStutz.Data.Cruders
 
         public async ValueTask<E> FindOrThrow(
             long primaryKey,
-            int includeType = ICruder.INCLUDE_ALL)
+            int includeType = CInclude.All)
         {
             var efco = await Set.FindAsync(primaryKey);
 
@@ -95,7 +96,7 @@ namespace DStutz.Data.Cruders
 
         public async ValueTask<E?> FindOrDefault(
             object[] primaryKeys,
-            int includeType = ICruder.INCLUDE_ALL)
+            int includeType = CInclude.All)
         {
             var efco = await Set.FindAsync(primaryKeys);
 
@@ -107,7 +108,7 @@ namespace DStutz.Data.Cruders
 
         public async ValueTask<E> FindOrThrow(
             object[] primaryKeys,
-            int includeType = ICruder.INCLUDE_ALL)
+            int includeType = CInclude.All)
         {
             var efco = await Set.FindAsync(primaryKeys);
 
@@ -122,7 +123,7 @@ namespace DStutz.Data.Cruders
         /***********************************************************/
         public async ValueTask<E?> FindFirstOrDefault(
             Expression<Func<E, bool>> predicate,
-            int includeType = ICruder.INCLUDE_ALL)
+            int includeType = CInclude.All)
         {
             var efco = await Set.FirstOrDefaultAsync(predicate);
 
@@ -134,7 +135,7 @@ namespace DStutz.Data.Cruders
 
         public async ValueTask<E> FindFirstOrThrow(
             Expression<Func<E, bool>> predicate,
-            int includeType = ICruder.INCLUDE_ALL)
+            int includeType = CInclude.All)
         {
             var efco = await Set.FirstOrDefaultAsync(predicate);
 
@@ -148,7 +149,7 @@ namespace DStutz.Data.Cruders
         #region Methods reading all entities (selectable)
         /***********************************************************/
         public async ValueTask<List<E>> FindAll(
-            int includeType = ICruder.INCLUDE_ALL)
+            int includeType = CInclude.All)
         {
             return await Loading(Set, includeType);
 
@@ -165,7 +166,7 @@ namespace DStutz.Data.Cruders
 
         public async ValueTask<List<T>> FindAll<T>(
             Func<E, T> selector,
-            int includeType = ICruder.INCLUDE_ALL)
+            int includeType = CInclude.All)
         {
             var efcos = await FindAll(includeType);
 
@@ -178,7 +179,7 @@ namespace DStutz.Data.Cruders
         public async ValueTask<List<E>> FindMany(
             Expression<Func<E, bool>> predicate,
             Expression<Func<E, bool>>? predicate2,
-            int includeType = ICruder.INCLUDE_ALL)
+            int includeType = CInclude.All)
         {
             IQueryable<E> queryable = Set;
 
@@ -207,7 +208,7 @@ namespace DStutz.Data.Cruders
         public async ValueTask<List<T>> FindMany<T>(
             Expression<Func<E, bool>> predicate,
             Func<E, T> selector,
-            int includeType = ICruder.INCLUDE_ALL)
+            int includeType = CInclude.All)
         {
             var efcos = await FindMany(predicate, null, includeType);
 
@@ -219,7 +220,7 @@ namespace DStutz.Data.Cruders
         /***********************************************************/
         public async ValueTask<List<E>> FindMany<R>(
             Expression<Func<R, bool>> predicateOfRelated,
-            int includeType = ICruder.INCLUDE_ALL)
+            int includeType = CInclude.All)
             where R : class, IOwned<E>
         {
             IQueryable<E> queryable =
