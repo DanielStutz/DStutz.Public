@@ -1,12 +1,12 @@
 using DStutz.Coder.Entities.Data;
 
-namespace DStutz.Coder.Entities
+namespace DStutz.Coder.Entities;
+
+public class CodeEntityMPE : CodeBlock
 {
-    public class CodeEntityMPE : CodeBlock
-    {
-        #region Template
-        /***********************************************************/
-        private static readonly string Template = @"
+    #region Template
+    /***********************************************************/
+    private static readonly string Template = @"
 public ABSTRACT class TYPE_POCO
     : IPoco<TYPE_INTERFACE>, TYPE_INTERFACE
 {
@@ -28,93 +28,92 @@ CURSOR_ASYMMETRIC_CODE
     }
     #endregion
 }";
-        #endregion
+    #endregion
 
-        #region Constructors
-        /***********************************************************/
-        private CodeEntityMPE(
-            DataEntity entity,
-            bool isAbstract,
-            string join)
-            : base(Template)
-        {
-            if (isAbstract)
-                Replace("ABSTRACT", "abstract");
-            else
-                Replace("ABSTRACT ", "");
+    #region Constructors
+    /***********************************************************/
+    private CodeEntityMPE(
+        DataEntity entity,
+        bool isAbstract,
+        string join)
+        : base(Template)
+    {
+        if (isAbstract)
+            Replace("ABSTRACT", "abstract");
+        else
+            Replace("ABSTRACT ", "");
 
-            Replace("JOIN", join);
+        Replace("JOIN", join);
 
-            if (entity.Code.Asymmetric)
-                InsertRegionAsymmetricCode(4);
+        if (entity.Code.Asymmetric)
+            InsertRegionAsymmetricCode(4);
 
-            // Simple properties and keys with a pseudonym
-            SetCursor("PROPERTIES", 4)
-                .InsertRegion(
-                    DataPropertyColumn.Title,
-                    entity.Properties,
-                    e => e.GetProperty())
-                .InsertRegion(
-                    CodeHelper.AsymmetricKeys,
-                    entity.Properties.Where(e => e.Pseudonym != null),
-                    e => e.GetPropertyAsymmetricKey());
-        }
-
-        public CodeEntityMPE(
-            DataEntityBasic entity)
-            : this(
-                  entity,
-                  entity.AbstractBLO,
-                  "this")
-        {
-             //Write(false, false);
-        }
-
-        public CodeEntityMPE(
-            DataEntityOwned entity)
-            : this(
-                  entity,
-                  false,
-                  "this")
-        {
-            //Write(false, false);
-        }
-
-        public CodeEntityMPE(
-            DataEntityRelations entity)
-            : this(
-                  entity,
-                  entity.AbstractBLO,
-                  entity.GetJoin())
-        {
-            // Owned properties
-            SetCursor("PROPERTIES", 4)
-                .InsertRegion(
-                    DataPropertyOwned.Title,
-                    entity.OwnedProperties,
-                    e => e.GetPropertyBLO());
-
-            // Relation properties
-            SetCursor("RELATIONS", 4)
-                .InsertRegion(
-                    DataRelation1to1.Title,
-                    entity.Relations1to1,
-                    e => e.GetPropertyBLO())
-                .InsertRegion(
-                    DataRelation1toN.Title,
-                    entity.Relations1toN,
-                    e => e.GetPropertyBLO())
-                .InsertRegion(
-                    DataRelationMto1.Title,
-                    entity.RelationsMto1,
-                    e => e.GetPropertyBLO())
-                .InsertRegion(
-                    DataRelationMtoN.Title,
-                    entity.RelationsMtoN,
-                    e => e.GetPropertyBLO());
-
-            //Write(false, false);
-        }
-        #endregion
+        // Simple properties and keys with a pseudonym
+        SetCursor("PROPERTIES", 4)
+            .InsertRegion(
+                DataPropertyColumn.Title,
+                entity.Properties,
+                e => e.GetProperty())
+            .InsertRegion(
+                CodeHelper.AsymmetricKeys,
+                entity.Properties.Where(e => e.Pseudonym != null),
+                e => e.GetPropertyAsymmetricKey());
     }
+
+    public CodeEntityMPE(
+        DataEntityBasic entity)
+        : this(
+              entity,
+              entity.AbstractBLO,
+              "this")
+    {
+         //Write(false, false);
+    }
+
+    public CodeEntityMPE(
+        DataEntityOwned entity)
+        : this(
+              entity,
+              false,
+              "this")
+    {
+        //Write(false, false);
+    }
+
+    public CodeEntityMPE(
+        DataEntityRelations entity)
+        : this(
+              entity,
+              entity.AbstractBLO,
+              entity.GetJoin())
+    {
+        // Owned properties
+        SetCursor("PROPERTIES", 4)
+            .InsertRegion(
+                DataPropertyOwned.Title,
+                entity.OwnedProperties,
+                e => e.GetPropertyBLO());
+
+        // Relation properties
+        SetCursor("RELATIONS", 4)
+            .InsertRegion(
+                DataRelation1to1.Title,
+                entity.Relations1to1,
+                e => e.GetPropertyBLO())
+            .InsertRegion(
+                DataRelation1toN.Title,
+                entity.Relations1toN,
+                e => e.GetPropertyBLO())
+            .InsertRegion(
+                DataRelationMto1.Title,
+                entity.RelationsMto1,
+                e => e.GetPropertyBLO())
+            .InsertRegion(
+                DataRelationMtoN.Title,
+                entity.RelationsMtoN,
+                e => e.GetPropertyBLO());
+
+        //Write(false, false);
+    }
+    #endregion
 }
