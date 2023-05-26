@@ -83,7 +83,7 @@ namespace DStutz.Data.Efcos.Accounting
         /***********************************************************/
         public IJoiner Joiner(
             IPosition e1,
-            params IJoinable?[] data)
+            params IJoinableOld?[] data)
         {
             var amount = e1.Price; // Additional code!
 

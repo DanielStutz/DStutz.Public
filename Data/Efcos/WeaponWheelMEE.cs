@@ -50,7 +50,7 @@ namespace DStutz.Data.Efcos
         /***********************************************************/
         public IJoiner Joiner(
             IWeaponWheel e1,
-            params IJoinable?[] data)
+            params IJoinableOld?[] data)
         {
             return new Joiner(
                 //('L', 20, e1.GetType().Name),

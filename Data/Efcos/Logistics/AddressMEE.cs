@@ -66,7 +66,7 @@ namespace DStutz.Data.Efcos.Logistics
         /***********************************************************/
         public IJoiner Joiner(
             IAddress e1,
-            params IJoinable?[] data)
+            params IJoinableOld?[] data)
         {
             return new Joiner(
                 //('L', 20, e1.GetType().Name),

@@ -3,7 +3,7 @@
 namespace DStutz.Data
 {
     public abstract class TreeNode<E>
-        where E : ITreeNode<E>, IJoinable
+        where E : ITreeNode<E>, IJoinableOld
     {
         public static int CountLevels(
             E node)

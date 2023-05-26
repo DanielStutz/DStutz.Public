@@ -59,11 +59,11 @@ namespace DStutz.Data.Cruders
 
             if (PrintFindOrCreate &&
                 entity != null &&
-                entity is IJoinable)
+                entity is IJoinableOld)
                 Console.WriteLine(
                     state +
                     " --> " +
-                    (entity as IJoinable).Joiner.Row);
+                    (entity as IJoinableOld).Joiner.Row);
 
             return entity;
         }

@@ -4,7 +4,7 @@ using DStutz.System.Exceptions;
 
 namespace DStutz.Data.Pocos.Companies
 {
-    public class Company : IJoinable
+    public class Company : IJoinableOld
     {
         #region Properties
         /***********************************************************/

@@ -2,7 +2,7 @@ using DStutz.System.Joiners;
 
 namespace DStutz.Data.Pocos.Addresses
 {
-    public class Addressee : IJoinable
+    public class Addressee : IJoinableOld
     {
         #region Properties
         /***********************************************************/

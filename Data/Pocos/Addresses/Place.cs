@@ -2,7 +2,7 @@
 
 namespace DStutz.Data.Pocos.Addresses
 {
-    public class Place : CodeName, IJoinable
+    public class Place : CodeName, IJoinableOld
     {
         #region Properties
         /***********************************************************/

@@ -5,7 +5,7 @@ namespace DStutz.Data.Efcos
 {
     [Table("config")]
     public class ConfigEE
-        : IJoinable
+        : IJoinableOld
     {
         #region Properties
         /***********************************************************/

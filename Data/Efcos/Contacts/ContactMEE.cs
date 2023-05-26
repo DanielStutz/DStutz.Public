@@ -109,7 +109,7 @@ namespace DStutz.Data.Efcos.Contacts
         /***********************************************************/
         public IJoiner Joiner(
             IContact e1,
-            params IJoinable?[] data)
+            params IJoinableOld?[] data)
         {
             throw new NotImplementedException();
         }

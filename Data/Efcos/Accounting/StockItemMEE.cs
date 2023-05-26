@@ -69,7 +69,7 @@ namespace DStutz.Data.Efcos.Accounting
         /***********************************************************/
         public IJoiner Joiner(
             IStockItem e1,
-            params IJoinable?[] data)
+            params IJoinableOld?[] data)
         {
             var j = new Joiner(
                 //('L', 20, e1.GetType().Name),

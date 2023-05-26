@@ -1,7 +1,7 @@
 ﻿namespace DStutz.Data.Pocos
 {
     public class Link
-        : IJoinable, ITyped
+        : IJoinableOld, ITyped
     {
         #region Properties
         /***********************************************************/

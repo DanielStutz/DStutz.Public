@@ -1,7 +1,7 @@
 ﻿namespace DStutz.Data
 {
     public interface IRel
-        : IJoinable
+        : IJoinableOld
     {
         public long OwnerPk1 { get; set; }
         public int OrderBy { get; set; }

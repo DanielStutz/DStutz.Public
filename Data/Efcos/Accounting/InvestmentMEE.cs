@@ -83,7 +83,7 @@ namespace DStutz.Data.Efcos.Accounting
         /***********************************************************/
         public IJoiner Joiner(
             IInvestment e1,
-            params IJoinable?[] data)
+            params IJoinableOld?[] data)
         {
             // Asymmetric code
             var date1 = e1.Date1.ToShortDateString();

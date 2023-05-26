@@ -11,7 +11,7 @@ namespace DStutz.Data.Efcos
         where NE : TreeNodeMEE<NE, NP, DE, DP>
         where NP : TreeNodePE<NP, DP>, new()
         where DE : IEfco<DP>
-        where DP : IJoinable
+        where DP : IJoinableOld
     {
         #region Properties
         /***********************************************************/
