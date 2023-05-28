@@ -7,20 +7,17 @@
         /***********************************************************/
         public static string Find(
             IDeEn? entity,
-            string ISOCode639 = "de")
+            string ISOCode639x = "de")
         {
             try
             {
                 entity = CheckForNull(entity);
 
-                switch (ISOCode639.ToLower())
+                switch (ISOCode6391.Get(ISOCode639x))
                 {
                     case "de":
-                    case "deu":
-                    case "ger":
                         return CheckForNull(entity.DE);
                     case "en":
-                    case "eng":
                         return CheckForNull(entity.EN);
                     default:
                         throw new Exception("Unknown code");
@@ -29,30 +26,25 @@
             catch (Exception ex)
             {
                 throw new Exception(
-                    $"Problem with '{ISOCode639}'", ex);
+                    $"Problem with '{ISOCode639x}'", ex);
             }
         }
 
         public static string Find(
             IDeEnFr? entity,
-            string ISOCode639 = "de")
+            string ISOCode639x = "de")
         {
             try
             {
                 entity = CheckForNull(entity);
 
-                switch (ISOCode639.ToLower())
+                switch (ISOCode6391.Get(ISOCode639x))
                 {
                     case "de":
-                    case "deu":
-                    case "ger":
                         return CheckForNull(entity.DE);
                     case "en":
-                    case "eng":
                         return CheckForNull(entity.EN);
                     case "fr":
-                    case "fra":
-                    case "fre":
                         return CheckForNull(entity.FR);
                     default:
                         throw new Exception("Unknown code");
@@ -61,7 +53,7 @@
             catch (Exception ex)
             {
                 throw new Exception(
-                    $"Problem with '{ISOCode639}'", ex);
+                    $"Problem with '{ISOCode639x}'", ex);
             }
         }
         #endregion
