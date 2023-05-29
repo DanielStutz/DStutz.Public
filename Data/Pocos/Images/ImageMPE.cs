@@ -4,7 +4,7 @@
 namespace DStutz.Data.Pocos.Images
 {
     public interface IImage
-        : IPolyglot
+        : IPolyglotOLD
     {
         public long Pk1 { get; set; }
         public string Name { get; set; }

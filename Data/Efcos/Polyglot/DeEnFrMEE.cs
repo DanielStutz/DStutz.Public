@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace DStutz.Data.Efcos.Polyglot
 {
     public abstract class DeEnFrMEE
-        : IEfco<DeEnFrMPE>, IDeEnFrKey
+        : IEfco<DeEnFrMPE>, IDeEnFrKeyOLD
     {
         #region Properties
         /***********************************************************/
@@ -39,14 +39,14 @@ namespace DStutz.Data.Efcos.Polyglot
     }
 
     public class DeEnFrKeyMapper
-        : IMapper<IDeEnFrKey>
+        : IMapper<IDeEnFrKeyOLD>
     {
         public static DeEnFrKeyMapper New { get; } = new DeEnFrKeyMapper();
 
         #region Methods implementing
         /***********************************************************/
         public IJoiner Joiner(
-            IDeEnFrKey e1,
+            IDeEnFrKeyOLD e1,
             params IJoinableOld?[] data)
         {
             return new Joiner(
@@ -59,7 +59,7 @@ namespace DStutz.Data.Efcos.Polyglot
         }
 
         public E Map<E>(
-            IDeEnFrKey e1) where E : IDeEnFrKey, new()
+            IDeEnFrKeyOLD e1) where E : IDeEnFrKeyOLD, new()
         {
             return new E()
             {

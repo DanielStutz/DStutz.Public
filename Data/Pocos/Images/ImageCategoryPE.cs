@@ -8,7 +8,7 @@ namespace DStutz.Data.Pocos.Images
     { }
 
     public interface IImageCategoryData
-        : IDeEnFr
+        : IDeEnFrOLD
     {
         public string? Abbr { get; set; }
         public string Href { get; set; }
@@ -16,7 +16,7 @@ namespace DStutz.Data.Pocos.Images
     }
 
     public class ImageCategoryDataMPO
-        : IPoco<IImageCategoryData>, IImageCategoryData, IPolyglot
+        : IPoco<IImageCategoryData>, IImageCategoryData, IPolyglotOLD
     {
         #region Properties
         /***********************************************************/

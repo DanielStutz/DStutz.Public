@@ -4,7 +4,7 @@
 namespace DStutz.Data.Pocos.Polyglot
 {
     public class DeEnMPE
-        : IPoco<IDeEnKey>, IDeEnKey, IPolyglot
+        : IPoco<IDeEnKeyOLD>, IDeEnKeyOLD, IPolyglotOLD
     {
         #region Properties
         /***********************************************************/
@@ -28,7 +28,7 @@ namespace DStutz.Data.Pocos.Polyglot
             get { return DeEnMapper.New.Joiner(this); }
         }
 
-        public E Map<E>() where E : IDeEnKey, new()
+        public E Map<E>() where E : IDeEnKeyOLD, new()
         {
             return DeEnMapper.New.Map<E>(this);
         }

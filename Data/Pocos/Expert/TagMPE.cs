@@ -4,7 +4,7 @@ using DStutz.Data.Efcos.Expert;
 namespace DStutz.Data.Pocos.Expert
 {
     public interface ITag
-        : IDeEnFr, IPolyglot
+        : IDeEnFrOLD, IPolyglotOLD
     {
         public long Pk1 { get; set; }
     }

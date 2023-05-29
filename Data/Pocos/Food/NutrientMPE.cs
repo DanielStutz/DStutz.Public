@@ -4,7 +4,7 @@ using DStutz.Data.Efcos.Food;
 namespace DStutz.Data.Pocos.Food
 {
     public interface INutrient
-        : IDeEnFr
+        : IDeEnFrOLD
     {
         public long Pk1 { get; set; }
         public string Unit { get; set; }
@@ -12,7 +12,7 @@ namespace DStutz.Data.Pocos.Food
     }
 
     public class INutrientMPE
-        : IPoco<INutrient>, INutrient, IPolyglot
+        : IPoco<INutrient>, INutrient, IPolyglotOLD
     {
         #region Properties
         /***********************************************************/

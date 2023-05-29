@@ -8,14 +8,14 @@ namespace DStutz.Data.Pocos.Expert
     { }
 
     public interface ITopicData
-        : IDeEnFr
+        : IDeEnFrOLD
     {
         public string? Abbr { get; set; }
         public string? Remark { get; set; }
     }
 
     public class TopicDataMPO
-        : IPoco<ITopicData>, ITopicData, IPolyglot
+        : IPoco<ITopicData>, ITopicData, IPolyglotOLD
     {
         #region Properties
         /***********************************************************/

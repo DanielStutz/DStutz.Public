@@ -4,7 +4,7 @@
 namespace DStutz.Data.Pocos.Images
 {
     public interface IImageText
-        : IDeEnFr, IPolyglot
+        : IDeEnFrOLD, IPolyglotOLD
     {
         public long Pk1 { get; set; }
     }
