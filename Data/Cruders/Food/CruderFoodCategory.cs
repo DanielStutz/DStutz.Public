@@ -30,7 +30,8 @@ namespace DStutz.Data.Cruders.Food
             string name)
         {
             return await ReadFirstOrThrow(e =>
-                e.Name.Equals(name));
+                e.Name.Equals(name),
+                CInclude.All);
         }
 
         public async Task<FoodCategoryMPE> ReadByNameCached(
@@ -38,14 +39,16 @@ namespace DStutz.Data.Cruders.Food
         {
             return await ReadFirstOrThrowCached(e =>
                 e.Name.Equals(name),
-                name);
+                name,
+                CInclude.All);
         }
 
         public async Task<List<FoodCategoryMPE>> ReadManyByName(
             string partialName)
         {
             return await ReadMany(e =>
-                e.Name.Contains(partialName));
+                e.Name.Contains(partialName),
+                CInclude.All);
         }
         #endregion
     }

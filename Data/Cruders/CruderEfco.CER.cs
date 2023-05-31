@@ -7,7 +7,7 @@ using System.Linq.Expressions;
 
 namespace DStutz.Data.Cruders
 {
-    public partial class CruderEfco<E>
+    public abstract partial class CruderEfco<E>
         : ICruderDAO
         where E : class
     {

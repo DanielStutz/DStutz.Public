@@ -42,7 +42,8 @@ namespace DStutz.Data.Cruders.Food
         {
             return await ReadMany<FoodItemFoodCategoryRel>(e =>
                 e.Related != null &&
-                e.Related.Name.Contains(partialName)
+                e.Related.Name.Contains(partialName),
+                CInclude.All
             );
         }
 

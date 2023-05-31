@@ -2,7 +2,7 @@
 
 namespace DStutz.Data.Cruders
 {
-    public partial class CruderEfco<E>
+    public abstract partial class CruderEfco<E>
     {
         #region Properties
         /***********************************************************/
@@ -13,7 +13,7 @@ namespace DStutz.Data.Cruders
         /***********************************************************/
         public async ValueTask<E> Create(
             E efco,
-            bool saveChanges = false)
+            bool saveChanges)
         {
             return (await CreateEntry(efco, saveChanges)).Entity;
         }
@@ -105,8 +105,8 @@ namespace DStutz.Data.Cruders
         }
 
         public async ValueTask<int> Delete(
-            object[] primaryKeys,
-            bool saveChanges)
+            bool saveChanges,
+            object[] primaryKeys)
         {
             var efco = await FindOrThrow(primaryKeys);
 

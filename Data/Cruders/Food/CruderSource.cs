@@ -28,7 +28,8 @@ namespace DStutz.Data.Cruders.Food
             string partialName)
         {
             return await ReadMany(e =>
-                e.Name.Contains(partialName));
+                e.Name.Contains(partialName),
+                CInclude.All);
         }
         #endregion
     }

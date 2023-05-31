@@ -2,7 +2,7 @@
 
 namespace DStutz.Data.Cruders
 {
-    public partial class CruderEfco<E>
+    public abstract partial class CruderEfco<E>
     {
         #region Methods getting primary keys
         /***********************************************************/
