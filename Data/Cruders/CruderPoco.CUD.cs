@@ -2,9 +2,6 @@
 {
     public abstract partial class CruderPoco<E, P, I>
     {
-        public bool OmitValidation { get; set; } = false;
-        public IValidator<P> Validator { get; set; }
-
         #region Methods creating
         /***********************************************************/
         public virtual ValueTask<P> Create(

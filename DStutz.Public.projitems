@@ -31,10 +31,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\Food\CruderFoodItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\Food\CruderNutrient.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\Food\CruderSource.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\IValidator.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\Validator.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\ValidationException.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\ValidationProblem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Accounting\AccountBalancesMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Accounting\AccountExtendedMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Accounting\AccountGroupMEE.cs" />
