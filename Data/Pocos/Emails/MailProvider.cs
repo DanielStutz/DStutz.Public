@@ -1,6 +1,4 @@
-﻿using DStutz.System.Exceptions;
-
-namespace DStutz.Data.Pocos.Emails
+﻿namespace DStutz.Data.Pocos.Emails
 {
     public class MailProvider
     {
@@ -30,7 +28,10 @@ namespace DStutz.Data.Pocos.Emails
                 if (user.UserName.ToLower().Equals(userName.ToLower()))
                     return user;
 
-            throw new NotFoundException(typeof(MailUser), userName);
+            throw NotFoundException(
+                typeof(MailProvider),
+                typeof(MailUser),
+                userName);
         }
 
         public MailClient GetMailClient(string type)
@@ -39,7 +40,10 @@ namespace DStutz.Data.Pocos.Emails
                 if (client.Type.ToUpper().Equals(type.ToUpper()))
                     return client;
 
-            throw new NotFoundException(typeof(MailClient), type);
+            throw NotFoundException(
+                typeof(MailProvider),
+                typeof(MailClient),
+                type);
         }
         #endregion
 

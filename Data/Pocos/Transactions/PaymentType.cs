@@ -1,5 +1,4 @@
 ﻿using DStutz.System.Enums;
-using DStutz.System.Exceptions;
 
 namespace DStutz.Data.Pocos.Transactions
 {
@@ -83,7 +82,7 @@ namespace DStutz.Data.Pocos.Transactions
                 case "ZOM":
                     return ZOM;
                 default:
-                    throw new NotFoundException(typeof(PaymentType), abbr);
+                    throw NotFoundException(this);
             }
         }
         #endregion

@@ -1,5 +1,4 @@
 ﻿using DStutz.Coder.Entities.Data;
-using DStutz.System.Exceptions;
 
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
@@ -88,8 +87,8 @@ namespace DStutz.Data.Cruders
         {
             var efco = await Set.FindAsync(primaryKey);
 
-            if (efco == null)
-                throw new NotFoundException<E>(primaryKey);
+            //if (efco == null)
+            //    throw NewNotFoundException<E>(GetType(), primaryKey);
 
             return Loading(Context.Entry(efco), includeType);
         }
@@ -112,8 +111,8 @@ namespace DStutz.Data.Cruders
         {
             var efco = await Set.FindAsync(primaryKeys);
 
-            if (efco == null)
-                throw new NotFoundException<E>(primaryKeys);
+            //if (efco == null)
+            //    throw NewNotFoundException<E>(GetType(), primaryKeys);
 
             return Loading(Context.Entry(efco), includeType);
         }
@@ -139,8 +138,8 @@ namespace DStutz.Data.Cruders
         {
             var efco = await Set.FirstOrDefaultAsync(predicate);
 
-            if (efco == null)
-                throw new NotFoundException<E>(predicate);
+            //if (efco == null)
+            //    throw NewNotFoundException<E>(GetType(), predicate);
 
             return Loading(Context.Entry(efco), includeType);
         }

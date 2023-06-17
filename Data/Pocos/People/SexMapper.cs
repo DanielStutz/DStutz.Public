@@ -1,5 +1,3 @@
-using DStutz.System.Exceptions;
-
 namespace DStutz.Data.Pocos.People
 {
     public abstract class SexMapper
@@ -15,7 +13,10 @@ namespace DStutz.Data.Pocos.People
                 case "I":
                     return Sex.I;
                 default:
-                    throw new NotFoundException("Sex", sex);
+                    throw NotFoundException(
+                        typeof(SexMapper),
+                        typeof(Sex),
+                        sex);
             }
         }
     }

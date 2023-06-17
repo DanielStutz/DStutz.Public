@@ -1,6 +1,5 @@
 ﻿using DStutz.Data.Pocos.Addresses;
 using DStutz.Data.Pocos.Contacts;
-using DStutz.System.Exceptions;
 
 namespace DStutz.Data.Pocos.Companies
 {
@@ -41,8 +40,10 @@ namespace DStutz.Data.Pocos.Companies
                 }
             }
 
-            throw new NotFoundException(
-                "Address for date", date.ToShortDateString());
+            throw NotFoundException(
+                typeof(Company),
+                typeof(Address),
+                date.ToShortDateString());
         }
         #endregion
 

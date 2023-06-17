@@ -1,5 +1,4 @@
 ﻿using DStutz.System.Enums;
-using DStutz.System.Exceptions;
 
 namespace DStutz.Data.Pocos.People
 {
@@ -35,7 +34,7 @@ namespace DStutz.Data.Pocos.People
                 case "N":
                     return N;
                 default:
-                    throw new NotFoundException(typeof(FeedbackType), abbr);
+                    throw NotFoundException(this);
             }
         }
         #endregion

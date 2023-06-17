@@ -1,5 +1,4 @@
 ﻿using DStutz.System.Enums;
-using DStutz.System.Exceptions;
 
 namespace DStutz.Data.Pocos.Logistics
 {
@@ -68,7 +67,7 @@ namespace DStutz.Data.Pocos.Logistics
                 case "UPS":
                     return UPS;
                 default:
-                    throw new NotFoundException(typeof(Carrier), abbr);
+                    throw NotFoundException(this);
             }
         }
         #endregion

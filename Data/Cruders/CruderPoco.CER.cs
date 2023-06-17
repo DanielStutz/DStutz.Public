@@ -1,6 +1,4 @@
-﻿using DStutz.System.Exceptions;
-
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
 namespace DStutz.Data.Cruders
@@ -62,8 +60,8 @@ namespace DStutz.Data.Cruders
         {
             var efco = await FindOrDefault(primaryKeys, includeType);
 
-            if (efco == null)
-                throw new NotFoundException<E>(primaryKeys);
+            //if (efco == null)
+            //    throw NewNotFoundException<E>(GetType(), primaryKeys);
 
             return efco.Map();
         }
@@ -89,8 +87,8 @@ namespace DStutz.Data.Cruders
         {
             var efco = await FindFirstOrDefault(predicate, includeType);
 
-            if (efco == null)
-                throw new NotFoundException<E>(predicate);
+            //if (efco == null)
+            //    throw NewNotFoundException<E>(GetType(), predicate);
 
             return efco.Map();
         }
