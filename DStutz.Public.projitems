@@ -94,6 +94,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\InterfacesPolyglot.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\IPoco.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\IRelations.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\ISOCode639.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\ITreeNode.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Mapper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Accounting\AccountBalancesMPE.cs" />

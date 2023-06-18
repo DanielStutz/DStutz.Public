@@ -96,7 +96,7 @@ namespace DStutz.Data.Cruders
 
         #region Methods reading all entities (selectable)
         /***********************************************************/
-        public async Task<List<P>> ReadAll(
+        public async ValueTask<List<P>> ReadAll(
             int includeType)
         {
             var efcos = await FindAll(includeType);
@@ -104,7 +104,7 @@ namespace DStutz.Data.Cruders
             return efcos.Select(e => e.Map()).ToList();
         }
 
-        public async Task<List<T>> ReadAll<T>(
+        public async ValueTask<List<T>> ReadAll<T>(
             int includeType,
             Func<P, T> selector)
         {
@@ -116,7 +116,7 @@ namespace DStutz.Data.Cruders
 
         #region Methods reading many entities (selectable)
         /***********************************************************/
-        public async Task<List<P>> ReadMany(
+        public async ValueTask<List<P>> ReadMany(
             Expression<Func<E, bool>> predicate,
             int includeType)
         {
@@ -125,7 +125,7 @@ namespace DStutz.Data.Cruders
             return efcos.Select(e => e.Map()).ToList();
         }
 
-        public async Task<List<T>> ReadMany<T>(
+        public async ValueTask<List<T>> ReadMany<T>(
             Expression<Func<E, bool>> predicate,
             Func<P, T> selector,
             int includeType)
@@ -138,7 +138,7 @@ namespace DStutz.Data.Cruders
 
         #region Methods reading many entities (by related)
         /***********************************************************/
-        public async Task<List<P>> ReadMany<R>(
+        public async ValueTask<List<P>> ReadMany<R>(
             Expression<Func<R, bool>> predicateOfRelated,
             int includeType)
             where R : class, IOwned<E>
@@ -146,6 +146,11 @@ namespace DStutz.Data.Cruders
             var efcos = await FindMany(predicateOfRelated, includeType);
 
             return efcos.Select(e => e.Map()).ToList();
+        }
+
+        public ValueTask<List<P>> ReadMany(int includeType, DateOnly date1, DateOnly date2)
+        {
+            throw new NotImplementedException();
         }
         #endregion
     }

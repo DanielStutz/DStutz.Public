@@ -9,7 +9,7 @@ using System.Text.Json.Serialization;
 namespace DStutz.Data.Pocos.Logistics
 {
     public interface IShipment
-        : IDated, IOrdered
+        : IDateTimed, IOrdered
     {
         public long Pk1 { get; set; }
         public string? Remark { get; set; }

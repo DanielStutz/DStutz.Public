@@ -1,6 +1,4 @@
-﻿using DStutz.System.Polyglot;
-
-namespace DStutz.Data;
+﻿namespace DStutz.Data;
 
 [Obsolete("See DStutz.System.Polyglot", false)]
 public abstract class PolyglotText

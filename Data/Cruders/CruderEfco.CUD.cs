@@ -18,7 +18,7 @@ namespace DStutz.Data.Cruders
             return (await CreateEntry(efco, saveChanges)).Entity;
         }
 
-        public async Task<EntityEntry<E>> CreateEntry(
+        public async ValueTask<EntityEntry<E>> CreateEntry(
             E efco,
             bool saveChanges = false)
         {
@@ -71,14 +71,14 @@ namespace DStutz.Data.Cruders
 
         #region Methods updating
         /***********************************************************/
-        public async Task<E> Update(
+        public async ValueTask<E> Update(
             E efco,
             bool saveChanges = true)
         {
             return (await UpdateEntry(efco, saveChanges)).Entity;
         }
 
-        public async Task<EntityEntry<E>> UpdateEntry(
+        public async ValueTask<EntityEntry<E>> UpdateEntry(
             E efco,
             bool saveChanges = true)
         {

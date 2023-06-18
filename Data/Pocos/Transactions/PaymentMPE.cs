@@ -8,7 +8,7 @@ using System.Text.Json.Serialization;
 namespace DStutz.Data.Pocos.Transactions
 {
     public interface IPayment
-        : IDated, IOrdered
+        : IDateTimed, IOrdered
     {
         public long Pk1 { get; set; }
         public string Currency { get; set; }
