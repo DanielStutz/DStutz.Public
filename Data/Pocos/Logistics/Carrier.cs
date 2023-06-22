@@ -67,7 +67,7 @@ namespace DStutz.Data.Pocos.Logistics
                 case "UPS":
                     return UPS;
                 default:
-                    throw NotFoundException(this);
+                    throw EntityNotFoundException(this);
             }
         }
         #endregion

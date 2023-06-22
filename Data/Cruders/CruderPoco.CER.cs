@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using DStutz.Apps.Services.API;
+using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
 namespace DStutz.Data.Cruders
@@ -148,7 +149,25 @@ namespace DStutz.Data.Cruders
             return efcos.Select(e => e.Map()).ToList();
         }
 
-        public ValueTask<List<P>> ReadMany(int includeType, DateOnly date1, DateOnly date2)
+        // TODO Nothing
+        public ValueTask<List<P>> ReadMany(
+            int includeType,
+            DateOnly date1, DateOnly date2)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ValueTask<List<P>> ReadMany(
+            int includeType,
+            SearchOptions options)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ValueTask<List<T>> ReadMany<T>(
+            int includeType,
+            SearchOptions options,
+            Func<P, T> selector)
         {
             throw new NotImplementedException();
         }

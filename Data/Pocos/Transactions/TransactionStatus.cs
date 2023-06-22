@@ -40,7 +40,7 @@ namespace DStutz.Data.Pocos.Transactions
                 case "ZOM":
                     return ZOM;
                 default:
-                    throw NotFoundException(this);
+                    throw EntityNotFoundException(this);
             }
         }
         #endregion

@@ -40,7 +40,7 @@ namespace DStutz.Data.Pocos.Companies
                 }
             }
 
-            throw NotFoundException(
+            throw EntityNotFoundException(
                 typeof(Company),
                 typeof(Address),
                 date.ToShortDateString());

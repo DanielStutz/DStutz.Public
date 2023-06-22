@@ -13,7 +13,7 @@ namespace DStutz.Data.Pocos.People
                 case "I":
                     return Sex.I;
                 default:
-                    throw NotFoundException(
+                    throw EntityNotFoundException(
                         typeof(SexMapper),
                         typeof(Sex),
                         sex);

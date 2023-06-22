@@ -38,7 +38,7 @@ namespace DStutz.Data.Pocos.People
                 case "O":
                     return O;
                 default:
-                    throw NotFoundException(this);
+                    throw EntityNotFoundException(this);
             }
         }
         #endregion

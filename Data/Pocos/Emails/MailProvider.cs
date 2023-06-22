@@ -28,7 +28,7 @@
                 if (user.UserName.ToLower().Equals(userName.ToLower()))
                     return user;
 
-            throw NotFoundException(
+            throw EntityNotFoundException(
                 typeof(MailProvider),
                 typeof(MailUser),
                 userName);
@@ -40,7 +40,7 @@
                 if (client.Type.ToUpper().Equals(type.ToUpper()))
                     return client;
 
-            throw NotFoundException(
+            throw EntityNotFoundException(
                 typeof(MailProvider),
                 typeof(MailClient),
                 type);
