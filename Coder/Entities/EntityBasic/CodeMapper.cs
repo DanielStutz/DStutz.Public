@@ -43,17 +43,17 @@ CURSOR_ASSIGNS
             : base(Template)
         {
             // Simple properties
-            SetCursor("JOINS", 12)
-                .SetAppend(",", "")
-                .Insert(
-                    entity.Properties,
-                    e => e.GetJoin());
+            //SetCursor("JOINS", 12)
+            //    .SetAppend(",", "")
+            //    .Insert(
+            //        entity.Properties,
+            //        e => e.GetJoin());
 
             // Simple properties
-            SetCursor("ASSIGNS", 12)
-                .Insert(
-                    entity.Properties,
-                    e => e.GetAssign());
+            //SetCursor("ASSIGNS", 12)
+            //    .Insert(
+            //        entity.Properties,
+            //        e => e.GetAssign());
 
             //Write(false, false);
         }

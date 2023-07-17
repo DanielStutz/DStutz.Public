@@ -49,15 +49,15 @@ CURSOR_ASYMMETRIC_CODE
             InsertRegionAsymmetricCode(4);
 
         // Simple properties and keys with a pseudonym
-        SetCursor("PROPERTIES", 4)
-            .InsertRegion(
-                DataPropertyColumn.Title,
-                entity.Properties,
-                e => e.GetProperty())
-            .InsertRegion(
-                CodeHelper.AsymmetricKeys,
-                entity.Properties.Where(e => e.Pseudonym != null),
-                e => e.GetPropertyAsymmetricKey());
+        //SetCursor("PROPERTIES", 4)
+        //    .InsertRegion(
+        //        DataPropertyColumn.Title,
+        //        entity.Properties,
+        //        e => e.GetProperty())
+        //    .InsertRegion(
+        //        CodeHelper.AsymmetricKeys,
+        //        entity.Properties.Where(e => e.Pseudonym != null),
+        //        e => e.GetPropertyKeyWithPseudonym());
     }
 
     public CodeEntityMPE(
@@ -87,31 +87,31 @@ CURSOR_ASYMMETRIC_CODE
               entity.AbstractBLO,
               entity.GetJoin())
     {
-        // Owned properties
-        SetCursor("PROPERTIES", 4)
-            .InsertRegion(
-                DataPropertyOwned.Title,
-                entity.OwnedProperties,
-                e => e.GetPropertyBLO());
+        //// Owned properties
+        //SetCursor("PROPERTIES", 4)
+        //    .InsertRegion(
+        //        DataPropertyOwned.Title,
+        //        entity.OwnedProperties,
+        //        e => e.GetPropertyBLO());
 
-        // Relation properties
-        SetCursor("RELATIONS", 4)
-            .InsertRegion(
-                DataRelation1to1.Title,
-                entity.Relations1to1,
-                e => e.GetPropertyBLO())
-            .InsertRegion(
-                DataRelation1toN.Title,
-                entity.Relations1toN,
-                e => e.GetPropertyBLO())
-            .InsertRegion(
-                DataRelationMto1.Title,
-                entity.RelationsMto1,
-                e => e.GetPropertyBLO())
-            .InsertRegion(
-                DataRelationMtoN.Title,
-                entity.RelationsMtoN,
-                e => e.GetPropertyBLO());
+        //// Relation properties
+        //SetCursor("RELATIONS", 4)
+        //    .InsertRegion(
+        //        DataRelation1to1.Title,
+        //        entity.Relations1to1,
+        //        e => e.GetPropertyBLO())
+        //    .InsertRegion(
+        //        DataRelation1toN.Title,
+        //        entity.Relations1toN,
+        //        e => e.GetPropertyBLO())
+        //    .InsertRegion(
+        //        DataRelationMto1.Title,
+        //        entity.RelationsMto1,
+        //        e => e.GetPropertyBLO())
+        //    .InsertRegion(
+        //        DataRelationMtoN.Title,
+        //        entity.RelationsMtoN,
+        //        e => e.GetPropertyBLO());
 
         //Write(false, false);
     }

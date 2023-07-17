@@ -64,58 +64,58 @@ CURSOR_MAPPING_E2P
             : base(Template)
         {
             // Simple properties and specific foreign keys
-            SetCursor("JOINS", 12)
-                .SetAppend(",", "")
-                .Insert(
-                    entity.Properties,
-                    e => e.GetJoin())
-                .Insert(
-                    entity.RelationsMto1,
-                    e => e.GetJoin());
+            //SetCursor("JOINS", 12)
+            //    .SetAppend(",", "")
+            //    .Insert(
+            //        entity.Properties,
+            //        e => e.GetJoin())
+            //    .Insert(
+            //        entity.RelationsMto1,
+            //        e => e.GetJoin());
 
             // Simple properties and specific foreign keys
-            SetCursor("ASSIGNS", 12)
-                .Insert(
-                    entity.Properties,
-                    e => e.GetAssign())
-                .Insert(
-                    entity.RelationsMto1,
-                    e => e.GetAssign());
+            //SetCursor("ASSIGNS", 12)
+            //    .Insert(
+            //        entity.Properties,
+            //        e => e.GetAssign())
+            //    .Insert(
+            //        entity.RelationsMto1,
+            //        e => e.GetAssign());
 
             // Mapping
-            SetCursor("MAPPING_P2E", 12)
-                .Insert(
-                    entity.OwnedProperties,
-                    e => e.GetMappingB2D())
-                .Insert(
-                    entity.Relations1to1,
-                    e => e.GetMappingB2D())
-                .Insert(
-                    entity.Relations1toN,
-                    e => e.GetMappingB2D())
-                .Insert(
-                    entity.RelationsMto1,
-                    e => e.GetMappingB2D())
-                .Insert(
-                    entity.RelationsMtoN,
-                    e => e.GetMappingB2D());
+            //SetCursor("MAPPING_P2E", 12)
+            //    .Insert(
+            //        entity.OwnedProperties,
+            //        e => e.GetMappingB2D())
+            //    .Insert(
+            //        entity.Relations1to1,
+            //        e => e.GetMappingB2D())
+            //    .Insert(
+            //        entity.Relations1toN,
+            //        e => e.GetMappingB2D())
+            //    .Insert(
+            //        entity.RelationsMto1,
+            //        e => e.GetMappingB2D())
+            //    .Insert(
+            //        entity.RelationsMtoN,
+            //        e => e.GetMappingB2D());
 
-            SetCursor("MAPPING_E2P", 12)
-                .Insert(
-                    entity.OwnedProperties,
-                    e => e.GetMappingD2B())
-                .Insert(
-                    entity.Relations1to1,
-                    e => e.GetMappingD2B())
-                .Insert(
-                    entity.Relations1toN,
-                    e => e.GetMappingD2B())
-                .Insert(
-                    entity.RelationsMto1,
-                    e => e.GetMappingD2B())
-                .Insert(
-                    entity.RelationsMtoN,
-                    e => e.GetMappingD2B());
+            //SetCursor("MAPPING_E2P", 12)
+            //    .Insert(
+            //        entity.OwnedProperties,
+            //        e => e.GetMappingD2B())
+            //    .Insert(
+            //        entity.Relations1to1,
+            //        e => e.GetMappingD2B())
+            //    .Insert(
+            //        entity.Relations1toN,
+            //        e => e.GetMappingD2B())
+            //    .Insert(
+            //        entity.RelationsMto1,
+            //        e => e.GetMappingD2B())
+            //    .Insert(
+            //        entity.RelationsMtoN,
+            //        e => e.GetMappingD2B());
 
             //Write(false, false);
         }

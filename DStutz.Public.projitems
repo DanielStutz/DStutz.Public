@@ -16,7 +16,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\EntityOwned\CodeMapper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\EntityOwned\FileEntityOwned.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\EntityRelations\CodeEntityMEE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\EntityRelations\CodeJunctionClasses.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\EntityRelations\CodeMapper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\CruderEfco.PK.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\CruderEfco.CUD.cs" />
