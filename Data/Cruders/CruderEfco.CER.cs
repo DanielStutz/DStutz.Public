@@ -14,7 +14,7 @@ namespace DStutz.Data.Cruders
         /***********************************************************/
         protected DbContext Context { get; }
         protected DbSet<E> Set { get; }
-        public string Name { get; }
+        public SearchInfo SearchInfo { get; }
         public int Number { get { return Count(); } }
         public bool PrintQuery { get; set; } = false;
         #endregion
@@ -26,7 +26,6 @@ namespace DStutz.Data.Cruders
         {
             Context = context;
             Set = context.Set<E>();
-            Name = DataType.Name<E>();
         }
         #endregion
 

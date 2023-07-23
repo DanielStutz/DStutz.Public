@@ -9,14 +9,6 @@
     <Import_RootNamespace>DStutz</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\CodeEntityMPE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\EntityBasic\CodeEntityMEE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\EntityBasic\CodeMapper.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\EntityOwned\CodeEntityMEE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\EntityOwned\CodeMapper.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\EntityOwned\FileEntityOwned.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\EntityRelations\CodeEntityMEE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Coder\Entities\EntityRelations\CodeMapper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\CruderEfco.PK.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\CruderEfco.CUD.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\CruderEfco.CER.cs" />
