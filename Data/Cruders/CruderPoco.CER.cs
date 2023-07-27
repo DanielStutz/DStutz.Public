@@ -159,14 +159,14 @@ namespace DStutz.Data.Cruders
 
         public ValueTask<List<P>> ReadMany(
             int includeType,
-            SearchTerms terms)
+            ISearchTerm terms)
         {
             throw new NotImplementedException();
         }
 
         public ValueTask<List<T>> ReadMany<T>(
             int includeType,
-            SearchTerms terms,
+            ISearchTerm terms,
             Func<P, T> selector)
         {
             throw new NotImplementedException();
