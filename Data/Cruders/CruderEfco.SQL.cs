@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace DStutz.Data.Cruders
+namespace DStutz.Data.CRUD
 {
     public partial class CruderEfco<E>
     {

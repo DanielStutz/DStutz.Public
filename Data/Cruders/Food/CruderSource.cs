@@ -3,7 +3,7 @@ using DStutz.Data.Pocos.Food;
 
 using Microsoft.EntityFrameworkCore;
 
-namespace DStutz.Data.Cruders.Food
+namespace DStutz.Data.CRUD.Food
 {
     public interface ICruderSource
         : ICruderBLO<SourceMPE>

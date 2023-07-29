@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
-namespace DStutz.Data.Cruders
+namespace DStutz.Data.CRUD
 {
     public class CruderPocoCached<E, P, I, K>
         : CruderPoco<E, P, I>

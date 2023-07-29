@@ -1,4 +1,4 @@
-﻿namespace DStutz.Data.Cruders
+﻿namespace DStutz.Data.CRUD
 {
     public partial class CruderPoco<E, P, I>
     {

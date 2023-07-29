@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
-namespace DStutz.Data.Cruders
+namespace DStutz.Data.CRUD
 {
     public abstract partial class CruderPoco<E, P, I>
         : CruderEfco<E>, ICruderBLO<P>
@@ -150,6 +150,21 @@ namespace DStutz.Data.Cruders
         }
 
         // TODO Nothing
+        public ValueTask<List<P>> ReadMany(
+            int includeType,
+            IEnumerable<object> primaryKeys)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ValueTask<List<T>> ReadMany<T>(
+            int includeType,
+            IEnumerable<object> primaryKeys,
+            Func<P, T> selector)
+        {
+            throw new NotImplementedException();
+        }
+
         public ValueTask<List<P>> ReadMany(
             int includeType,
             DateOnly date1, DateOnly date2)

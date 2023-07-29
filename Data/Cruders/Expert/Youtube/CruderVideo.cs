@@ -4,7 +4,7 @@ using DStutz.Data.Pocos.Expert.Youtube;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 
-namespace DStutz.Data.Cruders.Expert.Youtube
+namespace DStutz.Data.CRUD.Expert.Youtube
 {
     public interface ICruderVideo
         : ICruderBLO<VideoMPE>

@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System.Linq.Expressions;
 
-namespace DStutz.Data.Cruders
+namespace DStutz.Data.CRUD
 {
     public abstract partial class CruderEfco<E>
         : ICruderDAO

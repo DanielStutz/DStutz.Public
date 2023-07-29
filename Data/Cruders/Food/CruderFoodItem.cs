@@ -4,7 +4,7 @@ using DStutz.Data.Pocos.Food;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 
-namespace DStutz.Data.Cruders.Food
+namespace DStutz.Data.CRUD.Food
 {
     public interface ICruderFoodItem
         : ICruderBLO<FoodItemMPE>

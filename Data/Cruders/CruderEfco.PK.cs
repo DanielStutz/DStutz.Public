@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.ChangeTracking;
 
-namespace DStutz.Data.Cruders
+namespace DStutz.Data.CRUD
 {
     public abstract partial class CruderEfco<E>
     {
