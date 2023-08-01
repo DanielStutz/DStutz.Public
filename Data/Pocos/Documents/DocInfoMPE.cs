@@ -18,7 +18,7 @@ namespace DStutz.Data.Pocos.Documents
     }
 
     public class DocInfoMPE
-        : IPoco<IDocInfo>, IDocInfo
+        : IPoco<IDocInfo>, IDocInfo, IJoinable
     {
         #region Properties
         /***********************************************************/
@@ -36,9 +36,9 @@ namespace DStutz.Data.Pocos.Documents
 
         #region Properties and methods implementing
         /***********************************************************/
-        public IJoiner Joiner
+        public IJoiner Joiner()
         {
-            get { return DocInfoMapper.New.Joiner(this); }
+            return DocInfoMapper.New.Joiner(this);
         }
 
         public E Map<E>() where E : IDocInfo, new()

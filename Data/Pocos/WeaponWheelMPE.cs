@@ -28,10 +28,10 @@ namespace DStutz.Data.Pocos
 
         #region Properties and methods implementing
         /***********************************************************/
-        public IJoiner Joiner
-        {
-            get { return WeaponWheelMapper.New.Joiner(this, SA, PW1, PW2, PW3); }
-        }
+        //public IJoiner Joiner
+        //{
+        //    get { return WeaponWheelMapper.New.Joiner(this, SA, PW1, PW2, PW3); }
+        //}
 
         public E Map<E>() where E : IWeaponWheel, new()
         {

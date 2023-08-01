@@ -13,7 +13,7 @@ namespace DStutz.Data.Pocos
     public class TreeNodePE<NP, DP>
         : ITreeNode<NP>
         where NP : TreeNodePE<NP, DP>
-        where DP : IJoinableOld
+        //where DP : IJoinable
     {
         #region Properties
         /***********************************************************/
@@ -49,7 +49,7 @@ namespace DStutz.Data.Pocos
                     (20, Pk1),
                     (3, Level),
                     (20, ParentPk1)
-                ).Add(Data);
+                );//.Add(Data);
             }
         }
         #endregion

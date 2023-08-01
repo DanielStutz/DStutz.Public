@@ -33,10 +33,10 @@ namespace DStutz.Data.Efcos
 
         #region Properties and methods implementing
         /***********************************************************/
-        public IJoiner Joiner
-        {
-            get { return ZombieMapper.New.Joiner(this, Polyglot); }
-        }
+        //public IJoiner Joiner
+        //{
+        //    get { return ZombieMapper.New.Joiner(this, Polyglot); }
+        //}
 
         public ZombieMPE Map()
         {

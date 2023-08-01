@@ -1,5 +1,5 @@
 ﻿using DStutz.Data.Efcos.Contacts;
-using DStutz.Data.Pocos.Addresses;
+using DStutz.Data.GEN.Logistics;
 using DStutz.Data.Pocos.People;
 
 // Version 1.1.0

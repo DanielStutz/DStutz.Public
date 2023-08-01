@@ -1,8 +1,8 @@
-using DStutz.System.Joiners;
+using DStutz.Data.GEN.People;
 
 namespace DStutz.Data.Pocos.Addresses
 {
-    public class Contact : IJoinableOld
+    public class Contact : IJoinable
     {
         #region Properties
         /***********************************************************/
@@ -22,13 +22,11 @@ namespace DStutz.Data.Pocos.Addresses
         }
         #endregion
 
-        #region Properties implementing
+        #region Methods implementing
         /***********************************************************/
-        public IJoiner Joiner
+        public IJoiner Joiner()
         {
-            get
-            {
-                var person = "";
+            var person = "";
 
                 if (Person != null)
                     person = Person.GetGenderSurPreName();
@@ -40,8 +38,7 @@ namespace DStutz.Data.Pocos.Addresses
                     ('L', 60, Address.GetStreetAndCountry()),
                     ('L', 20, Address.Additional)
                 );
-            }
         }
-        #endregion
     }
+    #endregion
 }

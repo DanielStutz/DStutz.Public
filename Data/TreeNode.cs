@@ -3,7 +3,7 @@
 namespace DStutz.Data
 {
     public abstract class TreeNode<E>
-        where E : ITreeNode<E>, IJoinableOld
+        where E : ITreeNode<E>//, IJoinableOld
     {
         public static int CountLevels(
             E node)
@@ -32,7 +32,7 @@ namespace DStutz.Data
         public static void Print(
             E node)
         {
-            PrinterTree.Print(node, CountLevels(node), 0);
+            //PrinterTree.Print(node, CountLevels(node), 0);
         }
     }
 }

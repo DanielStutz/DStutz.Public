@@ -1,4 +1,5 @@
-﻿using DStutz.Data.Pocos.Addresses;
+﻿using DStutz.Data.GEN.People;
+using DStutz.Data.Pocos.Addresses;
 using DStutz.Data.Pocos.Contacts;
 
 namespace DStutz.Data.Pocos.Companies

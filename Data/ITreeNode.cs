@@ -3,7 +3,7 @@ using DStutz.Data.Pocos;
 namespace DStutz.Data
 {
     public interface ITreeNode<T>
-        : ITreeNode, IJoinableOld
+        : ITreeNode//, IJoinableOld
         where T : ITreeNode<T>
     {
         public T? Parent { get; }
