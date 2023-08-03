@@ -1,4 +1,5 @@
 ﻿using DStutz.Data.Efcos.People;
+using DStutz.Data.GEN.People;
 
 // Version 1.1.0
 namespace DStutz.Data.Pocos.People

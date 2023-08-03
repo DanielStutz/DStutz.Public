@@ -1,3 +1,4 @@
+using DStutz.Data.GEN.Transactions;
 using DStutz.Data.Pocos.Transactions;
 
 using System.ComponentModel.DataAnnotations;

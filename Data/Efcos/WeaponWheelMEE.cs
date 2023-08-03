@@ -21,10 +21,17 @@ namespace DStutz.Data.Efcos
 
         #region Properties owned
         /***********************************************************/
-        public WeaponMEO SA { get; set; }  // Cols are 'sa_name' and 'sa_effect'
-        public WeaponMEO PW1 { get; set; } // Cols are 'pw1_name' and 'pw1_effect'
-        public WeaponMEO? PW2 { get; set; } // Cols are 'pw2_name' and 'pw2_effect'
-        public WeaponMEO? PW3 { get; set; } // Cols are 'pw3_name' and 'pw3_effect'
+        // Cols are 'sa_name' and 'sa_effect'
+        public WeaponMEO SA { get; set; }
+
+        // Cols are 'pw1_name' and 'pw1_effect'
+        public WeaponMEO PW1 { get; set; }
+
+        // Cols are 'pw2_name' and 'pw2_effect'
+        public WeaponMEO? PW2 { get; set; }
+
+        // Cols are 'pw3_name' and 'pw3_effect'
+        public WeaponMEO? PW3 { get; set; }
         #endregion
 
         #region Properties and methods implementing

@@ -3,13 +3,14 @@ using DStutz.Data.Pocos.People;
 
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using IPerson = DStutz.Data.Pocos.People.IPerson;
 
 // Version 1.1.0
 namespace DStutz.Data.Efcos.People
 {
     [Table("person")]
     public class PersonMEE
-        : IEfco<PersonMPE>, IPerson
+        : IEfco<PersonMPE>
     {
         #region Properties
         /***********************************************************/
@@ -28,14 +29,9 @@ namespace DStutz.Data.Efcos.People
 
         #region Properties and methods implementing
         /***********************************************************/
-        public IJoiner Joiner
-        {
-            get { return PersonMapper.New.Joiner(this); }
-        }
-
         public PersonMPE Map()
         {
-            return PersonMapper.New.Map<PersonMPE>(this);
+            return null;
         }
         #endregion
     }
@@ -48,7 +44,7 @@ namespace DStutz.Data.Efcos.People
         #region Methods implementing
         /***********************************************************/
         public IJoiner Joiner(
-            IPerson e1,
+            Pocos.People.IPerson e1,
             params IJoinableOld?[] data)
         {
             return new Joiner(

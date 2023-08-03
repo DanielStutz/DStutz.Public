@@ -70,10 +70,8 @@ namespace DStutz.Data.Efcos.Contacts
 
         #region Properties and methods implementing
         /***********************************************************/
-        public IJoiner Joiner
+        public IJoiner Joiner()
         {
-            get
-            {
                 return new Joiner(
                     ('L', 20, Pk1),
                     ('L', 1, Gender),
@@ -82,10 +80,9 @@ namespace DStutz.Data.Efcos.Contacts
                     ('L', 40, Email),
                     ('L', 40, Phone)
                 );
-            }
         }
 
-        public ContactMPE Map()
+    public ContactMPE Map()
         {
             return ContactMapper.New.Map<ContactMPE>(this);
         }

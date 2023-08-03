@@ -31,7 +31,7 @@ namespace DStutz.Data.Pocos.People
         public PersonMPE(
             string gender)
         {
-            Gender = GenderMapper.Map(gender);
+            Gender = new Gender().Convert(gender);
         }
 
         public PersonMPE(

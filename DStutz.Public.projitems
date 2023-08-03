@@ -80,7 +80,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Expert\Websites\ArticleMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\ZombieMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\IEfco.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\IEquatableLambda.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\IMapper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\InterfacesPolyglot.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\IPoco.cs" />
@@ -129,14 +128,12 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Link.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\LinkWithImage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Logistics\AddressMPE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Logistics\Carrier.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Addresses\Country.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Addresses\Place.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Addresses\Region.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Logistics\ShipmentMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Logistics\TrackingMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\People\FeedbackMPE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\People\FeedbackType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\People\PersonMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Polyglot\DeEnFrMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Polyglot\DeEnFrMPO.cs" />
@@ -144,8 +141,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Polyglot\DeEnMPO.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\RelationsMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Transactions\PaymentMPE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Transactions\PaymentType.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Transactions\TransactionStatus.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\TreeNodePE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\WeaponMPO.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\WeaponWheelMPE.cs" />

@@ -45,9 +45,9 @@ namespace DStutz.Data.Efcos.Logistics
 
         #region Properties and methods implementing
         /***********************************************************/
-        public IJoiner Joiner
+        public IJoiner Joiner()
         {
-            get { return AddressMapper.New.Joiner(this); }
+            return null;
         }
 
         public AddressMPE Map()

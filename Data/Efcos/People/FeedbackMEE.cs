@@ -1,4 +1,5 @@
-﻿using DStutz.Data.Pocos.People;
+﻿using DStutz.Data.GEN.People;
+using DStutz.Data.Pocos.People;
 
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
