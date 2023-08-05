@@ -1,6 +1,5 @@
 ﻿using DStutz.Data.Accounting;
-using DStutz.Data.Efcos.Transactions;
-using DStutz.Data.GEN.Transactions;
+using DStutz.Data.GEN.Accounting;
 using DStutz.System.Checkers;
 
 using System.Text.Json.Serialization;
@@ -20,7 +19,7 @@ namespace DStutz.Data.Pocos.Transactions
     }
 
     public class PaymentMPE
-    : IPoco<IPayment>, IPayment
+    : IPayment
     {
         #region Properties
         /***********************************************************/
@@ -57,19 +56,6 @@ namespace DStutz.Data.Pocos.Transactions
                 amount.Currency, Currency);
 
             UnitCent -= amount.UnitCent;
-        }
-        #endregion
-
-        #region Properties and methods implementing
-        /***********************************************************/
-        public IJoiner Joiner
-        {
-            get { return PaymentMapper.New.Joiner(this); }
-        }
-
-        public E Map<E>() where E : IPayment, new()
-        {
-            return PaymentMapper.New.Map<E>(this);
         }
         #endregion
     }

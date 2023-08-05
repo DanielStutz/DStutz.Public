@@ -21,7 +21,6 @@ namespace DStutz.Data.Pocos.Logistics
     }
 
     public class ShipmentMPE
-        : IPoco<IShipment>, IShipment
     {
         #region Properties
         /***********************************************************/
@@ -33,11 +32,6 @@ namespace DStutz.Data.Pocos.Logistics
 
         #region Relations m:1 (with specific foreign key)
         /***********************************************************/
-        [JsonIgnore] public long? AddressPk1 { get; set; }
-        [JsonIgnore] public AddressMPE? Address { get; set; }
-        [JsonIgnore] public long? ContactPk1 { get; set; }
-        [JsonIgnore] public ContactMPE? Contact { get; set; }
-        [JsonIgnore] public long? TrackingPk1 { get; set; }
         public TrackingMPE? Tracking { get; set; }
         #endregion
 
@@ -92,19 +86,6 @@ namespace DStutz.Data.Pocos.Logistics
         //    if (Contact != null)
         //        Contact.Joiner.WriteRow();
         //}
-        #endregion
-
-        #region Properties and methods implementing
-        /***********************************************************/
-        public IJoiner Joiner
-        {
-            get { return ShipmentMapper.New.Joiner(this); }
-        }
-
-        public E Map<E>() where E : IShipment, new()
-        {
-            return ShipmentMapper.New.Map<E>(this);
-        }
         #endregion
     }
 }

@@ -13,7 +13,7 @@ namespace DStutz.Data.Pocos.Logistics
     }
 
     public class TrackingMPE
-        : IPoco<ITracking>, ITracking
+        : ITracking
     {
         #region Properties
         /***********************************************************/
@@ -41,19 +41,6 @@ namespace DStutz.Data.Pocos.Logistics
                 return "";
 
             return ((DateTime)Date).ToShortDateString();
-        }
-        #endregion
-
-        #region Properties and methods implementing
-        /***********************************************************/
-        public IJoiner Joiner
-        {
-            get { return TrackingMapper.New.Joiner(this); }
-        }
-
-        public E Map<E>() where E : ITracking, new()
-        {
-            return TrackingMapper.New.Map<E>(this);
         }
         #endregion
     }

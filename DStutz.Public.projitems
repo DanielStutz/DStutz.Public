@@ -28,7 +28,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Accounting\AccountMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Accounting\BookingEntryMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Accounting\InvestmentMEE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Accounting\PositionMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Accounting\StockItemMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Accounting\TaxYearMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Accounting\VoucherMEE.cs" />
@@ -52,16 +51,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Images\ImageTagMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Images\ImageTextMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Logistics\AddressMEE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Logistics\ShipmentMEE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Logistics\TrackingMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\People\FeedbackMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\People\PersonMEE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Polyglot\DeEnFrMEE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Polyglot\DeEnFrMEO.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Polyglot\DeEnMEE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Polyglot\DeEnMEO.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\RelationsMEE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Transactions\PaymentMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\TreeNodeMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\WeaponMEO.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\WeaponWheelMEE.cs" />
@@ -78,7 +70,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Expert\TopicMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Expert\Youtube\VideoMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Expert\Websites\ArticleMEE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\ZombieMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\IEfco.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\IMapper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\InterfacesPolyglot.cs" />
@@ -135,10 +126,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Logistics\TrackingMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\People\FeedbackMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\People\PersonMPE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Polyglot\DeEnFrMPE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Polyglot\DeEnFrMPO.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Polyglot\DeEnMPE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Polyglot\DeEnMPO.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\RelationsMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Transactions\PaymentMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\TreeNodePE.cs" />
@@ -156,7 +143,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Expert\TopicPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Expert\Youtube\VideoMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Expert\Websites\ArticleMPE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\ZombieMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\PolyglotText.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\SEO.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\TreeNode.cs" />
@@ -164,6 +150,7 @@
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Data\Cruders\Expert\Youtube\" />
     <Folder Include="$(MSBuildThisFileDirectory)Data\Efcos\Expert\Youtube\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Data\Efcos\Transactions\" />
     <Folder Include="$(MSBuildThisFileDirectory)Data\Pocos\Expert\Youtube\" />
   </ItemGroup>
 </Project>

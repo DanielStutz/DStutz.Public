@@ -19,7 +19,6 @@ namespace DStutz.Data.Pocos.Accounting
     }
 
     public class PositionMPE
-        : IPoco<IPosition>, IPosition
     {
         #region Properties
         /***********************************************************/
@@ -37,42 +36,7 @@ namespace DStutz.Data.Pocos.Accounting
         public Amount PriceUnit { get; set; }
         public Amount PriceTotal { get; set; }
         #endregion
-
-        [JsonIgnore] // Not tested yet!
-        public Amount Price
-        {
-            get
-            {
-                if (PriceUnit != null && PriceTotal == null)
-                    return new Amount(
-                        PriceUnit.Currency,
-                        PriceUnit.UnitCent * Quantity);
-
-                if (PriceUnit == null && PriceTotal != null)
-                    return PriceTotal;
-
-                throw new Exception(
-                    "Either price per unit or total price must be set");
-            }
-
-            set
-            {
-                PriceTotal = value;
-            }
-        }
-
-        #region Properties and methods implementing
-        /***********************************************************/
-        public IJoiner Joiner
-        {
-            get { return PositionMapper.New.Joiner(this); }
-        }
-
-        public E Map<E>() where E : IPosition, new()
-        {
-            return PositionMapper.New.Map<E>(this);
-        }
-        #endregion
+        public Amount Price { get; set; }
 
         #region Miscellaneous
         /***********************************************************/
