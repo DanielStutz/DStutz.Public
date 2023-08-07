@@ -30,12 +30,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Accounting\InvestmentMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Accounting\StockItemMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Accounting\TaxYearMEE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Accounting\VoucherMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Comments\CommentMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Comments\CommentObyMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\ConfigEE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Contacts\ContactDetailObyMEE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Contacts\ContactMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Documents\DocInfoMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Expert\AuthorMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Expert\Notes\NoteMEE.cs" />
@@ -50,9 +47,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Images\ImageMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Images\ImageTagMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Images\ImageTextMEE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Logistics\AddressMEE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\People\FeedbackMEE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\People\PersonMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\RelationsMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\TreeNodeMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\WeaponMEO.cs" />
@@ -84,10 +78,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Accounting\AccountMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Accounting\BookingEntryMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Accounting\InvestmentMPE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Accounting\PositionMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Accounting\StockItemMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Accounting\TaxYearMPE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Accounting\VoucherMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Addresses\Address.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Addresses\Contact.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Addresses\ContactDetail.cs" />
@@ -95,9 +87,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Comments\CommentMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Comments\CommentObyMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Companies\Company.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Contacts\ContactDetailObyMPE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Contacts\ContactMPE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Contacts\ContactType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Documents\DocInfoMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Addresses\AddressDated.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Emails\Email.cs" />
@@ -118,16 +107,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Images\ImageTextMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Link.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\LinkWithImage.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Logistics\AddressMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Addresses\Country.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Addresses\Place.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Addresses\Region.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Logistics\ShipmentMPE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Logistics\TrackingMPE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\People\FeedbackMPE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\People\PersonMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\RelationsMPE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Transactions\PaymentMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\TreeNodePE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\WeaponMPO.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\WeaponWheelMPE.cs" />
@@ -150,7 +133,6 @@
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Data\Cruders\Expert\Youtube\" />
     <Folder Include="$(MSBuildThisFileDirectory)Data\Efcos\Expert\Youtube\" />
-    <Folder Include="$(MSBuildThisFileDirectory)Data\Efcos\Transactions\" />
     <Folder Include="$(MSBuildThisFileDirectory)Data\Pocos\Expert\Youtube\" />
   </ItemGroup>
 </Project>

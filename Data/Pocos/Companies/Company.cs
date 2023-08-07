@@ -1,6 +1,5 @@
 ﻿using DStutz.Data.GEN.People;
 using DStutz.Data.Pocos.Addresses;
-using DStutz.Data.Pocos.Contacts;
 
 namespace DStutz.Data.Pocos.Companies
 {
@@ -14,8 +13,8 @@ namespace DStutz.Data.Pocos.Companies
         public string TradeName { get; set; }
         public Person Person { get; set; }
         public List<AddressDated> Addresses { get; set; }
-        public List<ContactDetailObyMPE> Emails { get; set; }
-        public List<ContactDetailObyMPE> Phones { get; set; }
+        //public List<ContactDetailObyMPE> Emails { get; set; }
+        //public List<ContactDetailObyMPE> Phones { get; set; }
         #endregion
 
         #region Methods address

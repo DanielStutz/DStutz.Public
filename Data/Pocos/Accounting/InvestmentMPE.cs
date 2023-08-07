@@ -1,6 +1,5 @@
-﻿using DStutz.Data.Efcos.Accounting;
-using DStutz.Data.Pocos.Contacts;
-using DStutz.Data.Pocos.Logistics;
+﻿using DStutz.Data.BLO.Logistics;
+using DStutz.Data.Efcos.Accounting;
 
 // Version 1.1.0
 namespace DStutz.Data.Pocos.Accounting
@@ -40,16 +39,16 @@ namespace DStutz.Data.Pocos.Accounting
         #region Relations m:1 (with specific foreign key)
         /***********************************************************/
         public long? CreditorAddressPk1 { get; set; }
-        public AddressMPE? CreditorAddress { get; set; }
+        public AddressBLO? CreditorAddress { get; set; }
 
         public long? CreditorContactPk1 { get; set; }
-        public ContactMPE? CreditorContact { get; set; }
+        public ContactBLO? CreditorContact { get; set; }
 
         public long? DebitorAddressPk1 { get; set; }
-        public AddressMPE? DebitorAddress { get; set; }
+        public AddressBLO? DebitorAddress { get; set; }
 
         public long? DebitorContactPk1 { get; set; }
-        public ContactMPE? DebitorContact { get; set; }
+        public ContactBLO? DebitorContact { get; set; }
         #endregion
 
         #region Properties and methods implementing

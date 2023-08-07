@@ -1,5 +1,4 @@
-﻿using DStutz.Data.Efcos.Contacts;
-using DStutz.Data.Efcos.Logistics;
+﻿using DStutz.Data.DAO.Logistics;
 using DStutz.Data.Pocos.Accounting;
 
 using System.ComponentModel.DataAnnotations;
@@ -39,25 +38,25 @@ namespace DStutz.Data.Efcos.Accounting
         public long? CreditorAddressPk1 { get; set; }
 
         [ForeignKey("CreditorAddressPk1")]
-        public AddressMEE? CreditorAddress { get; set; }
+        public AddressDAO? CreditorAddress { get; set; }
 
         [Column("cre_con_pk1")]
         public long? CreditorContactPk1 { get; set; }
 
         [ForeignKey("CreditorContactPk1")]
-        public ContactMEE? CreditorContact { get; set; }
+        public ContactDAO? CreditorContact { get; set; }
 
         [Column("deb_add_pk1")]
         public long? DebitorAddressPk1 { get; set; }
 
         [ForeignKey("DebitorAddressPk1")]
-        public AddressMEE? DebitorAddress { get; set; }
+        public AddressDAO? DebitorAddress { get; set; }
 
         [Column("deb_con_pk1")]
         public long? DebitorContactPk1 { get; set; }
 
         [ForeignKey("DebitorContactPk1")]
-        public ContactMEE? DebitorContact { get; set; }
+        public ContactDAO? DebitorContact { get; set; }
         #endregion
 
         #region Properties and methods implementing
@@ -129,50 +128,50 @@ namespace DStutz.Data.Efcos.Accounting
                 InvestmentMPE poco = (InvestmentMPE)(object)e1;
                 InvestmentMEE efco = (InvestmentMEE)(object)e2;
 
-                efco.CreditorAddress =
-                    Mapper.MapOptional(
-                        poco.CreditorAddress,
-                        e => e.Map<AddressMEE>());
+                //efco.CreditorAddress =
+                //    Mapper.MapOptional(
+                //        poco.CreditorAddress,
+                //        e => e.Map<AddressDAO>());
 
-                efco.CreditorContact =
-                    Mapper.MapOptional(
-                        poco.CreditorContact,
-                        e => e.Map<ContactMEE>());
+                //efco.CreditorContact =
+                //    Mapper.MapOptional(
+                //        poco.CreditorContact,
+                //        e => e.Map<ContactDAO>());
 
-                efco.DebitorAddress =
-                    Mapper.MapOptional(
-                        poco.DebitorAddress,
-                        e => e.Map<AddressMEE>());
+                //efco.DebitorAddress =
+                //    Mapper.MapOptional(
+                //        poco.DebitorAddress,
+                //        e => e.Map<AddressDAO>());
 
-                efco.DebitorContact =
-                    Mapper.MapOptional(
-                        poco.DebitorContact,
-                        e => e.Map<ContactMEE>());
+                //efco.DebitorContact =
+                //    Mapper.MapOptional(
+                //        poco.DebitorContact,
+                //        e => e.Map<ContactDAO>());
             }
             else if (typeof(E) == typeof(InvestmentMPE))
             {
                 InvestmentMEE efco = (InvestmentMEE)(object)e1;
                 InvestmentMPE poco = (InvestmentMPE)(object)e2;
 
-                poco.CreditorAddress =
-                    Mapper.MapOptional(
-                        efco.CreditorAddress,
-                        e => e.Map());
+                //poco.CreditorAddress =
+                //    Mapper.MapOptional(
+                //        efco.CreditorAddress,
+                //        e => e.Map());
 
-                poco.CreditorContact =
-                    Mapper.MapOptional(
-                        efco.CreditorContact,
-                        e => e.Map());
+                //poco.CreditorContact =
+                //    Mapper.MapOptional(
+                //        efco.CreditorContact,
+                //        e => e.Map());
 
-                poco.DebitorAddress =
-                    Mapper.MapOptional(
-                        efco.DebitorAddress,
-                        e => e.Map());
+                //poco.DebitorAddress =
+                //    Mapper.MapOptional(
+                //        efco.DebitorAddress,
+                //        e => e.Map());
 
-                poco.DebitorContact =
-                    Mapper.MapOptional(
-                        efco.DebitorContact,
-                        e => e.Map());
+                //poco.DebitorContact =
+                //    Mapper.MapOptional(
+                //        efco.DebitorContact,
+                //        e => e.Map());
             }
             else
             {
