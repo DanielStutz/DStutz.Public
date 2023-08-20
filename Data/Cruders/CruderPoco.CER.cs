@@ -186,6 +186,11 @@ namespace DStutz.Data.CRUD
         {
             throw new NotImplementedException();
         }
+
+        public List<P> GetAll()
+        {
+            throw new NotImplementedException();
+        }
         #endregion
     }
 }
