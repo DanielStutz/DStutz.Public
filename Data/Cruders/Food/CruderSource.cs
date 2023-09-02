@@ -8,7 +8,7 @@ namespace DStutz.Data.CRUD.Food
     public interface ICruderSource
         : ICruderBLO<SourceMPE>
     {
-        public Task<List<SourceMPE>> ReadManyByName(string partialName);
+        //public Task<List<SourceMPE>> ReadManyByName(string partialName);
     }
 
     public class CruderSource
@@ -24,13 +24,13 @@ namespace DStutz.Data.CRUD.Food
 
         #region Methods implementing
         /***********************************************************/
-        public async Task<List<SourceMPE>> ReadManyByName(
-            string partialName)
-        {
-            return await ReadMany(e =>
-                e.Name.Contains(partialName),
-                CInclude.All);
-        }
+        //public async Task<List<SourceMPE>> ReadManyByName(
+        //    string partialName)
+        //{
+        //    return await ReadMany(e =>
+        //        e.Name.Contains(partialName),
+        //        CInclude.All);
+        //}
         #endregion
     }
 }

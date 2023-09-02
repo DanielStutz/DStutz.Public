@@ -11,9 +11,9 @@ namespace DStutz.Data.CRUD.Expert.Youtube
     {
         public Task<List<VideoMPE>> ReadManyByChannel(long pk);
         public Task<List<VideoMPE>> ReadManyByPlaylist(long pk);
-        public Task<List<VideoMPE>> ReadManyByProduct(string partialProduct);
-        public Task<List<VideoMPE>> ReadManyByRemark(string partialRemark);
-        public Task<List<VideoMPE>> ReadManyByTag(string partialTag);
+        //public Task<List<VideoMPE>> ReadManyByProduct(string partialProduct);
+        //public Task<List<VideoMPE>> ReadManyByRemark(string partialRemark);
+        //public Task<List<VideoMPE>> ReadManyByTag(string partialTag);
     }
 
     public class CruderVideo
@@ -34,7 +34,7 @@ namespace DStutz.Data.CRUD.Expert.Youtube
         {
             return await ReadMany(e =>
                 e.ChannelPk1 == pk,
-                CInclude.All);
+                null);
         }
 
         public async Task<List<VideoMPE>> ReadManyByPlaylist(
@@ -42,45 +42,45 @@ namespace DStutz.Data.CRUD.Expert.Youtube
         {
             return await ReadMany(e =>
                 e.PlaylistPk1 == pk,
-                CInclude.All);
+                null);
         }
 
-        public async Task<List<VideoMPE>> ReadManyByProduct(
-            string partialProduct)
-        {
-            return await ReadMany<VideoProductRel>(e =>
-                e.Related != null && (
-                    e.Related.Name.Contains(partialProduct) ||
-                    e.Related.Type.Contains(partialProduct)
-                ),
-                CInclude.All
-            );
-        }
+        //public async Task<List<VideoMPE>> ReadManyByProduct(
+        //    string partialProduct)
+        //{
+        //    return await ReadMany<VideoProductRel>(e =>
+        //        e.Related != null && (
+        //            e.Related.Name.Contains(partialProduct) ||
+        //            e.Related.Type.Contains(partialProduct)
+        //        ),
+        //        CInclude.All
+        //    );
+        //}
 
-        public async Task<List<VideoMPE>> ReadManyByRemark(
-            string partialRemark)
-        {
-            return await ReadMany(e =>
-                e.Remark != null &&
-                e.Remark.Contains(partialRemark),
-                CInclude.All);
-        }
+        //public async Task<List<VideoMPE>> ReadManyByRemark(
+        //    string partialRemark)
+        //{
+        //    return await ReadMany(e =>
+        //        e.Remark != null &&
+        //        e.Remark.Contains(partialRemark),
+        //        CInclude.All);
+        //}
 
-        public async Task<List<VideoMPE>> ReadManyByTag(
-            string partialTag)
-        {
-            return await ReadMany<VideoTagRel>(e =>
-                e.Related != null && (
-                    (e.Related.DE != null &&
-                    e.Related.DE.Contains(partialTag)) ||
-                    (e.Related.EN != null &&
-                    e.Related.EN.Contains(partialTag)) ||
-                    (e.Related.FR != null &&
-                    e.Related.FR.Contains(partialTag))
-                ),
-                CInclude.All
-            );
-        }
+        //public async Task<List<VideoMPE>> ReadManyByTag(
+        //    string partialTag)
+        //{
+        //    return await ReadMany<VideoTagRel>(e =>
+        //        e.Related != null && (
+        //            (e.Related.DE != null &&
+        //            e.Related.DE.Contains(partialTag)) ||
+        //            (e.Related.EN != null &&
+        //            e.Related.EN.Contains(partialTag)) ||
+        //            (e.Related.FR != null &&
+        //            e.Related.FR.Contains(partialTag))
+        //        ),
+        //        CInclude.All
+        //    );
+        //}
         #endregion
 
         #region Methods loading

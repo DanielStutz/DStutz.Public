@@ -5,15 +5,17 @@ using System.Linq.Expressions;
 namespace DStutz.Data.CRUD
 {
     public abstract partial class CruderEfco<E>
-        : ICruderDAO
+        //: ICruderDAO
         where E : class
     {
         #region Properties
         /***********************************************************/
         protected DbContext Context { get; }
         protected DbSet<E> Set { get; }
-        public SearchableInfo SearchableInfo { get; }
-        public IncludableInfo IncludableInfo { get; }
+        public SearchableInfo<E> SearchInfo { get; }
+        public SearchableTerms SearchableTerms { get; }
+
+        //public IncludableInfo<E> IncludableInfo { get; }
         public int Number { get { return Count(); } }
         public bool PrintQuery { get; set; } = false;
         #endregion
@@ -146,9 +148,9 @@ namespace DStutz.Data.CRUD
         #region Methods reading all entities (selectable)
         /***********************************************************/
         public async ValueTask<List<E>> FindAll(
-            int includeType = CInclude.All)
+            IPagination? p)
         {
-            return await Loading(Set, includeType);
+            return await Loading(Set, 0);
 
             //var efcos = await Set.ToListAsync();
 
@@ -163,9 +165,9 @@ namespace DStutz.Data.CRUD
 
         public async ValueTask<List<T>> FindAll<T>(
             Func<E, T> selector,
-            int includeType = CInclude.All)
+            IPagination? p)
         {
-            var efcos = await FindAll(includeType);
+            var efcos = await FindAll(p);
 
             return efcos.Select(e => selector(e)).ToList();
         }
@@ -176,7 +178,7 @@ namespace DStutz.Data.CRUD
         public async ValueTask<List<E>> FindMany(
             Expression<Func<E, bool>> predicate,
             Expression<Func<E, bool>>? predicate2,
-            int includeType = CInclude.All)
+            IPagination? p)
         {
             IQueryable<E> queryable = Set;
 
@@ -188,7 +190,7 @@ namespace DStutz.Data.CRUD
             if (PrintQuery)
                 Console.WriteLine(queryable.ToQueryString());
 
-            return await Loading(queryable, includeType);
+            return await Loading(queryable, 0);
 
             //var efcos = await
             //    queryable.ToListAsync();
@@ -205,9 +207,9 @@ namespace DStutz.Data.CRUD
         public async ValueTask<List<T>> FindMany<T>(
             Expression<Func<E, bool>> predicate,
             Func<E, T> selector,
-            int includeType = CInclude.All)
+            IPagination? p)
         {
-            var efcos = await FindMany(predicate, null, includeType);
+            var efcos = await FindMany(predicate, null, p);
 
             return efcos.Select(e => selector(e)).ToList();
         }

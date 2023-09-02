@@ -9,7 +9,7 @@ namespace DStutz.Data.CRUD.Food
         : ICruderBLO<INutrientMPE>
     {
         public Task<INutrientMPE> ReadByName(string name);
-        public Task<List<INutrientMPE>> ReadManyByName(string partialName);
+        //public Task<List<INutrientMPE>> ReadManyByName(string partialName);
     }
 
     public class CruderNutrient
@@ -33,13 +33,13 @@ namespace DStutz.Data.CRUD.Food
                 CInclude.All);
         }
 
-        public async Task<List<INutrientMPE>> ReadManyByName(
-            string partialName)
-        {
-            return await ReadMany(e =>
-                e.DE.Contains(partialName),
-                CInclude.All);
-        }
+        //public async Task<List<INutrientMPE>> ReadManyByName(
+        //    string partialName)
+        //{
+        //    return await ReadMany(e =>
+        //        e.DE.Contains(partialName),
+        //        CInclude.All);
+        //}
         #endregion
     }
 }

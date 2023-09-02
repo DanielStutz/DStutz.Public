@@ -10,10 +10,10 @@ namespace DStutz.Data.CRUD.Food
         : ICruderBLO<FoodItemMPE>
     {
         public Task<FoodItemMPE> ReadByName(string name);
-        public Task<List<FoodItemMPE>> ReadManyByCategory(string partialName);
-        public Task<List<FoodItemMPE>> ReadManyByName(string partialName);
-        public Task<List<FoodItemMPE>> ReadManyBySource(int source);
-        public Task<List<FoodItemMPE>> ReadManyBySynonym(string partialSynonym);
+        //public Task<List<FoodItemMPE>> ReadManyByCategory(IPagination p, string partialName);
+        //public Task<List<FoodItemMPE>> ReadManyByName(IPagination p, string partialName);
+        //public Task<List<FoodItemMPE>> ReadManyBySource(IPagination p, int source);
+        //public Task<List<FoodItemMPE>> ReadManyBySynonym(IPagination p, string partialSynonym);
     }
 
     public class CruderFoodItem
@@ -37,42 +37,49 @@ namespace DStutz.Data.CRUD.Food
                 CInclude.All);
         }
 
-        public async Task<List<FoodItemMPE>> ReadManyByCategory(
-            string partialName)
-        {
-            return await ReadMany<FoodItemFoodCategoryRel>(e =>
-                e.Related != null &&
-                e.Related.Name.Contains(partialName),
-                CInclude.All
-            );
-        }
+        //public async Task<List<FoodItemMPE>> ReadManyByCategory(
+        //    IPagination p,
+        //    string partialName)
+        //{
+        //    return await ReadMany<FoodItemFoodCategoryRel>(
+        //        p,
+        //        e =>
+        //        e.Related != null &&
+        //        e.Related.Name.Contains(partialName)
+        //    );
+        //}
 
-        public async Task<List<FoodItemMPE>> ReadManyByName(
-            string partialName)
-        {
-            return await ReadMany(e =>
-                e.Name.Contains(partialName),
-                CInclude.All);
-        }
+        //public async Task<List<FoodItemMPE>> ReadManyByName(
+        //    IPagination p,
+        //    string partialName)
+        //{
+        //    return await ReadMany(
+        //        p,
+        //        e =>
+        //        e.Name.Contains(partialName));
+        //}
 
-        public async Task<List<FoodItemMPE>> ReadManyBySource(
-            int source)
-        {
-            return await ReadMany(e =>
-                e.Nutrients.Any(i =>
-                    i.Sources != null &&
-                    i.Sources.Contains(source.ToString())),
-                CInclude.All);
-        }
+        //public async Task<List<FoodItemMPE>> ReadManyBySource(
+        //    IPagination p,
+        //    int source)
+        //{
+        //    return await ReadMany(
+        //        p,
+        //        e =>
+        //        e.Nutrients.Any(i =>
+        //            i.Sources != null &&
+        //            i.Sources.Contains(source.ToString())));
+        //}
 
-        public async Task<List<FoodItemMPE>> ReadManyBySynonym(
-            string partialSynonym)
-        {
-            return await ReadMany(e =>
-                e.Synonyms != null &&
-                e.Synonyms.Contains(partialSynonym),
-                CInclude.All);
-        }
+        //public async Task<List<FoodItemMPE>> ReadManyBySynonym(
+        //    string partialSynonym)
+        //{
+        //    return await ReadMany(
+        //        p,
+        //        e =>
+        //        e.Synonyms != null &&
+        //        e.Synonyms.Contains(partialSynonym));
+        //}
         #endregion
 
         #region Methods loading

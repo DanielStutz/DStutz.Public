@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 namespace DStutz.Data.CRUD
 {
     public abstract partial class CruderPoco<E, P, I>
-        : CruderEfco<E>, ICruderBLO<P>
+        : CruderEfco<E>//, ICruderBLO<P>
         where E : class, I, IEfco<P>, new()
         where P : class, I, IPoco<I>
     {
@@ -19,35 +19,10 @@ namespace DStutz.Data.CRUD
 
         #region Methods reading one entity
         /***********************************************************/
-        //public async ValueTask<P?> ReadOrDefault(
-        //    long primaryKey,
-        //    int includeType)
-        //{
-        //    var efco = await FindOrDefault(primaryKey, includeType);
-
-        //    if (efco == null)
-        //        return null;
-
-        //    return efco.Map();
-        //}
-
-        //public async ValueTask<P> ReadOrThrow(
-        //    long primaryKey,
-        //    int includeType)
-        //{
-        //    var efco = await FindOrDefault(primaryKey, includeType);
-
-        //    if (efco == null)
-        //        throw new NotFoundException<E>(primaryKey);
-
-        //    return efco.Map();
-        //}
-
         public async ValueTask<P?> ReadOrDefault(
-            int includeType,
             params object[] primaryKeys)
         {
-            var efco = await FindOrDefault(primaryKeys, includeType);
+            var efco = await FindOrDefault(primaryKeys, 0);
 
             if (efco == null)
                 return null;
@@ -56,10 +31,9 @@ namespace DStutz.Data.CRUD
         }
 
         public async ValueTask<P> ReadOrThrow(
-            int includeType,
             params object[] primaryKeys)
         {
-            var efco = await FindOrDefault(primaryKeys, includeType);
+            var efco = await FindOrDefault(primaryKeys, 0);
 
             //if (efco == null)
             //    throw NewNotFoundException<E>(GetType(), primaryKeys);
@@ -98,18 +72,18 @@ namespace DStutz.Data.CRUD
         #region Methods reading all entities (selectable)
         /***********************************************************/
         public async ValueTask<List<P>> ReadAll(
-            int includeType)
+            IPagination? p)
         {
-            var efcos = await FindAll(includeType);
+            var efcos = await FindAll(p);
 
             return efcos.Select(e => e.Map()).ToList();
         }
 
-        public async ValueTask<List<T>> ReadAll<T>(
-            int includeType,
-            Func<P, T> selector)
+        public async ValueTask<List<T>> SelectAll<T>(
+            Func<P, T> selector,
+            IPagination? p)
         {
-            var pocos = await ReadAll(includeType);
+            var pocos = await ReadAll(p);
 
             return pocos.Select(e => selector(e)).ToList();
         }
@@ -119,70 +93,53 @@ namespace DStutz.Data.CRUD
         /***********************************************************/
         public async ValueTask<List<P>> ReadMany(
             Expression<Func<E, bool>> predicate,
-            int includeType)
+            IPagination? p)
         {
-            var efcos = await FindMany(predicate, null, includeType);
+            var efcos = await FindMany(predicate, null, p);
 
             return efcos.Select(e => e.Map()).ToList();
         }
 
-        public async ValueTask<List<T>> ReadMany<T>(
+        public async ValueTask<List<T>> SelectAll<T>(
             Expression<Func<E, bool>> predicate,
             Func<P, T> selector,
-            int includeType)
+            IPagination? p)
         {
-            var pocos = await ReadMany(predicate, includeType);
+            var pocos = await ReadMany(predicate, p);
 
             return pocos.Select(e => selector(e)).ToList();
-        }
-        #endregion
-
-        #region Methods reading many entities (by related)
-        /***********************************************************/
-        public async ValueTask<List<P>> ReadMany<R>(
-            Expression<Func<R, bool>> predicateOfRelated,
-            int includeType)
-            where R : class, IOwned<E>
-        {
-            var efcos = await FindMany(predicateOfRelated, includeType);
-
-            return efcos.Select(e => e.Map()).ToList();
         }
 
         // TODO Nothing
         public ValueTask<List<P>> ReadMany(
-            int includeType,
             IEnumerable<object> primaryKeys)
         {
             throw new NotImplementedException();
         }
 
-        public ValueTask<List<T>> ReadMany<T>(
-            int includeType,
-            IEnumerable<object> primaryKeys,
-            Func<P, T> selector)
+        public ValueTask<List<T>> SelectMany<T>(
+            Func<P, T> selector,
+            IEnumerable<object> primaryKeys)
         {
             throw new NotImplementedException();
         }
 
         public ValueTask<List<P>> ReadMany(
-            int includeType,
+            IPagination? p,
             DateOnly date1, DateOnly date2)
         {
             throw new NotImplementedException();
         }
 
         public ValueTask<List<P>> ReadMany(
-            int includeType,
-            ISearchTerm terms)
+            IPagination? p)
         {
             throw new NotImplementedException();
         }
 
-        public ValueTask<List<T>> ReadMany<T>(
-            int includeType,
-            ISearchTerm terms,
-            Func<P, T> selector)
+        public ValueTask<List<T>> SelectMany<T>(
+            Func<P, T> selector,
+            IPagination? p)
         {
             throw new NotImplementedException();
         }
