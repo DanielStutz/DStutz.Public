@@ -14,8 +14,7 @@ namespace DStutz.Data.CRUD
         protected DbSet<E> Set { get; }
         public SearchableInfo<E> SearchInfo { get; }
         public SearchableTerms SearchableTerms { get; }
-
-        //public IncludableInfo<E> IncludableInfo { get; }
+        public IncludableTerms IncludableTerms { get; }
         public int Number { get { return Count(); } }
         public bool PrintQuery { get; set; } = false;
         #endregion
