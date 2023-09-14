@@ -24,7 +24,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\Food\CruderSource.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Comments\CommentMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Comments\CommentObyMEE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\ConfigEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Expert\AuthorMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Expert\Notes\NoteMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Expert\Websites\SeriesMEE.cs" />
@@ -63,7 +62,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\ISOCode639.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\ITreeNode.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Mapper.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\CodeName.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Comments\CommentMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Comments\CommentObyMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Emails\Email.cs" />

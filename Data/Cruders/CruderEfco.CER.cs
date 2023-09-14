@@ -58,6 +58,12 @@ namespace DStutz.Data.CRUD
             return Set.Find(primaryKeys) != null;
         }
 
+        public bool PKAvailableOrThrow(
+            params object[] primaryKeys)
+        {
+            throw new NotImplementedException();
+        }
+
         public bool Exists(
             Expression<Func<E, bool>> predicate)
         {
