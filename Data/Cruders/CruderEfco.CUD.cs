@@ -11,61 +11,11 @@ namespace DStutz.Data.CRUD
 
         #region Methods creating
         /***********************************************************/
-        public async ValueTask<E> Create(
+        public E Create(
             E efco,
             bool saveChanges)
         {
-            return (await CreateEntry(efco, saveChanges)).Entity;
-        }
-
-        public async ValueTask<EntityEntry<E>> CreateEntry(
-            E efco,
-            bool saveChanges = false)
-        {
-            var entry = await Set.AddAsync(efco);
-
-            if (saveChanges)
-                await Context.SaveChangesAsync();
-
-            return entry;
-        }
-        #endregion
-
-        #region Methods finding or creating
-        /***********************************************************/
-        public async ValueTask<E> FindOrCreate<T>(
-            T efco,
-            int includeType,
-            bool saveChanges)
-            where T : E, IEquatableLambda<E>
-        {
-            var state = "";
-            var entity = await FindFirstOrDefault(efco.EqualsLambda(), includeType);
-
-            if (entity != null)
-            {
-                state = "Old entry";
-                //Set.Remove(efco);
-            }
-            else
-            {
-                state = "New entry";
-                entity = await Create(efco, saveChanges);
-            }
-
-            // TODO
-            if (entity == null)
-                throw new Exception("Unable to create entity");
-
-            if (PrintFindOrCreate &&
-                entity != null &&
-                entity is IJoinableOld)
-                Console.WriteLine(
-                    state +
-                    " --> " +
-                    (entity as IJoinableOld).Joiner.Row);
-
-            return entity;
+            throw new NotImplementedException();
         }
         #endregion
 

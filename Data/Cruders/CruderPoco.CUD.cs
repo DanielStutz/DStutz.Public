@@ -4,7 +4,7 @@
     {
         #region Methods creating
         /***********************************************************/
-        public virtual ValueTask<P> Create(
+        public virtual P Create(
             bool saveChanges,
             P poco)
         {
