@@ -70,7 +70,7 @@ namespace DStutz.Data.Efcos.Expert.Notes
                 ('L', 60, e1.Title),
                 ('L', 200, e1.Text),
                 ('L', 20, e1.AuthorPk1)
-            ).Add(data);
+            ).AddOLD(data);
         }
 
         public E Map<E>(

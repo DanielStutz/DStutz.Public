@@ -64,7 +64,7 @@ namespace DStutz.Data.Efcos.Food
                 ('L', 40, e1.FR),
                 ('L', 6, e1.Unit),
                 ('R', 2, e1.Group)
-            ).Add(data);
+            ).AddOLD(data);
         }
 
         public E Map<E>(

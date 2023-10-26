@@ -63,7 +63,7 @@ namespace DStutz.Data.Efcos
                 //('L', 20, e1.GetType().Name),
                 ('R', 20, e1.Pk1),
                 ('L', 20, e1.PrimaryWeapon)
-            ).Add(data);
+            ).AddOLD(data);
         }
 
         public E Map<E>(

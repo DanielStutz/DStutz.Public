@@ -17,25 +17,25 @@ namespace DStutz.Data.CRUD.Food
     }
 
     public class CruderFoodItem
-        : CruderPoco<FoodItemMEE, FoodItemMPE, IFoodItem>, ICruderFoodItem
+        //: CruderPoco<FoodItemMEE, FoodItemMPE, IFoodItem>, ICruderFoodItem
     {
         #region Constructors
         /***********************************************************/
         public CruderFoodItem(
             DbContext context)
-            : base(context)
+            //: base(context)
         { }
         #endregion
 
         #region Methods implementing
         /***********************************************************/
-        public async Task<FoodItemMPE> ReadByName(
-            string name)
-        {
-            return await ReadFirstOrThrow(e =>
-                e.Name.Equals(name),
-                CInclude.All);
-        }
+        //public async Task<FoodItemMPE> ReadByName(
+        //    string name)
+        //{
+        //    return await ReadFirstOrThrow(e =>
+        //        e.Name.Equals(name),
+        //        CIncludeOLD.All);
+        //}
 
         //public async Task<List<FoodItemMPE>> ReadManyByCategory(
         //    IPagination p,
@@ -84,13 +84,13 @@ namespace DStutz.Data.CRUD.Food
 
         #region Methods loading
         /***********************************************************/
-        protected override FoodItemMEE Loading(
+        protected FoodItemMEE Loading(
             EntityEntry<FoodItemMEE> entry,
             int includeType)
         {
             switch (includeType)
             {
-                case CInclude.All:
+                case CIncludeOLD.All:
                     entry.Collection(e => e.CategoryRels).Query()
                         .Include(r => r.Related)
                         .Load();

@@ -62,7 +62,7 @@ namespace DStutz.Data.Pocos.Food
                 );
 
                 return FoodItemMapper.New.Joiner(this)
-                    .Add(('L', nutrients));
+                    .Append(('L', nutrients));
             }
         }
 

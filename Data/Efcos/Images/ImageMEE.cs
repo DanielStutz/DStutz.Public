@@ -51,14 +51,14 @@ namespace DStutz.Data.Efcos.Images
         [Column("text_pk1")]
         public long? TextPk1 { get; set; }
 
-        [ForeignKey("TextPk1")]
-        public ImageTextMEE? Text { get; set; }
+        //[ForeignKey("TextPk1")]
+        //public ImageTextMEE? Text { get; set; }
 
         [Column("category_pk1")]
         public long CategoryPk1 { get; set; }
 
-        [ForeignKey("CategoryPk1")]
-        public ImageCategoryMEE Category { get; set; }
+        //[ForeignKey("CategoryPk1")]
+        //public ImageCategoryMEE Category { get; set; }
         #endregion
 
         #region Properties and methods implementing
@@ -73,10 +73,10 @@ namespace DStutz.Data.Efcos.Images
             return ImageMapper.New.Map<ImageMPE>(this);
         }
 
-        public string FindText(string ISOCode639)
-        {
-            return PolyglotText.Find(Text, ISOCode639);
-        }
+        //public string FindText(string ISOCode639)
+        //{
+        //    return PolyglotText.Find(Text, ISOCode639);
+        //}
         #endregion
     }
 
@@ -105,7 +105,7 @@ namespace DStutz.Data.Efcos.Images
                 ('L', 20, e1.PolarAngle),
                 ('L', 20, e1.TextPk1),
                 ('L', 20, e1.CategoryPk1)
-            ).Add(data);
+            ).AddOLD(data);
         }
 
         public E Map<E>(
@@ -136,10 +136,10 @@ namespace DStutz.Data.Efcos.Images
                 ImageMPE poco = (ImageMPE)(object)e1;
                 ImageMEE efco = (ImageMEE)(object)e2;
 
-                efco.Text =
-                    Mapper.MapOptional(
-                        poco.Text,
-                        e => e.Map<ImageTextMEE>());
+                //efco.Text =
+                //    Mapper.MapOptional(
+                //        poco.Text,
+                //        e => e.Map<ImageTextMEE>());
 
                 //efco.Category =
                 //    Mapper.MapMandatory(
@@ -151,15 +151,15 @@ namespace DStutz.Data.Efcos.Images
                 ImageMEE efco = (ImageMEE)(object)e1;
                 ImageMPE poco = (ImageMPE)(object)e2;
 
-                poco.Text =
-                    Mapper.MapOptional(
-                        efco.Text,
-                        e => e.Map());
+                //poco.Text =
+                //    Mapper.MapOptional(
+                //        efco.Text,
+                //        e => e.Map());
 
-                poco.Category =
-                    Mapper.MapMandatory(
-                        efco.Category,
-                        e => e.Map(false));
+                //poco.Category =
+                //    Mapper.MapMandatory(
+                //        efco.Category,
+                //        e => e.Map(false));
             }
             else
             {

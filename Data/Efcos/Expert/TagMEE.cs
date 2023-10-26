@@ -61,7 +61,7 @@ namespace DStutz.Data.Efcos.Expert
                 ('L', 20, e1.DE),
                 ('L', 20, e1.EN),
                 ('L', 20, e1.FR)
-            ).Add(data);
+            ).AddOLD(data);
         }
 
         public E Map<E>(

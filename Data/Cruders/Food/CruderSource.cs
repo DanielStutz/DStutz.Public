@@ -12,13 +12,13 @@ namespace DStutz.Data.CRUD.Food
     }
 
     public class CruderSource
-        : CruderPoco<SourceMEE, SourceMPE, ISource>, ICruderSource
+        //: CruderPoco<SourceMEE, SourceMPE, ISource>, ICruderSource
     {
         #region Constructors
         /***********************************************************/
         public CruderSource(
             DbContext context)
-            : base(context)
+            //: base(context)
         { }
         #endregion
 

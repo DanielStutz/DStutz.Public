@@ -148,7 +148,7 @@ namespace DStutz.Data.Efcos.Food
                 ('R', 7, e1.Energy.ToString("N1")),
                 ('R', 5, e1.ReferenceUnit),
                 ('R', 5, e1.ChangedEntry)
-            ).Add(data);
+            ).AddOLD(data);
         }
 
         public E Map<E>(

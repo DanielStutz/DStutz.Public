@@ -66,7 +66,7 @@ namespace DStutz.Data.Efcos.Expert.Youtube
                 ('L', 40, e1.Remark),
                 ('L', 34, e1.Identifier),
                 ('L', 20, e1.ChannelPk1)
-            ).Add(data);
+            ).AddOLD(data);
         }
 
         public E Map<E>(

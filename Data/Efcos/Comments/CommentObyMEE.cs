@@ -51,7 +51,7 @@ namespace DStutz.Data.Efcos.Comments
                 ('R', 20, e1.Pk1),
                 ('R', 3, e1.OrderBy),
                 ('L', 80, e1.Text)
-            ).Add(data);
+            ).AddOLD(data);
         }
 
         public E Map<E>(

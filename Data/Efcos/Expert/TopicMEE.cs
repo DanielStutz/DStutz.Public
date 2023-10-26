@@ -7,7 +7,7 @@ namespace DStutz.Data.Efcos.Expert
 {
     [Table("topic")]
     public class TopicMEE
-        : TreeNodeMEE<TopicMEE, TopicPE, TopicDataMEO, TopicDataMPO>
+        //: TreeNodeMEE<TopicMEE, TopicPE, TopicDataMEO, TopicDataMPO>
     { }
 
     public class TopicDataMEO
@@ -63,7 +63,7 @@ namespace DStutz.Data.Efcos.Expert
                 ('L', 20, e1.FR),
                 ('L', 3, e1.Abbr),
                 ('L', 20, e1.Remark)
-            ).Add(data);
+            ).AddOLD(data);
         }
 
         public E Map<E>(

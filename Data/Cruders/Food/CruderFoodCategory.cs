@@ -14,13 +14,13 @@ namespace DStutz.Data.CRUD.Food
     }
 
     public class CruderFoodCategory
-        : CruderPocoCached<FoodCategoryMEE, FoodCategoryMPE, IFoodCategory, string>, ICruderFoodCategory
+        //: CruderPocoCached<FoodCategoryMEE, FoodCategoryMPE, IFoodCategory, string>, ICruderFoodCategory
     {
         #region Constructors
         /***********************************************************/
         public CruderFoodCategory(
             DbContext context)
-            : base(context)
+            //: base(context)
         { }
         #endregion
 

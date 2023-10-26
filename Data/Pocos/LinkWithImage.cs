@@ -22,7 +22,7 @@
         {
             get
             {
-                return base.Joiner.Add(
+                return base.Joiner.Append(
                     ('L', 80, HrefImage)
                 );
             }

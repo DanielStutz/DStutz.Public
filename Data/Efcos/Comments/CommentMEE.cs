@@ -47,7 +47,7 @@ namespace DStutz.Data.Efcos.Comments
                 //('L', 20, e1.GetType().Name),
                 ('R', 20, e1.Pk1),
                 ('L', 80, e1.Text)
-            ).Add(data);
+            ).AddOLD(data);
         }
 
         public E Map<E>(

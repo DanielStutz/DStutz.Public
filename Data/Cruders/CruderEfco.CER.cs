@@ -15,7 +15,7 @@ namespace DStutz.Data.CRUD
         public SearchableInfo<E> SearchInfo { get; }
         public SearchableTerms SearchableTerms { get; }
         public IncludableTerms IncludableTerms { get; }
-        public int Number { get { return Count(); } }
+        public int Number { get { return -1; } }
         public bool PrintQuery { get; set; } = false;
         #endregion
 
@@ -29,48 +29,11 @@ namespace DStutz.Data.CRUD
         }
         #endregion
 
-        #region Methods counting and existing
-        /***********************************************************/
-        public int Count()
-        {
-            // No AnyAsync?!
-            return Set.Count();
-        }
-
-        public int Count(
-            Expression<Func<E, bool>> predicate)
-        {
-            // No AnyAsync?!
-            return Set.Count(predicate);
-        }
-
-        public bool Exists(
-            long primaryKey)
-        {
-            // Use FindAsync ?!
-            return Set.Find(primaryKey) != null;
-        }
-
-        public bool Exists(
-            object[] primaryKeys)
-        {
-            // Use FindAsync ?!
-            return Set.Find(primaryKeys) != null;
-        }
-
-        public bool Exists(
-            Expression<Func<E, bool>> predicate)
-        {
-            // No AnyAsync ?!
-            return Set.Any(predicate);
-        }
-        #endregion
-
         #region Methods reading one entity
         /***********************************************************/
         public async ValueTask<E?> FindOrDefault(
             long primaryKey,
-            int includeType = CInclude.All)
+            int includeType = CIncludeOLD.All)
         {
             var efco = await Set.FindAsync(primaryKey);
 
@@ -82,7 +45,7 @@ namespace DStutz.Data.CRUD
 
         public async ValueTask<E> FindOrThrow(
             long primaryKey,
-            int includeType = CInclude.All)
+            int includeType = CIncludeOLD.All)
         {
             var efco = await Set.FindAsync(primaryKey);
 
@@ -94,7 +57,7 @@ namespace DStutz.Data.CRUD
 
         public async ValueTask<E?> FindOrDefault(
             object[] primaryKeys,
-            int includeType = CInclude.All)
+            int includeType = CIncludeOLD.All)
         {
             var efco = await Set.FindAsync(primaryKeys);
 
@@ -106,7 +69,7 @@ namespace DStutz.Data.CRUD
 
         public async ValueTask<E> FindOrThrow(
             object[] primaryKeys,
-            int includeType = CInclude.All)
+            int includeType = CIncludeOLD.All)
         {
             var efco = await Set.FindAsync(primaryKeys);
 
@@ -121,7 +84,7 @@ namespace DStutz.Data.CRUD
         /***********************************************************/
         public async ValueTask<E?> FindFirstOrDefault(
             Expression<Func<E, bool>> predicate,
-            int includeType = CInclude.All)
+            int includeType = CIncludeOLD.All)
         {
             var efco = await Set.FirstOrDefaultAsync(predicate);
 
@@ -133,7 +96,7 @@ namespace DStutz.Data.CRUD
 
         public async ValueTask<E> FindFirstOrThrow(
             Expression<Func<E, bool>> predicate,
-            int includeType = CInclude.All)
+            int includeType = CIncludeOLD.All)
         {
             var efco = await Set.FirstOrDefaultAsync(predicate);
 
@@ -218,7 +181,7 @@ namespace DStutz.Data.CRUD
         /***********************************************************/
         public async ValueTask<List<E>> FindMany<R>(
             Expression<Func<R, bool>> predicateOfRelated,
-            int includeType = CInclude.All)
+            int includeType = CIncludeOLD.All)
             where R : class, IOwned<E>
         {
             IQueryable<E> queryable =

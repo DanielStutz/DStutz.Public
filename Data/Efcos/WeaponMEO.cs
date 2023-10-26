@@ -44,7 +44,7 @@ namespace DStutz.Data.Efcos
                 //('L', 20, e1.GetType().Name),
                 ('L', 20, e1.Name),
                 ('L', 4, e1.Effect)
-            ).Add(data);
+            ).AddOLD(data);
         }
 
         public E Map<E>(

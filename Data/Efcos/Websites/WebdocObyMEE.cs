@@ -63,7 +63,7 @@ namespace DStutz.Data.Efcos.Websites
                 ('L', 2, e1.Lang),
                 ('L', 60, e1.Title),
                 ('L', 20, e1.Copyright)
-            ).Add(data);
+            ).AddOLD(data);
         }
 
         public E Map<E>(

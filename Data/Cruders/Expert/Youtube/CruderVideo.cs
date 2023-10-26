@@ -17,33 +17,33 @@ namespace DStutz.Data.CRUD.Expert.Youtube
     }
 
     public class CruderVideo
-        : CruderPoco<VideoMEE, VideoMPE, IVideo>, ICruderVideo
+        //: CruderPoco<VideoMEE, VideoMPE, IVideo>, ICruderVideo
     {
         #region Constructors
         /***********************************************************/
         public CruderVideo(
             DbContext context)
-            : base(context)
+            //: base(context)
         { }
         #endregion
 
         #region Methods implementing
         /***********************************************************/
-        public async Task<List<VideoMPE>> ReadManyByChannel(
-            long pk)
-        {
-            return await ReadMany(e =>
-                e.ChannelPk1 == pk,
-                null);
-        }
+        //public async Task<List<VideoMPE>> ReadManyByChannel(
+        //    long pk)
+        //{
+        //    return await ReadMany(e =>
+        //        e.ChannelPk1 == pk,
+        //        null);
+        //}
 
-        public async Task<List<VideoMPE>> ReadManyByPlaylist(
-            long pk)
-        {
-            return await ReadMany(e =>
-                e.PlaylistPk1 == pk,
-                null);
-        }
+        //public async Task<List<VideoMPE>> ReadManyByPlaylist(
+        //    long pk)
+        //{
+        //    return await ReadMany(e =>
+        //        e.PlaylistPk1 == pk,
+        //        null);
+        //}
 
         //public async Task<List<VideoMPE>> ReadManyByProduct(
         //    string partialProduct)
@@ -85,13 +85,13 @@ namespace DStutz.Data.CRUD.Expert.Youtube
 
         #region Methods loading
         /***********************************************************/
-        protected override VideoMEE Loading(
+        protected VideoMEE Loading(
             EntityEntry<VideoMEE> entry,
             int includeType)
         {
             switch (includeType)
             {
-                case CInclude.All:
+                case CIncludeOLD.All:
                     entry.Reference(e => e.Channel.Author)
                         .Load();
                     entry.Collection(e => e.Comments)

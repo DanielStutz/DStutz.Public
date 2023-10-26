@@ -4,7 +4,7 @@
 namespace DStutz.Data.Pocos.Expert
 {
     public class TopicPE
-        : TreeNodePE<TopicPE, TopicDataMPO>
+        //: TreeNodePE<TopicPE, TopicDataMPO>
     { }
 
     public interface ITopicData

@@ -9,14 +9,8 @@
     <Import_RootNamespace>DStutz</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\CruderEfco.PK.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\CruderEfco.CUD.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\CruderEfco.CER.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\CruderEfco.SQL.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\CruderPoco.CER.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\CruderPoco.CUD.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\CruderPoco.SQL.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\CruderPocoCached.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\Expert\Youtube\CruderVideo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\Food\CruderFoodCategory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\Food\CruderFoodItem.cs" />
@@ -33,12 +27,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Food\NutrientDataMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Food\NutrientMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Food\SourceMEE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Images\ImageCategoryMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Images\ImageMEE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Images\ImageTagMEE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Images\ImageTextMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\RelationsMEE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\TreeNodeMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\WeaponMEO.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\WeaponWheelMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Websites\WebdocMEE.cs" />
@@ -60,7 +50,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\IPoco.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\IRelations.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\ISOCode639.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\ITreeNode.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Mapper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Comments\CommentMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Comments\CommentObyMPE.cs" />
@@ -76,14 +65,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Food\NutrientDataMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Food\NutrientMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Food\SourceMPE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Images\ImageCategoryPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Images\ImageMPE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Images\ImageTagMPE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Images\ImageTextMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Link.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\LinkWithImage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\RelationsMPE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\TreeNodePE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\WeaponMPO.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\WeaponWheelMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Websites\WebdocMPE.cs" />
@@ -100,7 +85,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Expert\Websites\ArticleMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\PolyglotText.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\SEO.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\TreeNode.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Data\Cruders\Expert\Youtube\" />

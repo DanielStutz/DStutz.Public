@@ -4,7 +4,7 @@
 namespace DStutz.Data.Pocos.Images
 {
     public interface IImage
-        : IPolyglotOLD
+        //: IPolyglotOLD
     {
         public long Pk1 { get; set; }
         public string Name { get; set; }
@@ -40,10 +40,10 @@ namespace DStutz.Data.Pocos.Images
         #region Relations m:1 (with specific foreign key)
         /***********************************************************/
         public long? TextPk1 { get; set; }
-        public ImageTextMPE? Text { get; set; }
+        //public ImageTextMPE? Text { get; set; }
 
         public long CategoryPk1 { get; set; }
-        public ImageCategoryPE Category { get; set; }
+        //public ImageCategoryPE Category { get; set; }
         #endregion
 
         #region Properties and methods implementing
@@ -58,10 +58,10 @@ namespace DStutz.Data.Pocos.Images
             return ImageMapper.New.Map<E>(this);
         }
 
-        public string FindText(string ISOCode639)
-        {
-            return PolyglotText.Find(Text, ISOCode639);
-        }
+        //public string FindText(string ISOCode639)
+        //{
+        //    return PolyglotText.Find(Text, ISOCode639);
+        //}
         #endregion
     }
 }
