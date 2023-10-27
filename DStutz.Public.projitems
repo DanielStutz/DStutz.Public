@@ -27,10 +27,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Food\NutrientDataMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Food\NutrientMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Food\SourceMEE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Images\ImageMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\RelationsMEE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\WeaponMEO.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\WeaponWheelMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Websites\WebdocMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Websites\WebdocObyMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Websites\WebsiteBase.cs" />
@@ -65,12 +62,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Food\NutrientDataMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Food\NutrientMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Food\SourceMPE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Images\ImageMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Link.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\LinkWithImage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\RelationsMPE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\WeaponMPO.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\WeaponWheelMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Websites\WebdocMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Websites\WebdocObyMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Websites\WebsiteMPE.cs" />
