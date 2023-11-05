@@ -12,9 +12,6 @@ namespace DStutz.Data.CRUD
         /***********************************************************/
         protected DbContext Context { get; }
         protected DbSet<E> Set { get; }
-        public SearchableInfo<E> SearchInfo { get; }
-        public SearchableTerms SearchableTerms { get; }
-        public IncludableTerms IncludableTerms { get; }
         public int Number { get { return -1; } }
         public bool PrintQuery { get; set; } = false;
         #endregion
