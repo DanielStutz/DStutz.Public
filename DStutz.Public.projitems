@@ -9,8 +9,6 @@
     <Import_RootNamespace>DStutz</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\CruderEfco.CER.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\CruderEfco.SQL.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\Expert\Youtube\CruderVideo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\Food\CruderFoodCategory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Cruders\Food\CruderFoodItem.cs" />
@@ -25,7 +23,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Food\NutrientDataMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Food\NutrientMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Food\SourceMEE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\RelationsMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Websites\WebsiteBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Expert\Youtube\ChannelMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Expert\CommentMEE.cs" />
@@ -36,13 +33,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Expert\TopicMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Expert\Youtube\VideoMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Expert\Websites\ArticleMEE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\IEfco.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\IMapper.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\InterfacesPolyglot.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\IPoco.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\IRelations.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\ISOCode639.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Mapper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Emails\Email.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Emails\MailClient.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Emails\MailProvider.cs" />
@@ -57,7 +47,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Food\SourceMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Link.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\LinkWithImage.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\RelationsMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Expert\Youtube\ChannelMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Expert\CommentMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Expert\Youtube\PlaylistMPE.cs" />
@@ -67,7 +56,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Expert\TopicPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Expert\Youtube\VideoMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Expert\Websites\ArticleMPE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\PolyglotText.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\SEO.cs" />
   </ItemGroup>
   <ItemGroup>

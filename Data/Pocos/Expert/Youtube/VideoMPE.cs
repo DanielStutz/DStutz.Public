@@ -17,7 +17,6 @@ namespace DStutz.Data.Pocos.Expert.Youtube
     }
 
     public class VideoMPE
-        : IPoco<IVideo>, IVideo
     {
         #region Properties
         /***********************************************************/
@@ -30,10 +29,10 @@ namespace DStutz.Data.Pocos.Expert.Youtube
         public string Identifier { get; set; }
         #endregion
 
-        #region Relations 1:n (with default foreign key)
-        /***********************************************************/
-        public IReadOnlyList<CommentMPE>? Comments { get; set; }
-        #endregion
+        //#region Relations 1:n (with default foreign key)
+        ///***********************************************************/
+        //public IReadOnlyList<CommentMPE>? Comments { get; set; }
+        //#endregion
 
         #region Relations m:1 (with specific foreign key)
         /***********************************************************/
@@ -44,23 +43,10 @@ namespace DStutz.Data.Pocos.Expert.Youtube
         public PlaylistMPE? Playlist { get; set; }
         #endregion
 
-        #region Relations m:n (with a junction table)
-        /***********************************************************/
-        public IReadOnlyList<RelPEAny<ProductMPE, IProduct>>? ProductRels { get; set; }
-        public IReadOnlyList<RelPEAny<TagMPE, ITag>>? TagRels { get; set; }
-        #endregion
-
-        #region Properties and methods implementing
-        /***********************************************************/
-        public IJoiner Joiner
-        {
-            get { return VideoMapper.New.Joiner(this); }
-        }
-
-        public E Map<E>() where E : IVideo, new()
-        {
-            return VideoMapper.New.Map<E>(this);
-        }
-        #endregion
+        //#region Relations m:n (with a junction table)
+        ///***********************************************************/
+        //public IReadOnlyList<RelPEAny<ProductMPE, IProduct>>? ProductRels { get; set; }
+        //public IReadOnlyList<RelPEAny<TagMPE, ITag>>? TagRels { get; set; }
+        //#endregion
     }
 }

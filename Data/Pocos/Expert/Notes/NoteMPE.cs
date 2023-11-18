@@ -14,7 +14,6 @@ namespace DStutz.Data.Pocos.Expert.Notes
     }
 
     public class NoteMPE
-        : IPoco<INote>, INote
     {
         #region Properties
         /***********************************************************/
@@ -29,19 +28,6 @@ namespace DStutz.Data.Pocos.Expert.Notes
         /***********************************************************/
         public long AuthorPk1 { get; set; }
         public AuthorMPE Author { get; set; }
-        #endregion
-
-        #region Properties and methods implementing
-        /***********************************************************/
-        public IJoiner Joiner
-        {
-            get { return NoteMapper.New.Joiner(this); }
-        }
-
-        public E Map<E>() where E : INote, new()
-        {
-            return NoteMapper.New.Map<E>(this);
-        }
         #endregion
     }
 }

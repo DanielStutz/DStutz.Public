@@ -16,7 +16,6 @@ namespace DStutz.Data.Pocos.Expert.Websites
     }
 
     public class ArticleMPE
-        : IPoco<IArticle>, IArticle
     {
         #region Properties
         /***********************************************************/
@@ -28,10 +27,10 @@ namespace DStutz.Data.Pocos.Expert.Websites
         public string? Remark { get; set; }
         #endregion
 
-        #region Relations 1:n (with default foreign key)
-        /***********************************************************/
-        public IReadOnlyList<CommentMPE>? Comments { get; set; }
-        #endregion
+        //#region Relations 1:n (with default foreign key)
+        ///***********************************************************/
+        //public IReadOnlyList<CommentMPE>? Comments { get; set; }
+        //#endregion
 
         #region Relations m:1 (with specific foreign key)
         /***********************************************************/
@@ -42,23 +41,10 @@ namespace DStutz.Data.Pocos.Expert.Websites
         public SeriesMPE? Series { get; set; }
         #endregion
 
-        #region Relations m:n (with a junction table)
-        /***********************************************************/
-        public IReadOnlyList<RelPEAny<ProductMPE, IProduct>>? ProductRels { get; set; }
-        public IReadOnlyList<RelPEAny<TagMPE, ITag>>? TagRels { get; set; }
-        #endregion
-
-        #region Properties and methods implementing
-        /***********************************************************/
-        public IJoiner Joiner
-        {
-            get { return ArticleMapper.New.Joiner(this); }
-        }
-
-        public E Map<E>() where E : IArticle, new()
-        {
-            return ArticleMapper.New.Map<E>(this);
-        }
-        #endregion
+        //#region Relations m:n (with a junction table)
+        ///***********************************************************/
+        //public IReadOnlyList<RelPEAny<ProductMPE, IProduct>>? ProductRels { get; set; }
+        //public IReadOnlyList<RelPEAny<TagMPE, ITag>>? TagRels { get; set; }
+        //#endregion
     }
 }

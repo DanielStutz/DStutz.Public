@@ -13,7 +13,6 @@ namespace DStutz.Data.Pocos.Expert.Youtube
     }
 
     public class PlaylistMPE
-        : IPoco<IPlaylist>, IPlaylist
     {
         #region Properties
         /***********************************************************/
@@ -27,19 +26,6 @@ namespace DStutz.Data.Pocos.Expert.Youtube
         /***********************************************************/
         public long ChannelPk1 { get; set; }
         public ChannelMPE Channel { get; set; }
-        #endregion
-
-        #region Properties and methods implementing
-        /***********************************************************/
-        public IJoiner Joiner
-        {
-            get { return PlaylistMapper.New.Joiner(this); }
-        }
-
-        public E Map<E>() where E : IPlaylist, new()
-        {
-            return PlaylistMapper.New.Map<E>(this);
-        }
         #endregion
     }
 }

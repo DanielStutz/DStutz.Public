@@ -13,7 +13,6 @@ namespace DStutz.Data.Pocos.Expert
     }
 
     public class CommentMPE
-        : IPoco<IComment>, IComment
     {
         #region Properties
         /***********************************************************/
@@ -22,19 +21,6 @@ namespace DStutz.Data.Pocos.Expert
         public string? DE { get; set; }
         public string? EN { get; set; }
         public string? FR { get; set; }
-        #endregion
-
-        #region Properties and methods implementing
-        /***********************************************************/
-        public IJoiner Joiner
-        {
-            get { return CommentMapper.New.Joiner(this); }
-        }
-
-        public E Map<E>() where E : IComment, new()
-        {
-            return CommentMapper.New.Map<E>(this);
-        }
         #endregion
     }
 }

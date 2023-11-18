@@ -13,7 +13,6 @@ namespace DStutz.Data.Pocos.Expert
     }
 
     public class ProducerMPE
-        : IPoco<IProducer>, IProducer
     {
         #region Properties
         /***********************************************************/
@@ -22,19 +21,6 @@ namespace DStutz.Data.Pocos.Expert
         public string Name { get; set; }
         public string Href { get; set; }
         public string Country { get; set; }
-        #endregion
-
-        #region Properties and methods implementing
-        /***********************************************************/
-        public IJoiner Joiner
-        {
-            get { return ProducerMapper.New.Joiner(this); }
-        }
-
-        public E Map<E>() where E : IProducer, new()
-        {
-            return ProducerMapper.New.Map<E>(this);
-        }
         #endregion
     }
 }

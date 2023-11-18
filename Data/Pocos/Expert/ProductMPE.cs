@@ -12,7 +12,6 @@ namespace DStutz.Data.Pocos.Expert
     }
 
     public class ProductMPE
-        : IPoco<IProduct>, IProduct
     {
         #region Properties
         /***********************************************************/
@@ -25,19 +24,6 @@ namespace DStutz.Data.Pocos.Expert
         /***********************************************************/
         public long? ProducerPk1 { get; set; }
         public ProducerMPE? Producer { get; set; }
-        #endregion
-
-        #region Properties and methods implementing
-        /***********************************************************/
-        public IJoiner Joiner
-        {
-            get { return ProductMapper.New.Joiner(this); }
-        }
-
-        public E Map<E>() where E : IProduct, new()
-        {
-            return ProductMapper.New.Map<E>(this);
-        }
         #endregion
     }
 }

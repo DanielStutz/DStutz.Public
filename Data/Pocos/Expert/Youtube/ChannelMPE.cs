@@ -14,7 +14,6 @@ namespace DStutz.Data.Pocos.Expert.Youtube
     }
 
     public class ChannelMPE
-        : IPoco<IChannel>, IChannel
     {
         #region Properties
         /***********************************************************/
@@ -29,19 +28,6 @@ namespace DStutz.Data.Pocos.Expert.Youtube
         /***********************************************************/
         public long AuthorPk1 { get; set; }
         public AuthorMPE Author { get; set; }
-        #endregion
-
-        #region Properties and methods implementing
-        /***********************************************************/
-        public IJoiner Joiner
-        {
-            get { return ChannelMapper.New.Joiner(this); }
-        }
-
-        public E Map<E>() where E : IChannel, new()
-        {
-            return ChannelMapper.New.Map<E>(this);
-        }
         #endregion
     }
 }

@@ -88,18 +88,18 @@ namespace DStutz.Data.CRUD.Food
             EntityEntry<FoodItemMEE> entry,
             int includeType)
         {
-            switch (includeType)
-            {
-                case CIncludeOLD.All:
-                    entry.Collection(e => e.CategoryRels).Query()
-                        .Include(r => r.Related)
-                        .Load();
-                    entry.Collection(e => e.Nutrients)
-                        .Load();
-                    break;
-                default:
-                    break;
-            }
+            //switch (includeType)
+            //{
+            //    case 0:
+            //        entry.Collection(e => e.CategoryRels).Query()
+            //            .Include(r => r.Related)
+            //            .Load();
+            //        entry.Collection(e => e.Nutrients)
+            //            .Load();
+            //        break;
+            //    default:
+            //        break;
+            //}
 
             return entry.Entity;
         }

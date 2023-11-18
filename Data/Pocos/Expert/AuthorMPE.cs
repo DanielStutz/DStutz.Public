@@ -13,7 +13,6 @@ namespace DStutz.Data.Pocos.Expert
     }
 
     public class AuthorMPE
-        : IPoco<IAuthor>, IAuthor
     {
         #region Properties
         /***********************************************************/
@@ -22,19 +21,6 @@ namespace DStutz.Data.Pocos.Expert
         public string Prename { get; set; }
         public string? Href { get; set; }
         public string? Remark { get; set; }
-        #endregion
-
-        #region Properties and methods implementing
-        /***********************************************************/
-        public IJoiner Joiner
-        {
-            get { return AuthorMapper.New.Joiner(this); }
-        }
-
-        public E Map<E>() where E : IAuthor, new()
-        {
-            return AuthorMapper.New.Map<E>(this);
-        }
         #endregion
     }
 }

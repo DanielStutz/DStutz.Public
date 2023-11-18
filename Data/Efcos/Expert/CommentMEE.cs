@@ -7,7 +7,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace DStutz.Data.Efcos.Expert
 {
     public abstract class CommentMEE
-        : IEfco<CommentMPE>, IComment
     {
         #region Properties
         /***********************************************************/
@@ -25,55 +24,6 @@ namespace DStutz.Data.Efcos.Expert
 
         [Column("fr")]
         public string? FR { get; set; }
-        #endregion
-
-        #region Properties and methods implementing
-        /***********************************************************/
-        public IJoiner Joiner
-        {
-            get { return CommentMapper.New.Joiner(this); }
-        }
-
-        public CommentMPE Map()
-        {
-            return CommentMapper.New.Map<CommentMPE>(this);
-        }
-        #endregion
-    }
-
-    public class CommentMapper
-        : IMapper<IComment>
-    {
-        public static CommentMapper New { get; } = new CommentMapper();
-
-        #region Methods implementing
-        /***********************************************************/
-        public IJoiner Joiner(
-            IComment e1,
-            params IJoinableOld?[] data)
-        {
-            return new Joiner(
-                //('L', 20, e1.GetType().Name),
-                ('R', 20, e1.Pk1),
-                ('R', 3, e1.OrderBy),
-                ('L', 20, e1.DE),
-                ('L', 20, e1.EN),
-                ('L', 20, e1.FR)
-            ).AddOLD(data);
-        }
-
-        public E Map<E>(
-            IComment e1) where E : IComment, new()
-        {
-            return new E()
-            {
-                Pk1 = e1.Pk1,
-                OrderBy = e1.OrderBy,
-                DE = e1.DE,
-                EN = e1.EN,
-                FR = e1.FR,
-            };
-        }
         #endregion
     }
 }

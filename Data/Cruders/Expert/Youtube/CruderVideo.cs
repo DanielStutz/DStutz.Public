@@ -89,26 +89,26 @@ namespace DStutz.Data.CRUD.Expert.Youtube
             EntityEntry<VideoMEE> entry,
             int includeType)
         {
-            switch (includeType)
-            {
-                case CIncludeOLD.All:
-                    entry.Reference(e => e.Channel.Author)
-                        .Load();
-                    entry.Collection(e => e.Comments)
-                        .Load();
-                    entry.Reference(e => e.Playlist).Query()
-                        .Include(p => p.Channel)
-                        .Load();
-                    entry.Collection(e => e.ProductRels).Query()
-                        .Include(r => r.Related!.Producer)
-                        .Load();
-                    entry.Collection(e => e.TagRels).Query()
-                        .Include(r => r.Related)
-                        .Load();
-                    break;
-                default:
-                    break;
-            }
+            //switch (includeType)
+            //{
+            //    case 0:
+            //        entry.Reference(e => e.Channel.Author)
+            //            .Load();
+            //        entry.Collection(e => e.Comments)
+            //            .Load();
+            //        entry.Reference(e => e.Playlist).Query()
+            //            .Include(p => p.Channel)
+            //            .Load();
+            //        entry.Collection(e => e.ProductRels).Query()
+            //            .Include(r => r.Related!.Producer)
+            //            .Load();
+            //        entry.Collection(e => e.TagRels).Query()
+            //            .Include(r => r.Related)
+            //            .Load();
+            //        break;
+            //    default:
+            //        break;
+            //}
 
             return entry.Entity;
         }
