@@ -45,8 +45,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Food\NutrientDataMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Food\NutrientMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Food\SourceMPE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Link.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\LinkWithImage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Expert\Youtube\ChannelMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Expert\CommentMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Expert\Youtube\PlaylistMPE.cs" />
@@ -56,7 +54,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Expert\TopicPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Expert\Youtube\VideoMPE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Pocos\Expert\Websites\ArticleMPE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\SEO.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Data\Cruders\Expert\Youtube\" />
