@@ -8,8 +8,8 @@ namespace DStutz.Data.CRUD.Food
     public interface ICruderNutrient
         : ICruderBLO<INutrientMPE>
     {
-        public Task<INutrientMPE> ReadByName(string name);
-        //public Task<List<INutrientMPE>> ReadManyByName(string partialName);
+        public ValueTask<INutrientMPE> ReadByName(string name);
+        //public ValueTask<List<INutrientMPE>> ReadManyByName(string partialName);
     }
 
     public class CruderNutrient
@@ -25,7 +25,7 @@ namespace DStutz.Data.CRUD.Food
 
         #region Methods implementing
         /***********************************************************/
-        //public async Task<INutrientMPE> ReadByName(
+        //public async ValueTask<INutrientMPE> ReadByName(
         //    string name)
         //{
         //    return await ReadFirstOrThrow(e =>
@@ -33,7 +33,7 @@ namespace DStutz.Data.CRUD.Food
         //        CIncludeOLD.All);
         //}
 
-        //public async Task<List<INutrientMPE>> ReadManyByName(
+        //public async ValueTask<List<INutrientMPE>> ReadManyByName(
         //    string partialName)
         //{
         //    return await ReadMany(e =>

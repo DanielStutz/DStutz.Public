@@ -23,7 +23,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Food\NutrientDataMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Food\NutrientMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Food\SourceMEE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Websites\WebsiteBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Expert\Youtube\ChannelMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Expert\CommentMEE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Efcos\Expert\Youtube\PlaylistMEE.cs" />
@@ -58,6 +57,7 @@
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Data\Cruders\Expert\Youtube\" />
     <Folder Include="$(MSBuildThisFileDirectory)Data\Efcos\Expert\Youtube\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Data\Efcos\Websites\" />
     <Folder Include="$(MSBuildThisFileDirectory)Data\Pocos\Expert\Youtube\" />
   </ItemGroup>
 </Project>

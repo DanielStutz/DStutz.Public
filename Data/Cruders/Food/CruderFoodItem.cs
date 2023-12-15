@@ -9,11 +9,11 @@ namespace DStutz.Data.CRUD.Food
     public interface ICruderFoodItem
         : ICruderBLO<FoodItemMPE>
     {
-        public Task<FoodItemMPE> ReadByName(string name);
-        //public Task<List<FoodItemMPE>> ReadManyByCategory(IPagination p, string partialName);
-        //public Task<List<FoodItemMPE>> ReadManyByName(IPagination p, string partialName);
-        //public Task<List<FoodItemMPE>> ReadManyBySource(IPagination p, int source);
-        //public Task<List<FoodItemMPE>> ReadManyBySynonym(IPagination p, string partialSynonym);
+        public ValueTask<FoodItemMPE> ReadByName(string name);
+        //public ValueTask<List<FoodItemMPE>> ReadManyByCategory(IPagination p, string partialName);
+        //public ValueTask<List<FoodItemMPE>> ReadManyByName(IPagination p, string partialName);
+        //public ValueTask<List<FoodItemMPE>> ReadManyBySource(IPagination p, int source);
+        //public ValueTask<List<FoodItemMPE>> ReadManyBySynonym(IPagination p, string partialSynonym);
     }
 
     public class CruderFoodItem
@@ -29,7 +29,7 @@ namespace DStutz.Data.CRUD.Food
 
         #region Methods implementing
         /***********************************************************/
-        //public async Task<FoodItemMPE> ReadByName(
+        //public async ValueTask<FoodItemMPE> ReadByName(
         //    string name)
         //{
         //    return await ReadFirstOrThrow(e =>
@@ -37,7 +37,7 @@ namespace DStutz.Data.CRUD.Food
         //        CIncludeOLD.All);
         //}
 
-        //public async Task<List<FoodItemMPE>> ReadManyByCategory(
+        //public async ValueTask<List<FoodItemMPE>> ReadManyByCategory(
         //    IPagination p,
         //    string partialName)
         //{
@@ -49,7 +49,7 @@ namespace DStutz.Data.CRUD.Food
         //    );
         //}
 
-        //public async Task<List<FoodItemMPE>> ReadManyByName(
+        //public async ValueTask<List<FoodItemMPE>> ReadManyByName(
         //    IPagination p,
         //    string partialName)
         //{
@@ -59,7 +59,7 @@ namespace DStutz.Data.CRUD.Food
         //        e.Name.Contains(partialName));
         //}
 
-        //public async Task<List<FoodItemMPE>> ReadManyBySource(
+        //public async ValueTask<List<FoodItemMPE>> ReadManyBySource(
         //    IPagination p,
         //    int source)
         //{
@@ -71,7 +71,7 @@ namespace DStutz.Data.CRUD.Food
         //            i.Sources.Contains(source.ToString())));
         //}
 
-        //public async Task<List<FoodItemMPE>> ReadManyBySynonym(
+        //public async ValueTask<List<FoodItemMPE>> ReadManyBySynonym(
         //    string partialSynonym)
         //{
         //    return await ReadMany(

@@ -9,11 +9,11 @@ namespace DStutz.Data.CRUD.Expert.Youtube
     public interface ICruderVideo
         : ICruderBLO<VideoMPE>
     {
-        public Task<List<VideoMPE>> ReadManyByChannel(long pk);
-        public Task<List<VideoMPE>> ReadManyByPlaylist(long pk);
-        //public Task<List<VideoMPE>> ReadManyByProduct(string partialProduct);
-        //public Task<List<VideoMPE>> ReadManyByRemark(string partialRemark);
-        //public Task<List<VideoMPE>> ReadManyByTag(string partialTag);
+        public ValueTask<List<VideoMPE>> ReadManyByChannel(long pk);
+        public ValueTask<List<VideoMPE>> ReadManyByPlaylist(long pk);
+        //public ValueTask<List<VideoMPE>> ReadManyByProduct(string partialProduct);
+        //public ValueTask<List<VideoMPE>> ReadManyByRemark(string partialRemark);
+        //public ValueTask<List<VideoMPE>> ReadManyByTag(string partialTag);
     }
 
     public class CruderVideo
@@ -29,7 +29,7 @@ namespace DStutz.Data.CRUD.Expert.Youtube
 
         #region Methods implementing
         /***********************************************************/
-        //public async Task<List<VideoMPE>> ReadManyByChannel(
+        //public async ValueTask<List<VideoMPE>> ReadManyByChannel(
         //    long pk)
         //{
         //    return await ReadMany(e =>
@@ -37,7 +37,7 @@ namespace DStutz.Data.CRUD.Expert.Youtube
         //        null);
         //}
 
-        //public async Task<List<VideoMPE>> ReadManyByPlaylist(
+        //public async ValueTask<List<VideoMPE>> ReadManyByPlaylist(
         //    long pk)
         //{
         //    return await ReadMany(e =>
@@ -45,7 +45,7 @@ namespace DStutz.Data.CRUD.Expert.Youtube
         //        null);
         //}
 
-        //public async Task<List<VideoMPE>> ReadManyByProduct(
+        //public async ValueTask<List<VideoMPE>> ReadManyByProduct(
         //    string partialProduct)
         //{
         //    return await ReadMany<VideoProductRel>(e =>
@@ -57,7 +57,7 @@ namespace DStutz.Data.CRUD.Expert.Youtube
         //    );
         //}
 
-        //public async Task<List<VideoMPE>> ReadManyByRemark(
+        //public async ValueTask<List<VideoMPE>> ReadManyByRemark(
         //    string partialRemark)
         //{
         //    return await ReadMany(e =>
@@ -66,7 +66,7 @@ namespace DStutz.Data.CRUD.Expert.Youtube
         //        CInclude.All);
         //}
 
-        //public async Task<List<VideoMPE>> ReadManyByTag(
+        //public async ValueTask<List<VideoMPE>> ReadManyByTag(
         //    string partialTag)
         //{
         //    return await ReadMany<VideoTagRel>(e =>

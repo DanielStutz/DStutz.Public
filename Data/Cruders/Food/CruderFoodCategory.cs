@@ -8,9 +8,9 @@ namespace DStutz.Data.CRUD.Food
     public interface ICruderFoodCategory
         : ICruderBLO<FoodCategoryMPE>
     {
-        //public Task<FoodCategoryMPE> ReadByName(string name);
-        //public Task<FoodCategoryMPE> ReadByNameCached(string name);
-        //public Task<List<FoodCategoryMPE>> ReadManyByName(string partialName);
+        //public ValueTask<FoodCategoryMPE> ReadByName(string name);
+        //public ValueTask<FoodCategoryMPE> ReadByNameCached(string name);
+        //public ValueTask<List<FoodCategoryMPE>> ReadManyByName(string partialName);
     }
 
     public class CruderFoodCategory
@@ -26,7 +26,7 @@ namespace DStutz.Data.CRUD.Food
 
         #region Methods implementing
         /***********************************************************/
-        //public async Task<FoodCategoryMPE> ReadByName(
+        //public async ValueTask<FoodCategoryMPE> ReadByName(
         //    string name)
         //{
         //    return await ReadFirstOrThrow(e =>
@@ -34,7 +34,7 @@ namespace DStutz.Data.CRUD.Food
         //        CInclude.All);
         //}
 
-        //public async Task<FoodCategoryMPE> ReadByNameCached(
+        //public async ValueTask<FoodCategoryMPE> ReadByNameCached(
         //    string name)
         //{
         //    return await ReadFirstOrThrowCached(e =>
@@ -43,7 +43,7 @@ namespace DStutz.Data.CRUD.Food
         //        CInclude.All);
         //}
 
-        //public async Task<List<FoodCategoryMPE>> ReadManyByName(
+        //public async ValueTask<List<FoodCategoryMPE>> ReadManyByName(
         //    string partialName)
         //{
         //    return await ReadMany(e =>
