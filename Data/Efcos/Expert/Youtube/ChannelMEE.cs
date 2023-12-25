@@ -1,5 +1,3 @@
-using DStutz.Data.Pocos.Expert.Youtube;
-
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -29,11 +27,11 @@ namespace DStutz.Data.Efcos.Expert.Youtube
 
         #region Relations m:1 (with specific foreign key)
         /***********************************************************/
-        [Column("author_pk1")]
-        public long AuthorPk1 { get; set; }
+        //[Column("author_pk1")]
+        //public long AuthorPk1 { get; set; }
 
-        [ForeignKey("AuthorPk1")]
-        public AuthorMEE Author { get; set; }
+        //[ForeignKey("AuthorPk1")]
+        //public AuthorMEE Author { get; set; }
         #endregion
     }
 }

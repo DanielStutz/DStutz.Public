@@ -1,6 +1,3 @@
-using DStutz.Data.Pocos.Expert;
-using DStutz.Data.Pocos.Expert.Youtube;
-
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
